@@ -99,10 +99,10 @@
   }
   .nav{
     display:flex;align-items:center;justify-content:space-between;
-    padding:18px 32px;max-width:var(--maxw);margin:0 auto;
+    padding:18px 32px;max-width:var(--maxw);margin:0 auto;position:relative;
   }
   .logo{display:flex;align-items:center;gap:9px;font-family:'Sora',sans-serif;font-weight:800;font-size:21px;color:var(--ink);}
-  .logo-mark{display:block;height:30px;width:auto;}
+  .logo-mark{display:block;height:44px;width:auto;}
   .nav-links{display:flex;align-items:center;gap:34px;}
   .nav-links a{font-weight:600;font-size:14.5px;color:var(--ink-soft);transition:color .15s;}
   .nav-links a:hover{color:var(--blue-deep);}
@@ -251,6 +251,7 @@
   .app-badge .app-badge-label{display:flex;flex-direction:column;line-height:1.2;text-align:left;}
   .app-badge .app-badge-sub{font-size:9.5px;color:rgba(255,255,255,0.65);font-weight:500;}
   .app-badge .app-badge-name{font-size:13.5px;font-weight:700;}
+  .app-badges-note{font-size:11.5px;color:rgba(255,255,255,0.6);margin-top:12px;text-align:center;}
 
   /* ===== Section basics ===== */
   section{padding:88px 0;position:relative;}
@@ -424,6 +425,11 @@
     .refer-banner{grid-template-columns:1fr;padding:40px 30px;}
     .footer-top{grid-template-columns:1fr 1fr;}
     .nav-links{display:none;}
+    .nav-links.open{
+      display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;
+      background:var(--cloud);padding:20px 24px calc(20px + env(safe-area-inset-bottom));
+      gap:6px;box-shadow:0 12px 24px -12px rgba(22,33,74,0.15);
+    }
     .burger{display:flex;align-items:center;justify-content:center;}
     .nav-actions .btn-ghost{display:none;}
     .nav-links a{padding:11px 4px;font-size:15.5px;}
@@ -435,6 +441,7 @@
     .wrap{padding:0 18px;}
     section{padding:56px 0;}
     .nav{padding:14px 18px;}
+    .logo-mark{height:36px;}
     .who-grid,.feat-grid,.testi-grid{grid-template-columns:1fr;}
     .section-head{margin-bottom:36px;}
     .section-head h2{font-size:27px;}
@@ -909,14 +916,11 @@
         </form>
         <div class="app-badges">
           <a href="#" class="app-badge">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="5" y="2" width="14" height="20" rx="2.5" stroke="#fff" stroke-width="1.6"/><path d="M10 19h4" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>
-            <span class="app-badge-label"><span class="app-badge-sub">Download for</span><span class="app-badge-name">iOS</span></span>
-          </a>
-          <a href="#" class="app-badge">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="5" y="2" width="14" height="20" rx="2.5" stroke="#fff" stroke-width="1.6"/><path d="M10 19h4" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>
-            <span class="app-badge-label"><span class="app-badge-sub">Download for</span><span class="app-badge-name">Android</span></span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 3.5v17l13-8.5-13-8.5z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            <span class="app-badge-label"><span class="app-badge-sub">Get it on</span><span class="app-badge-name">Google Play</span></span>
           </a>
         </div>
+        <p class="app-badges-note">Currently available on Google Play only</p>
       </div>
     </div>
   </div>
@@ -1007,20 +1011,13 @@
     });
   });
 
-  // Mobile burger toggle (simple show/hide of nav-links as column)
+  // Mobile burger toggle
   const burger = document.querySelector('.burger');
   const navLinks = document.querySelector('.nav-links');
-  const headerEl = document.querySelector('header');
-  function closeMobileNav(){
-    navLinks.style.cssText = 'display:none;';
-  }
-  function openMobileNav(){
-    const top = headerEl.getBoundingClientRect().height;
-    navLinks.style.cssText = `display:flex;flex-direction:column;position:absolute;top:${top}px;left:0;right:0;background:#FAFBFF;padding:20px 24px calc(20px + env(safe-area-inset-bottom));gap:6px;box-shadow:0 12px 24px -12px rgba(22,33,74,0.15);`;
-  }
+  function closeMobileNav(){ navLinks.classList.remove('open'); }
+  function openMobileNav(){ navLinks.classList.add('open'); }
   burger.addEventListener('click',()=>{
-    const isOpen = navLinks.style.display === 'flex';
-    isOpen ? closeMobileNav() : openMobileNav();
+    navLinks.classList.contains('open') ? closeMobileNav() : openMobileNav();
   });
   navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click', closeMobileNav));
 </script>
