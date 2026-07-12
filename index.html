@@ -8,7 +8,7 @@
 <link rel="icon" type="image/png" href="SUVRON%20LOGO%20WITH%20NO%20BG.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
   :root{
     --cloud:#FAFBFF;
@@ -42,14 +42,14 @@
     overflow-x:hidden;
   }
   h1,h2,h3,h4{
-    font-family:'Fraunces',serif;
-    font-weight:600;
+    font-family:'Plus Jakarta Sans',sans-serif;
+    font-weight:700;
     margin:0;
-    line-height:1.1;
-    letter-spacing:-0.01em;
+    line-height:1.12;
+    letter-spacing:-0.02em;
     color:var(--ink);
   }
-  em{font-style:italic;font-weight:500;}
+  em{font-style:italic;font-weight:600;}
   .dotgrid{
     background-image:radial-gradient(rgba(22,33,74,0.16) 1.4px, transparent 1.4px);
     background-size:24px 24px;
@@ -79,7 +79,7 @@
   .btn{
     display:inline-flex;align-items:center;justify-content:center;gap:8px;
     padding:15px 28px;border-radius:999px;
-    font-weight:700;font-size:15px;font-family:'Sora',sans-serif;
+    font-weight:700;font-size:15px;font-family:'Plus Jakarta Sans',sans-serif;
     transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
     white-space:nowrap;
   }
@@ -101,7 +101,7 @@
     display:flex;align-items:center;justify-content:space-between;
     padding:18px 32px;max-width:var(--maxw);margin:0 auto;position:relative;
   }
-  .logo{display:flex;align-items:center;gap:9px;font-family:'Sora',sans-serif;font-weight:800;font-size:21px;color:var(--ink);}
+  .logo{display:flex;align-items:center;gap:9px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:21px;color:var(--ink);}
   .logo-mark{display:block;height:44px;width:auto;}
   .nav-links{display:flex;align-items:center;gap:34px;}
   .nav-links a{font-weight:600;font-size:14.5px;color:var(--ink-soft);transition:color .15s;}
@@ -118,7 +118,7 @@
     display:grid;grid-template-columns:1.05fr 0.95fr;gap:40px;align-items:center;
     position:relative;z-index:2;
   }
-  .hero-copy h1{font-size:56px;font-weight:600;letter-spacing:-0.015em;margin:22px 0 22px;}
+  .hero-copy h1{font-size:56px;font-weight:800;letter-spacing:-0.025em;margin:22px 0 22px;}
   .hero-copy h1 em{color:var(--blue-deep);}
   .hero-copy p.lead{font-size:18px;max-width:480px;margin-bottom:32px;}
   .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:30px;}
@@ -128,7 +128,7 @@
 
   .hero-art{position:relative;height:600px;}
   .phone-mock{
-    position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+    position:absolute;left:50%;top:50%;transform:translate(-50%, calc(-50% + var(--drift, 0px)));
     width:266px;height:560px;background:linear-gradient(160deg,#3a3a3f,#111114);
     border-radius:54px;padding:11px;box-shadow:var(--shadow-soft), inset 0 0 0 1.5px rgba(255,255,255,0.08);
     z-index:3;
@@ -153,7 +153,7 @@
   }
   .status-time{color:#fff;font-size:14px;font-weight:600;font-family:'Inter',sans-serif;letter-spacing:0.01em;}
   .status-icons{display:flex;align-items:center;gap:4px;}
-  .phone-greet{color:#fff;font-family:'Sora',sans-serif;font-weight:700;font-size:18px;margin-top:34px;}
+  .phone-greet{color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:18px;margin-top:34px;}
   .phone-sub{color:rgba(255,255,255,0.7);font-size:12.5px;margin-top:4px;}
   .phone-limit-card{
     background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.2);
@@ -163,7 +163,7 @@
   .phone-limit-card .amt{color:#fff;font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:600;margin-top:6px;}
   .phone-cta{
     margin-top:14px;background:var(--gold);color:var(--ink);text-align:center;
-    padding:12px;border-radius:12px;font-weight:700;font-size:13.5px;font-family:'Sora',sans-serif;
+    padding:12px;border-radius:12px;font-weight:700;font-size:13.5px;font-family:'Plus Jakarta Sans',sans-serif;
   }
   .home-indicator{
     margin-top:auto;width:112px;height:4px;background:rgba(255,255,255,0.45);
@@ -171,7 +171,7 @@
   }
   .float-badge{
     position:absolute;background:#fff;border-radius:16px;padding:11px 15px;
-    box-shadow:var(--shadow-card);font-weight:700;font-size:12.5px;font-family:'Sora',sans-serif;
+    box-shadow:var(--shadow-card);font-weight:700;font-size:12.5px;font-family:'Plus Jakarta Sans',sans-serif;
     display:flex;align-items:center;gap:8px;z-index:4;
   }
   .float-badge.b1{top:4%;left:0;color:var(--ink);}
@@ -181,7 +181,7 @@
     position:absolute;bottom:9%;left:-2%;background:#fff;border-radius:20px;
     padding:16px 20px;box-shadow:var(--shadow-soft);z-index:4;
   }
-  .rating-num{font-family:'Fraunces',serif;font-weight:600;font-size:32px;color:var(--ink);line-height:1;}
+  .rating-num{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:32px;color:var(--ink);line-height:1;}
   .rating-stars{color:var(--gold);letter-spacing:2px;margin-top:6px;font-size:13px;}
   .rating-caption{font-size:11px;color:var(--ink-soft);margin-top:4px;font-weight:600;}
 
@@ -192,11 +192,11 @@
   .avatar-stack{display:flex;}
   .avatar-stack .mini-avatar{
     width:26px;height:26px;border-radius:50%;border:2px solid #fff;
-    display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;
+    display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;
     font-weight:700;font-size:9.5px;color:#fff;margin-left:-9px;
   }
   .avatar-stack .mini-avatar:first-child{margin-left:0;}
-  .trusted-text{font-weight:700;font-size:12.5px;font-family:'Sora',sans-serif;color:var(--ink);}
+  .trusted-text{font-weight:700;font-size:12.5px;font-family:'Plus Jakarta Sans',sans-serif;color:var(--ink);}
   .trusted-sub{font-size:10.5px;color:var(--ink-soft);font-weight:600;margin-top:1px;}
 
   /* ===== Stats band ===== */
@@ -224,7 +224,7 @@
     box-shadow:var(--shadow-soft);
   }
   .refer-card-top{display:flex;align-items:center;justify-content:space-between;color:rgba(255,255,255,0.7);font-size:12.5px;font-weight:600;margin-bottom:18px;}
-  .refer-card-title{font-family:'Fraunces',serif;font-weight:600;font-size:22px;color:#fff;}
+  .refer-card-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:22px;color:#fff;}
   .refer-card-sub{color:rgba(255,255,255,0.65);font-size:12.5px;margin-top:6px;}
   .refer-code-row{
     display:flex;align-items:center;justify-content:space-between;
@@ -246,7 +246,7 @@
   .app-badge{
     display:flex;align-items:center;gap:9px;background:rgba(255,255,255,0.12);
     border:1px solid rgba(255,255,255,0.24);border-radius:12px;padding:10px 18px;
-    color:#fff;font-family:'Sora',sans-serif;
+    color:#fff;font-family:'Plus Jakarta Sans',sans-serif;
   }
   .app-badge .app-badge-label{display:flex;flex-direction:column;line-height:1.2;text-align:left;}
   .app-badge .app-badge-sub{font-size:9.5px;color:rgba(255,255,255,0.65);font-weight:500;}
@@ -256,7 +256,7 @@
   /* ===== Section basics ===== */
   section{padding:88px 0;position:relative;}
   .section-head{max-width:640px;margin:0 auto 52px;text-align:center;}
-  .section-head h2{font-size:40px;font-weight:600;letter-spacing:-0.01em;margin-top:16px;}
+  .section-head h2{font-size:40px;font-weight:700;letter-spacing:-0.02em;margin-top:16px;}
   .section-head p{font-size:16.5px;margin-top:14px;}
   .alt-bg{background:var(--sky);}
 
@@ -327,7 +327,7 @@
   .testi-top{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
   .avatar{
     width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-    font-family:'Sora',sans-serif;font-weight:700;font-size:15px;color:#fff;flex-shrink:0;
+    font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:15px;color:#fff;flex-shrink:0;
   }
   .testi-name{font-weight:700;font-size:14.5px;}
   .testi-stars{color:var(--gold);font-size:12px;letter-spacing:1px;}
@@ -341,7 +341,7 @@
   }
   .faq-q{
     display:flex;align-items:center;justify-content:space-between;
-    padding:20px 24px;font-weight:700;font-size:15.5px;font-family:'Sora',sans-serif;
+    padding:20px 24px;font-weight:700;font-size:15.5px;font-family:'Plus Jakarta Sans',sans-serif;
   }
   .faq-q .plus{width:24px;height:24px;border-radius:50%;background:var(--sky);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .25s ease;color:var(--blue-deep);font-size:16px;font-weight:700;}
   .faq-item.open .faq-q .plus{transform:rotate(45deg);}
@@ -366,7 +366,7 @@
   .mini-form input::placeholder{color:rgba(255,255,255,0.6);}
   .mini-form button{
     background:var(--gold);color:var(--ink);padding:14px 26px;border-radius:999px;
-    font-weight:700;font-family:'Sora',sans-serif;font-size:14.5px;transition:transform .15s ease;
+    font-weight:700;font-family:'Plus Jakarta Sans',sans-serif;font-size:14.5px;transition:transform .15s ease;
   }
   .mini-form button:hover{transform:translateY(-2px);}
 
@@ -374,7 +374,7 @@
   footer{padding:60px 0 130px;}
   .footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:44px;}
   .footer-brand p{font-size:13.5px;margin-top:12px;max-width:260px;}
-  .footer-col h5{font-family:'Sora',sans-serif;font-size:13.5px;font-weight:700;margin-bottom:14px;color:var(--ink);}
+  .footer-col h5{font-family:'Plus Jakarta Sans',sans-serif;font-size:13.5px;font-weight:700;margin-bottom:14px;color:var(--ink);}
   .footer-col ul{display:flex;flex-direction:column;gap:10px;}
   .footer-col a{font-size:13.5px;color:var(--ink-soft);}
   .footer-col a:hover{color:var(--blue-deep);}
@@ -402,21 +402,67 @@
   .sticky-form{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:center;}
   .sticky-fields{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
 
-  /* ===== reveal animation ===== */
-  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease, transform .7s ease;}
-  .reveal.in{opacity:1;transform:translateY(0);}
+  /* ===== scroll animation system ===== */
+  .reveal{
+    opacity:0;transform:translateY(28px) scale(0.98);
+    transition:opacity .8s cubic-bezier(.22,.9,.32,1), transform .8s cubic-bezier(.22,.9,.32,1);
+    will-change:opacity, transform;
+  }
+  .reveal.in{opacity:1;transform:translateY(0) scale(1);}
+
+  .reveal-left{opacity:0;transform:translateX(-40px);transition:opacity .8s cubic-bezier(.22,.9,.32,1), transform .8s cubic-bezier(.22,.9,.32,1);}
+  .reveal-left.in{opacity:1;transform:translateX(0);}
+  .reveal-right{opacity:0;transform:translateX(40px);transition:opacity .8s cubic-bezier(.22,.9,.32,1), transform .8s cubic-bezier(.22,.9,.32,1);}
+  .reveal-right.in{opacity:1;transform:translateX(0);}
+  .reveal-pop{opacity:0;transform:scale(0.85);transition:opacity .6s cubic-bezier(.34,1.56,.64,1), transform .6s cubic-bezier(.34,1.56,.64,1);}
+  .reveal-pop.in{opacity:1;transform:scale(1);}
+  .stats-grid .stat:nth-child(2){transition-delay:.12s;}
+  .stats-grid .stat:nth-child(3){transition-delay:.24s;}
+
+  /* staggered entry for grid children */
+  .who-grid.in .who-card,
+  .feat-grid.in .feat-card,
+  .testi-grid.in .testi-card,
+  .trust-badges.in .trust-badge{opacity:1;transform:translateY(0) scale(1);}
+  .who-card,.feat-card,.testi-card,.trust-badge{
+    opacity:0;transform:translateY(24px) scale(0.97);
+    transition:opacity .6s cubic-bezier(.22,.9,.32,1), transform .6s cubic-bezier(.22,.9,.32,1), box-shadow .2s ease;
+  }
+  .who-grid .who-card:nth-child(1),.feat-grid .feat-card:nth-child(1),.testi-grid .testi-card:nth-child(1),.trust-badges .trust-badge:nth-child(1){transition-delay:0s;}
+  .who-grid .who-card:nth-child(2),.feat-grid .feat-card:nth-child(2),.testi-grid .testi-card:nth-child(2),.trust-badges .trust-badge:nth-child(2){transition-delay:.1s;}
+  .who-grid .who-card:nth-child(3),.feat-grid .feat-card:nth-child(3),.testi-grid .testi-card:nth-child(3),.trust-badges .trust-badge:nth-child(3){transition-delay:.2s;}
+  .feat-grid .feat-card:nth-child(4),.trust-badges .trust-badge:nth-child(4){transition-delay:.3s;}
+
+  /* scroll progress bar */
+  .scroll-progress{
+    position:fixed;top:0;left:0;height:3px;width:0%;z-index:300;
+    background:linear-gradient(90deg,var(--blue),var(--gold));
+    transition:width .1s linear;
+  }
+
+  /* header shrink on scroll */
+  header{transition:box-shadow .3s ease, padding .3s ease;}
+  header.scrolled{box-shadow:0 8px 24px -16px rgba(22,33,74,0.25);}
+  header.scrolled .nav{padding-top:12px;padding-bottom:12px;}
+  header.scrolled .logo-mark{height:36px;transition:height .3s ease;}
+  .logo-mark{transition:height .3s ease;}
+
+  /* subtle parallax layer for hero phone */
+  .phone-mock{transition:transform .1s linear;}
+
   body{padding-bottom:78px;}
 
   @media(prefers-reduced-motion:reduce){
-    .reveal{opacity:1;transform:none;transition:none;}
+    .reveal,.reveal-left,.reveal-right,.reveal-pop,.who-card,.feat-card,.testi-card,.trust-badge{opacity:1;transform:none;transition:none;}
     html{scroll-behavior:auto;}
+    .phone-mock{transition:none;}
   }
 
   /* ===== Responsive ===== */
   @media(max-width:980px){
     .hero-grid{grid-template-columns:1fr;}
     .hero-art{height:520px;margin-top:20px;}
-    .phone-mock{transform:translate(-50%,-50%) scale(0.86);}
+    .phone-mock{transform:translate(-50%, calc(-50% + var(--drift, 0px))) scale(0.86);}
     .hero-copy h1{font-size:40px;}
     .who-grid,.feat-grid,.testi-grid{grid-template-columns:1fr 1fr;}
     .step-row{grid-template-columns:1fr;gap:26px;}
@@ -430,7 +476,7 @@
       background:var(--cloud);padding:20px 24px calc(20px + env(safe-area-inset-bottom));
       gap:6px;box-shadow:0 12px 24px -12px rgba(22,33,74,0.15);
     }
-    .burger{display:flex;align-items:center;justify-content:center;}
+    .burger{display:flex;flex-direction:column;align-items:center;justify-content:center;}
     .nav-actions .btn-ghost{display:none;}
     .nav-links a{padding:11px 4px;font-size:15.5px;}
     .stats-grid{grid-template-columns:1fr 1fr;}
@@ -452,7 +498,7 @@
     .hero-ctas{margin-bottom:22px;}
     .hero-ctas .btn{width:100%;}
     .hero-art{height:400px;}
-    .phone-mock{transform:translate(-50%,-50%) scale(0.66);}
+    .phone-mock{transform:translate(-50%, calc(-50% + var(--drift, 0px))) scale(0.66);}
     .float-badge{font-size:11px;padding:9px 12px;}
     .rating-card{left:0;bottom:4%;padding:11px 14px;}
     .rating-num{font-size:24px;}
@@ -488,13 +534,14 @@
   @media(max-width:390px){
     .hero-copy h1{font-size:27px;}
     .hero-art{height:350px;}
-    .phone-mock{transform:translate(-50%,-50%) scale(0.56);}
+    .phone-mock{transform:translate(-50%, calc(-50% + var(--drift, 0px))) scale(0.56);}
     .who-card,.feat-card,.testi-card{padding:24px 20px;}
     .trust-line{gap:10px;font-size:12.5px;}
   }
 </style>
 </head>
 <body>
+<div class="scroll-progress" id="scrollProgress"></div>
 
 <!-- ===================== HEADER ===================== -->
 <header>
@@ -593,15 +640,15 @@
 <!-- ===================== STATS BAND ===================== -->
 <div class="stats-band dotgrid-light">
   <div class="wrap stats-grid">
-    <div class="stat reveal">
+    <div class="stat reveal-pop">
       <div class="stat-num">₹20,000</div>
       <div class="stat-lbl">Maximum loan amount</div>
     </div>
-    <div class="stat reveal">
+    <div class="stat reveal-pop">
       <div class="stat-num">18–55</div>
       <div class="stat-lbl">Age range we lend to</div>
     </div>
-    <div class="stat reveal">
+    <div class="stat reveal-pop">
       <div class="stat-num">24 hrs</div>
       <div class="stat-lbl">Typical approval time</div>
     </div>
@@ -616,22 +663,22 @@
       <h2>Whoever's paycheck<br>hasn't caught up yet</h2>
       <p>Suvron is built for the gap before the salary lands or the next gig pays out.</p>
     </div>
-    <div class="who-grid">
-      <div class="who-card reveal">
+    <div class="who-grid reveal">
+      <div class="who-card">
         <div class="who-icon" style="background:#EAF1FC;">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 3L2 8l10 5 10-5-10-5z" stroke="#3D63F5" stroke-width="1.8" stroke-linejoin="round"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5" stroke="#3D63F5" stroke-width="1.8"/></svg>
         </div>
         <h3>Students</h3>
         <p>Cover a semester fee or a broken laptop without waiting on pocket money.</p>
       </div>
-      <div class="who-card reveal">
+      <div class="who-card">
         <div class="who-icon" style="background:#FFF3E0;">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="3" y="8" width="18" height="12" rx="2" stroke="#E39A2B" stroke-width="1.8"/><path d="M8 8V6a4 4 0 018 0v2" stroke="#E39A2B" stroke-width="1.8"/></svg>
         </div>
         <h3>First jobbers</h3>
         <p>Bridge the gap between your offer letter and your first salary.</p>
       </div>
-      <div class="who-card reveal">
+      <div class="who-card">
         <div class="who-icon" style="background:#E7F8EF;">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 2v20M2 12h20" stroke="#3AA873" stroke-width="1.8"/><circle cx="12" cy="12" r="9" stroke="#3AA873" stroke-width="1.8"/></svg>
         </div>
@@ -652,26 +699,26 @@
     </div>
     <div class="steps">
       <div class="step-row">
-        <div class="step-copy reveal">
+        <div class="step-copy reveal-left">
           <span class="step-num">Step 01</span>
           <h3>Sign up</h3>
           <p>Create your account with just your mobile number. No forms to fill out by hand.</p>
         </div>
-        <div class="step-visual reveal">
+        <div class="step-visual reveal-right">
           <div class="mini-card">
-            <div style="font-weight:700;font-family:'Sora',sans-serif;font-size:15px;margin-bottom:14px;">Welcome back</div>
+            <div style="font-weight:700;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;margin-bottom:14px;">Welcome back</div>
             <div style="background:var(--sky);border-radius:12px;padding:12px 14px;font-size:13.5px;color:var(--ink-soft);margin-bottom:10px;">+91 &nbsp; Enter your number</div>
             <div style="background:var(--blue);color:#fff;text-align:center;padding:12px;border-radius:10px;font-weight:700;font-size:13.5px;">Get OTP</div>
           </div>
         </div>
       </div>
       <div class="step-row rev">
-        <div class="step-copy reveal">
+        <div class="step-copy reveal-right">
           <span class="step-num">Step 02</span>
           <h3>Complete KYC</h3>
           <p>Verify your PAN and Aadhaar. Most people finish in under three minutes.</p>
         </div>
-        <div class="step-visual reveal">
+        <div class="step-visual reveal-left">
           <div class="mini-card">
             <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--sky-deep);">
               <span style="font-size:13.5px;font-weight:600;">Verify PAN</span>
@@ -689,12 +736,12 @@
         </div>
       </div>
       <div class="step-row">
-        <div class="step-copy reveal">
+        <div class="step-copy reveal-left">
           <span class="step-num">Step 03</span>
           <h3>See your offer</h3>
           <p>Get a clear loan offer with the amount, tenure, interest and fees spelled out upfront.</p>
         </div>
-        <div class="step-visual reveal">
+        <div class="step-visual reveal-right">
           <div class="mini-card" style="background:linear-gradient(150deg,var(--blue),var(--blue-deep));">
             <div style="color:rgba(255,255,255,0.7);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;">Your offer</div>
             <div class="num" style="color:#fff;font-size:26px;font-weight:600;margin:8px 0 4px;">₹12,000</div>
@@ -703,15 +750,15 @@
         </div>
       </div>
       <div class="step-row rev">
-        <div class="step-copy reveal">
+        <div class="step-copy reveal-right">
           <span class="step-num">Step 04</span>
           <h3>Get paid</h3>
           <p>Accept the offer and the funds land directly in your bank account, often the same day.</p>
         </div>
-        <div class="step-visual reveal">
+        <div class="step-visual reveal-left">
           <div class="mini-card" style="text-align:center;">
             <svg width="52" height="52" viewBox="0 0 24 24" fill="none" style="margin-bottom:10px;"><circle cx="12" cy="12" r="10" fill="#E7F8EF"/><path d="M8 12.5l2.5 2.5L16 9" stroke="#3AA873" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div style="font-weight:700;font-family:'Sora',sans-serif;font-size:15px;">Money sent</div>
+            <div style="font-weight:700;font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;">Money sent</div>
             <div style="font-size:12.5px;color:var(--ink-soft);margin-top:4px;">Straight to your linked account</div>
           </div>
         </div>
@@ -728,29 +775,29 @@
       <h2>Built to be upfront with you</h2>
       <p>No hidden clauses, no surprise deductions. You see what a loan costs before you take it.</p>
     </div>
-    <div class="feat-grid">
-      <div class="feat-card reveal">
+    <div class="feat-grid reveal">
+      <div class="feat-card">
         <div class="feat-icon" style="background:#EAF1FC;">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" stroke="#3D63F5" stroke-width="1.8" stroke-linecap="round"/></svg>
         </div>
         <h4>Transparent pricing</h4>
         <p>See your interest and fees before you accept, never after.</p>
       </div>
-      <div class="feat-card reveal">
+      <div class="feat-card">
         <div class="feat-icon" style="background:#FFF3E0;">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="#E39A2B" stroke-width="1.8"/><path d="M3 9h18M8 2v4M16 2v4" stroke="#E39A2B" stroke-width="1.8"/></svg>
         </div>
         <h4>Flexible tenure</h4>
         <p>Repay over a term that matches when your next paycheck lands.</p>
       </div>
-      <div class="feat-card reveal">
+      <div class="feat-card">
         <div class="feat-icon" style="background:#E7F8EF;">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z" stroke="#3AA873" stroke-width="1.8" stroke-linejoin="round"/></svg>
         </div>
         <h4>Bank-grade security</h4>
         <p>Your data is encrypted end-to-end and is never sold to third parties.</p>
       </div>
-      <div class="feat-card reveal">
+      <div class="feat-card">
         <div class="feat-icon" style="background:#FDE9E5;">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M21 11.5a8.5 8.5 0 01-12.9 7.3L3 20l1.2-5.1A8.5 8.5 0 1121 11.5z" stroke="#FF7E67" stroke-width="1.8" stroke-linejoin="round"/></svg>
         </div>
@@ -770,7 +817,7 @@
         <h3>Lending you can verify</h3>
         <p>Suvron is the loan app of [NBFC Partner Name], an RBI-registered Non-Banking Financial Company (Reg. No. [XX-XXXXXXX]). Every loan is issued under our partner's NBFC licence and RBI's fair-practice guidelines.</p>
       </div>
-      <div class="trust-badges" style="position:relative;z-index:2;">
+      <div class="trust-badges reveal" style="position:relative;z-index:2;">
         <div class="trust-badge">
           <span class="dotcircle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z" stroke="#7FDBB6" stroke-width="1.8"/></svg></span>
           <span>RBI-registered NBFC partner</span>
@@ -799,8 +846,8 @@
       <span class="eyebrow">From people who've used it</span>
       <h2>What early users are saying</h2>
     </div>
-    <div class="testi-grid">
-      <div class="testi-card reveal">
+    <div class="testi-grid reveal">
+      <div class="testi-card">
         <div class="testi-top">
           <div class="avatar" style="background:#3D63F5;">R</div>
           <div>
@@ -810,7 +857,7 @@
         </div>
         <p>"The eligibility check took two minutes and the whole thing was explained in plain language. No fine print I had to hunt for."</p>
       </div>
-      <div class="testi-card reveal">
+      <div class="testi-card">
         <div class="testi-top">
           <div class="avatar" style="background:#C9972B;">N</div>
           <div>
@@ -820,7 +867,7 @@
         </div>
         <p>"I could see exactly what I'd repay each month before I accepted anything. That's rare for a short-term loan."</p>
       </div>
-      <div class="testi-card reveal">
+      <div class="testi-card">
         <div class="testi-top">
           <div class="avatar" style="background:#3AA873;">D</div>
           <div>
@@ -985,14 +1032,49 @@
 </div>
 
 <script>
-  // Scroll reveal
-  const revealEls = document.querySelectorAll('.reveal');
+  // Scroll reveal (fade-up, slide-left/right, pop) for all animation variants
+  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-pop');
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{
       if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
     });
   },{threshold:0.15});
   revealEls.forEach(el=>io.observe(el));
+
+  // Scroll progress bar, header shrink, and a light parallax drift on the hero phone
+  const progressBar = document.getElementById('scrollProgress');
+  const headerEl = document.querySelector('header');
+  const phoneMock = document.querySelector('.phone-mock');
+  const heroEl = document.querySelector('.hero');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let ticking = false;
+
+  function onScroll(){
+    const scrollY = window.scrollY || window.pageYOffset;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
+    if(progressBar) progressBar.style.width = pct + '%';
+
+    if(headerEl){
+      headerEl.classList.toggle('scrolled', scrollY > 24);
+    }
+
+    if(phoneMock && heroEl && !prefersReducedMotion){
+      const heroHeight = heroEl.offsetHeight;
+      if(scrollY < heroHeight){
+        const drift = Math.min(scrollY * 0.12, 40);
+        phoneMock.style.setProperty('--drift', drift + 'px');
+      }
+    }
+    ticking = false;
+  }
+  window.addEventListener('scroll', ()=>{
+    if(!ticking){
+      requestAnimationFrame(onScroll);
+      ticking = true;
+    }
+  }, {passive:true});
+  onScroll();
 
   // FAQ accordion
   document.querySelectorAll('.faq-item').forEach(item=>{
