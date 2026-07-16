@@ -68,3 +68,34 @@
     navLinks.classList.contains('open') ? closeMobileNav() : openMobileNav();
   });
   navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click', closeMobileNav));
+
+  // Contact form submission (Formspree-compatible; swap the form's action to your endpoint)
+  const contactForm = document.getElementById('contactForm');
+  if(contactForm){
+    contactForm.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const btn = contactForm.querySelector('button[type="submit"]');
+      const status = document.getElementById('contactStatus');
+      const originalLabel = btn.textContent;
+      btn.disabled = true; btn.textContent = 'Sending...';
+      try{
+        const res = await fetch(contactForm.action, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(contactForm)
+        });
+        if(res.ok){
+          status.textContent = "Thanks — we've got your message and will reply within 1 business day.";
+          status.className = 'form-status show success';
+          contactForm.reset();
+        } else {
+          throw new Error('Request failed');
+        }
+      } catch(err){
+        status.textContent = 'Something went wrong. Please email us directly at support@suvron.com.';
+        status.className = 'form-status show error';
+      } finally {
+        btn.disabled = false; btn.textContent = originalLabel;
+      }
+    });
+  }
