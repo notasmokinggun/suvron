@@ -1,156 +1,243 @@
-=<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#16214A">
-<title>Terms of Use: Suvron</title>
-<link rel="icon" type="image/png" href="SUVRON%20LOGO%20WITH%20NO%20BG.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Noto+Sans+Devanagari:wght@600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<div class="scroll-progress" id="scrollProgress"></div>
+// Scroll reveal (fade-up, slide-left/right, pop) for all animation variants
+  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-pop');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  },{threshold:0.15});
+  revealEls.forEach(el=>io.observe(el));
 
-<!-- ===================== HEADER ===================== -->
-<header>
-  <nav class="nav">
-    <a href="index.html" class="logo">
-      <img src="SUVRON%20LOGO%20WITH%20NO%20BG.png" alt="Suvron" class="logo-mark">
-      <span class="logo-text">Suvron <span class="logo-hindi">स्वर्ण</span></span>
-    </a>
-    <div class="nav-links">
-      <a href="index.html#who">Who it's for</a>
-      <a href="index.html#how">How it works</a>
-      <a href="index.html#why">Why Suvron</a>
-      <a href="index.html#trust">Trust &amp; safety</a>
-      <a href="index.html#faq">FAQs</a>
-    </div>
-    <div class="nav-actions">
-      <a href="index.html#apply" class="btn btn-ghost btn-sm">Log in</a>
-      <a href="index.html#apply" class="btn btn-primary btn-sm">Get the app</a>
-    </div>
-    <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
-  </nav>
-</header>
+  // Scroll progress bar, header shrink, and a light parallax drift on the hero phone
+  const progressBar = document.getElementById('scrollProgress');
+  const headerEl = document.querySelector('header');
+  const phoneMock = document.querySelector('.phone-mock');
+  const heroEl = document.querySelector('.hero');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let ticking = false;
 
-<div class="page-hero dotgrid">
-  <div class="wrap" style="text-align:center;">
-    <span class="eyebrow">Terms of use</span>
-    <h1>The actual terms, in language you can get through</h1>
-    
-  </div>
-</div>
+  function onScroll(){
+    const scrollY = window.scrollY || window.pageYOffset;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
+    if(progressBar) progressBar.style.width = pct + '%';
 
-<div class="wrap">
-  <div class="prose">
-    <p>These terms govern your use of Suvron, the digital lending platform built by Shantilekh Global Technology Pvt. Ltd. Using the app or website means you're agreeing to what follows.</p>
+    if(headerEl){
+      headerEl.classList.toggle('scrolled', scrollY > 24);
+    }
 
-    <div class="company-snapshot">
-      <h4>📌 Company Snapshot</h4>
-      <ul>
-        <li><strong>Name:</strong> Ready Leasings Private Limited</li>
-        <li><strong>RBI Registration:</strong> NBFC, Reg. No. B-15.00028</li>
-        <li><strong>CIN:</strong> U65910WB1997PTC140699</li>
-      </ul>
-    </div>
+    if(phoneMock && heroEl && !prefersReducedMotion){
+      const heroHeight = heroEl.offsetHeight;
+      if(scrollY < heroHeight){
+        const drift = Math.min(scrollY * 0.12, 40);
+        phoneMock.style.setProperty('--drift', drift + 'px');
+      }
+    }
+    ticking = false;
+  }
+  window.addEventListener('scroll', ()=>{
+    if(!ticking){
+      requestAnimationFrame(onScroll);
+      ticking = true;
+    }
+  }, {passive:true});
+  onScroll();
 
-    <h2>Who can use Suvron</h2>
-    <p>You need to meet standard regulatory requirements and pass KYC verification. Whatever you enter during registration needs to be accurate and complete, since it's what your loan offer is based on.</p>
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item=>{
+    const q = item.querySelector('.faq-q');
+    const a = item.querySelector('.faq-a');
+    q.addEventListener('click',()=>{
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(o=>{
+        o.classList.remove('open');
+        o.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if(!isOpen){
+        item.classList.add('open');
+        a.style.maxHeight = a.scrollHeight + 'px';
+      }
+    });
+  });
 
-    <h2>What we offer</h2>
-    <div class="rate-callout">
-      <p><strong>Loan size:</strong> ₹1,000 to ₹10,000, at initial launch.</p>
-      <p><strong>Tenure:</strong> 30 to 90 days, at initial launch.</p>
-      <p><strong>Interest &amp; charges:</strong> disclosed to you in the Key Fact Statement and loan agreement before you accept any offer, and can vary by NBFC partner.</p>
-    </div>
-    <p>These loans are fully digital and issued in partnership with our NBFC lending partners.</p>
+  // Mobile burger toggle
+  const burger = document.querySelector('.burger');
+  const navLinks = document.querySelector('.nav-links');
+  function closeMobileNav(){ navLinks.classList.remove('open'); }
+  function openMobileNav(){ navLinks.classList.add('open'); }
+  burger.addEventListener('click',()=>{
+    navLinks.classList.contains('open') ? closeMobileNav() : openMobileNav();
+  });
+  navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click', closeMobileNav));
 
-    <h2>What we expect from you</h2>
-    <ul>
-      <li>Keep your personal and financial information accurate.</li>
-      <li>Don't share your login credentials with anyone else.</li>
-      <li>Use the service for lawful purposes only.</li>
-    </ul>
+// ============================================================
+// BACKEND: Firestore-backed form submissions.
+//
+// Every form on the site (contact form, "check eligibility" form,
+// the sticky "Apply now" bar on all pages) writes to Firebase
+// Firestore, so a real record lands in your database instead of
+// just showing a success message and going nowhere.
+//
+// TO GO LIVE: create a Firebase project (console.firebase.google.com),
+// enable Firestore in production mode, then paste your web app's
+// config below in place of the placeholder values. Suggested
+// Firestore security rules so the public site can only create
+// records, never read/edit/delete them:
+//
+//   rules_version = '2';
+//   service cloud.firestore {
+//     match /databases/{database}/documents {
+//       match /{collection}/{doc} {
+//         allow create: if true;
+//         allow read, update, delete: if false;
+//       }
+//     }
+//   }
+//
+// Until real values are pasted in below, forms will show an honest
+// "not connected yet, email/call us directly" message instead of a
+// fake success message.
+// ============================================================
+const FIREBASE_CONFIG = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT.appspot.com",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
 
-    <h2>How your data is handled</h2>
-    <p>Everything runs under the DPDP Act, with consent management built into the app so you control how your data is shared. Our <a href="privacy-policy.html">privacy policy</a> has the full detail.</p>
+function isFirebaseConfigured(){
+  return FIREBASE_CONFIG.apiKey && FIREBASE_CONFIG.apiKey !== "YOUR_API_KEY";
+}
 
-    <h2>How a loan actually moves through the system</h2>
-    <p>You sign in with an Aadhaar-linked mobile OTP, verify your PAN, link it to your Aadhaar, and go through a soft credit pull. From there, our underwriting models decide on an offer. Disbursement, repayment and collections all happen digitally, and collections stay within the RBI's Fair Practices Code, using automated reminders plus a support agent from the first missed payment onward.</p>
+let _dbPromise = null;
+async function getFirestoreDb(){
+  if(_dbPromise) return _dbPromise;
+  _dbPromise = (async () => {
+    const { initializeApp } = await import("https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js");
+    const { getFirestore, collection, addDoc, serverTimestamp } =
+      await import("https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js");
+    const app = initializeApp(FIREBASE_CONFIG);
+    const db = getFirestore(app);
+    return { db, collection, addDoc, serverTimestamp };
+  })();
+  return _dbPromise;
+}
 
-    <h2>Getting help</h2>
-    <p>Support runs on WhatsApp, email and voice. Grievances are handled under the RBI's CEPC framework, which means a defined response timeline rather than an open-ended wait. Details are on our <a href="grievance-redressal.html">grievance redressal page</a>.</p>
+async function submitToFirestore(collectionName, data){
+  const { db, collection, addDoc, serverTimestamp } = await getFirestoreDb();
+  await addDoc(collection(db, collectionName), {
+    ...data,
+    page: window.location.pathname,
+    submittedAt: serverTimestamp()
+  });
+}
 
-    <h2>What we can change</h2>
-    <p>We can modify, suspend or end the service at any time. Our NBFC partners retain final control over credit policy, underwriting, approvals, loan documentation, disbursement, bureau reporting and compliance, since they're the ones actually lending the money.</p>
+function setStatus(el, text, kind){
+  if(!el) return;
+  el.textContent = text;
+  el.classList.remove('success','error','pending');
+  el.classList.add(kind);
+}
 
-    <h2>Governing law</h2>
-    <p>These terms are governed by the laws of India, and any disputes fall under the jurisdiction of courts in Bengaluru.</p>
-  </div>
-</div>
+// Contact form (contact.html)
+async function handleContactSubmit(event){
+  event.preventDefault();
+  const form = event.target;
+  const status = document.getElementById('formStatus');
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const data = Object.fromEntries(new FormData(form).entries());
 
-<!-- ===================== FOOTER ===================== -->
-<footer>
-  <div class="wrap">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">
-          <img src="SUVRON%20LOGO%20WITH%20NO%20BG.png" alt="Suvron" class="logo-mark">
-          Suvron
-        </a>
-        <p>Short-term loans for young India, built by Shantilekh Global Technology Pvt. Ltd. in partnership with RBI-registered NBFC lending partners.</p>
-      </div>
-      <div class="footer-col">
-        <h5>Product</h5>
-        <ul>
-          <li><a href="index.html#how">How it works</a></li>
-          <li><a href="index.html#why">Why Suvron</a></li>
-          <li><a href="index.html#trust">Trust &amp; safety</a></li>
-          <li><a href="index.html#faq">FAQs</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Company</h5>
-        <ul>
-          <li><a href="about.html">About us</a></li>
-          <li><a href="about.html#careers">Careers</a></li>
-          <li><a href="contact.html">Contact us</a></li>
-          <li><a href="responsible-lending.html">Responsible lending</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Legal</h5>
-        <ul>
-          <li><a href="privacy-policy.html">Privacy policy</a></li>
-          <li><a href="terms.html">Terms of use</a></li>
-          <li><a href="grievance-redressal.html">Grievance redressal</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-legal">Suvron is a digital lending platform built by Shantilekh Global Technology Pvt. Ltd. Loans are sanctioned, disbursed and collected by our RBI-registered NBFC partners, who retain final control over credit approval and terms. Suvron does not itself lend money. Interest rates for loans facilitated on this platform range from 70% to 150% APR depending on tenure, amount and your credit assessment; the exact APR for your offer is disclosed in your Key Fact Statement and loan agreement before you accept.</div>
-      <div class="footer-copy">© 2026 Suvron. All rights reserved.</div>
-    </div>
-  </div>
-</footer>
+  if(!isFirebaseConfigured()){
+    setStatus(status, "This form isn't connected yet. Email us directly at connect@suvron.in in the meantime.", 'error');
+    return;
+  }
 
-<!-- ===================== STICKY BOTTOM BAR ===================== -->
-<div class="sticky-bar">
-  <div class="sticky-copy">Need cash? Get up to <b>₹10,000</b> instantly.</div>
-  <form class="sticky-form" onsubmit="handleApplySubmit(event)">
-    <span class="sticky-fields">
-      <input type="text" name="name" placeholder="Enter your name" required>
-      <input type="tel" name="phone" placeholder="Mobile number" pattern="[6-9][0-9]{9}" maxlength="10" required>
-    </span>
-    <button type="submit" class="btn btn-primary btn-sm" style="background:var(--gold);color:var(--ink);box-shadow:none;">Apply now</button>
-  </form>
-  <div class="sticky-status" aria-live="polite"></div>
-</div>
+  setStatus(status, 'Sending...', 'pending');
+  submitBtn.disabled = true;
+  try{
+    await submitToFirestore('contact_messages', data);
+    setStatus(status, "Message sent. We'll get back to you soon.", 'success');
+    form.reset();
+  } catch(err){
+    setStatus(status, 'Something went wrong. Try emailing connect@suvron.in instead.', 'error');
+  } finally {
+    submitBtn.disabled = false;
+  }
+}
 
-<script src="script.js"></script>
+// "Apply now" forms: the hero mini-form (#apply on index.html) and the
+// sticky bottom bar form repeated on every page.
+async function handleApplySubmit(event){
+  event.preventDefault();
+  const form = event.target;
+  const isSticky = form.classList.contains('sticky-form');
 
-</body>
-</html>
+  // On small screens the sticky bar's inputs are hidden (single tappable
+  // CTA), so there's nothing to submit yet — send the person to the real
+  // form instead of silently doing nothing.
+  if(isSticky){
+    const fieldsVisible = form.querySelector('.sticky-fields') &&
+      window.getComputedStyle(form.querySelector('.sticky-fields')).display !== 'none';
+    if(!fieldsVisible){
+      const onIndex = /(^|\/)index\.html$|\/$/.test(window.location.pathname) || window.location.pathname === '';
+      if(onIndex && document.getElementById('apply')){
+        document.getElementById('apply').scrollIntoView({behavior:'smooth', block:'start'});
+      } else {
+        window.location.href = 'index.html#apply';
+      }
+      return;
+    }
+  }
+
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const status = isSticky ? form.parentElement.querySelector('.sticky-status') : form.parentElement.querySelector('.form-status');
+  const nameInput = form.querySelector('input[type="text"]');
+  const phoneInput = form.querySelector('input[type="tel"]');
+  const data = { name: nameInput ? nameInput.value.trim() : '', phone: phoneInput ? phoneInput.value.trim() : '' };
+
+  if(!data.name || !/^[6-9][0-9]{9}$/.test(data.phone)){
+    setStatus(status, 'Enter your name and a valid 10-digit mobile number.', 'error');
+    return;
+  }
+
+  if(!isFirebaseConfigured()){
+    setStatus(status, "Applications aren't connected to our systems yet — email connect@suvron.in with your name and number and we'll follow up manually.", 'error');
+    return;
+  }
+
+  const originalLabel = submitBtn.textContent;
+  setStatus(status, 'Submitting...', 'pending');
+  submitBtn.disabled = true;
+  try{
+    await submitToFirestore('loan_applications', data);
+    setStatus(status, `Thanks, ${data.name.split(' ')[0]} — we've got your details and will call you within 24 hours.`, 'success');
+    submitBtn.textContent = 'Request received';
+    form.reset();
+  } catch(err){
+    setStatus(status, 'Something went wrong. Try emailing connect@suvron.in instead.', 'error');
+    submitBtn.textContent = originalLabel;
+  } finally {
+    submitBtn.disabled = false;
+  }
+}
+
+// Copy-to-clipboard fallback for mailto buttons/links, since mailto: does
+// nothing visible on devices with no default mail app configured (common
+// on mobile browsers and in-app browsers).
+document.addEventListener('click', async (event) => {
+  const link = event.target.closest('a[href^="mailto:"]');
+  if(!link) return;
+  const email = link.getAttribute('href').replace('mailto:', '').split('?')[0];
+  try{
+    await navigator.clipboard.writeText(email);
+    const toast = document.createElement('div');
+    toast.textContent = `Copied ${email} to clipboard`;
+    toast.className = 'email-toast';
+    document.body.appendChild(toast);
+    requestAnimationFrame(() => toast.classList.add('in'));
+    setTimeout(() => { toast.classList.remove('in'); setTimeout(() => toast.remove(), 300); }, 2600);
+  } catch(err){
+    // Clipboard API unavailable — the mailto: link itself still fires as normal.
+  }
+});
