@@ -8,7 +8,7 @@
 <link rel="icon" type="image/png" href="SUVRON%20LOGO%20WITH%20NO%20BG.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Noto+Sans+Devanagari:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -19,7 +19,7 @@
   <nav class="nav">
     <a href="#top" class="logo">
       <img src="SUVRON%20LOGO%20WITH%20NO%20BG.png" alt="Suvron" class="logo-mark">
-      Suvron
+      <span class="logo-text">Suvron <span class="logo-hindi">स्वर्ण</span></span>
     </a>
     <div class="nav-links">
       <a href="about.html">About</a>
@@ -216,7 +216,7 @@
           <div class="mini-card" style="background:linear-gradient(150deg,var(--blue),var(--blue-deep));">
             <div style="color:rgba(255,255,255,0.7);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;">Your offer</div>
             <div class="num" style="color:#fff;font-size:26px;font-weight:600;margin:8px 0 4px;">₹5,000</div>
-            <div style="color:rgba(255,255,255,0.75);font-size:12.5px;">30 days · 135% APR</div>
+            <div style="color:rgba(255,255,255,0.75);font-size:12.5px;">30–90 days · all charges shown upfront</div>
           </div>
         </div>
       </div>
@@ -259,7 +259,7 @@
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="#E39A2B" stroke-width="1.8"/><path d="M3 9h18M8 2v4M16 2v4" stroke="#E39A2B" stroke-width="1.8"/></svg>
         </div>
         <h4>Short, fixed terms</h4>
-        <p>Loans run up to 30 days. You know your repayment date before you accept.</p>
+        <p>Loans run 30 to 90 days. You know your repayment date before you accept.</p>
       </div>
       <div class="feat-card">
         <div class="feat-icon" style="background:#E7F8EF;">
@@ -286,7 +286,7 @@
       <div style="position:relative;z-index:2;">
         <span class="eyebrow" style="background:rgba(255,255,255,0.1);color:#fff;">Trust &amp; compliance</span>
         <h3>Lending you can verify</h3>
-        <p>Suvron is built by Shantilekh Global Technology Pvt. Ltd. and offered in partnership with RBI-registered NBFC lending partners, who hold final say on credit approval, disbursement and collections. Loans carry an APR of 120 to 150 percent depending on the offer, shown to you before you accept.</p>
+        <p>Suvron is built by Shantilekh Global Technology Pvt. Ltd. and offered in partnership with RBI-registered NBFC lending partners, who hold final say on credit approval, disbursement and collections. Every fee and charge for your specific offer is shown to you in full before you accept, never buried in the agreement afterward.</p>
       </div>
       <div class="trust-badges reveal" style="position:relative;z-index:2;">
         <div class="trust-badge">
@@ -402,11 +402,11 @@
       </div>
       <div class="faq-item reveal">
         <div class="faq-q">How much can I borrow, and for how long?<span class="plus">+</span></div>
-        <div class="faq-a"><div class="faq-a-in">Loans currently go up to ₹10,000 with a tenure of up to 30 days. Your exact amount, tenure and APR depend on your eligibility check, and you'll see all three before accepting an offer.</div></div>
+        <div class="faq-a"><div class="faq-a-in">Loans currently go up to ₹10,000 with a tenure of 30 to 90 days. Your exact amount, tenure and total cost depend on your eligibility check, and you'll see all of it before accepting an offer.</div></div>
       </div>
       <div class="faq-item reveal">
         <div class="faq-q">What does a Suvron loan cost?<span class="plus">+</span></div>
-        <div class="faq-a"><div class="faq-a-in">APR runs between 120 and 150 percent depending on your offer. That figure and every fee are shown to you before you accept, not buried in the agreement afterward.</div></div>
+        <div class="faq-a"><div class="faq-a-in">Interest and any processing charges depend on your offer and are shown to you in full before you accept, never buried in the agreement afterward.</div></div>
       </div>
       <div class="faq-item reveal">
         <div class="faq-q">How fast is disbursal once I'm approved?<span class="plus">+</span></div>
@@ -431,11 +431,12 @@
       <div style="position:relative;z-index:2;">
         <h2>Ready when your plans are</h2>
         <p>Check your eligibility in under two minutes. It won't affect your credit score.</p>
-        <form class="mini-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Thanks, we\'ll text you shortly';">
-          <input type="text" placeholder="Your name" required>
-          <input type="tel" placeholder="Mobile number" required>
+        <form class="mini-form" onsubmit="handleApplySubmit(event)">
+          <input type="text" name="name" placeholder="Your name" required>
+          <input type="tel" name="phone" placeholder="Mobile number" pattern="[6-9][0-9]{9}" maxlength="10" required>
           <button type="submit">Check eligibility</button>
         </form>
+        <div class="form-status" aria-live="polite" style="color:rgba(255,255,255,0.85);"></div>
         <div class="app-badges">
           <a href="#" class="app-badge">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 3.5v17l13-8.5-13-8.5z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg>
@@ -487,7 +488,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="footer-legal">Suvron is a digital lending platform built by Shantilekh Global Technology Pvt. Ltd. Loans are sanctioned, disbursed and collected by our RBI-registered NBFC partners, who retain final control over credit approval and terms. Suvron does not itself lend money.</div>
+      <div class="footer-legal">Suvron is a digital lending platform built by Shantilekh Global Technology Pvt. Ltd. Loans are sanctioned, disbursed and collected by our RBI-registered NBFC partners, who retain final control over credit approval and terms. Suvron does not itself lend money. Interest rates for loans facilitated on this platform range from 70% to 150% APR depending on tenure, amount and your credit assessment; the exact APR for your offer is disclosed in your Key Fact Statement and loan agreement before you accept.</div>
       <div class="footer-copy">© 2026 Suvron. All rights reserved.</div>
     </div>
   </div>
@@ -496,13 +497,14 @@
 <!-- ===================== STICKY BOTTOM BAR ===================== -->
 <div class="sticky-bar">
   <div class="sticky-copy">Need cash? Get up to <b>₹10,000</b> instantly.</div>
-  <form class="sticky-form" onsubmit="event.preventDefault();">
+  <form class="sticky-form" onsubmit="handleApplySubmit(event)">
     <span class="sticky-fields">
-      <input type="text" placeholder="Enter your name">
-      <input type="tel" placeholder="Mobile number">
+      <input type="text" name="name" placeholder="Enter your name" required>
+      <input type="tel" name="phone" placeholder="Mobile number" pattern="[6-9][0-9]{9}" maxlength="10" required>
     </span>
     <button type="submit" class="btn btn-primary btn-sm" style="background:var(--gold);color:var(--ink);box-shadow:none;">Apply now</button>
   </form>
+  <div class="sticky-status" aria-live="polite"></div>
 </div>
 
 <script src="script.js"></script>
