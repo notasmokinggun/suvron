@@ -8,7 +8,7 @@
 <link rel="icon" type="image/png" href="SUVRON%20LOGO%20WITH%20NO%20BG.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Noto+Sans+Devanagari:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -19,7 +19,7 @@
   <nav class="nav">
     <a href="index.html" class="logo">
       <img src="SUVRON%20LOGO%20WITH%20NO%20BG.png" alt="Suvron" class="logo-mark">
-      Suvron
+      <span class="logo-text">Suvron <span class="logo-hindi">स्वर्ण</span></span>
     </a>
     <div class="nav-links">
       <a href="index.html#who">Who it's for</a>
@@ -51,17 +51,17 @@
       <div class="contact-card">
         <h3>General &amp; partnerships</h3>
         <p>Inquiries, support, or partnership opportunities</p>
-        <a href="mailto:connect@suvron.com">connect@suvron.com</a>
+        <a href="mailto:connect@suvron.in">connect@suvron.in</a>
       </div>
       <div class="contact-card">
         <h3>Customer support</h3>
         <p>Questions about an existing loan or your account</p>
-        <a href="mailto:support@suvron.com">support@suvron.com</a>
+        <a href="mailto:support@suvron.in">support@suvron.in</a>
       </div>
       <div class="contact-card">
         <h3>Grievance officer</h3>
         <p>Unresolved issues that need escalation</p>
-        <a href="mailto:gro@suvron.com">gro@suvron.com</a>
+        <a href="mailto:gro@suvron.in">gro@suvron.in</a>
       </div>
     </div>
     <p>You can also reach support through WhatsApp or voice from inside the app. For the full escalation process and response timelines, see our <a href="grievance-redressal.html">grievance redressal page</a>.</p>
@@ -107,7 +107,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="footer-legal">Suvron is a digital lending platform built by Shantilekh Global Technology Pvt. Ltd. Loans are sanctioned, disbursed and collected by our RBI-registered NBFC partners, who retain final control over credit approval and terms. Suvron does not itself lend money.</div>
+      <div class="footer-legal">Suvron is a digital lending platform built by Shantilekh Global Technology Pvt. Ltd. Loans are sanctioned, disbursed and collected by our RBI-registered NBFC partners, who retain final control over credit approval and terms. Suvron does not itself lend money. Interest rates for loans facilitated on this platform range from 70% to 150% APR depending on tenure, amount and your credit assessment; the exact APR for your offer is disclosed in your Key Fact Statement and loan agreement before you accept.</div>
       <div class="footer-copy">© 2026 Suvron. All rights reserved.</div>
     </div>
   </div>
@@ -116,13 +116,14 @@
 <!-- ===================== STICKY BOTTOM BAR ===================== -->
 <div class="sticky-bar">
   <div class="sticky-copy">Need cash? Get up to <b>₹10,000</b> instantly.</div>
-  <form class="sticky-form" onsubmit="event.preventDefault();">
+  <form class="sticky-form" onsubmit="handleApplySubmit(event)">
     <span class="sticky-fields">
-      <input type="text" placeholder="Enter your name">
-      <input type="tel" placeholder="Mobile number">
+      <input type="text" name="name" placeholder="Enter your name" required>
+      <input type="tel" name="phone" placeholder="Mobile number" pattern="[6-9][0-9]{9}" maxlength="10" required>
     </span>
     <button type="submit" class="btn btn-primary btn-sm" style="background:var(--gold);color:var(--ink);box-shadow:none;">Apply now</button>
   </form>
+  <div class="sticky-status" aria-live="polite"></div>
 </div>
 
 <script src="script.js"></script>
