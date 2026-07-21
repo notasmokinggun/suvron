@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +9,7 @@
 <link rel="icon" type="image/png" href="SUVRON%20LOGO%20WITH%20NO%20BG.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Noto+Sans+Devanagari:wght@600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -19,7 +20,7 @@
   <nav class="nav">
     <a href="index.html" class="logo">
       <img src="SUVRON%20LOGO%20WITH%20NO%20BG.png" alt="Suvron" class="logo-mark">
-      Suvron
+      <span class="logo-text">Suvron <span class="logo-hindi">स्वर्ण</span></span>
     </a>
     <div class="nav-links">
       <a href="index.html#who">Who it's for</a>
@@ -52,13 +53,13 @@
     <p>Basic details like your name and contact information, along with Aadhaar, PAN and financial data needed to assess a loan application. We also collect more sensitive information where it's relevant to underwriting: your credit score, bank statements, SMS metadata, and mobile number. None of this is collected without your explicit consent first.</p>
 
     <h2>What we use it for</h2>
-    <p>Loan processing is the main reason we ask for anything: underwriting, risk assessment, and working out the APR you're offered. The same data supports the rest of the loan lifecycle too, from KYC through sanction, disbursement, repayment and collections. Our underwriting models also use this information, alongside behavioral and financial patterns, to make lending decisions.</p>
+    <p>Loan processing is the main reason we ask for anything: underwriting, risk assessment, and working out the offer you qualify for. The same data supports the rest of the loan lifecycle too, from KYC through sanction, disbursement, repayment and collections. Our underwriting models also use this information, alongside behavioral and financial patterns, to make lending decisions.</p>
 
     <h2>How long we keep it, and who sees it</h2>
     <p>We retain data only as long as regulation or normal operations require, not indefinitely. Some information is shared with our NBFC partners, since they're the ones funding and approving the loan, and that sharing is covered under the same DPDP-compliant security standards we hold ourselves to, including encryption.</p>
 
     <h2>Your rights</h2>
-    <p>If you disagree with how your data is handled, you can stop using Suvron at any time. Any changes we make to this policy will be reflected on the website and in the app, not buried in a changelog you'd never find. For questions or to raise a concern, write to <a href="mailto:connect@suvron.com">connect@suvron.com</a>.</p>
+    <p>If you disagree with how your data is handled, you can stop using Suvron at any time. Any changes we make to this policy will be reflected on the website and in the app, not buried in a changelog you'd never find. For questions or to raise a concern, write to <a href="mailto:connect@suvron.in">connect@suvron.in</a>.</p>
 
     <h2>Compliance</h2>
     <p>This policy operates under the RBI's Fair Practices Code, the DPDP Act, and the RBI's CEPC framework for grievance redressal.</p>
@@ -104,7 +105,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="footer-legal">Suvron is a digital lending platform built by Shantilekh Global Technology Pvt. Ltd. Loans are sanctioned, disbursed and collected by our RBI-registered NBFC partners, who retain final control over credit approval and terms. Suvron does not itself lend money.</div>
+      <div class="footer-legal">Suvron is a digital lending platform built by Shantilekh Global Technology Pvt. Ltd. Loans are sanctioned, disbursed and collected by our RBI-registered NBFC partners, who retain final control over credit approval and terms. Suvron does not itself lend money. Interest rates for loans facilitated on this platform range from 70% to 150% APR depending on tenure, amount and your credit assessment; the exact APR for your offer is disclosed in your Key Fact Statement and loan agreement before you accept.</div>
       <div class="footer-copy">© 2026 Suvron. All rights reserved.</div>
     </div>
   </div>
@@ -113,13 +114,14 @@
 <!-- ===================== STICKY BOTTOM BAR ===================== -->
 <div class="sticky-bar">
   <div class="sticky-copy">Need cash? Get up to <b>₹10,000</b> instantly.</div>
-  <form class="sticky-form" onsubmit="event.preventDefault();">
+  <form class="sticky-form" onsubmit="handleApplySubmit(event)">
     <span class="sticky-fields">
-      <input type="text" placeholder="Enter your name">
-      <input type="tel" placeholder="Mobile number">
+      <input type="text" name="name" placeholder="Enter your name" required>
+      <input type="tel" name="phone" placeholder="Mobile number" pattern="[6-9][0-9]{9}" maxlength="10" required>
     </span>
     <button type="submit" class="btn btn-primary btn-sm" style="background:var(--gold);color:var(--ink);box-shadow:none;">Apply now</button>
   </form>
+  <div class="sticky-status" aria-live="polite"></div>
 </div>
 
 <script src="script.js"></script>
