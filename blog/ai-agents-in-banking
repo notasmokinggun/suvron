@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#16214A">
+<title>Your bank is quietly hiring an AI coworker | Suvron Blog</title>
+<meta name="description" content="Banking AI has moved past chatbots. Here's what agentic AI actually does inside lending decisions, how fast it's spreading, and what it means for anyone applying for a loan.">
+<link rel="canonical" href="https://suvron.in/blog/ai-agents-in-banking/">
+<meta property="og:title" content="Your bank is quietly hiring an AI coworker | Suvron Blog">
+<meta property="og:description" content="Banking AI has moved past chatbots. Here's what agentic AI actually does inside lending decisions, how fast it's spreading, and what it means for anyone applying for a loan.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://suvron.in/blog/ai-agents-in-banking/">
+<meta property="og:image" content="https://suvron.in/SUVRON%20LOGO%20WITH%20NO%20BG.png">
+<link rel="icon" type="image/png" href="../../SUVRON%20LOGO%20WITH%20NO%20BG.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;0,800;1,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Noto+Sans+Devanagari:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Your bank is quietly hiring an AI coworker",
+  "description": "Banking AI has moved past chatbots. Here's what agentic AI actually does inside lending decisions, how fast it's spreading, and what it means for anyone applying for a loan.",
+  "url": "https://suvron.in/blog/ai-agents-in-banking/",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Suvron",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://suvron.in/SUVRON%20LOGO%20WITH%20NO%20BG.png"
+    }
+  },
+  "image": "https://suvron.in/SUVRON%20LOGO%20WITH%20NO%20BG.png"
+}
+</script>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<header>
+  <nav class="nav">
+    <a href="../../index.html" class="logo">
+      <img src="../../SUVRON%20LOGO%20WITH%20NO%20BG.png" alt="Suvron" class="logo-mark">
+      <span class="logo-text">Suvron <span class="logo-hindi">स्वर्ण</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="../../about/">About</a>
+      <a href="../../calculator/">Calculator</a>
+      <a href="../">Blog</a>
+      <a href="../../index.html#who">Who it's for</a>
+      <a href="../../index.html#how">How it works</a>
+      <a href="../../index.html#faq">FAQs</a>
+    </div>
+    <div class="nav-actions">
+      <a href="../../index.html#apply" class="btn btn-ghost btn-sm">Check eligibility</a>
+      <a href="../../index.html#apply" class="btn btn-primary btn-sm">Get the app</a>
+    </div>
+    <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<div class="wrap article-hero">
+  <span class="blog-card-tag">Fintech</span>
+  <h1>Your bank is quietly hiring an AI coworker</h1>
+  <div class="article-meta">Suvron team · 6 min read</div>
+</div>
+
+<div class="wrap">
+  <article class="article-body reveal">
+
+    <p>Ask a bank about AI a few years ago and you'd get a chatbot that could reset your password and not much else. Ask the same question in 2026 and the answer looks different. Banks and NBFCs are now running software that doesn't just answer questions. It pulls your credit file, checks it against lending policy, decides whether to approve you, and only calls in a human when something falls outside the rules it's been given.</p>
+
+    <p>The industry calls this agentic AI, and the distinction from older automation is worth understanding if you've ever wondered why a loan decision that used to take days now takes minutes.</p>
+
+    <h2>Automation versus an agent</h2>
+
+    <p>Loan origination, transaction monitoring and account servicing have run on rule-based automation for years: fixed approval paths, static thresholds, high-volume processing of predictable tasks. That's not new. What's new is the layer sitting above those rules. Instead of following one fixed path, an AI agent can interpret a goal, pull data from several systems, reason through it, and take an action, then explain what it did and why.</p>
+
+    <p>In lending specifically, that shows up as agents that orchestrate credit bureau calls, collect and verify documents, run a risk score, and issue a decision end to end, escalating to a human underwriter only when the case doesn't fit standard policy. The same pattern is spreading into KYC and AML checks, customer disputes, and regulatory reporting, where an agent pulls data from multiple systems and fills in what used to be a manual template.</p>
+
+    <h2>How fast this is moving</h2>
+
+    <p>Wolters Kluwer estimates that 44% of finance teams will use agentic AI in 2026, a jump of more than 600% from where adoption stood before. KPMG puts global enterprise spend on agentic AI at roughly $50 billion in 2025 alone. Inside banking specifically, 2026 is being described by several major institutions as the year this moves from pilot projects into production, with agents wired directly into core banking, CRM, fraud and compliance systems rather than tested in isolation.</p>
+
+    <h2>The part that should give you pause</h2>
+
+    <p>Speed isn't the whole story. A 2025 EY review found that while most financial services firms disclose their use of AI to customers, controls in other areas lag behind: roughly 30% of the firms studied had limited or no controls to check their AI for bias. A separate industry study by Infosys found that only 2% of companies had what it considered adequate AI guardrails in place, and 95% of respondents had experienced at least one AI-related incident, ranging from privacy issues to outright inaccurate decisions.</p>
+
+    <p>That gap between adoption speed and governance is exactly why regulators have started drawing firmer lines around where agentic AI is allowed to act on its own and where a human has to stay in the loop, particularly for anything that counts as a regulated credit decision.</p>
+
+    <h2>What it means if you're the one applying for a loan</h2>
+
+    <p>For a borrower, the practical upside is real: faster eligibility checks, fewer branch visits, decisions that used to take a week now taking minutes. The thing worth asking any lender, digital or otherwise, is what happens when the automated decision gets something wrong. A well-run lender keeps a human reachable for exactly that scenario, with a defined escalation path rather than a support queue that goes nowhere. That's a fair question to ask before you accept any offer, automated or not.</p>
+
+  </article>
+
+  <div class="article-cta reveal">
+    <p>Curious what a real, upfront loan offer looks like?</p>
+    <a href="../../index.html#apply" class="btn btn-primary btn-sm">Check your eligibility</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="../../index.html" class="logo">
+          <img src="../../SUVRON%20LOGO%20WITH%20NO%20BG.png" alt="Suvron" class="logo-mark">
+          Suvron
+        </a>
+        <p>Short-term loans for young India, built by Shantilekh Global Technology Pvt. Ltd. in partnership with RBI-registered NBFC lending partners.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Product</h5>
+        <ul>
+          <li><a href="../../index.html#how">How it works</a></li>
+          <li><a href="../../index.html#why">Why Suvron</a></li>
+          <li><a href="../../index.html#trust">Trust &amp; safety</a></li>
+          <li><a href="../../calculator/">Loan calculator</a></li>
+          <li><a href="../">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="../../about/">About us</a></li>
+          <li><a href="../../about/#careers">Careers</a></li>
+          <li><a href="../../contact/">Contact us</a></li>
+          <li><a href="../../responsible-lending/">Responsible lending</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Legal</h5>
+        <ul>
+          <li><a href="../../privacy-policy/">Privacy policy</a></li>
+          <li><a href="../../terms/">Terms of use</a></li>
+          <li><a href="../../grievance-redressal/">Grievance redressal</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-legal">Suvron is a digital lending platform built by Shantilekh Global Technology Pvt. Ltd. Loans are sanctioned, disbursed and collected by our RBI-registered NBFC partners, who retain final control over credit approval and terms. Suvron does not itself lend money. Interest rates for loans facilitated on this platform range from 70% to 150% APR depending on tenure, amount and your credit assessment; the exact APR for your offer is disclosed in your Key Fact Statement and loan agreement before you accept.</div>
+      <div class="footer-copy">© 2026 Suvron. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-bar">
+  <div class="sticky-copy">Need cash? Get up to <b>₹10,000</b> instantly.</div>
+  <form class="sticky-form" onsubmit="handleApplySubmit(event)">
+    <span class="sticky-fields">
+      <input type="text" name="name" placeholder="Enter your name" required>
+      <input type="tel" name="phone" placeholder="Mobile number" pattern="[6-9][0-9]{9}" maxlength="10" required>
+    </span>
+    <button type="submit" class="btn btn-primary btn-sm" style="background:var(--gold);color:var(--ink);box-shadow:none;">Apply now</button>
+  </form>
+  <div class="sticky-status" aria-live="polite"></div>
+</div>
+
+<script src="../../script.js"></script>
+
+</body>
+</html>
