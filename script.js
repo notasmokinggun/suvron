@@ -22,7 +22,14 @@
     if(progressBar) progressBar.style.width = pct + '%';
 
     if(headerEl){
-      headerEl.classList.toggle('scrolled', scrollY > 24);
+      // Hysteresis: turn on above 40px, only turn back off below 12px.
+      // A single shared threshold made the header flip on and off rapidly
+      // whenever the page sat right at that scroll position.
+      if(scrollY > 40){
+        headerEl.classList.add('scrolled');
+      } else if(scrollY < 12){
+        headerEl.classList.remove('scrolled');
+      }
     }
 
     if(phoneMock && heroEl && !prefersReducedMotion){
@@ -70,68 +77,33 @@
   navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click', closeMobileNav));
 
 // ============================================================
-// BACKEND: Firestore-backed form submissions.
+// BACKEND: plain mailto form submissions. No API, no key, no
+// third-party service and nothing that can expire.
 //
-// Every form on the site (contact form, "check eligibility" form,
-// the sticky "Apply now" bar on all pages) writes to Firebase
-// Firestore, so a real record lands in your database instead of
-// just showing a success message and going nowhere.
+// Every form on the site builds a mailto: link from what the
+// person typed, then hands it to their own device. Their phone or
+// computer opens whatever mail app is already signed in there
+// (Gmail, Outlook, the default Mail app, and so on) with the
+// recipient, subject and body already filled in. The person taps
+// send from their own inbox, so the email is really sent by their
+// mail provider, not by us, which is why it reliably lands: there
+// is no API key to expire, no sending domain to get flagged as
+// spam and nothing on our end that can go down.
 //
-// TO GO LIVE: create a Firebase project (console.firebase.google.com),
-// enable Firestore in production mode, then paste your web app's
-// config below in place of the placeholder values. Suggested
-// Firestore security rules so the public site can only create
-// records, never read/edit/delete them:
+// The one real tradeoff is that it needs a mail app to be signed
+// in on the person's device, and it needs one extra tap from them
+// to hit send. If that mail app is missing, the browser usually
+// does nothing, so every status message below also spells out the
+// destination address as a manual fallback.
 //
-//   rules_version = '2';
-//   service cloud.firestore {
-//     match /databases/{database}/documents {
-//       match /{collection}/{doc} {
-//         allow create: if true;
-//         allow read, update, delete: if false;
-//       }
-//     }
-//   }
-//
-// Until real values are pasted in below, forms will show an honest
-// "not connected yet, email/call us directly" message instead of a
-// fake success message.
+// Each form routes to its own inbox so replies stay sorted without
+// any extra tooling:
+//   - "Check eligibility" form (index.html)   -> eligibility@suvron.in
+//   - "Apply now" sticky bar (every page)     -> contact@suvron.in
+//   - Contact page message form (contact.html) -> connect@suvron.in
+// To change any destination, edit the address in the matching
+// function below. Nothing else in the site needs to change.
 // ============================================================
-const FIREBASE_CONFIG = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT.appspot.com",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
-};
-
-function isFirebaseConfigured(){
-  return FIREBASE_CONFIG.apiKey && FIREBASE_CONFIG.apiKey !== "YOUR_API_KEY";
-}
-
-let _dbPromise = null;
-async function getFirestoreDb(){
-  if(_dbPromise) return _dbPromise;
-  _dbPromise = (async () => {
-    const { initializeApp } = await import("https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js");
-    const { getFirestore, collection, addDoc, serverTimestamp } =
-      await import("https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js");
-    const app = initializeApp(FIREBASE_CONFIG);
-    const db = getFirestore(app);
-    return { db, collection, addDoc, serverTimestamp };
-  })();
-  return _dbPromise;
-}
-
-async function submitToFirestore(collectionName, data){
-  const { db, collection, addDoc, serverTimestamp } = await getFirestoreDb();
-  await addDoc(collection(db, collectionName), {
-    ...data,
-    page: window.location.pathname,
-    submittedAt: serverTimestamp()
-  });
-}
 
 function setStatus(el, text, kind){
   if(!el) return;
@@ -140,41 +112,58 @@ function setStatus(el, text, kind){
   el.classList.add(kind);
 }
 
-// Contact form (contact.html)
-async function handleContactSubmit(event){
+function buildMailto(to, subject, bodyLines){
+  const body = bodyLines.join('\n');
+  return `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
+function openMailto(mailtoUrl){
+  // A short-lived hidden link click is the most reliable way to trigger
+  // the mail app across desktop and mobile browsers alike.
+  const a = document.createElement('a');
+  a.href = mailtoUrl;
+  a.style.display = 'none';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+
+// Contact page message form (contact.html) -> connect@suvron.in
+function handleContactSubmit(event){
   event.preventDefault();
   const form = event.target;
   const status = document.getElementById('formStatus');
-  const submitBtn = form.querySelector('button[type="submit"]');
   const data = Object.fromEntries(new FormData(form).entries());
 
-  if(!isFirebaseConfigured()){
-    setStatus(status, "This form isn't connected yet. Email us directly at connect@suvron.in in the meantime.", 'error');
+  if(!data.name || !data.email || !data.subject || !data.message){
+    setStatus(status, 'Fill in every field so we know how to help.', 'error');
     return;
   }
 
-  setStatus(status, 'Sending...', 'pending');
-  submitBtn.disabled = true;
-  try{
-    await submitToFirestore('contact_messages', data);
-    setStatus(status, "Message sent. We'll get back to you soon.", 'success');
-    form.reset();
-  } catch(err){
-    setStatus(status, 'Something went wrong. Try emailing connect@suvron.in instead.', 'error');
-  } finally {
-    submitBtn.disabled = false;
-  }
+  const mailto = buildMailto('connect@suvron.in', `Suvron contact form: ${data.subject}`, [
+    'Form: Contact page message form',
+    `Name: ${data.name}`,
+    `Email: ${data.email}`,
+    `Subject: ${data.subject}`,
+    '',
+    data.message
+  ]);
+
+  openMailto(mailto);
+  setStatus(status, "Your email app should now be open with this filled in. Hit send there to reach us. If nothing opened, email us directly at connect@suvron.in.", 'success');
+  form.reset();
 }
 
-// "Apply now" forms: the hero mini-form (#apply on index.html) and the
-// sticky bottom bar form repeated on every page.
-async function handleApplySubmit(event){
+// "Apply now" forms: the hero "check eligibility" mini-form (#apply on
+// index.html) goes to eligibility@suvron.in, and the sticky bottom bar
+// "Apply now" form repeated on every page goes to contact@suvron.in.
+function handleApplySubmit(event){
   event.preventDefault();
   const form = event.target;
   const isSticky = form.classList.contains('sticky-form');
 
   // On small screens the sticky bar's inputs are hidden (single tappable
-  // CTA), so there's nothing to submit yet — send the person to the real
+  // CTA), so there is nothing to submit yet. Send the person to the real
   // form instead of silently doing nothing.
   if(isSticky){
     const fieldsVisible = form.querySelector('.sticky-fields') &&
@@ -201,25 +190,24 @@ async function handleApplySubmit(event){
     return;
   }
 
-  if(!isFirebaseConfigured()){
-    setStatus(status, "Applications aren't connected to our systems yet — email connect@suvron.in with your name and number and we'll follow up manually.", 'error');
-    return;
-  }
+  const destination = isSticky ? 'contact@suvron.in' : 'eligibility@suvron.in';
+  const formLabel = isSticky ? 'Apply now form (sticky bar, all pages)' : 'Check eligibility form (main page)';
+  const subject = isSticky ? 'Suvron: new Apply now request' : 'Suvron: new eligibility check request';
+
+  const mailto = buildMailto(destination, subject, [
+    `Form: ${formLabel}`,
+    `Name: ${data.name}`,
+    `Phone: ${data.phone}`,
+    `Page: ${window.location.pathname}`
+  ]);
+
+  openMailto(mailto);
 
   const originalLabel = submitBtn.textContent;
-  setStatus(status, 'Submitting...', 'pending');
-  submitBtn.disabled = true;
-  try{
-    await submitToFirestore('loan_applications', data);
-    setStatus(status, `Thanks, ${data.name.split(' ')[0]} — we've got your details and will call you within 24 hours.`, 'success');
-    submitBtn.textContent = 'Request received';
-    form.reset();
-  } catch(err){
-    setStatus(status, 'Something went wrong. Try emailing connect@suvron.in instead.', 'error');
-    submitBtn.textContent = originalLabel;
-  } finally {
-    submitBtn.disabled = false;
-  }
+  setStatus(status, `Thanks, ${data.name.split(' ')[0]}. Your email app should now be open, ready to send to us. If nothing opened, email ${destination} with your name and number.`, 'success');
+  submitBtn.textContent = 'Request opened in email';
+  form.reset();
+  setTimeout(() => { submitBtn.textContent = originalLabel; }, 4000);
 }
 
 // Copy-to-clipboard fallback for mailto buttons/links, since mailto: does
@@ -238,6 +226,6 @@ document.addEventListener('click', async (event) => {
     requestAnimationFrame(() => toast.classList.add('in'));
     setTimeout(() => { toast.classList.remove('in'); setTimeout(() => toast.remove(), 300); }, 2600);
   } catch(err){
-    // Clipboard API unavailable — the mailto: link itself still fires as normal.
+    // Clipboard API unavailable, so the mailto: link itself still fires as normal.
   }
 });

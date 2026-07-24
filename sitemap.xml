@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://suvron.in/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://suvron.in/about/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://suvron.in/contact/</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://suvron.in/calculator/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://suvron.in/blog/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://suvron.in/blog/rbi-microfinance-rule-change/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://suvron.in/blog/ai-agents-in-banking/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://suvron.in/blog/gen-z-digital-loans-vs-banks/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://suvron.in/blog/best-instant-loan-apps-india/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://suvron.in/blog/best-finance-apps-gen-z-2026/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://suvron.in/responsible-lending/</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://suvron.in/privacy-policy/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://suvron.in/terms/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://suvron.in/grievance-redressal/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+</urlset>
