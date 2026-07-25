@@ -69,12 +69,14 @@
   // Mobile burger toggle
   const burger = document.querySelector('.burger');
   const navLinks = document.querySelector('.nav-links');
-  function closeMobileNav(){ navLinks.classList.remove('open'); }
-  function openMobileNav(){ navLinks.classList.add('open'); }
+  const headerForMenu = document.querySelector('header');
+  function closeMobileNav(){ navLinks.classList.remove('open'); headerForMenu.classList.remove('menu-open'); }
+  function openMobileNav(){ navLinks.classList.add('open'); headerForMenu.classList.add('menu-open'); }
   burger.addEventListener('click',()=>{
     navLinks.classList.contains('open') ? closeMobileNav() : openMobileNav();
   });
   navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click', closeMobileNav));
+  document.querySelectorAll('.nav-actions a').forEach(a=>a.addEventListener('click', closeMobileNav));
 
 // ============================================================
 // BACKEND: plain mailto form submissions. No API, no key, no
