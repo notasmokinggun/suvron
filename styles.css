@@ -330,8 +330,14 @@
 
   /* ===== FAQ ===== */
   .faq-layout{max-width:920px;margin:0 auto;display:grid;grid-template-columns:190px 1fr;gap:28px;align-items:start;}
-  .faq-illustration{position:sticky;top:110px;display:flex;justify-content:center;padding-top:8px;}
-  .faq-illustration svg{width:100%;max-width:180px;height:auto;}
+  .faq-illustration{position:sticky;top:110px;}
+  .faq-mascot{
+    background:linear-gradient(160deg,var(--sky),var(--white));
+    border:1px solid var(--sky-deep);border-radius:22px;
+    padding:28px 20px;text-align:center;
+  }
+  .faq-mascot-emoji{font-size:44px;display:block;margin-bottom:14px;}
+  .faq-mascot p{font-size:13px;color:var(--ink-soft);line-height:1.5;margin:0;font-weight:600;}
   .faq-list{display:flex;flex-direction:column;gap:12px;}
   .faq-item{
     background:var(--white);border-radius:var(--radius-sm);
