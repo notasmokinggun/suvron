@@ -213,8 +213,62 @@ function handleApplySubmit(event){
 // Copy-to-clipboard fallback for mailto buttons/links, since mailto: does
 // nothing visible on devices with no default mail app configured (common
 // on mobile browsers and in-app browsers).
+// Sliding blog gallery: builds dot indicators, keeps them in sync while
+// scrolling, and gently auto-advances until the person touches it.
+(function(){
+  const gallery = document.getElementById('blogGallery');
+  const dotsWrap = document.getElementById('galleryDots');
+  if(!gallery || !dotsWrap) return;
+
+  const slides = Array.from(gallery.children);
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+    if(i === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => {
+      slides[i].scrollIntoView({behavior:'smooth', block:'nearest', inline:'start'});
+    });
+    dotsWrap.appendChild(dot);
+  });
+  const dots = Array.from(dotsWrap.children);
+
+  function syncActiveDot(){
+    const galleryLeft = gallery.getBoundingClientRect().left;
+    let closest = 0, closestDist = Infinity;
+    slides.forEach((slide, i) => {
+      const dist = Math.abs(slide.getBoundingClientRect().left - galleryLeft);
+      if(dist < closestDist){ closestDist = dist; closest = i; }
+    });
+    dots.forEach((d, i) => d.classList.toggle('active', i === closest));
+  }
+  gallery.addEventListener('scroll', () => {
+    window.requestAnimationFrame(syncActiveDot);
+  }, {passive:true});
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let autoplayTimer = null;
+  function startAutoplay(){
+    if(prefersReducedMotion) return;
+    autoplayTimer = setInterval(() => {
+      const nextScroll = gallery.scrollLeft + slides[0].offsetWidth + 16;
+      if(nextScroll >= gallery.scrollWidth - gallery.clientWidth - 4){
+        gallery.scrollTo({left:0, behavior:'smooth'});
+      } else {
+        gallery.scrollBy({left: slides[0].offsetWidth + 16, behavior:'smooth'});
+      }
+    }, 3800);
+  }
+  function stopAutoplay(){
+    if(autoplayTimer){ clearInterval(autoplayTimer); autoplayTimer = null; }
+  }
+  startAutoplay();
+  ['pointerdown','touchstart','wheel'].forEach(evt => {
+    gallery.addEventListener(evt, stopAutoplay, {passive:true, once:true});
+  });
+  dotsWrap.addEventListener('click', stopAutoplay);
+})();
+
 document.addEventListener('click', async (event) => {
-  const link = event.target.closest('a[href^="mailto:"]');
   if(!link) return;
   const email = link.getAttribute('href').replace('mailto:', '').split('?')[0];
   try{
