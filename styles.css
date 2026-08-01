@@ -838,7 +838,7 @@
     margin:2px 0 8px;padding:6px;
   }
   .nav-drop:hover .nav-drop-menu{display:none;}
-  .nav-drop.open .nav-drop-menu{display:flex;flex-direction:column;}
+  .nav-drop.open .nav-drop-menu{display:flex;flex-direction:column;transform:none;}
   .nav-drop.open .nav-drop-trigger{color:var(--blue-deep);}
   .btn-complaint{order:-1;}
 }
