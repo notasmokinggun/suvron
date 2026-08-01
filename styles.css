@@ -799,3 +799,75 @@
     .article-hero h1{font-size:27px;}
     .article-body p{font-size:15px;}
   }
+
+/* ===================== NAV: RESOURCES DROPDOWN + COMPLAINT CTA ===================== */
+.nav-drop{position:relative;}
+.nav-drop-trigger{
+  display:flex;align-items:center;gap:5px;font-weight:600;font-size:13.8px;color:var(--ink-soft);
+  background:none;border:none;cursor:pointer;padding:0;font-family:'Inter',sans-serif;transition:color .15s;
+}
+.nav-drop-trigger:hover{color:var(--blue-deep);}
+.nav-drop-trigger .chev{transition:transform .18s ease;flex-shrink:0;}
+.nav-drop.open .nav-drop-trigger .chev,.nav-drop:hover .nav-drop-trigger .chev{transform:rotate(180deg);}
+.nav-drop-menu{
+  position:absolute;top:calc(100% + 16px);left:50%;transform:translateX(-50%) translateY(4px);
+  min-width:250px;background:#fff;border:1px solid var(--sky-deep);border-radius:16px;
+  box-shadow:0 20px 44px -18px rgba(22,33,74,0.28);padding:8px;
+  opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .16s ease, transform .16s ease, visibility .16s;
+  z-index:60;
+}
+.nav-drop:hover .nav-drop-menu,.nav-drop.open .nav-drop-menu{
+  opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0);
+}
+.nav-drop-item{display:flex;flex-direction:column;gap:1px;padding:10px 12px;border-radius:10px;transition:background .12s;}
+.nav-drop-item:hover{background:var(--sky);}
+.ndi-title{font-weight:700;font-size:13.6px;color:var(--ink);font-family:'Plus Jakarta Sans',sans-serif;}
+.ndi-sub{font-size:11.5px;color:var(--ink-soft);font-weight:500;}
+.btn-complaint{background:#fff;color:var(--gold-deep);border:1.5px solid var(--gold);}
+.btn-complaint:hover{background:var(--gold);color:#fff;border-color:var(--gold);transform:translateY(-2px);}
+
+@media(max-width:980px){
+  .nav-drop-trigger{
+    width:100%;justify-content:space-between;padding:13px 2px;font-size:15.5px;
+    border-bottom:1px solid rgba(22,33,74,0.06);color:var(--ink);
+  }
+  .nav-drop-menu{
+    position:static;transform:none;opacity:1;visibility:visible;pointer-events:auto;
+    display:none;box-shadow:none;border:none;border-radius:10px;background:var(--sky);
+    margin:2px 0 8px;padding:6px;
+  }
+  .nav-drop:hover .nav-drop-menu{display:none;}
+  .nav-drop.open .nav-drop-menu{display:flex;flex-direction:column;}
+  .nav-drop.open .nav-drop-trigger{color:var(--blue-deep);}
+  .btn-complaint{order:-1;}
+}
+
+/* ===================== GRIEVANCE PAGE: LANGUAGE SWITCHER ===================== */
+.lang-switch{
+  display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;
+  margin:18px 0 6px;
+}
+.lang-switch a{
+  font-family:'Inter',sans-serif;font-weight:600;font-size:13px;color:var(--ink-soft);
+  padding:6px 13px;border-radius:20px;border:1.5px solid var(--sky-deep);background:#fff;
+  transition:all .15s;
+}
+.lang-switch a:hover{border-color:var(--blue);color:var(--blue-deep);}
+.lang-switch a.active{background:var(--ink);border-color:var(--ink);color:#fff;}
+
+/* ===================== GRIEVANCE PAGE: FULL POLICY PROSE BLOCK ===================== */
+.policy-meta{
+  display:flex;flex-wrap:wrap;gap:10px 28px;font-size:12.5px;color:var(--ink-soft);
+  font-family:'IBM Plex Mono',monospace;margin:0 0 28px;padding-bottom:20px;border-bottom:1px solid var(--sky-deep);
+}
+.policy-meta b{color:var(--ink);font-weight:600;}
+.prose h3{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:17px;color:var(--ink);margin:26px 0 8px;}
+.prose ul{margin:0 0 16px;padding-left:20px;}
+.prose ul li{color:var(--ink-soft);line-height:1.7;margin-bottom:4px;}
+
+/* Fallback font stacks so Tamil/Telugu/Kannada render even before webfont loads */
+html[lang="ta"] body,html[lang="ta"] h1,html[lang="ta"] h2,html[lang="ta"] h3{font-family:'Noto Sans Tamil','Inter',sans-serif;}
+html[lang="te"] body,html[lang="te"] h1,html[lang="te"] h2,html[lang="te"] h3{font-family:'Noto Sans Telugu','Inter',sans-serif;}
+html[lang="kn"] body,html[lang="kn"] h1,html[lang="kn"] h2,html[lang="kn"] h3{font-family:'Noto Sans Kannada','Inter',sans-serif;}
+html[lang="hi"] body,html[lang="hi"] h1,html[lang="hi"] h2,html[lang="hi"] h3{font-family:'Noto Sans Devanagari','Inter',sans-serif;}

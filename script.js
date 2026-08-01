@@ -142,7 +142,7 @@ function handleContactSubmit(event){
     return;
   }
 
-  const mailto = buildMailto('connect@suvron.in', `Suvron contact form: ${data.subject}`, [
+  const mailto = buildMailto('connect@suvron.in', `Suvron Money contact form: ${data.subject}`, [
     'Form: Contact page message form',
     `Name: ${data.name}`,
     `Email: ${data.email}`,
@@ -194,7 +194,7 @@ function handleApplySubmit(event){
 
   const destination = isSticky ? 'contact@suvron.in' : 'eligibility@suvron.in';
   const formLabel = isSticky ? 'Apply now form (sticky bar, all pages)' : 'Check eligibility form (main page)';
-  const subject = isSticky ? 'Suvron: new Apply now request' : 'Suvron: new eligibility check request';
+  const subject = isSticky ? 'Suvron Money: new Apply now request' : 'Suvron Money: new eligibility check request';
 
   const mailto = buildMailto(destination, subject, [
     `Form: ${formLabel}`,
@@ -285,3 +285,22 @@ document.addEventListener('click', async (event) => {
     // Clipboard API unavailable, so the mailto: link itself still fires as normal.
   }
 });
+
+// ===================== NAV: "Resources" dropdown =====================
+(function(){
+  var triggers = document.querySelectorAll('.nav-drop-trigger');
+  triggers.forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      var parent = btn.closest('.nav-drop');
+      var wasOpen = parent.classList.contains('open');
+      document.querySelectorAll('.nav-drop.open').forEach(function(d){ d.classList.remove('open'); });
+      if(!wasOpen) parent.classList.add('open');
+    });
+  });
+  document.addEventListener('click', function(e){
+    if(!e.target.closest('.nav-drop')){
+      document.querySelectorAll('.nav-drop.open').forEach(function(d){ d.classList.remove('open'); });
+    }
+  });
+})();
