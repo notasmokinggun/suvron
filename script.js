@@ -304,3 +304,33 @@ document.addEventListener('click', async (event) => {
     }
   });
 })();
+
+// ===================== Skeleton loader (deliberate ~1s reveal) =====================
+// No-ops entirely if a page doesn't have the overlay markup.
+(function(){
+  var overlay = document.getElementById('skeletonOverlay');
+  if(!overlay) return;
+  var MIN_DISPLAY_MS = 1000;
+  var start = Date.now();
+
+  function reveal(){
+    var elapsed = Date.now() - start;
+    var wait = Math.max(MIN_DISPLAY_MS - elapsed, 0);
+    setTimeout(function(){
+      overlay.classList.add('is-hidden');
+      document.body.classList.remove('is-loading');
+      overlay.addEventListener('transitionend', function handler(){
+        overlay.removeEventListener('transitionend', handler);
+        overlay.remove();
+      });
+      // Fallback in case transitionend doesn't fire (e.g. display:none edge cases)
+      setTimeout(function(){ if(overlay.parentNode) overlay.remove(); }, 500);
+    }, wait);
+  }
+
+  if(document.readyState === 'complete'){
+    reveal();
+  } else {
+    window.addEventListener('load', reveal);
+  }
+})();
