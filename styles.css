@@ -522,11 +522,15 @@
     .stats-grid{grid-template-columns:1fr 1fr;}
     .stat:nth-child(2){border-left:1px solid rgba(255,255,255,0.14);}
     .stat:nth-child(3){grid-column:1/-1;border-left:none;border-top:1px solid rgba(255,255,255,0.14);padding-top:16px;margin-top:10px;}
+    .logo{font-size:21px;gap:6px;}
+    .logo-hindi{font-size:15px;}
   }
   @media(max-width:640px){
     .wrap{padding:0 18px;}
     section{padding:56px 0;}
-    .nav{padding:14px 18px;}
+    .nav{padding:14px 16px;}
+    .logo{font-size:18px;gap:5px;}
+    .logo-hindi{font-size:13px;}
     .who-grid,.feat-grid,.testi-grid{grid-template-columns:1fr;}
     .section-head{margin-bottom:36px;}
     .section-head h2{font-size:27px;}
@@ -576,6 +580,8 @@
     .faq-illustration{display:none;}
   }
   @media(max-width:390px){
+    .nav{padding:13px 14px;}
+    .logo{font-size:16px;gap:5px;}
     .hero-copy h1{font-size:27px;}
     .hero-art{height:350px;}
     .phone-mock{transform:translate(-50%, calc(-50% + var(--drift, 0px))) scale(0.56);}
