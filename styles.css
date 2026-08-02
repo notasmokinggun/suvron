@@ -30,7 +30,7 @@
     overflow-x:hidden;
     width:100%;
   }
-  body, p, li, .eyebrow, a, h1, h2, h3, h4{overflow-wrap:anywhere;word-break:break-word;}
+  body, p, li, .eyebrow, a, h1, h2, h3, h4{overflow-wrap:break-word;word-break:normal;}
   img{max-width:100%;height:auto;}
   h1,h2,h3,h4{
     font-family:'Plus Jakarta Sans',sans-serif;
