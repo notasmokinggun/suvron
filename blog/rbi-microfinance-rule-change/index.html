@@ -38,7 +38,20 @@
 }
 </script>
 </head>
-<body>
+<body class="is-loading">
+<div class="skeleton-overlay" id="skeletonOverlay" aria-hidden="true">
+  <div class="skel-nav">
+    <div class="skel skel-logo"></div>
+    <div class="skel-navlinks">
+      <div class="skel"></div><div class="skel"></div><div class="skel"></div><div class="skel"></div><div class="skel"></div>
+    </div>
+  </div>
+  <div class="skel-hero left">
+    <div class="skel skel-tag"></div>
+    <div class="skel skel-title lg"></div>
+    <div class="skel skel-meta"></div>
+  </div>
+</div>
 <div class="scroll-progress" id="scrollProgress"></div>
 
 <header>
