@@ -868,12 +868,39 @@
 .lang-switch a:hover{border-color:var(--blue);color:var(--blue-deep);}
 .lang-switch a.active{background:var(--ink);border-color:var(--ink);color:#fff;}
 
+/* Lead paragraphs used outside .hero-copy (about/blog/calculator/grievance heroes) had no font-size at all */
+.lead{font-size:17px;line-height:1.6;}
+@media(max-width:640px){
+  .lead{font-size:15px;line-height:1.55;}
+}
+
+/* GRO page: stat labels here are full sentences, not 2-3 word tags like elsewhere,
+   so the shared 2-up/50%-width mobile layout crushed them. Stack + left-align instead. */
+@media(max-width:780px){
+  .stats-grid-gro{grid-template-columns:1fr;gap:0;}
+  .stats-grid-gro .stat{
+    text-align:left;border-left:none;border-top:1px solid rgba(255,255,255,0.14);
+    padding:16px 4px;
+  }
+  .stats-grid-gro .stat:first-child{border-top:none;padding-top:0;}
+  .stats-grid-gro .stat-num{font-size:26px;}
+  .stats-grid-gro .stat-lbl{font-size:13.5px;line-height:1.5;margin-top:4px;}
+}
+
+/* Escalate-here contact card: email + phone were a single line with a raw " · ",
+   which could leave the separator stranded on its own line when it wrapped. */
+.contact-links{display:flex;align-items:center;flex-wrap:wrap;gap:4px 8px;}
+.contact-links .dot-sep{color:var(--ink-soft);}
+
 /* ===================== GRIEVANCE PAGE: FULL POLICY PROSE BLOCK ===================== */
 .policy-meta{
   display:flex;flex-wrap:wrap;gap:10px 28px;font-size:12.5px;color:var(--ink-soft);
   font-family:'IBM Plex Mono',monospace;margin:0 0 28px;padding-bottom:20px;border-bottom:1px solid var(--sky-deep);
 }
 .policy-meta b{color:var(--ink);font-weight:600;}
+@media(max-width:640px){
+  .policy-meta{flex-direction:column;gap:8px;font-size:12px;}
+}
 .prose h3{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:17px;color:var(--ink);margin:26px 0 8px;}
 .prose ul{margin:0 0 16px;padding-left:20px;}
 .prose ul li{color:var(--ink-soft);line-height:1.7;margin-bottom:4px;}
