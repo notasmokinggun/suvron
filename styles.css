@@ -916,15 +916,28 @@ body.is-loading{overflow:hidden;}
 .skeleton-overlay{
   position:fixed;inset:0;z-index:9999;background:var(--cloud);
   display:flex;flex-direction:column;align-items:center;
-  padding:24px 20px 40px;overflow-y:auto;overflow-x:hidden;
+  padding:0 20px 40px;overflow-y:auto;overflow-x:hidden;
   opacity:1;transition:opacity .4s ease;
 }
 .skeleton-overlay.is-hidden{opacity:0;pointer-events:none;}
+
+/* Full-bleed header bar, mirrors the real sticky <header>: background, border,
+   and the same padding breakpoints so it doesn't read as "too tight" on desktop. */
+.skel-header-bar{
+  width:calc(100% + 40px);margin:0 -20px 56px;
+  background:rgba(250,251,255,0.92);
+  border-bottom:1px solid rgba(22,33,74,0.06);
+  padding:16px 28px;
+  display:flex;justify-content:center;
+}
 .skel-nav{
   width:100%;max-width:1180px;display:flex;align-items:center;justify-content:space-between;
-  padding:8px 8px 0;margin-bottom:56px;
 }
-.skel-navlinks{display:flex;gap:18px;}
+.skel-navlinks{display:flex;align-items:center;gap:18px;}
+.skel-nav-actions{display:flex;align-items:center;gap:10px;}
+.skel-nav-actions .skel{width:96px;height:34px;border-radius:999px;}
+.skel-burger{display:none;width:22px;height:16px;border-radius:4px;}
+
 .skel-hero{width:100%;max-width:560px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;}
 .skel-hero.left{align-items:flex-start;text-align:left;max-width:640px;}
 .skel-stats{width:100%;max-width:900px;display:flex;gap:20px;margin-top:64px;}
@@ -934,7 +947,7 @@ body.is-loading{overflow:hidden;}
   border-radius:8px;
   animation:skel-shimmer 1.4s ease infinite;
 }
-.skel-logo{width:130px;height:26px;border-radius:6px;}
+.skel-logo{width:150px;height:34px;border-radius:6px;}
 .skel-navlinks .skel{width:60px;height:14px;}
 .skel-pill{width:170px;height:26px;border-radius:999px;}
 .skel-tag{width:80px;height:22px;border-radius:999px;}
@@ -959,15 +972,27 @@ body.is-loading{overflow:hidden;}
   100%{background-position:0 0;}
 }
 
+/* Match the real nav's extra breathing room on laptop/desktop */
+@media(min-width:981px){
+  .skel-header-bar{padding:20px 40px;}
+  .skel-nav{max-width:1280px;}
+}
+@media(min-width:1280px){
+  .skel-header-bar{padding:22px 56px;}
+  .skel-nav{max-width:1360px;}
+}
+
+/* Below 980px the real header collapses to logo + burger only, so the skeleton does too */
 @media(max-width:980px){
+  .skel-navlinks,.skel-nav-actions{display:none;}
+  .skel-burger{display:block;}
   .skel-hero-split{flex-direction:column;gap:32px;}
   .skel-hero-split .skel-copy{align-items:center;text-align:center;}
   .skel-phone{width:200px;height:320px;}
 }
 
 @media(max-width:640px){
-  .skel-navlinks{display:none;}
-  .skel-nav{margin-bottom:40px;}
+  .skel-header-bar{padding:14px 18px;}
   .skel-stats{flex-direction:column;margin-top:40px;}
   .skel-stat{height:56px;}
   .skel-phone{width:160px;height:260px;}
