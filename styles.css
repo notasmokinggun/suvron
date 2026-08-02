@@ -97,6 +97,7 @@
   .logo-text{display:flex;align-items:baseline;gap:4px;white-space:nowrap;}
   .logo-hindi{font-family:'Noto Sans Devanagari',sans-serif;font-weight:700;font-size:15px;color:var(--ink-soft);}
   .logo-mark{display:block;height:1em;width:auto;flex-shrink:0;}
+  @supports (height: 1cap){ .logo-mark{height:1cap;} }
   .nav-links{display:flex;align-items:center;gap:20px;margin-left:22px;flex-wrap:nowrap;}
   .nav-links a{font-weight:600;font-size:13.8px;color:var(--ink-soft);transition:color .15s;white-space:nowrap;}
   .nav-links a:hover{color:var(--blue-deep);}
