@@ -118,6 +118,36 @@
   .burger{display:none;background:none;padding:11px 8px;min-width:44px;min-height:44px;}
   .burger span{display:block;width:22px;height:2px;background:var(--ink);margin:5px 0;border-radius:2px;}
 
+  /* The full nav (logo + 5 links + 3 buttons, with generous breathing-room
+     gaps) needs roughly 1550-1600px of real width to fit without overflowing.
+     Collapsing it to the burger menu at only 980px left a huge dead zone
+     covering nearly every laptop (13"/14"/16" logical widths run
+     1440-1728px) and iPad, where it just overflowed the viewport. Give it
+     a threshold wide enough that only genuinely spacious desktop windows
+     get the full inline nav; everything laptop-sized and below gets the
+     burger menu, which is already verified to fit safely down to ~320px. */
+  @media(max-width:1650px){
+    .nav{flex-wrap:wrap;row-gap:0;}
+    .logo{order:1;font-size:21px;gap:6px;}
+    .logo-hindi{font-size:15px;}
+    .burger{order:2;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+    .nav-links{display:none;order:3;flex-basis:100%;margin-left:0;}
+    .nav-links.open{
+      display:flex;flex-direction:column;
+      padding:14px 0 6px;gap:2px;
+      border-top:1px solid rgba(22,33,74,0.06);
+    }
+    .nav-links a{padding:13px 2px;font-size:15.5px;border-bottom:1px solid rgba(22,33,74,0.06);}
+    .nav-links a:last-child{border-bottom:none;}
+    .nav-actions{display:none;order:4;flex-basis:100%;margin-left:0;}
+    header.menu-open .nav-actions{
+      display:flex;flex-direction:column;align-items:stretch;gap:10px;
+      padding:10px 0 calc(18px + env(safe-area-inset-bottom));
+    }
+    .nav-actions .btn-sm{width:100%;justify-content:center;padding:13px 16px;font-size:14.5px;}
+    header.menu-open{box-shadow:0 12px 24px -12px rgba(22,33,74,0.18);}
+  }
+
   /* ===== Hero ===== */
   .hero{
     position:relative;padding:76px 0 60px;overflow:hidden;
@@ -501,29 +531,9 @@
     .trust-banner{grid-template-columns:1fr;}
     .refer-banner{grid-template-columns:1fr;padding:40px 30px;}
     .footer-top{grid-template-columns:1fr 1fr;}
-    .nav{flex-wrap:wrap;row-gap:0;}
-    .logo{order:1;}
-    .burger{order:2;display:flex;flex-direction:column;align-items:center;justify-content:center;}
-    .nav-links{display:none;order:3;flex-basis:100%;margin-left:0;}
-    .nav-links.open{
-      display:flex;flex-direction:column;
-      padding:14px 0 6px;gap:2px;
-      border-top:1px solid rgba(22,33,74,0.06);
-    }
-    .nav-links a{padding:13px 2px;font-size:15.5px;border-bottom:1px solid rgba(22,33,74,0.06);}
-    .nav-links a:last-child{border-bottom:none;}
-    .nav-actions{display:none;order:4;flex-basis:100%;margin-left:0;}
-    header.menu-open .nav-actions{
-      display:flex;flex-direction:column;align-items:stretch;gap:10px;
-      padding:10px 0 calc(18px + env(safe-area-inset-bottom));
-    }
-    .nav-actions .btn-sm{width:100%;justify-content:center;padding:13px 16px;font-size:14.5px;}
-    header.menu-open{box-shadow:0 12px 24px -12px rgba(22,33,74,0.18);}
     .stats-grid{grid-template-columns:1fr 1fr;}
     .stat:nth-child(2){border-left:1px solid rgba(255,255,255,0.14);}
     .stat:nth-child(3){grid-column:1/-1;border-left:none;border-top:1px solid rgba(255,255,255,0.14);padding-top:16px;margin-top:10px;}
-    .logo{font-size:21px;gap:6px;}
-    .logo-hindi{font-size:15px;}
   }
   @media(max-width:640px){
     .wrap{padding:0 18px;}
