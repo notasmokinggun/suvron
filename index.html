@@ -453,7 +453,7 @@
     <div class="faq-layout">
       <div class="faq-illustration reveal" aria-hidden="true">
         <div class="faq-mascot">
-          <span class="faq-mascot-emoji">🤔</span>
+          <span class="faq-mascot-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9.3" stroke="var(--gold)" stroke-width="1.8"/><path d="M9.2 9.5a2.8 2.8 0 015.4.9c0 1.9-2.4 2.1-2.6 3.6" stroke="var(--blue-deep)" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="17" r="1.1" fill="var(--blue-deep)"/></svg></span>
           <p>Got more questions?<br>Our team's happy to help.</p>
         </div>
       </div>
@@ -495,8 +495,10 @@
         <h2>Ready when your plans are</h2>
         <p>Share your details and our team will get back to you. It won't affect your credit score.</p>
         <form class="mini-form" onsubmit="handleApplySubmit(event)">
-          <input type="text" name="name" placeholder="Your name" required>
-          <input type="tel" name="phone" placeholder="Mobile number" pattern="[6-9][0-9]{9}" maxlength="10" required>
+          <label for="apply-name" class="sr-only">Your name</label>
+          <input type="text" id="apply-name" name="name" placeholder="Your name" required>
+          <label for="apply-phone" class="sr-only">Mobile number</label>
+          <input type="tel" id="apply-phone" name="phone" placeholder="Mobile number" pattern="[6-9][0-9]{9}" maxlength="10" required>
           <button type="submit">Check eligibility</button>
         </form>
         <div class="form-status" aria-live="polite" style="color:rgba(255,255,255,0.85);"></div>
@@ -572,8 +574,10 @@
   <div class="sticky-copy">Need cash? Get up to <b>₹10,000</b> instantly.</div>
   <form class="sticky-form" onsubmit="handleApplySubmit(event)">
     <span class="sticky-fields">
-      <input type="text" name="name" placeholder="Enter your name" required>
-      <input type="tel" name="phone" placeholder="Mobile number" pattern="[6-9][0-9]{9}" maxlength="10" required>
+      <label for="sticky-name" class="sr-only">Your name</label>
+      <input type="text" id="sticky-name" name="name" placeholder="Enter your name" required>
+      <label for="sticky-phone" class="sr-only">Mobile number</label>
+      <input type="tel" id="sticky-phone" name="phone" placeholder="Mobile number" pattern="[6-9][0-9]{9}" maxlength="10" required>
     </span>
     <button type="submit" class="btn btn-primary btn-sm" style="background:var(--gold);color:var(--ink);box-shadow:none;">Apply now</button>
   </form>

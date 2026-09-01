@@ -45,7 +45,14 @@
     letter-spacing:-0.02em;
     color:var(--ink);
   }
-  em{font-style:italic;font-weight:600;}
+  em{
+    font-style:normal;font-weight:700;color:var(--ink);
+    position:relative;padding:0 3px;
+  }
+  em::after{
+    content:"";position:absolute;left:-2px;right:-2px;bottom:3px;height:0.34em;
+    background:var(--gold-light);z-index:-1;border-radius:3px;opacity:0.9;
+  }
   .dotgrid{
     background-image:radial-gradient(rgba(22,33,74,0.16) 1.4px, transparent 1.4px);
     background-size:24px 24px;
@@ -94,6 +101,12 @@
     border-radius:8px;
   }
   .btn:focus-visible{outline-offset:2px;}
+
+  /* ===== Screen-reader-only text (accessible form labels) ===== */
+  .sr-only{
+    position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+    overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
+  }
 
   /* ===== Mockup row pattern (used in step visuals) ===== */
   .mock-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--sky-deep);}
@@ -444,7 +457,7 @@
     border:1px solid var(--sky-deep);border-radius:22px;
     padding:28px 20px;text-align:center;
   }
-  .faq-mascot-emoji{font-size:44px;display:block;margin-bottom:14px;}
+  .faq-mascot-icon{display:flex;justify-content:center;margin-bottom:14px;}
   .faq-mascot p{font-size:13px;color:var(--ink-soft);line-height:1.5;margin:0;font-weight:600;}
   .faq-list{display:flex;flex-direction:column;gap:12px;}
   .faq-item{
