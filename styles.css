@@ -11,6 +11,11 @@
     --gold-deep:#8F6B18;
     --mint:#7FDBB6;
     --coral:#FF7E67;
+    --green:#3AA873;
+    --tint-blue:#EAF1FC;
+    --tint-gold:#FFF3E0;
+    --tint-green:#E7F8EF;
+    --tint-coral:#FDE9E5;
     --white:#FFFFFF;
     --radius-lg:28px;
     --radius-md:18px;
@@ -66,6 +71,38 @@
     margin-bottom:16px;
   }
   .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--mint);}
+
+  /* ===== Color utility classes (replace inline background styles) ===== */
+  .icon-bg-blue{background:var(--tint-blue);}
+  .icon-bg-gold{background:var(--tint-gold);}
+  .icon-bg-green{background:var(--tint-green);}
+  .icon-bg-coral{background:var(--tint-coral);}
+  .avatar-blue{background:var(--blue);}
+  .avatar-gold{background:var(--gold);}
+  .avatar-green{background:var(--green);}
+
+  /* ===== Accessibility: visible focus states ===== */
+  .btn:focus-visible,
+  .nav-links a:focus-visible,
+  .nav-drop-trigger:focus-visible,
+  .logo:focus-visible,
+  .app-badge:focus-visible,
+  a:focus-visible,
+  button:focus-visible{
+    outline:2.5px solid var(--blue);
+    outline-offset:3px;
+    border-radius:8px;
+  }
+  .btn:focus-visible{outline-offset:2px;}
+
+  /* ===== Mockup row pattern (used in step visuals) ===== */
+  .mock-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--sky-deep);}
+  .mock-row:last-child{border-bottom:none;padding-bottom:0;}
+  .mock-row-label{font-size:13.5px;font-weight:600;}
+  .mock-check{color:var(--mint);font-weight:700;}
+
+  /* ===== Testimonial verified tag ===== */
+  .testi-verified{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;font-weight:600;color:var(--green);margin-top:3px;}
 
   /* ===== Buttons ===== */
   .btn{
