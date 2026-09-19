@@ -80,23 +80,23 @@
             <label for="principal">Loan amount (principal)</label>
             <span class="calc-field-val"><span class="num" id="principalVal">₹5,000</span></span>
           </div>
-          <input type="range" id="principal" min="1000" max="10000" step="500" value="5000">
+          <input type="range" id="principal" min="2000" max="50000" step="500" value="5000">
         </div>
 
         <div class="calc-field">
           <div class="calc-field-head">
             <label for="rate">Annual interest rate</label>
-            <span class="calc-field-val"><span class="num" id="rateVal">120%</span></span>
+            <span class="calc-field-val"><span class="num" id="rateVal">36%</span></span>
           </div>
-          <input type="range" id="rate" min="70" max="150" step="1" value="120">
+          <input type="range" id="rate" min="10" max="36" step="1" value="36">
         </div>
 
         <div class="calc-field">
           <div class="calc-field-head">
             <label for="tenure">Tenure</label>
-            <span class="calc-field-val"><span class="num" id="tenureVal">30 days</span></span>
+            <span class="calc-field-val"><span class="num" id="tenureVal">90 days</span></span>
           </div>
-          <input type="range" id="tenure" min="7" max="90" step="1" value="30">
+          <input type="range" id="tenure" min="60" max="180" step="1" value="90">
         </div>
 
         <div class="calc-field" id="compoundFreqWrap" style="display:none;">
@@ -116,18 +116,18 @@
       <div class="calc-result">
         <div class="calc-result-card">
           <div class="calc-result-lbl">Total repayment</div>
-          <div class="calc-result-amt num" id="resultTotal">₹5,493</div>
+          <div class="calc-result-amt num" id="resultTotal">₹5,444</div>
           <div class="calc-result-row">
             <span>Principal</span>
             <span class="num" id="resultPrincipal">₹5,000</span>
           </div>
           <div class="calc-result-row">
             <span>Interest payable</span>
-            <span class="num" id="resultInterest">₹493</span>
+            <span class="num" id="resultInterest">₹444</span>
           </div>
           <div class="calc-result-row calc-result-row-total">
             <span>Effective cost</span>
-            <span class="num" id="resultEffective">9.9% of principal</span>
+            <span class="num" id="resultEffective">8.9% of principal</span>
           </div>
           <a href="../index.html#apply" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:22px;">Check your real eligibility</a>
         </div>
@@ -177,7 +177,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="footer-legal">SUVRON Money is a digital lending platform built by Shantilekh Global Technology Pvt. Ltd. Loans are sanctioned, disbursed and collected by our RBI-registered NBFC partners, who retain final control over credit approval and terms. SUVRON Money does not itself lend money. Interest rates for loans facilitated on this platform range from 70% to 150% APR depending on tenure, amount and your credit assessment; the exact APR for your offer is disclosed in your Key Fact Statement and loan agreement before you accept.</div>
+      <div class="footer-legal">SUVRON Money is a digital lending platform built by Shantilekh Global Technology Pvt. Ltd. Loans are sanctioned, disbursed and collected by our RBI-registered NBFC partners, who retain final control over credit approval and terms. SUVRON Money does not itself lend money. Interest rates for loans facilitated on this platform range from 10% to 36% per annum, and the APR, inclusive of interest and all fees, ranges from 10% to 120%, depending on tenure, amount and your credit assessment; the exact APR for your offer is disclosed in your Key Fact Statement and loan agreement before you accept.</div>
       <div class="footer-copy">© 2026 SUVRON Money. All rights reserved.</div>
     </div>
   </div>
@@ -185,7 +185,7 @@
 
 <!-- ===================== STICKY BOTTOM BAR ===================== -->
 <div class="sticky-bar">
-  <div class="sticky-copy">Need cash? Get up to <b>₹10,000</b> instantly.</div>
+  <div class="sticky-copy">Need cash? Get up to <b>₹50,000</b> instantly.</div>
   <form class="sticky-form" onsubmit="handleApplySubmit(event)">
     <span class="sticky-fields">
       <input type="text" name="name" placeholder="Enter your name" required>
