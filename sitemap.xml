@@ -1,17 +1,109 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://suvron.in/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://suvron.in/about/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://suvron.in/contact/</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://suvron.in/calculator/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://suvron.in/blog/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://suvron.in/blog/rbi-microfinance-rule-change/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://suvron.in/blog/ai-agents-in-banking/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://suvron.in/blog/gen-z-digital-loans-vs-banks/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://suvron.in/blog/best-instant-loan-apps-india/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://suvron.in/blog/best-finance-apps-gen-z-2026/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://suvron.in/responsible-lending/</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://suvron.in/privacy-policy/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://suvron.in/terms/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://suvron.in/grievance-redressal/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://suvron.in/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://suvron.in/about/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://suvron.in/blog/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://suvron.in/blog/ai-agents-in-banking/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://suvron.in/blog/best-finance-apps-gen-z-2026/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://suvron.in/blog/best-instant-loan-apps-india/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://suvron.in/blog/gen-z-digital-loans-vs-banks/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://suvron.in/blog/rbi-microfinance-rule-change/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://suvron.in/calculator/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://suvron.in/contact/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://suvron.in/cookie-policy/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://suvron.in/grievance-redressal/</loc>
+    <lastmod>2026-09-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://suvron.in/grievance-redressal/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://suvron.in/grievance-redressal/hi/"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="https://suvron.in/grievance-redressal/ta/"/>
+    <xhtml:link rel="alternate" hreflang="te" href="https://suvron.in/grievance-redressal/te/"/>
+    <xhtml:link rel="alternate" hreflang="kn" href="https://suvron.in/grievance-redressal/kn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://suvron.in/grievance-redressal/"/>
+  </url>
+  <url>
+    <loc>https://suvron.in/grievance-redressal/hi/</loc>
+    <lastmod>2026-09-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://suvron.in/grievance-redressal/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://suvron.in/grievance-redressal/hi/"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="https://suvron.in/grievance-redressal/ta/"/>
+    <xhtml:link rel="alternate" hreflang="te" href="https://suvron.in/grievance-redressal/te/"/>
+    <xhtml:link rel="alternate" hreflang="kn" href="https://suvron.in/grievance-redressal/kn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://suvron.in/grievance-redressal/"/>
+  </url>
+  <url>
+    <loc>https://suvron.in/grievance-redressal/kn/</loc>
+    <lastmod>2026-09-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://suvron.in/grievance-redressal/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://suvron.in/grievance-redressal/hi/"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="https://suvron.in/grievance-redressal/ta/"/>
+    <xhtml:link rel="alternate" hreflang="te" href="https://suvron.in/grievance-redressal/te/"/>
+    <xhtml:link rel="alternate" hreflang="kn" href="https://suvron.in/grievance-redressal/kn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://suvron.in/grievance-redressal/"/>
+  </url>
+  <url>
+    <loc>https://suvron.in/grievance-redressal/ta/</loc>
+    <lastmod>2026-09-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://suvron.in/grievance-redressal/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://suvron.in/grievance-redressal/hi/"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="https://suvron.in/grievance-redressal/ta/"/>
+    <xhtml:link rel="alternate" hreflang="te" href="https://suvron.in/grievance-redressal/te/"/>
+    <xhtml:link rel="alternate" hreflang="kn" href="https://suvron.in/grievance-redressal/kn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://suvron.in/grievance-redressal/"/>
+  </url>
+  <url>
+    <loc>https://suvron.in/grievance-redressal/te/</loc>
+    <lastmod>2026-09-20</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://suvron.in/grievance-redressal/"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://suvron.in/grievance-redressal/hi/"/>
+    <xhtml:link rel="alternate" hreflang="ta" href="https://suvron.in/grievance-redressal/ta/"/>
+    <xhtml:link rel="alternate" hreflang="te" href="https://suvron.in/grievance-redressal/te/"/>
+    <xhtml:link rel="alternate" hreflang="kn" href="https://suvron.in/grievance-redressal/kn/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://suvron.in/grievance-redressal/"/>
+  </url>
+  <url>
+    <loc>https://suvron.in/privacy-policy/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://suvron.in/responsible-lending/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
+  <url>
+    <loc>https://suvron.in/terms/</loc>
+    <lastmod>2026-09-20</lastmod>
+  </url>
 </urlset>

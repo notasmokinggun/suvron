@@ -175,7 +175,7 @@ function handleApplySubmit(event){
       if(onIndex && document.getElementById('apply')){
         document.getElementById('apply').scrollIntoView({behavior:'smooth', block:'start'});
       } else {
-        window.location.href = 'index.html#apply';
+        window.location.href = '/#apply';
       }
       return;
     }
@@ -310,7 +310,10 @@ document.addEventListener('click', async (event) => {
 (function(){
   var overlay = document.getElementById('skeletonOverlay');
   if(!overlay) return;
-  var MIN_DISPLAY_MS = 1000;
+  // No artificial hold: the page is already styled (CSS is render-blocking), so
+  // reveal as soon as the DOM is ready. A forced delay pushes Largest Contentful
+  // Paint later, which costs search ranking. Raise this only for a deliberate hold.
+  var MIN_DISPLAY_MS = 0;
   var start = Date.now();
 
   function reveal(){
@@ -328,9 +331,9 @@ document.addEventListener('click', async (event) => {
     }, wait);
   }
 
-  if(document.readyState === 'complete'){
+  if(document.readyState !== 'loading'){
     reveal();
   } else {
-    window.addEventListener('load', reveal);
+    document.addEventListener('DOMContentLoaded', reveal);
   }
 })();

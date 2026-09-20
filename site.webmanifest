@@ -1,0 +1,23 @@
+{
+  "name": "SUVRON Money",
+  "short_name": "SUVRON",
+  "description": "Short-term loans for students, first jobbers and freelancers in India.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "lang": "en-IN",
+  "theme_color": "#16214A",
+  "background_color": "#FAFBFF",
+  "icons": [
+    {
+      "src": "/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
