@@ -193,7 +193,7 @@
 </script>
 <style>
 .hero{padding:104px 0 48px;text-align:center;position:relative}
-.hero:before{content:"";position:absolute;left:50%;top:-80px;width:900px;height:520px;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(20,160,125,.35),transparent);pointer-events:none}
+.hero:before{content:"";position:absolute;left:50%;top:-80px;width:min(900px,100%);height:520px;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(20,160,125,.35),transparent);pointer-events:none}
 .hero h1{position:relative;font-size:clamp(52px,7.6vw,112px);max-width:11.5ch;margin:0 auto}
 .hero h1 em{color:var(--sun)}
 .hero p{position:relative;max-width:32em;margin:28px auto 38px;color:var(--mute);font-size:20px}
@@ -292,8 +292,8 @@
 .ask p.s{color:var(--mute);margin:18px 0 32px;font-size:18px}
 .ask textarea{width:100%;min-height:132px;resize:vertical;background:rgba(0,0,0,.3);border:1.5px solid var(--line);border-radius:20px;color:var(--ink);font:inherit;padding:20px;text-align:left}
 .ai{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px}
-.ai button{font:700 16px "Inter","Inter Fallback",sans-serif;cursor:pointer;border:0;border-radius:999px;padding:15px 30px;background:var(--ink);color:var(--bg);transition:transform .25s}
-.ai button:hover{transform:translateY(-2px)}.ai button.c{background:var(--sun)}
+.ai a{display:inline-block;text-decoration:none;text-align:center;font:700 16px "Inter","Inter Fallback",sans-serif;cursor:pointer;border:0;border-radius:999px;padding:15px 30px;background:var(--ink);color:var(--bg);transition:transform .25s}
+.ai a:hover{transform:translateY(-2px)}.ai a.c{background:var(--sun)}
 .note{font-size:14px;color:var(--mute);margin-top:16px;min-height:22px}
 
 
@@ -306,7 +306,7 @@
  .copy{height:128px}.blk h2{font-size:28px;margin-bottom:8px}.blk p{font-size:15px;line-height:1.45}.rail,.chip{display:none}
  .glow,.glow2{width:420px;height:420px}
  .reviews{padding:80px 0}.avg{margin:-28px 0 36px}.avg b{font-size:52px}.rev{width:290px;padding:22px}.rev p{font-size:17px}
- .ask{padding:44px 22px;border-radius:28px;margin:0 14px}.ask p.s{font-size:16px}.ai{flex-direction:column}.ai button{width:100%}
+ .ask{padding:44px 22px;border-radius:28px;margin:0 14px}.ask p.s{font-size:16px}.ai{display:grid;grid-template-columns:1fr 1fr;gap:10px}.ai a{padding:14px 10px}
 }
 @media(prefers-reduced-motion:reduce){.track{animation:none;flex-wrap:wrap;width:auto}.rev[aria-hidden]{display:none}html{scroll-behavior:auto}}
 </style>
@@ -503,9 +503,9 @@
 
 <section class="ask" id="ask"><div class="in">
 <h2>Not sure yet? <em>Ask an AI</em> about us.</h2>
-<p class="s">Edit the question if you like. One click opens a new chat with it already typed in.</p>
+<p class="s">Edit the question if you like. One tap opens a chat with it already typed in, in the app if you have it installed.</p>
 <textarea id="q" aria-label="Question for your AI assistant">I'm thinking about borrowing from SUVRON Money (suvron.in), a short-term loan app for students and freelancers in India. Explain how it works, what it really costs, how it compares with alternatives, and what risks and questions I should think about before borrowing.</textarea>
-<div class="ai"><button class="c" data-ai="claude">Ask Claude</button><button data-ai="chatgpt">Ask ChatGPT</button><button data-ai="gemini">Ask Gemini</button></div>
+<div class="ai"><a class="c" data-ai="claude" href="https://claude.ai/new">Ask Claude</a><a data-ai="chatgpt" href="https://chatgpt.com/">Ask ChatGPT</a><a data-ai="perplexity" href="https://www.perplexity.ai/search">Ask Perplexity</a><a data-ai="grok" href="https://grok.com/">Ask Grok</a><a data-ai="gemini" href="https://gemini.google.com/app">Ask Gemini</a><a data-ai="copilot" href="https://copilot.microsoft.com/">Ask Copilot</a></div>
 <div class="note" id="note" aria-live="polite"></div>
 </div></section>
 
@@ -523,7 +523,7 @@
 <footer class="site-f"><div class="wrap">
 <div class="f0"><b>SUVRON Money</b><p>Short-term loans for young India, built by Shantilekh Global Technology Pvt. Ltd. in partnership with RBI-registered NBFC lending partners.</p>
 <p>Support: <a href="mailto:support@suvron.in">support@suvron.in</a><br>Partnerships: <a href="mailto:connect@suvron.in">connect@suvron.in</a><br>Grievance Officer: <a href="mailto:gro@suvron.in">gro@suvron.in</a> / 9971373543</p></div>
-<div><b>Product</b><a href="/#how">How it works</a><a href="/#why">Why SUVRON Money</a><a href="/#trust">Trust &amp; safety</a><a href="/#faq">FAQs</a><a href="/calculator/">Loan calculator</a><a href="/blog/">Blog</a></div>
+<div><b>Product</b><a href="/#ask">Ask an AI</a><a href="/#why">Why SUVRON Money</a><a href="/#trust">Trust &amp; safety</a><a href="/#faq">FAQs</a><a href="/calculator/">Loan calculator</a><a href="/blog/">Blog</a></div>
 <div><b>Company</b><a href="/about/">About us</a><a href="/about/#careers">Careers</a><a href="/contact/">Contact us</a><a href="/responsible-lending/">Responsible lending</a></div>
 <div><b>Legal</b><a href="/privacy-policy/">Privacy policy</a><a href="/cookie-policy/">Cookie policy</a><a href="/terms/">Terms of use</a><a href="/grievance-redressal/">Grievance redressal</a></div>
 <p class="legal">SUVRON Money is a digital lending platform built by Shantilekh Global Technology Pvt. Ltd. Loans are sanctioned, disbursed and collected by our RBI-registered NBFC partners, who retain final control over credit approval and terms. SUVRON Money does not itself lend money. Interest rates for loans facilitated on this platform range from 10% to 36% per annum, and the APR, inclusive of interest and all fees, ranges from 10% to 120%, depending on tenure, amount and your credit assessment; the exact APR for your offer is disclosed in your Key Fact Statement and loan agreement before you accept. Borrow only what you can repay.</p>
@@ -560,14 +560,16 @@ function render(p){
 (function loop(){cur+=(target-cur)*(reduce?1:.085);if(Math.abs(target-cur)<.0004)cur=target;render(cur);requestAnimationFrame(loop)})();
 addEventListener('scroll',read,{passive:true});addEventListener('resize',read);read();cur=target;
 
-// Ask an AI
-const q=$('#q'),note=$('#note');
-$$('[data-ai]').forEach(b=>b.addEventListener('click',async()=>{
- const e=encodeURIComponent(q.value.trim()),k=b.dataset.ai;
- if(k==='claude')return open('https://claude.ai/new?q='+e,'_blank','noopener');
- if(k==='chatgpt')return open('https://chatgpt.com/?q='+e,'_blank','noopener');
- try{await navigator.clipboard.writeText(q.value.trim());note.textContent='Question copied. Paste it into Gemini.'}catch(_){note.textContent='Copy the question above, then paste it into Gemini.'}
- open('https://gemini.google.com/app','_blank','noopener');
+// Ask an AI. Real links, so phones hand them to the installed app.
+// 1 = the site takes a pre-filled question in the URL. 0 = it can't, so we copy the question and open the app.
+const q=$('#q'),note=$('#note'),touch=matchMedia('(pointer:coarse)').matches;
+const AI={claude:['https://claude.ai/new?q=',1,'Claude'],chatgpt:['https://chatgpt.com/?q=',1,'ChatGPT'],perplexity:['https://www.perplexity.ai/search?q=',1,'Perplexity'],grok:['https://grok.com/?q=',1,'Grok'],gemini:['https://gemini.google.com/app',0,'Gemini'],copilot:['https://copilot.microsoft.com/',0,'Copilot']};
+const links=$$('[data-ai]');
+const setLinks=()=>links.forEach(a=>{const [u,p]=AI[a.dataset.ai];a.href=p?u+encodeURIComponent(q.value.trim()):u;a.target=touch?'_self':'_blank';a.rel='noopener'});
+setLinks();q.addEventListener('input',setLinks);
+links.forEach(a=>a.addEventListener('click',()=>{
+ const [,p,name]=AI[a.dataset.ai];if(p){note.textContent='';return}
+ navigator.clipboard.writeText(q.value.trim()).then(()=>note.textContent='Question copied. Paste it into '+name+'.',()=>note.textContent='Copy the question above, then paste it into '+name+'.');
 }));
 </script>
 <script>

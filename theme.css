@@ -503,3 +503,7 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:700;letter-spacing:-.025em}
 /* trust copy: short stacked lines that reveal one after another */
 .trust .tl{max-width:34em;margin:0 0 14px;font-size:18px;line-height:1.55}.trust .tl:first-of-type{color:var(--ink);font-size:20px}
 @media(max-width:700px){.trust .tl,.trust .tl:first-of-type{font-size:16.5px;max-width:none}}
+/* grievance contact cards: stack on phones (the inline 3-column style can't shrink) */
+.contact-cards>*{min-width:0;overflow-wrap:anywhere}
+@media(max-width:700px){.contact-cards{grid-template-columns:minmax(0,1fr)!important}}
+.btn{max-width:100%;white-space:normal;text-align:center}
