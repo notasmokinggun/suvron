@@ -134,6 +134,7 @@ function handleContactSubmit(event){
 })();
 
 document.addEventListener('click', async (event) => {
+  const link = event.target.closest && event.target.closest('a[href^="mailto:"]');
   if(!link) return;
   const email = link.getAttribute('href').replace('mailto:', '').split('?')[0];
   try{
