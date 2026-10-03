@@ -46,7 +46,7 @@ a{color:inherit}
 
 /* footer */
 .site-f{padding:72px 0 48px;color:var(--mute);font-size:13.5px;border-top:1px solid var(--line);margin-top:40px}
-.site-f .wrap{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.4fr;gap:40px}
+.site-f .wrap{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1.4fr);gap:40px}
 .site-f b{display:block;color:var(--ink);margin-bottom:12px;font-size:14px}
 .site-f p{margin-bottom:14px;line-height:1.6}
 .site-f a{display:block;color:var(--mute);text-decoration:none;margin-bottom:9px;line-height:1.4}
@@ -83,7 +83,7 @@ body.inner .page.wide{max-width:1100px}
 
 @media(max-width:900px){
  .wrap{padding:0 20px}
- .site-f{padding:48px 0 36px}.site-f .wrap{grid-template-columns:1fr 1fr;gap:30px 20px}.site-f .f0,.site-f .wrap>div:last-child{grid-column:1/-1}
+ .site-f{padding:48px 0 36px}.site-f .wrap{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:30px 20px}.site-f .f0,.site-f .wrap>div:last-child{grid-column:1/-1}
 }
 @media(max-width:700px){
  .site-h{padding:10px 12px}.site-h .bar{padding:6px 6px 6px 14px}.site-h nav a:not(.go){display:none}.site-h.scrolled .bar{width:100%}
@@ -505,3 +505,14 @@ body.inner{padding-bottom:84px}
 body[data-page=home]{padding-bottom:84px}
 
 .lang-switch a.active{background:var(--sun);border-color:var(--sun);color:var(--bg)}
+
+/* header = logo + one button; everything else lives in the footer */
+.site-h .bar{gap:12px}.site-h.scrolled .bar{width:min(460px,100%)}
+/* italic accent words in headings (Plus Jakarta Sans italic is self-hosted) */
+h1 em,h2 em,h3 em{font-style:italic;font-weight:700;letter-spacing:-.025em}
+/* highlights strip: scrolls sideways on phones */
+.strip{padding:0 0 56px}.strip .row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.strip .row>span{display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--mute);font-size:14px;font-weight:500;white-space:nowrap}
+.strip i{width:7px;height:7px;border-radius:50%;background:var(--mint)}.strip b{color:var(--sun)}
+.fn{max-width:60em;margin:0 auto;padding:0 24px 8px;text-align:center;color:var(--mute);font-size:12.5px}
+@media(max-width:700px){.strip{padding-bottom:36px}.strip .row{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;scroll-snap-type:x proximity;scroll-padding:0 20px;padding:0 20px 6px;scrollbar-width:none}.strip .row::-webkit-scrollbar{display:none}.strip .row>span{flex:none;scroll-snap-align:start}}
