@@ -24,3 +24,12 @@
  // cursor spotlight on cards
  d.addEventListener('pointermove',e=>{const c=e.target.closest&&e.target.closest('.gc,.rev,.trust,.refer');if(!c)return;const r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px')},{passive:true});
 })();
+(function(){
+ const m=document.querySelector('.site-h .more');if(!m)return;
+ const t=m.querySelector('.more-t');
+ const set=o=>{m.classList.toggle('open',o);t.setAttribute('aria-expanded',o)};
+ t.addEventListener('click',e=>{e.stopPropagation();set(!m.classList.contains('open'))});
+ document.addEventListener('click',e=>{if(!m.contains(e.target))set(false)});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&m.classList.contains('open')){set(false);t.focus()}});
+ m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>set(false)));
+})();

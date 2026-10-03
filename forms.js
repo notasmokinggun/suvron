@@ -3,7 +3,7 @@
 // BACKEND: plain mailto form submissions. No API, no key, no
 // third-party service and nothing that can expire.
 //
-// Every form on the site builds a mailto: link from what the
+// The contact form builds a mailto: link from what the
 // person typed, then hands it to their own device. Their phone or
 // computer opens whatever mail app is already signed in there
 // (Gmail, Outlook, the default Mail app, and so on) with the
@@ -21,7 +21,6 @@
 //
 // Each form routes to its own inbox so replies stay sorted without
 // any extra tooling:
-//   - "Check eligibility" form (index.html)   -> eligibility@suvron.in
 //   - Contact page message form (contact.html) -> connect@suvron.in
 // To change any destination, edit the address in the matching
 // function below. Nothing else in the site needs to change.
@@ -74,42 +73,6 @@ function handleContactSubmit(event){
   openMailto(mailto);
   setStatus(status, "Your email app should now be open with this filled in. Hit send there to reach us. If nothing opened, email us directly at connect@suvron.in.", 'success');
   form.reset();
-}
-
-// "Check eligibility" form (#apply on index.html) -> eligibility@suvron.in.
-function handleApplySubmit(event){
-  event.preventDefault();
-  const form = event.target;
-
-  const submitBtn = form.querySelector('button[type="submit"]');
-  const status = form.parentElement.querySelector('.form-status');
-  const nameInput = form.querySelector('input[type="text"]');
-  const phoneInput = form.querySelector('input[type="tel"]');
-  const data = { name: nameInput ? nameInput.value.trim() : '', phone: phoneInput ? phoneInput.value.trim() : '' };
-
-  if(!data.name || !/^[6-9][0-9]{9}$/.test(data.phone)){
-    setStatus(status, 'Enter your name and a valid 10-digit mobile number.', 'error');
-    return;
-  }
-
-  const destination = 'eligibility@suvron.in';
-  const formLabel = 'Check eligibility form (main page)';
-  const subject = 'Suvron Money: new eligibility check request';
-
-  const mailto = buildMailto(destination, subject, [
-    `Form: ${formLabel}`,
-    `Name: ${data.name}`,
-    `Phone: ${data.phone}`,
-    `Page: ${window.location.pathname}`
-  ]);
-
-  openMailto(mailto);
-
-  const originalLabel = submitBtn.textContent;
-  setStatus(status, `Thanks, ${data.name.split(' ')[0]}. Your email app should now be open, ready to send to us. If nothing opened, email ${destination} with your name and number.`, 'success');
-  submitBtn.textContent = 'Request opened in email';
-  form.reset();
-  setTimeout(() => { submitBtn.textContent = originalLabel; }, 4000);
 }
 
 // Copy-to-clipboard fallback for mailto buttons/links, since mailto: does

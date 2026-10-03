@@ -507,3 +507,36 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:700;letter-spacing:-.025em}
 .contact-cards>*{min-width:0;overflow-wrap:anywhere}
 @media(max-width:700px){.contact-cards{grid-template-columns:minmax(0,1fr)!important}}
 .btn{max-width:100%;white-space:normal;text-align:center}
+
+/* header: About us, Ask an AI, More dropdown */
+.site-h .more{position:relative}
+.site-h .more-t{font:500 15px "Inter","Inter Fallback",sans-serif;color:var(--mute);background:none;border:0;cursor:pointer;padding:9px 14px 9px 16px;border-radius:999px;display:inline-flex;align-items:center;gap:7px;transition:color .3s var(--ease),background .3s var(--ease)}
+.site-h .more-t:hover,.site-h .more.open .more-t{color:var(--ink);background:rgba(255,255,255,.08)}
+.site-h .more-t svg{transition:transform .4s var(--ease)}
+.site-h .more.open .more-t svg{transform:rotate(180deg)}
+.site-h .more-m{position:absolute;right:0;top:calc(100% + 12px);min-width:240px;padding:8px;border-radius:22px;background:rgba(7,31,27,.96);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);border:1px solid var(--line);box-shadow:0 24px 48px -18px rgba(0,0,0,.8);opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .35s var(--ease),transform .45s var(--ease),visibility 0s .35s}
+.site-h .more-m:before{content:"";position:absolute;left:0;right:0;top:-14px;height:14px}
+.site-h .more.open .more-m{opacity:1;visibility:visible;transform:none;transition-delay:0s}
+@media(hover:hover){.site-h .more:hover .more-m{opacity:1;visibility:visible;transform:none;transition-delay:0s}.site-h .more:hover .more-t{color:var(--ink);background:rgba(255,255,255,.08)}}
+.site-h .more-m a.mi{display:block;padding:11px 14px;border-radius:14px;font-size:15px;color:var(--ink);white-space:nowrap}
+.site-h .more-m a.mi:hover{background:rgba(255,255,255,.08);color:var(--sun)}
+.site-h .more-m a.mi.m-only{display:none}
+@media(min-width:701px){.site-h.scrolled .bar{width:min(780px,100%)}}
+@media(max-width:700px){.site-h .more-m a.mi.m-only{display:block}.site-h .more-m{min-width:210px}}
+@media(max-width:700px){
+ .site-h .logo span,.site-h .go{white-space:nowrap}
+ .site-h .logo{font-size:16px;gap:8px}
+ .site-h .bar{gap:6px;padding:6px 6px 6px 12px}
+ .site-h nav{gap:2px}
+ .site-h .more-t{padding:8px 10px;font-size:14px}
+ .site-h .go{padding:10px 14px;font-size:14px}
+}
+@media(max-width:420px){
+ .site-h{padding:10px 8px}
+ .site-h .logo{font-size:15px;gap:6px}
+ .site-h .logo img{width:26px;height:26px}
+ .site-h .bar{padding:5px 5px 5px 10px;gap:4px}
+ .site-h .more-t{padding:8px 8px;font-size:13.5px;gap:5px}
+ .site-h .go{padding:9px 12px;font-size:13.5px}
+}
+@media(max-width:340px){.site-h .logo span{display:none}}
