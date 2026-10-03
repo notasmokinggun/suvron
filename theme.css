@@ -540,3 +540,29 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:700;letter-spacing:-.025em}
  .site-h .go{padding:9px 12px;font-size:13.5px}
 }
 @media(max-width:340px){.site-h .logo span{display:none}}
+
+/* ---- QA polish ---- */
+/* hero glow breathes wider than the viewport; clip it so phones never scroll sideways */
+.hero{overflow-x:clip}
+/* calculator: let grid children shrink on very narrow phones */
+.calc-shell>*{min-width:0}
+@media(max-width:860px){.calc-shell{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:360px){.calc-panel,.calc-result-card{padding:18px}.calc-toggle-btn{padding:10px 8px;font-size:13px}}
+/* footer links: comfortable tap targets on touch screens */
+@media(max-width:700px){
+ .site-f .wrap>div>a{padding:7px 0;line-height:1.35}
+ .site-f .wrap>div>b{margin-bottom:6px}
+}
+.contact-form>input{margin-bottom:14px}
+/* calculator toggle: only the active choice is filled */
+.page .calc-toggle .calc-toggle-btn{background:transparent;color:var(--mute);border-radius:9px;padding:10px 14px;font:700 13.5px "Inter","Inter Fallback",sans-serif;box-shadow:none}
+.page .calc-toggle .calc-toggle-btn:hover{transform:none;color:var(--ink)}
+.page .calc-toggle .calc-toggle-btn.active{background:var(--brand);color:#fff;box-shadow:0 8px 18px -8px rgba(14,122,98,.5)}
+/* blog cards are whole-card links: no underline, readable colours */
+.page a.blog-card{color:var(--ink);text-decoration:none}
+.page a.blog-card h3{color:var(--ink);transition:color .3s var(--ease)}
+.page a.blog-card p{color:var(--mute)}
+.page a.blog-card:hover h3{color:var(--sun)}
+.page a.blog-card .blog-card-link{color:var(--mint)}
+.page a.btn,.page a.btn:hover{text-decoration:none}
+.page .lang-switch a{text-decoration:none}

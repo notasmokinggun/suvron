@@ -1,4 +1,4 @@
-/* Forms, mailto helpers, email-copy toast, blog gallery. Split out of script.js so it works with the shared theme header. */
+/* Forms, mailto helpers, email-copy toast, blog gallery. Shared by every page, so it works with the shared theme header. */
 // ============================================================
 // BACKEND: plain mailto form submissions. No API, no key, no
 // third-party service and nothing that can expire.
