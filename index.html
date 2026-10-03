@@ -251,9 +251,13 @@
 .tx b{width:2.4em;height:2.4em;border-radius:.7em;background:var(--brand);color:#fff;display:grid;place-items:center;font:800 1em "Plus Jakarta Sans","Plus Jakarta Sans Fallback"}
 .tx div{flex:1;line-height:1.25}.tx small{color:#5F7A72;font-size:.85em}.tx em{font-style:normal;font-weight:700;color:#0E9E70}
 
-.chip{position:absolute;z-index:4;display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.1);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.18);padding:14px 20px;border-radius:18px;font-weight:700;font-size:15px;white-space:nowrap;opacity:0;box-shadow:0 20px 40px -16px rgba(0,0,0,.6)}
-.chip i{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:13px;color:var(--bg);background:var(--mint)}
-.c0{left:-8%;top:18%}.c1{right:-12%;top:34%}.c2{left:-8%;top:58%}.c3{right:-10%;bottom:12%}
+.chip{position:absolute;z-index:4;display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.1);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.18);padding:11px 16px;border-radius:16px;font-weight:700;font-size:14px;white-space:nowrap;opacity:0;box-shadow:0 20px 40px -16px rgba(0,0,0,.6)}
+.chip i{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:12px;color:var(--bg);background:var(--mint)}
+.viz{container-type:inline-size;--pw:calc(var(--ph)*.4625);--oh:176px}
+/* chips hang off the phone by --oh, but are clamped to the column so they can never be clipped by the viewport */
+.c0,.c2{left:0;left:max(0px,calc(50cqw - var(--pw)/2 - var(--oh)))}
+.c1,.c3{right:0;right:max(0px,calc(50cqw - var(--pw)/2 - var(--oh)))}
+.c0{top:18%}.c1{top:34%}.c2{top:58%}.c3{bottom:12%}
 .c1 i,.c2 i{background:var(--sun)}
 .chip{animation:drift 6s ease-in-out infinite}.c1{animation-delay:-1.5s}.c2{animation-delay:-3s}.c3{animation-delay:-4.5s}
 @keyframes drift{50%{translate:0 -8px}}
@@ -278,13 +282,11 @@
 .reviews{padding:130px 0 120px;overflow:hidden}
 .reviews h2{font-size:clamp(36px,4.6vw,64px);text-align:center;margin-bottom:56px;padding:0 24px}
 .mask{-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
-.track{display:flex;gap:20px;width:max-content;margin-bottom:20px;animation:l var(--d,70s) linear infinite}
-.track.r{animation-direction:reverse}
-.mask{padding:8px 0}.reviews:hover .track,.track:focus-within{animation-play-state:paused}
+.track{display:flex;gap:20px;width:max-content;margin-bottom:20px;will-change:transform}
+.mask{padding:8px 0}
 .rev{width:380px;flex:none;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:24px;padding:28px}
 .rev p{font-size:19px;line-height:1.45;margin-bottom:22px}
 .rev b{display:block}.rev span{color:var(--mute);font-size:14px}
-@keyframes l{to{transform:translateX(-50%)}}
 
 .ask{background:linear-gradient(160deg,#0F3A32,#0A2924);border:1px solid var(--line);border-radius:40px;padding:80px 56px;margin:0 auto;max-width:1160px}
 .ask .in{max-width:780px;margin:0 auto;text-align:center}
@@ -297,6 +299,7 @@
 .note{font-size:14px;color:var(--mute);margin-top:16px;min-height:22px}
 
 
+@media(max-width:1100px){.chip{display:none}}
 @media(max-width:900px){
  .hero{padding:96px 0 32px}.hero h1{font-size:clamp(42px,12.4vw,80px)}.hero p{font-size:17px;margin:20px auto 28px}
  .hero .row{flex-direction:column;align-items:center}.hero .btn{width:100%;max-width:320px;text-align:center}
@@ -308,7 +311,7 @@
  .reviews{padding:80px 0}.avg{margin:-28px 0 36px}.avg b{font-size:52px}.rev{width:290px;padding:22px}.rev p{font-size:17px}
  .ask{padding:44px 22px;border-radius:28px;margin:0 14px}.ask p.s{font-size:16px}.ai{display:grid;grid-template-columns:1fr 1fr;gap:10px}.ai a{padding:14px 10px}
 }
-@media(prefers-reduced-motion:reduce){.track{animation:none;flex-wrap:wrap;width:auto}.rev[aria-hidden]{display:none}html{scroll-behavior:auto}}
+@media(prefers-reduced-motion:reduce){.track{flex-wrap:wrap;width:auto;transform:none!important}.rev[aria-hidden]{display:none}html{scroll-behavior:auto}}
 </style>
 <style>
 /* restored sections + premium motion */
@@ -411,7 +414,7 @@
 <div class="viz">
 <div class="glow" id="g1"></div><div class="glow2" id="g2"></div>
 <div class="chip c0" data-i="0"><i>&#10003;</i>Aadhaar OTP verified</div>
-<div class="chip c1" data-i="1"><i>&#9679;</i>Decision within 24 hrs</div>
+<div class="chip c1" data-i="1"><i>&#9679;</i>Decision in 24 hrs</div>
 <div class="chip c2" data-i="2"><i>&#9679;</i>Offer ready</div>
 <div class="chip c3" data-i="3"><i>&#10003;</i>Money sent</div>
 <div class="phone" id="phone"><div class="screen">
@@ -572,8 +575,26 @@ const R=[["I filled out the form and got a reply from their team the same day. E
 (function(){
  const st=r=>`<span class="stars" role="img" aria-label="${r} out of 5" style="--w:${r*20}%">&#9733;&#9733;&#9733;&#9733;&#9733;<i>&#9733;&#9733;&#9733;&#9733;&#9733;</i></span>`;
  const card=([q,n,r],c)=>`<figure class="rev"${c?' aria-hidden="true"':''}>${st(r)}<blockquote>&ldquo;${q}&rdquo;</blockquote><figcaption><b>${n}</b></figcaption></figure>`;
- const k=Math.ceil(R.length/3),D=[70,90,60];
- document.getElementById('rows').innerHTML=[0,1,2].map(i=>{const a=[...R.slice(i*k),...R.slice(0,i*k)];return `<div class="track${i%2?' r':''}" style="--d:${D[i]}s">${a.map(x=>card(x)).join('')+a.map(x=>card(x,1)).join('')}</div>`}).join('');
+ const k=Math.ceil(R.length/3);
+ document.getElementById('rows').innerHTML=[0,1,2].map(i=>{const a=[...R.slice(i*k),...R.slice(0,i*k)];return `<div class="track${i%2?' r':''}">${a.map(x=>card(x)).join('')+a.map(x=>card(x,1)).join('')}</div>`}).join('');
+
+ // Scroll-driven: the rows only move while the page scrolls, and stop when it stops.
+ if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+ const host=document.getElementById('rows'),tracks=[...host.querySelectorAll('.track')],SPEED=[.55,.42,.7];
+ let period=[],cur=0,target=0,raf=0,vis=false;
+ // one loop = distance from the first card to its clone (exact, includes the gap)
+ const measure=()=>{period=tracks.map(t=>{const n=t.children.length/2;return t.children[n].offsetLeft-t.children[0].offsetLeft})};
+ const read=()=>{target=scrollY};
+ const draw=()=>{raf=0;cur+=(target-cur)*.16;if(Math.abs(target-cur)<.2)cur=target;
+  tracks.forEach((t,i)=>{const p=period[i];if(!p)return;const dir=t.classList.contains('r')?1:-1;
+   const m=(((dir*cur*SPEED[i%3])%p)+p)%p;t.style.transform=`translate3d(${m-p}px,0,0)`});
+  if(cur!==target)raf=requestAnimationFrame(draw)};
+ const kick=()=>{read();if(vis&&!raf)raf=requestAnimationFrame(draw)};
+ new IntersectionObserver(([e])=>{vis=e.isIntersecting;if(vis){read();cur=target;kick()}},{rootMargin:'200px 0px'}).observe(host);
+ addEventListener('scroll',kick,{passive:true});
+ addEventListener('resize',()=>{measure();kick()});
+ (document.fonts?document.fonts.ready:Promise.resolve()).then(()=>{measure();read();cur=target;draw()});
+ measure();read();cur=target;draw();
 })();
 </script>
 </body></html>
