@@ -34,7 +34,7 @@
 <link rel="preload" href="fonts/plus-jakarta-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/inter-rupee-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <script>document.documentElement.classList.add("js")</script>
-<link rel="stylesheet" href="/theme.css?v=20">
+<link rel="stylesheet" href="/theme.css?v=21">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -201,7 +201,7 @@
 .hero small{position:relative;display:block;margin-top:22px;color:var(--mute);font-size:14px}
 
 /* story */
-.story{height:620vh;height:620svh;position:relative}
+.story{height:480vh;height:480svh;position:relative}
 .stage{--es:0;--ph:min(76vh,700px);position:sticky;top:70px;height:calc(100vh - 70px);height:calc(100svh - 70px);overflow:hidden}
 .stage .wrap{height:100%;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);align-items:center;gap:40px}
 .copy{position:relative;height:300px}
@@ -287,8 +287,6 @@
 .hero p.nums{max-width:none}.nums span{white-space:nowrap}
 .rv .rev{width:auto}
 .rev .out{font:800 clamp(22px,2.2vw,28px)/1.15 "Plus Jakarta Sans","Plus Jakarta Sans Fallback",sans-serif;letter-spacing:-.02em;color:var(--sun);margin-bottom:14px}
-.reviews{padding:130px 0 120px;overflow:hidden}
-.reviews h2{font-size:clamp(36px,4.6vw,64px);text-align:center;margin-bottom:56px;padding:0 24px}
 .rev{width:380px;flex:none;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:24px;padding:28px}
 .rev p{font-size:19px;line-height:1.45;margin-bottom:22px}
 .rev b{display:block}.rev span{color:var(--mute);font-size:14px}
@@ -313,7 +311,7 @@
  .left{justify-content:flex-start}.viz{height:auto;min-height:0}
  .copy{height:128px}.blk h2{font-size:28px;margin-bottom:8px}.blk p{font-size:15px;line-height:1.45}.rail,.chip{display:none}
  .glow,.glow2{width:420px;height:420px}
- .reviews{padding:80px 0}.avg{margin:-28px 0 36px}.avg b{font-size:52px}.rev{width:290px;padding:22px}.rev p{font-size:17px}
+ .avg{margin:-28px 0 36px}.avg b{font-size:52px}.rev{width:290px;padding:22px}.rev p{font-size:17px}
  .ask{padding:44px 22px;border-radius:28px;margin:0 14px}.ask p.s{font-size:16px}.ai{display:grid;grid-template-columns:1fr 1fr;gap:10px}.ai a{padding:14px 10px}.ai a.c{grid-column:1/-1;padding-inline:10px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.mq{-webkit-mask-image:none;mask-image:none}.mq-track{flex-wrap:wrap;width:auto;transform:none!important;justify-content:center}.mq-set{flex-wrap:wrap;justify-content:center;padding:0}}
@@ -393,6 +391,31 @@
  .gc{padding:26px}.faq-i summary{padding:18px 20px;font-size:16.5px}.faq-a>div,.faq-i[open] .faq-a>div{padding-inline:20px}
 }
 @media(prefers-reduced-motion:reduce){.hero:before,.chip{animation:none}.faq-a,.faq-a>div,.gc,.rev{transition:none}}
+
+/* ===== pinned scroll scenes: the page holds still while the content evolves ===== */
+.scene{position:relative}.scene .anchor{position:absolute;left:0;width:1px;height:1px}
+.js .scene{height:calc(var(--len)*1vh);height:calc(var(--len)*1svh)}
+.js .scene-stage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.js .scene .pane{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:92px 0 36px;pointer-events:none}
+.js .scene .gc,.js .scene .rev{pointer-events:auto}
+.js .scene [data-w]{opacity:0;will-change:transform,opacity,filter;transition:border-color .5s,background .5s!important}
+.scene .sec-h h2{text-wrap:balance}.scene .sec-h{margin-bottom:44px}.scene .avg{margin:0 0 40px}
+.js .scene.flat{height:auto}.js .scene.flat .scene-stage{position:static;height:auto;overflow:visible}
+.js .scene.flat .pane{position:static;padding:80px 0;pointer-events:auto}.js .scene.flat [data-w]{opacity:1!important;transform:none!important;filter:none!important}
+.js .scene.flat .rv-wrap{overflow-x:auto}
+.rv-dots{display:none;justify-content:center;gap:8px;margin-top:22px}
+.rv-dots i{width:8px;height:8px;border-radius:8px;background:var(--line);transition:width .35s,background .35s}.rv-dots i.on{width:26px;background:var(--sun)}
+@media(max-width:900px){
+ .scene .pane{padding:76px 0 22px}.scene .sec-h{margin-bottom:20px}.scene .sec-h h2{font-size:clamp(28px,8vw,36px)}.scene .sec-h p{font-size:15.5px}
+ .scene .g3{grid-template-columns:minmax(0,1fr);gap:10px}.scene .g4{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .scene .gc{padding:18px}.scene .gc h3{font-size:20px;margin-bottom:6px}.scene .gc h4{font-size:16px;margin-bottom:6px}.scene .gc p{font-size:14px;line-height:1.45}
+ .scene .avg{margin-bottom:20px}.scene .avg b{font-size:48px}
+ .scene .rv-wrap{max-width:none;padding:0}.scene .rv-track.g3{display:flex;gap:14px;padding:0 20px;width:max-content}
+ .scene .rv-track .rev{width:78vw;max-width:340px;flex:none;padding:22px}.scene .rev p{font-size:16.5px}
+ .rv-dots{display:flex}.js .scene.reviews{height:calc(var(--len)*1vh);height:calc(var(--len)*1svh)}
+}
+/* highlights strip: not on phones, there is too little room for it */
+@media(max-width:700px){.strip{display:none}}
 </style>
 </head>
 <body data-page="home">
@@ -452,22 +475,25 @@
 <div class="stat" data-r style="--d:.24s"><b data-count="24" data-suf=" hrs">24 hrs</b><span>Typical approval time</span></div>
 </div></section>
 
-<section class="sec" id="who"><div class="wrap">
-<div class="sec-h"><h2 data-words>Whoever's paycheck <em>hasn't caught up yet</em></h2><p data-r style="--d:.3s">SUVRON Money is built for the gap before the salary lands or the next gig pays out.</p></div>
+<section class="scene" id="who" style="--len:380">
+<span class="anchor" id="why" style="top:46%"></span>
+<div class="scene-stage">
+<div class="pane"><div class="wrap">
+<div class="sec-h"><h2 data-w="0,.07" data-out=".43,.5">Whoever's paycheck <em>hasn't caught up yet</em></h2><p data-w=".03,.1" data-out=".43,.5">SUVRON Money is built for the gap before the salary lands or the next gig pays out.</p></div>
 <div class="g3">
-<div class="gc" data-r><h3>Students</h3><p>Cover a semester fee or a broken laptop without waiting on pocket money.</p></div>
-<div class="gc" data-r style="--d:.12s"><h3>First jobbers</h3><p>Bridge the gap between your offer letter and your first salary.</p></div>
-<div class="gc" data-r style="--d:.24s"><h3>Freelancers &amp; gig workers</h3><p>Freelance and gig income doesn't land on a fixed date. SUVRON Money covers the gap in between.</p></div>
-</div></div></section>
-
-<section class="sec alt" id="why"><div class="wrap">
-<div class="sec-h"><h2 data-words>Built to be <em>upfront</em> with you</h2><p data-r style="--d:.3s">No hidden clauses, no surprise deductions. You see what a loan costs before you take it.</p></div>
+<div class="gc" data-w=".08,.2" data-out=".43,.5"><h3>Students</h3><p>Cover a semester fee or a broken laptop without waiting on pocket money.</p></div>
+<div class="gc" data-w=".16,.28" data-out=".44,.51"><h3>First jobbers</h3><p>Bridge the gap between your offer letter and your first salary.</p></div>
+<div class="gc" data-w=".24,.36" data-out=".45,.52"><h3>Freelancers &amp; gig workers</h3><p>Freelance and gig income doesn't land on a fixed date. SUVRON Money covers the gap in between.</p></div>
+</div></div></div>
+<div class="pane"><div class="wrap">
+<div class="sec-h"><h2 data-w=".52,.6">Built to be <em>upfront</em> with you</h2><p data-w=".55,.63">No hidden clauses, no surprise deductions. You see what a loan costs before you take it.</p></div>
 <div class="g4">
-<div class="gc" data-r><h4>Transparent pricing</h4><p>See your interest and fees before you accept, never after.</p></div>
-<div class="gc" data-r style="--d:.1s"><h4>Short, fixed terms</h4><p>Loans run 60 to 180 days. You know your repayment date before you accept.</p></div>
-<div class="gc" data-r style="--d:.2s"><h4>Bank-grade security</h4><p>Your data is encrypted end-to-end and is never sold to third parties.</p></div>
-<div class="gc" data-r style="--d:.3s"><h4>Real support</h4><p>Reach an actual person if a number on your statement doesn't add up.</p></div>
-</div></div></section>
+<div class="gc" data-w=".6,.72"><h4>Transparent pricing</h4><p>See your interest and fees before you accept, never after.</p></div>
+<div class="gc" data-w=".67,.79"><h4>Short, fixed terms</h4><p>Loans run 60 to 180 days. You know your repayment date before you accept.</p></div>
+<div class="gc" data-w=".74,.86"><h4>Bank-grade security</h4><p>Your data is encrypted end-to-end and is never sold to third parties.</p></div>
+<div class="gc" data-w=".81,.93"><h4>Real support</h4><p>Reach an actual person if a number on your statement doesn't add up.</p></div>
+</div></div></div>
+</div></section>
 
 <section class="sec" id="trust"><div class="wrap">
 <div class="trust" data-r>
@@ -477,11 +503,13 @@
 <div class="partner"><h4>Our Lending Partner</h4><ul><li><b>Name:</b> Ready Leasings Private Limited</li><li><b>RBI Registration:</b> NBFC, Reg. No. ******0028</li><li><b>CIN:</b> *****************0699</li></ul><p>Full terms and rate details are in our <a href="/terms/">terms of use</a>.</p></div>
 </div></div></section>
 
-<section class="sec alt reviews" id="reviews"><div class="wrap">
-<div class="sec-h"><h2 data-words>What users are <em>saying</em></h2></div>
-<div class="avg" data-r><b id="avg">4.2</b><span class="stars" role="img" aria-label="4.2 out of 5" style="--w:84%">&#9733;&#9733;&#9733;&#9733;&#9733;<i>&#9733;&#9733;&#9733;&#9733;&#9733;</i></span><small>average rating out of 5</small></div>
-</div>
-<div class="wrap"><div class="g3 rv"><figure class="rev" data-r><b class="out">Same-day reply</b><span class="stars" role="img" aria-label="5 out of 5" style="--w:100%">&#9733;&#9733;&#9733;&#9733;&#9733;<i>&#9733;&#9733;&#9733;&#9733;&#9733;</i></span><blockquote>&ldquo;I filled out the form and got a reply from their team the same day. Everything was explained in plain language, no fine print I had to hunt for.&rdquo;</blockquote><figcaption><b>Riya M.</b></figcaption></figure><figure class="rev" data-r style="--d:.12s"><b class="out">Clear repayments</b><span class="stars" role="img" aria-label="4 out of 5" style="--w:80%">&#9733;&#9733;&#9733;&#9733;&#9733;<i>&#9733;&#9733;&#9733;&#9733;&#9733;</i></span><blockquote>&ldquo;I could see exactly what I'd repay each month before I accepted anything. That's rare for a short-term loan.&rdquo;</blockquote><figcaption><b>Nitin K.</b></figcaption></figure><figure class="rev" data-r style="--d:.24s"><b class="out">Cash the same day</b><span class="stars" role="img" aria-label="5 out of 5" style="--w:100%">&#9733;&#9733;&#9733;&#9733;&#9733;<i>&#9733;&#9733;&#9733;&#9733;&#9733;</i></span><blockquote>&ldquo;Money landed in my account the same day. Support answered a question about my EMI within the hour.&rdquo;</blockquote><figcaption><b>Disha C.</b></figcaption></figure></div></div></section>
+<section class="scene reviews" id="reviews" style="--len:260">
+<div class="scene-stage"><div class="pane">
+<div class="wrap"><div class="sec-h"><h2 data-w="0,.08">What users are <em>saying</em></h2></div>
+<div class="avg" data-w=".04,.12"><b id="avg">4.2</b><span class="stars" role="img" aria-label="4.2 out of 5" style="--w:84%">&#9733;&#9733;&#9733;&#9733;&#9733;<i>&#9733;&#9733;&#9733;&#9733;&#9733;</i></span><small>average rating out of 5</small></div></div>
+<div class="wrap rv-wrap"><div class="g3 rv-track" data-pan><figure class="rev" data-w=".1,.4" data-fx="right"><b class="out">Same-day reply</b><span class="stars" role="img" aria-label="5 out of 5" style="--w:100%">&#9733;&#9733;&#9733;&#9733;&#9733;<i>&#9733;&#9733;&#9733;&#9733;&#9733;</i></span><blockquote>&ldquo;I filled out the form and got a reply from their team the same day. Everything was explained in plain language, no fine print I had to hunt for.&rdquo;</blockquote><figcaption><b>Riya M.</b></figcaption></figure><figure class="rev" data-w=".3,.6" data-fx="right"><b class="out">Clear repayments</b><span class="stars" role="img" aria-label="4 out of 5" style="--w:80%">&#9733;&#9733;&#9733;&#9733;&#9733;<i>&#9733;&#9733;&#9733;&#9733;&#9733;</i></span><blockquote>&ldquo;I could see exactly what I'd repay each month before I accepted anything. That's rare for a short-term loan.&rdquo;</blockquote><figcaption><b>Nitin K.</b></figcaption></figure><figure class="rev" data-w=".5,.8" data-fx="right"><b class="out">Cash the same day</b><span class="stars" role="img" aria-label="5 out of 5" style="--w:100%">&#9733;&#9733;&#9733;&#9733;&#9733;<i>&#9733;&#9733;&#9733;&#9733;&#9733;</i></span><blockquote>&ldquo;Money landed in my account the same day. Support answered a question about my EMI within the hour.&rdquo;</blockquote><figcaption><b>Disha C.</b></figcaption></figure></div></div>
+<div class="rv-dots" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
+</div></div></section>
 
 <section class="sec" id="refer"><div class="wrap"><div class="refer" data-r>
 <div><h2>Bring a friend, <em>you both get paid</em></h2><p>Share your code. When a friend takes their first loan through SUVRON Money, you both get cash back, no cap on how many friends you refer.</p><p class="ra">Up to <b>₹100</b> per friend</p><a class="btn sun" href="https://play.google.com/store/apps/details?id=com.shantilekh.suvron&hl=en_IN">Get your referral code</a></div>
@@ -518,7 +546,7 @@
 <p class="legal">SUVRON Money is a digital lending platform built by Shantilekh Global Technology Pvt. Ltd. Loans are sanctioned, disbursed and collected by our RBI-registered NBFC partners, who retain final control over credit approval and terms. SUVRON Money does not itself lend money. Interest rates for loans facilitated on this platform range from 10% to 36% per annum, and the APR, inclusive of interest and all fees, ranges from 10% to 120%, depending on tenure, amount and your credit assessment; the exact APR for your offer is disclosed in your Key Fact Statement and loan agreement before you accept. Borrow only what you can repay.</p>
 <p class="copy">&copy; 2026 SUVRON Money. All rights reserved.</p></div></footer>
 <script src="/forms.js"></script>
-<script src="/site.js"></script>
+<script src="/site.js?v=2"></script>
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)),sm=x=>x*x*(3-2*x);
@@ -582,6 +610,34 @@ links.forEach(a=>a.addEventListener('click',()=>{
  let t;addEventListener('resize',()=>{clearTimeout(t);t=setTimeout(()=>{M.forEach(build);kick()},120)});
  const init=()=>{M.forEach(build);target=cur=scrollY;draw()};
  (document.fonts?document.fonts.ready:Promise.resolve()).then(init);init();
+})();
+</script>
+<script>
+// Pinned scroll scenes. Elements carry data-w="start,end" (scroll window they animate in) and optional data-out="start,end".
+(function(){
+ const scenes=[...document.querySelectorAll('.scene')];if(!scenes.length)return;
+ if(matchMedia('(prefers-reduced-motion:reduce)').matches){scenes.forEach(s=>s.classList.add('flat'));return}
+ const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)),sm=x=>x*x*(3-2*x),num=a=>a.split(',').map(Number);
+ const S=scenes.map(el=>({el,stage:el.querySelector('.scene-stage'),items:[...el.querySelectorAll('[data-w]')].map(e=>({e,w:num(e.dataset.w),o:num(e.dataset.out||'2,3'),fx:e.dataset.fx})),pan:el.querySelector('[data-pan]'),dots:[...el.querySelectorAll('.rv-dots i')],t:0,c:0,on:false}));
+ const mq=matchMedia('(max-width:900px)');
+ const read=()=>S.forEach(o=>{const r=o.el.getBoundingClientRect();o.t=clamp(-r.top/(o.el.offsetHeight-o.stage.offsetHeight));o.on=r.bottom>-200&&r.top<innerHeight+200});
+ function draw(o,p){
+  const m=mq.matches;
+  o.items.forEach(({e,w,o:out,fx})=>{
+   if(m&&fx==='right'){e.style.opacity=1;e.style.transform='none';e.style.filter='none';e.style.visibility='visible';return}
+   const i=sm(clamp((p-w[0])/(w[1]-w[0]))),x=sm(clamp((p-out[0])/(out[1]-out[0]))),k=i*(1-x);
+   e.style.opacity=k;e.style.visibility=k<.01?'hidden':'visible';
+   e.style.transform=fx==='right'?`translateX(${(1-i)*innerWidth*.85}px) rotate(${(1-i)*3}deg)`:`translateY(${(1-i)*58-x*46}px) scale(${.95+.05*k})`;
+   e.style.filter=k<.995?`blur(${((1-k)*10).toFixed(1)}px)`:'none';
+  });
+  if(o.pan){
+   if(m){const max=Math.max(0,o.pan.offsetWidth-innerWidth),k=sm(clamp((p-.1)/.8));o.pan.style.transform=`translateX(${-k*max}px)`;
+    const n=Math.round(k*(o.dots.length-1));o.dots.forEach((d,i)=>d.classList.toggle('on',i===n))}
+   else o.pan.style.transform='none';
+  }
+ }
+ (function loop(){S.forEach(o=>{if(!o.on&&Math.abs(o.c-o.t)<.0004)return;o.c+=(o.t-o.c)*.1;if(Math.abs(o.t-o.c)<.0004)o.c=o.t;draw(o,o.c)});requestAnimationFrame(loop)})();
+ addEventListener('scroll',read,{passive:true});addEventListener('resize',read);read();S.forEach(o=>{o.c=o.t;draw(o,o.c)});
 })();
 </script>
 </body></html>
