@@ -140,10 +140,10 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Who can apply for a SUVRON Money loan?",
+          "name": "Can I apply without a credit history?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Anyone between 18 and 35 with a valid PAN, Aadhaar and an active bank account can apply. You don't need an existing credit history to be considered."
+            "text": "Yes. You need to be 18 to 35 with a valid PAN, Aadhaar and an active bank account. No existing credit history is required."
           }
         },
         {
@@ -151,15 +151,15 @@
           "name": "How much can I borrow, and for how long?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Loans currently range from ₹2,000 to ₹50,000 with a tenure of 60 to 180 days. Your exact amount, tenure and total cost depend on your eligibility check, and you'll see all of it before accepting an offer."
+            "text": "₹2,000 to ₹50,000, repaid over 60 to 180 days. Your exact amount and tenure come with your offer, before you accept."
           }
         },
         {
           "@type": "Question",
-          "name": "What does a SUVRON Money loan cost?",
+          "name": "Will I see the full cost before I accept?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Interest rates range from 10% to 36% per annum and the APR, inclusive of interest and all fees, ranges from 10% to 120%, depending on tenure, amount and your credit assessment. The exact APR for your offer is disclosed in your Key Fact Statement and loan agreement before you accept, never buried afterward."
+            "text": "Yes. Interest runs 10% to 36% per annum and the APR (interest plus all fees) 10% to 120%, depending on tenure, amount and credit assessment. Your exact APR is in your Key Fact Statement and loan agreement before you accept."
           }
         },
         {
@@ -172,10 +172,10 @@
         },
         {
           "@type": "Question",
-          "name": "Is my personal data safe with SUVRON Money?",
+          "name": "Is my data private?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Your data is encrypted and used only to process your application. It's shared with our NBFC lending partners where needed for underwriting and compliance, never sold to advertisers or unrelated third parties. See our privacy policy for the full picture."
+            "text": "Yes. It's encrypted and used only to process your application. It's shared with our NBFC lending partners where needed for underwriting and compliance, never sold to advertisers or unrelated third parties. See our privacy policy at suvron.in/privacy-policy/."
           }
         },
         {
@@ -183,7 +183,7 @@
           "name": "What happens if I repay late?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Late fees apply and are spelled out in your loan agreement before you accept. From the day a payment is missed, you'll hear from us through automated reminders and, if needed, a support agent, never a surprise call out of nowhere."
+            "text": "Late fees apply and are listed in your loan agreement before you accept. Missed payments get automated reminders first, then a support agent if needed."
           }
         }
       ]
@@ -251,9 +251,13 @@
 .tx b{width:2.4em;height:2.4em;border-radius:.7em;background:var(--brand);color:#fff;display:grid;place-items:center;font:800 1em "Plus Jakarta Sans","Plus Jakarta Sans Fallback"}
 .tx div{flex:1;line-height:1.25}.tx small{color:#5F7A72;font-size:.85em}.tx em{font-style:normal;font-weight:700;color:#0E9E70}
 
-.chip{position:absolute;z-index:4;display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.1);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.18);padding:14px 20px;border-radius:18px;font-weight:700;font-size:15px;white-space:nowrap;opacity:0;box-shadow:0 20px 40px -16px rgba(0,0,0,.6)}
-.chip i{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:13px;color:var(--bg);background:var(--mint)}
-.c0{left:-8%;top:18%}.c1{right:-12%;top:34%}.c2{left:-8%;top:58%}.c3{right:-10%;bottom:12%}
+.chip{position:absolute;z-index:4;display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.1);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.18);padding:11px 16px;border-radius:16px;font-weight:700;font-size:14px;white-space:nowrap;opacity:0;box-shadow:0 20px 40px -16px rgba(0,0,0,.6)}
+.chip i{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:12px;color:var(--bg);background:var(--mint)}
+.viz{container-type:inline-size;--pw:calc(var(--ph)*.4625);--oh:176px}
+/* chips hang off the phone by --oh, but are clamped to the column so they can never be clipped by the viewport */
+.c0,.c2{left:0;left:max(0px,calc(50cqw - var(--pw)/2 - var(--oh)))}
+.c1,.c3{right:0;right:max(0px,calc(50cqw - var(--pw)/2 - var(--oh)))}
+.c0{top:18%}.c1{top:34%}.c2{top:58%}.c3{bottom:12%}
 .c1 i,.c2 i{background:var(--sun)}
 .chip{animation:drift 6s ease-in-out infinite}.c1{animation-delay:-1.5s}.c2{animation-delay:-3s}.c3{animation-delay:-4.5s}
 @keyframes drift{50%{translate:0 -8px}}
@@ -275,28 +279,32 @@
 .chk li:before{content:"";width:1.4em;height:1.4em;border-radius:50%;border:.12em solid #D6E4DC;display:grid;place-items:center;font-size:.8em;font-weight:700;color:#fff}
 .chk li.on{opacity:1}.chk li.on:before{content:"\2713";background:#0E7A62;border-color:#0E7A62}
 /* reviews */
+.mq{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.mq-track{display:flex;width:max-content;will-change:transform}
+.mq-set{display:flex;gap:10px;padding:0 10px 0 0;margin:0;list-style:none}
+.mq-set li{flex:none;display:inline-flex;align-items:center;gap:8px;padding:9px 16px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--mute);font-size:14px;font-weight:500;white-space:nowrap}
+.mq-set li:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--mint)}
+.hero p.nums{max-width:none}.nums span{white-space:nowrap}
+.rv .rev{width:auto}
+.rev .out{font:800 clamp(22px,2.2vw,28px)/1.15 "Plus Jakarta Sans","Plus Jakarta Sans Fallback",sans-serif;letter-spacing:-.02em;color:var(--sun);margin-bottom:14px}
 .reviews{padding:130px 0 120px;overflow:hidden}
 .reviews h2{font-size:clamp(36px,4.6vw,64px);text-align:center;margin-bottom:56px;padding:0 24px}
-.mask{-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
-.track{display:flex;gap:20px;width:max-content;margin-bottom:20px;animation:l var(--d,70s) linear infinite}
-.track.r{animation-direction:reverse}
-.mask{padding:8px 0}.reviews:hover .track,.track:focus-within{animation-play-state:paused}
 .rev{width:380px;flex:none;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:24px;padding:28px}
 .rev p{font-size:19px;line-height:1.45;margin-bottom:22px}
 .rev b{display:block}.rev span{color:var(--mute);font-size:14px}
-@keyframes l{to{transform:translateX(-50%)}}
 
 .ask{background:linear-gradient(160deg,#0F3A32,#0A2924);border:1px solid var(--line);border-radius:40px;padding:80px 56px;margin:0 auto;max-width:1160px}
 .ask .in{max-width:780px;margin:0 auto;text-align:center}
 .ask h2{font-size:clamp(34px,4.4vw,58px)}
 .ask p.s{color:var(--mute);margin:18px 0 32px;font-size:18px}
-.ask textarea{width:100%;min-height:132px;resize:vertical;background:rgba(0,0,0,.3);border:1.5px solid var(--line);border-radius:20px;color:var(--ink);font:inherit;padding:20px;text-align:left}
+.ask textarea{width:100%;min-height:200px;resize:vertical;background:rgba(0,0,0,.3);border:1.5px solid var(--line);border-radius:20px;color:var(--ink);font:inherit;padding:20px;text-align:left}
 .ai{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px}
 .ai a{display:inline-block;text-decoration:none;text-align:center;font:700 16px "Inter","Inter Fallback",sans-serif;cursor:pointer;border:0;border-radius:999px;padding:15px 30px;background:var(--ink);color:var(--bg);transition:transform .25s}
-.ai a:hover{transform:translateY(-2px)}.ai a.c{background:var(--sun)}
+.ai a:hover{transform:translateY(-2px)}.ai a.c{background:var(--sun);padding-inline:40px;box-shadow:0 12px 32px -10px rgba(255,201,60,.6)}
 .note{font-size:14px;color:var(--mute);margin-top:16px;min-height:22px}
 
 
+@media(max-width:1100px){.chip{display:none}}
 @media(max-width:900px){
  .hero{padding:96px 0 32px}.hero h1{font-size:clamp(42px,12.4vw,80px)}.hero p{font-size:17px;margin:20px auto 28px}
  .hero .row{flex-direction:column;align-items:center}.hero .btn{width:100%;max-width:320px;text-align:center}
@@ -306,9 +314,9 @@
  .copy{height:128px}.blk h2{font-size:28px;margin-bottom:8px}.blk p{font-size:15px;line-height:1.45}.rail,.chip{display:none}
  .glow,.glow2{width:420px;height:420px}
  .reviews{padding:80px 0}.avg{margin:-28px 0 36px}.avg b{font-size:52px}.rev{width:290px;padding:22px}.rev p{font-size:17px}
- .ask{padding:44px 22px;border-radius:28px;margin:0 14px}.ask p.s{font-size:16px}.ai{display:grid;grid-template-columns:1fr 1fr;gap:10px}.ai a{padding:14px 10px}
+ .ask{padding:44px 22px;border-radius:28px;margin:0 14px}.ask p.s{font-size:16px}.ai{display:grid;grid-template-columns:1fr 1fr;gap:10px}.ai a{padding:14px 10px}.ai a.c{grid-column:1/-1;padding-inline:10px}
 }
-@media(prefers-reduced-motion:reduce){.track{animation:none;flex-wrap:wrap;width:auto}.rev[aria-hidden]{display:none}html{scroll-behavior:auto}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.mq{-webkit-mask-image:none;mask-image:none}.mq-track{flex-wrap:wrap;width:auto;transform:none!important;justify-content:center}.mq-set{flex-wrap:wrap;justify-content:center;padding:0}}
 </style>
 <style>
 /* restored sections + premium motion */
@@ -395,10 +403,11 @@
 
 <section class="hero"><div class="wrap">
 <h1 data-words>Cash for the gap <em>before payday.</em></h1>
-<p data-r style="--d:.35s">Short-term loans from <strong>₹2,000 to ₹50,000</strong>, approved within 24 hours and paid straight into your bank account.</p>
+<p class="nums" data-r style="--d:.35s"><span>Short-term loans</span> · <span><strong>₹2,000–₹50,000</strong></span> · <span>60–180 days</span> · <span>decision in 24 hrs</span></p>
+<div class="row" data-r style="--d:.5s"><a class="btn sun" href="https://play.google.com/store/apps/details?id=com.shantilekh.suvron&hl=en_IN">Get the app</a></div>
 </div></section>
 
-<section class="strip" aria-label="Highlights"><div class="row" data-r><span><i></i>Backed by an RBI-registered NBFC</span><span>100% digital, zero paperwork</span><span>No collateral</span><span><b>&#9733;</b>4.2 average rating</span></div></section>
+<section class="strip" aria-label="Highlights"><div class="mq" data-mq data-dir="-1" data-speed=".45"><ul class="mq-set"><li>RBI-registered NBFC partner</li><li>₹2,000–₹50,000 loans</li><li>60–180 day terms</li><li>Decision in 24 hrs</li><li>Fees shown before you accept</li><li>Key Fact Statement upfront</li><li>No collateral</li><li>No credit history needed</li><li>7-day complaint response</li></ul></div></section>
 
 <section class="story" id="how"><div class="stage" id="stage"><div class="wrap">
 <div class="left"><div class="copy">
@@ -411,7 +420,7 @@
 <div class="viz">
 <div class="glow" id="g1"></div><div class="glow2" id="g2"></div>
 <div class="chip c0" data-i="0"><i>&#10003;</i>Aadhaar OTP verified</div>
-<div class="chip c1" data-i="1"><i>&#9679;</i>Decision within 24 hrs</div>
+<div class="chip c1" data-i="1"><i>&#9679;</i>Decision in 24 hrs</div>
 <div class="chip c2" data-i="2"><i>&#9679;</i>Offer ready</div>
 <div class="chip c3" data-i="3"><i>&#10003;</i>Money sent</div>
 <div class="phone" id="phone"><div class="screen">
@@ -462,10 +471,8 @@
 
 <section class="sec" id="trust"><div class="wrap">
 <div class="trust" data-r>
-<h2 data-words>Lending you can <em>verify</em></h2>
-<p class="tl" data-r style="--d:.3s">SUVRON Money is built by Shantilekh Global Technology Pvt. Ltd.</p>
-<p class="tl" data-r style="--d:.5s">It's offered with RBI-registered NBFC lending partners, who hold final say on credit approval, disbursement and collections.</p>
-<p class="tl" data-r style="--d:.7s">Every fee and charge for your offer is shown in full before you accept, never buried in the agreement afterward.</p>
+<h2 data-words>Your data <em>stays yours.</em></h2>
+<p class="tl" data-r style="--d:.3s">Encrypted, used only to process your application, shared with our RBI-registered NBFC partners where needed, and never sold.</p>
 <ul class="badges"><li>RBI Fair Practices Code</li><li>DPDP-compliant data handling</li><li>Clear fee schedule</li><li>Named grievance officer, 7-day response</li></ul>
 <div class="partner"><h4>Our Lending Partner</h4><ul><li><b>Name:</b> Ready Leasings Private Limited</li><li><b>RBI Registration:</b> NBFC, Reg. No. ******0028</li><li><b>CIN:</b> *****************0699</li></ul><p>Full terms and rate details are in our <a href="/terms/">terms of use</a>.</p></div>
 </div></div></section>
@@ -474,7 +481,7 @@
 <div class="sec-h"><h2 data-words>What users are <em>saying</em></h2></div>
 <div class="avg" data-r><b id="avg">4.2</b><span class="stars" role="img" aria-label="4.2 out of 5" style="--w:84%">&#9733;&#9733;&#9733;&#9733;&#9733;<i>&#9733;&#9733;&#9733;&#9733;&#9733;</i></span><small>average rating out of 5</small></div>
 </div>
-<div class="mask" id="rows" data-r></div></section>
+<div class="wrap"><div class="g3 rv"><figure class="rev" data-r><b class="out">Same-day reply</b><span class="stars" role="img" aria-label="5 out of 5" style="--w:100%">&#9733;&#9733;&#9733;&#9733;&#9733;<i>&#9733;&#9733;&#9733;&#9733;&#9733;</i></span><blockquote>&ldquo;I filled out the form and got a reply from their team the same day. Everything was explained in plain language, no fine print I had to hunt for.&rdquo;</blockquote><figcaption><b>Riya M.</b></figcaption></figure><figure class="rev" data-r style="--d:.12s"><b class="out">Clear repayments</b><span class="stars" role="img" aria-label="4 out of 5" style="--w:80%">&#9733;&#9733;&#9733;&#9733;&#9733;<i>&#9733;&#9733;&#9733;&#9733;&#9733;</i></span><blockquote>&ldquo;I could see exactly what I'd repay each month before I accepted anything. That's rare for a short-term loan.&rdquo;</blockquote><figcaption><b>Nitin K.</b></figcaption></figure><figure class="rev" data-r style="--d:.24s"><b class="out">Cash the same day</b><span class="stars" role="img" aria-label="5 out of 5" style="--w:100%">&#9733;&#9733;&#9733;&#9733;&#9733;<i>&#9733;&#9733;&#9733;&#9733;&#9733;</i></span><blockquote>&ldquo;Money landed in my account the same day. Support answered a question about my EMI within the hour.&rdquo;</blockquote><figcaption><b>Disha C.</b></figcaption></figure></div></div></section>
 
 <section class="sec" id="refer"><div class="wrap"><div class="refer" data-r>
 <div><h2>Bring a friend, <em>you both get paid</em></h2><p>Share your code. When a friend takes their first loan through SUVRON Money, you both get cash back, no cap on how many friends you refer.</p><p class="ra">Up to <b>₹100</b> per friend</p><a class="btn sun" href="https://play.google.com/store/apps/details?id=com.shantilekh.suvron&hl=en_IN">Get your referral code</a></div>
@@ -483,20 +490,20 @@
 
 <section class="sec alt" id="faq"><div class="wrap narrow">
 <div class="sec-h"><h2 data-words>Questions people <em>ask us</em></h2></div>
-<details class="faq-i" data-r><summary>Who can apply for a SUVRON Money loan?<span class="pl" aria-hidden="true"></span></summary><div class="faq-a"><div>Anyone between 18 and 35 with a valid PAN, Aadhaar and an active bank account can apply. You don't need an existing credit history to be considered.</div></div></details>
-<details class="faq-i" data-r><summary>How much can I borrow, and for how long?<span class="pl" aria-hidden="true"></span></summary><div class="faq-a"><div>Loans currently range from ₹2,000 to ₹50,000 with a tenure of 60 to 180 days. Your exact amount, tenure and total cost depend on your eligibility check, and you'll see all of it before accepting an offer.</div></div></details>
-<details class="faq-i" data-r><summary>What does a SUVRON Money loan cost?<span class="pl" aria-hidden="true"></span></summary><div class="faq-a"><div>Interest rates range from 10% to 36% per annum and the APR, inclusive of interest and all fees, ranges from 10% to 120%, depending on tenure, amount and your credit assessment. The exact APR for your offer is disclosed in your Key Fact Statement and loan agreement before you accept, never buried afterward.</div></div></details>
+<details class="faq-i" data-r><summary>Can I apply without a credit history?<span class="pl" aria-hidden="true"></span></summary><div class="faq-a"><div>Yes. You need to be 18 to 35 with a valid PAN, Aadhaar and an active bank account. No existing credit history is required.</div></div></details>
+<details class="faq-i" data-r><summary>How much can I borrow, and for how long?<span class="pl" aria-hidden="true"></span></summary><div class="faq-a"><div>₹2,000 to ₹50,000, repaid over 60 to 180 days. Your exact amount and tenure come with your offer, before you accept.</div></div></details>
+<details class="faq-i" data-r><summary>Will I see the full cost before I accept?<span class="pl" aria-hidden="true"></span></summary><div class="faq-a"><div>Yes. Interest runs 10% to 36% per annum and the APR (interest plus all fees) 10% to 120%, depending on tenure, amount and credit assessment. Your exact APR is in your Key Fact Statement and loan agreement before you accept.</div></div></details>
 <details class="faq-i" data-r><summary>How fast is disbursal once I'm approved?<span class="pl" aria-hidden="true"></span></summary><div class="faq-a"><div>Most approved loans are disbursed within 24 hours, straight to the bank account you verify during sign-up.</div></div></details>
-<details class="faq-i" data-r><summary>Is my personal data safe with SUVRON Money?<span class="pl" aria-hidden="true"></span></summary><div class="faq-a"><div>Your data is encrypted and used only to process your application. It's shared with our NBFC lending partners where needed for underwriting and compliance, never sold to advertisers or unrelated third parties. See our <a href='/privacy-policy/'>privacy policy</a> for the full picture.</div></div></details>
-<details class="faq-i" data-r><summary>What happens if I repay late?<span class="pl" aria-hidden="true"></span></summary><div class="faq-a"><div>Late fees apply and are spelled out in your loan agreement before you accept. From the day a payment is missed, you'll hear from us through automated reminders and, if needed, a support agent, never a surprise call out of nowhere.</div></div></details>
+<details class="faq-i" data-r><summary>Is my data private?<span class="pl" aria-hidden="true"></span></summary><div class="faq-a"><div>Yes. It's encrypted and used only to process your application. It's shared with our NBFC lending partners where needed for underwriting and compliance, never sold to advertisers or unrelated third parties. See our <a href='/privacy-policy/'>privacy policy</a>.</div></div></details>
+<details class="faq-i" data-r><summary>What happens if I repay late?<span class="pl" aria-hidden="true"></span></summary><div class="faq-a"><div>Late fees apply and are listed in your loan agreement before you accept. Missed payments get automated reminders first, then a support agent if needed.</div></div></details>
 </div></section>
 
 
 <section class="ask" id="ask"><div class="in">
 <h2>Not sure yet? <em>Ask an AI</em> about us.</h2>
-<p class="s">Edit the question if you like. One tap opens a chat with it already typed in, in the app if you have it installed.</p>
-<textarea id="q" aria-label="Question for your AI assistant">I'm thinking about borrowing from SUVRON Money (suvron.in), a short-term loan app for students and freelancers in India. Explain how it works, what it really costs, how it compares with alternatives, and what risks and questions I should think about before borrowing.</textarea>
-<div class="ai"><a class="c" data-ai="claude" href="https://claude.ai/new">Ask Claude</a><a data-ai="chatgpt" href="https://chatgpt.com/">Ask ChatGPT</a><a data-ai="perplexity" href="https://www.perplexity.ai/search">Ask Perplexity</a><a data-ai="grok" href="https://grok.com/">Ask Grok</a><a data-ai="gemini" href="https://gemini.google.com/app">Ask Gemini</a><a data-ai="copilot" href="https://copilot.microsoft.com/">Ask Copilot</a></div>
+<p class="s">We've pre-filled a question with the facts. Edit it if you like, then one tap opens a chat with it typed in, in the app if you have it installed.</p>
+<textarea id="q" aria-label="Question for your AI assistant">I'm in India, considering a short-term loan from SUVRON Money (suvron.in). From its website: ₹2,000–₹50,000 over 60–180 days, a decision in 24 hours, no collateral or credit history needed, offered through an RBI-registered NBFC partner, with every fee and the APR shown in a Key Fact Statement before you accept (interest 10–36% p.a., APR 10–120%), and a 7-day complaint response. What does it do well for students, first jobbers and freelancers, how does its upfront disclosure compare with typical instant-loan apps, and when is it a sensible choice? Also tell me what to check before accepting.</textarea>
+<div class="ai"><a class="c" data-ai="chatgpt" href="https://chatgpt.com/">Ask ChatGPT</a><a data-ai="claude" href="https://claude.ai/new">Ask Claude</a><a data-ai="gemini" href="https://gemini.google.com/app">Ask Gemini</a></div>
 <div class="note" id="note" aria-live="polite"></div>
 </div></section>
 
@@ -545,35 +552,36 @@ addEventListener('scroll',read,{passive:true});addEventListener('resize',read);r
 // Ask an AI. Real links, so phones hand them to the installed app.
 // 1 = the site takes a pre-filled question in the URL. 0 = it can't, so we copy the question and open the app.
 const q=$('#q'),note=$('#note'),touch=matchMedia('(pointer:coarse)').matches;
-const AI={claude:['https://claude.ai/new?q=',1,'Claude'],chatgpt:['https://chatgpt.com/?q=',1,'ChatGPT'],perplexity:['https://www.perplexity.ai/search?q=',1,'Perplexity'],grok:['https://grok.com/?q=',1,'Grok'],gemini:['https://gemini.google.com/app',0,'Gemini'],copilot:['https://copilot.microsoft.com/',0,'Copilot']};
+const AI={chatgpt:['https://chatgpt.com/?q=',1,'ChatGPT'],claude:['https://claude.ai/new?q=',1,'Claude'],gemini:['https://gemini.google.com/app',0,'Gemini']};
 const links=$$('[data-ai]');
 const setLinks=()=>links.forEach(a=>{const [u,p]=AI[a.dataset.ai];a.href=p?u+encodeURIComponent(q.value.trim()):u;a.target=touch?'_self':'_blank';a.rel='noopener'});
 setLinks();q.addEventListener('input',setLinks);
+const fit=()=>{q.style.height='auto';q.style.height=Math.min(q.scrollHeight+4,innerWidth<=900?230:300)+'px'};fit();addEventListener('resize',fit);document.fonts&&document.fonts.ready.then(fit);q.addEventListener('input',fit);
 links.forEach(a=>a.addEventListener('click',()=>{
  const [,p,name]=AI[a.dataset.ai];if(p){note.textContent='';return}
  navigator.clipboard.writeText(q.value.trim()).then(()=>note.textContent='Question copied. Paste it into '+name+'.',()=>note.textContent='Copy the question above, then paste it into '+name+'.');
 }));
 </script>
 <script>
-// REVIEW MARQUEE. Edit the text here: [quote, name, stars].
-// The first 3 are real reviews; the rest are PLACEHOLDERS. Replace their text when real ones come in.
-const R=[["I filled out the form and got a reply from their team the same day. Everything was explained in plain language, no fine print I had to hunt for.", "Riya M.", 5, true], ["I could see exactly what I'd repay each month before I accepted anything. That's rare for a short-term loan.", "Nitin K.", 4, true], ["Money landed in my account the same day. Support answered a question about my EMI within the hour.", "Disha C.", 5, true]].concat([
-["Fee was due before my stipend came in. Every charge was shown first.","Student, Pune",4],
-["Verification took one sitting on my phone. No uploads, no queues.","First jobber, Bengaluru",5],
-["Repayment dates were clear before I accepted.","Freelance designer, Jaipur",4],
-["Support replied to my email. Wish it was faster.","Student, Chandigarh",4],
-["Covered a broken laptop until the next client paid.","Freelance developer, Noida",5],
-["Approval took longer than I hoped, but the process was clear.","First jobber, Hyderabad",3],
-["Simple app, no confusing screens.","Student, Kolkata",4],
-["Good for a short gap. I repaid early without any fuss.","Freelance writer, Mumbai",4],
-["Liked seeing the full cost before tapping accept.","Student, Lucknow",4],
-["Clear about the dates. I knew what to pay and when.","Freelance photographer, Ahmedabad",5],
-["Not the cheapest option, but nothing was hidden.","First jobber, Gurugram",3]]);
+// Scroll-driven marquee: moves only while the page scrolls, stops when it stops.
 (function(){
- const st=r=>`<span class="stars" role="img" aria-label="${r} out of 5" style="--w:${r*20}%">&#9733;&#9733;&#9733;&#9733;&#9733;<i>&#9733;&#9733;&#9733;&#9733;&#9733;</i></span>`;
- const card=([q,n,r],c)=>`<figure class="rev"${c?' aria-hidden="true"':''}>${st(r)}<blockquote>&ldquo;${q}&rdquo;</blockquote><figcaption><b>${n}</b></figcaption></figure>`;
- const k=Math.ceil(R.length/3),D=[70,90,60];
- document.getElementById('rows').innerHTML=[0,1,2].map(i=>{const a=[...R.slice(i*k),...R.slice(0,i*k)];return `<div class="track${i%2?' r':''}" style="--d:${D[i]}s">${a.map(x=>card(x)).join('')+a.map(x=>card(x,1)).join('')}</div>`}).join('');
+ const els=[...document.querySelectorAll('[data-mq]')];
+ if(!els.length||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+ const M=els.map(el=>{const set=el.firstElementChild,track=document.createElement('div');track.className='mq-track';el.insertBefore(track,set);track.appendChild(set);
+  return{el,track,set,dir:+el.dataset.dir||-1,speed:+el.dataset.speed||.45,p:0,vis:false,base:[...set.children]}});
+ const build=m=>{m.track.querySelectorAll('[data-x]').forEach(n=>n.remove());m.set.querySelectorAll('[data-x]').forEach(n=>n.remove());
+  let g=0;while(m.set.offsetWidth<innerWidth*1.2&&g++<6)m.base.forEach(li=>{const c=li.cloneNode(true);c.dataset.x=1;c.setAttribute('aria-hidden','true');m.set.appendChild(c)});
+  const c=m.set.cloneNode(true);c.dataset.x=1;c.setAttribute('aria-hidden','true');m.track.appendChild(c);m.p=c.offsetLeft-m.set.offsetLeft};
+ let cur=0,target=0,raf=0;
+ const draw=()=>{raf=0;cur+=(target-cur)*.16;if(Math.abs(target-cur)<.2)cur=target;
+  M.forEach(m=>{if(!m.p)return;const x=(((m.dir*cur*m.speed)%m.p)+m.p)%m.p-m.p;m.track.style.transform=`translate3d(${x}px,0,0)`});
+  if(cur!==target)raf=requestAnimationFrame(draw)};
+ const kick=()=>{target=scrollY;if(M.some(m=>m.vis)&&!raf)raf=requestAnimationFrame(draw)};
+ M.forEach(m=>new IntersectionObserver(([e])=>{m.vis=e.isIntersecting;if(m.vis){target=cur=scrollY;kick()}},{rootMargin:'200px 0px'}).observe(m.el));
+ addEventListener('scroll',kick,{passive:true});
+ let t;addEventListener('resize',()=>{clearTimeout(t);t=setTimeout(()=>{M.forEach(build);kick()},120)});
+ const init=()=>{M.forEach(build);target=cur=scrollY;draw()};
+ (document.fonts?document.fonts.ready:Promise.resolve()).then(init);init();
 })();
 </script>
 </body></html>
