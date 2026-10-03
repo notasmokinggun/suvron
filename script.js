@@ -101,7 +101,6 @@
 // Each form routes to its own inbox so replies stay sorted without
 // any extra tooling:
 //   - "Check eligibility" form (index.html)   -> eligibility@suvron.in
-//   - "Apply now" sticky bar (every page)     -> contact@suvron.in
 //   - Contact page message form (contact.html) -> connect@suvron.in
 // To change any destination, edit the address in the matching
 // function below. Nothing else in the site needs to change.
@@ -156,33 +155,13 @@ function handleContactSubmit(event){
   form.reset();
 }
 
-// "Apply now" forms: the hero "check eligibility" mini-form (#apply on
-// index.html) goes to eligibility@suvron.in, and the sticky bottom bar
-// "Apply now" form repeated on every page goes to contact@suvron.in.
+// "Check eligibility" form (#apply on index.html) -> eligibility@suvron.in.
 function handleApplySubmit(event){
   event.preventDefault();
   const form = event.target;
-  const isSticky = form.classList.contains('sticky-form');
-
-  // On small screens the sticky bar's inputs are hidden (single tappable
-  // CTA), so there is nothing to submit yet. Send the person to the real
-  // form instead of silently doing nothing.
-  if(isSticky){
-    const fieldsVisible = form.querySelector('.sticky-fields') &&
-      window.getComputedStyle(form.querySelector('.sticky-fields')).display !== 'none';
-    if(!fieldsVisible){
-      const onIndex = /(^|\/)index\.html$|\/$/.test(window.location.pathname) || window.location.pathname === '';
-      if(onIndex && document.getElementById('apply')){
-        document.getElementById('apply').scrollIntoView({behavior:'smooth', block:'start'});
-      } else {
-        window.location.href = '/#apply';
-      }
-      return;
-    }
-  }
 
   const submitBtn = form.querySelector('button[type="submit"]');
-  const status = isSticky ? form.parentElement.querySelector('.sticky-status') : form.parentElement.querySelector('.form-status');
+  const status = form.parentElement.querySelector('.form-status');
   const nameInput = form.querySelector('input[type="text"]');
   const phoneInput = form.querySelector('input[type="tel"]');
   const data = { name: nameInput ? nameInput.value.trim() : '', phone: phoneInput ? phoneInput.value.trim() : '' };
@@ -192,9 +171,9 @@ function handleApplySubmit(event){
     return;
   }
 
-  const destination = isSticky ? 'contact@suvron.in' : 'eligibility@suvron.in';
-  const formLabel = isSticky ? 'Apply now form (sticky bar, all pages)' : 'Check eligibility form (main page)';
-  const subject = isSticky ? 'Suvron Money: new Apply now request' : 'Suvron Money: new eligibility check request';
+  const destination = 'eligibility@suvron.in';
+  const formLabel = 'Check eligibility form (main page)';
+  const subject = 'Suvron Money: new eligibility check request';
 
   const mailto = buildMailto(destination, subject, [
     `Form: ${formLabel}`,

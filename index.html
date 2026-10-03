@@ -572,24 +572,23 @@ $$('[data-ai]').forEach(b=>b.addEventListener('click',async()=>{
 }));
 </script>
 <script>
-// REVIEW MARQUEE. Edit the text here: [quote, name, stars, verified].
-// verified:false entries are PLACEHOLDERS. Replace the text and set verified:true once a review is real.
+// REVIEW MARQUEE. Edit the text here: [quote, name, stars].
+// The first 3 are real reviews; the rest are PLACEHOLDERS. Replace their text when real ones come in.
 const R=[["I filled out the form and got a reply from their team the same day. Everything was explained in plain language, no fine print I had to hunt for.", "Riya M.", 5, true], ["I could see exactly what I'd repay each month before I accepted anything. That's rare for a short-term loan.", "Nitin K.", 4, true], ["Money landed in my account the same day. Support answered a question about my EMI within the hour.", "Disha C.", 5, true]].concat([
-["Fee was due before my stipend came in. Every charge was shown first.","Student, Pune",4,false],
-["Verification took one sitting on my phone. No uploads, no queues.","First jobber, Bengaluru",5,false],
-["Repayment dates were clear before I accepted.","Freelance designer, Jaipur",4,false],
-["Support replied to my email. Wish it was faster.","Student, Chandigarh",4,false],
-["Covered a broken laptop until the next client paid.","Freelance developer, Noida",5,false],
-["Approval took longer than I hoped, but the process was clear.","First jobber, Hyderabad",3,false],
-["Simple app, no confusing screens.","Student, Kolkata",4,false],
-["Good for a short gap. I repaid early without any fuss.","Freelance writer, Mumbai",4,false],
-["Liked seeing the full cost before tapping accept.","Student, Lucknow",4,false],
-["Clear about the dates. I knew what to pay and when.","Freelance photographer, Ahmedabad",5,false],
-["Not the cheapest option, but nothing was hidden.","First jobber, Gurugram",3,false]]);
+["Fee was due before my stipend came in. Every charge was shown first.","Student, Pune",4],
+["Verification took one sitting on my phone. No uploads, no queues.","First jobber, Bengaluru",5],
+["Repayment dates were clear before I accepted.","Freelance designer, Jaipur",4],
+["Support replied to my email. Wish it was faster.","Student, Chandigarh",4],
+["Covered a broken laptop until the next client paid.","Freelance developer, Noida",5],
+["Approval took longer than I hoped, but the process was clear.","First jobber, Hyderabad",3],
+["Simple app, no confusing screens.","Student, Kolkata",4],
+["Good for a short gap. I repaid early without any fuss.","Freelance writer, Mumbai",4],
+["Liked seeing the full cost before tapping accept.","Student, Lucknow",4],
+["Clear about the dates. I knew what to pay and when.","Freelance photographer, Ahmedabad",5],
+["Not the cheapest option, but nothing was hidden.","First jobber, Gurugram",3]]);
 (function(){
- const ck='<svg width="11" height="11" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 12.5l2.5 2.5L16 9" stroke="#5BF0B5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
  const st=r=>`<span class="stars" role="img" aria-label="${r} out of 5" style="--w:${r*20}%">&#9733;&#9733;&#9733;&#9733;&#9733;<i>&#9733;&#9733;&#9733;&#9733;&#9733;</i></span>`;
- const card=([q,n,r,v],c)=>`<figure class="rev"${c?' aria-hidden="true"':''}>${st(r)}<blockquote>&ldquo;${q}&rdquo;</blockquote><figcaption><b>${n}</b><span>${v?ck+'Verified user':'SUVRON Money user'}</span></figcaption></figure>`;
+ const card=([q,n,r],c)=>`<figure class="rev"${c?' aria-hidden="true"':''}>${st(r)}<blockquote>&ldquo;${q}&rdquo;</blockquote><figcaption><b>${n}</b></figcaption></figure>`;
  const k=Math.ceil(R.length/3),D=[70,90,60];
  document.getElementById('rows').innerHTML=[0,1,2].map(i=>{const a=[...R.slice(i*k),...R.slice(0,i*k)];return `<div class="track${i%2?' r':''}" style="--d:${D[i]}s">${a.map(x=>card(x)).join('')+a.map(x=>card(x,1)).join('')}</div>`}).join('');
 })();
