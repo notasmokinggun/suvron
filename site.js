@@ -27,6 +27,7 @@
 (function(){
  const m=document.querySelector('.site-h .more');if(!m)return;
  const t=m.querySelector('.more-t');
+ const mqm=matchMedia('(max-width:700px)'),lab=()=>mqm.matches?t.setAttribute('aria-label','Menu'):t.removeAttribute('aria-label');lab();mqm.addEventListener('change',lab);
  const set=o=>{m.classList.toggle('open',o);t.setAttribute('aria-expanded',o)};
  t.addEventListener('click',e=>{e.stopPropagation();set(!m.classList.contains('open'))});
  document.addEventListener('click',e=>{if(!m.contains(e.target))set(false)});

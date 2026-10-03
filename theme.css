@@ -566,3 +566,23 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:700;letter-spacing:-.025em}
 .page a.blog-card .blog-card-link{color:var(--mint)}
 .page a.btn,.page a.btn:hover{text-decoration:none}
 .page .lang-switch a{text-decoration:none}
+
+/* ===== layout width: --maxw was lost when the old stylesheet went away, which let every .wrap run edge to edge ===== */
+:root{--maxw:1240px}
+
+/* ===== phones: "More" becomes a centred hamburger menu ===== */
+@media(max-width:700px){
+ .site-h{padding:10px 8px}
+ .site-h .bar{width:100%!important;max-width:100%;gap:8px;padding:6px 6px 6px 14px}
+ .site-h .logo{min-width:0;flex:0 1 auto}.site-h .logo span{overflow:hidden;text-overflow:ellipsis}
+ .site-h nav{flex:none;gap:6px}
+ .site-h nav .go{order:1}.site-h nav .more{order:2;position:static}
+ .site-h .more-t{width:44px;height:44px;padding:0;font-size:0;gap:0;justify-content:center;color:var(--ink);position:relative;background:rgba(255,255,255,.07)}
+ .site-h .more-t svg{display:none}
+ .site-h .more-t:before{content:"";width:18px;height:2px;border-radius:2px;background:currentColor;box-shadow:0 -6px 0 currentColor,0 6px 0 currentColor;transition:transform .4s var(--ease),box-shadow .3s}
+ .site-h .more-t:after{content:"";position:absolute;left:50%;top:50%;width:18px;height:2px;margin:-1px 0 0 -9px;border-radius:2px;background:currentColor;opacity:0;transform:rotate(-45deg);transition:opacity .3s}
+ .site-h .more.open .more-t:before{box-shadow:none;transform:rotate(45deg)}
+ .site-h .more.open .more-t:after{opacity:1}
+ .site-h .more-m{left:8px;right:8px;top:calc(100% + 8px);min-width:0;padding:10px;border-radius:24px}
+ .site-h .more-m a.mi{padding:14px 16px;font-size:16px;white-space:normal}
+}
