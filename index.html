@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#16214A">
+<meta name="theme-color" content="#071F1B">
 <title>SUVRON Money: Short-term loans for students and freelancers</title>
 <meta name="description" content="Short-term loans of Rs 2,000 to Rs 50,000 for students, first jobbers and freelancers in India. Approved within 24 hours, backed by an RBI-registered NBFC.">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
@@ -33,8 +33,8 @@
 <link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/plus-jakarta-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/inter-rupee-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="styles.css?v=11">
-<noscript><style>.loading-bar-overlay{display:none!important}body.is-loading{overflow:auto}</style></noscript>
+<script>document.documentElement.classList.add("js")</script>
+<link rel="stylesheet" href="/theme.css?v=12">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -159,7 +159,7 @@
           "name": "What does a SUVRON Money loan cost?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Interest and any processing charges depend on your offer and are shown to you in full before you accept, never buried in the agreement afterward."
+            "text": "Interest rates range from 10% to 36% per annum and the APR, inclusive of interest and all fees, ranges from 10% to 120%, depending on tenure, amount and your credit assessment. The exact APR for your offer is disclosed in your Key Fact Statement and loan agreement before you accept, never buried afterward."
           }
         },
         {
@@ -191,548 +191,348 @@
   ]
 }
 </script>
+<style>
+.hero{padding:104px 0 96px;text-align:center;position:relative}
+.hero:before{content:"";position:absolute;left:50%;top:-80px;width:900px;height:520px;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(20,160,125,.35),transparent);pointer-events:none}
+.hero h1{position:relative;font-size:clamp(52px,7.6vw,112px);max-width:11.5ch;margin:0 auto}
+.hero h1 span{color:var(--sun)}
+.hero p{position:relative;max-width:32em;margin:28px auto 38px;color:var(--mute);font-size:20px}
+.hero .row{position:relative;display:flex;gap:14px;justify-content:center}
+.hero small{position:relative;display:block;margin-top:22px;color:var(--mute);font-size:14px}
+
+/* story */
+.story{height:620vh;height:620svh;position:relative}
+.stage{--es:0;--ph:min(76vh,700px);position:sticky;top:70px;height:calc(100vh - 70px);height:calc(100svh - 70px);overflow:hidden}
+.stage .wrap{height:100%;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:40px}
+.copy{position:relative;height:300px}
+.blk{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;will-change:transform,opacity}
+.blk h2{font-size:clamp(40px,4.8vw,72px);margin-bottom:20px}
+.blk p{font-size:21px;color:var(--mute);max-width:24em}
+.rail{position:absolute;left:0;bottom:-60px;display:flex;gap:10px}
+.rail i{width:34px;height:5px;border-radius:5px;background:var(--line);transition:.4s}
+.rail i.on{background:var(--sun);width:64px}
+.viz{position:relative;height:100%;display:grid;place-items:center;perspective:1600px}
+.glow,.glow2{position:absolute;width:640px;height:640px;border-radius:50%;filter:blur(30px);pointer-events:none}
+.glow{background:radial-gradient(closest-side,rgba(20,160,125,.55),transparent)}
+.glow2{background:radial-gradient(closest-side,rgba(255,201,60,.32),transparent);opacity:0}
+
+.phone{position:relative;font-size:calc(var(--ph)/40);width:18.5em;height:40em;border-radius:3.1em;padding:.5em;background:linear-gradient(145deg,#6b6b7e,#22222e 28%,#12121a 52%,#5a5a6d 78%,#1a1a24);box-shadow:0 0 0 .08em #0a0a10,0 3em 6em -1.5em rgba(0,0,0,.8),0 0 8em -2em rgba(20,160,125,.5),inset 0 0 .15em .06em rgba(255,255,255,.35);transform-style:preserve-3d;will-change:transform}
+.phone:before,.phone:after{content:"";position:absolute;width:.22em;background:linear-gradient(#55556a,#1d1d28);border-radius:.1em}
+.phone:before{left:-.2em;top:7em;height:2.6em;box-shadow:0 3.6em 0 #2a2a38,0 -2.6em 0 -0.0em #2a2a38}
+.phone:after{right:-.2em;top:9em;height:4.6em}
+.screen{position:relative;height:100%;border-radius:2.65em;overflow:hidden;background:#F2F7F3;color:#0F2420;box-shadow:inset 0 0 0 .08em #000}
+.screen:after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.22),rgba(255,255,255,0) 38%);pointer-events:none;z-index:6}
+.island{position:absolute;z-index:7;top:.8em;left:50%;transform:translateX(-50%);width:5.4em;height:1.55em;border-radius:1em;background:#000}
+.status{position:absolute;z-index:5;top:.85em;left:1.7em;right:1.7em;display:flex;justify-content:space-between;font:700 .72em "Inter","Inter Fallback";color:#0F2420}
+.bat{display:inline-block;width:1.6em;height:.78em;border:.09em solid #0F2420;border-radius:.25em;position:relative;vertical-align:-.1em;margin-left:.4em}
+.bat:before{content:"";position:absolute;inset:.1em;right:.35em;background:#0F2420;border-radius:.1em}
+.home{position:absolute;z-index:7;bottom:.55em;left:50%;transform:translateX(-50%);width:6.2em;height:.28em;border-radius:1em;background:#0F2420;opacity:.85}
+.pane{position:absolute;inset:0;padding:3.6em 1.6em 1.8em;display:flex;flex-direction:column;gap:.9em;transform:translateX(calc((var(--i) - var(--es)) * 100%));will-change:transform}
+.app{display:flex;align-items:center;gap:.5em;font:800 .8em "Plus Jakarta Sans","Plus Jakarta Sans Fallback";letter-spacing:-.02em}
+.app b{width:1.7em;height:1.7em;border-radius:.5em;background:var(--brand);color:#fff;display:grid;place-items:center;font-size:1em}
+.pane h4{font-size:1.65em;margin-top:.4em}
+.sub{font-size:.82em;color:#5F7A72;line-height:1.4;margin-top:-.4em}
+.otp{display:flex;gap:.55em}
+.otp b{flex:1;height:3em;border-radius:.8em;background:#fff;border:.1em solid #D6E4DC;display:grid;place-items:center;font:800 1.3em "Plus Jakarta Sans","Plus Jakarta Sans Fallback"}
+.field{background:#fff;border:.1em solid #D6E4DC;border-radius:.8em;padding:.85em 1em;font-size:.85em;color:#5F7A72}
+.field b{color:#0F2420;letter-spacing:.06em}
+.tick{display:flex;align-items:center;gap:.5em;font-size:.82em;font-weight:700;color:#0E9E70;transition:opacity .3s}
+.tick i{width:1.5em;height:1.5em;border-radius:50%;background:#0E9E70;color:#fff;display:grid;place-items:center;font-style:normal;font-size:.8em}
+.cta{margin-top:auto;background:var(--brand);color:#fff;text-align:center;padding:1em;border-radius:1em;font-weight:700;font-size:.9em;box-shadow:0 .6em 1.2em -.4em rgba(20,160,125,.7)}
+.card{background:#fff;border-radius:1.1em;padding:.3em 1.1em;box-shadow:0 .1em 0 #D6E4DC}
+.rw{display:flex;justify-content:space-between;align-items:center;padding:.95em 0;border-bottom:.08em solid #E4EEE8;font-size:.84em}
+.rw:last-child{border:0}.rw span:last-child{color:#5F7A72}
+.tag{align-self:flex-start;background:#FFF1B8;color:#6b5400;font-weight:700;font-size:.7em;padding:.4em .8em;border-radius:1em}
+.p3{align-items:center;text-align:center}
+.ring{width:8em;height:8em;margin-top:2.6em}
+.ring circle,.ring path{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.chip2{background:#FFF1B8;color:#6b5400;font-weight:700;font-size:.78em;padding:.5em 1em;border-radius:1em}
+.tx{width:100%;margin-top:1.2em;display:flex;align-items:center;gap:.8em;background:#fff;border-radius:1em;padding:.9em 1em;text-align:left;font-size:.82em}
+.tx b{width:2.4em;height:2.4em;border-radius:.7em;background:var(--brand);color:#fff;display:grid;place-items:center;font:800 1em "Plus Jakarta Sans","Plus Jakarta Sans Fallback"}
+.tx div{flex:1;line-height:1.25}.tx small{color:#5F7A72;font-size:.85em}.tx em{font-style:normal;font-weight:700;color:#0E9E70}
+
+.chip{position:absolute;z-index:4;display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.1);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.18);padding:14px 20px;border-radius:18px;font-weight:700;font-size:15px;white-space:nowrap;opacity:0;box-shadow:0 20px 40px -16px rgba(0,0,0,.6)}
+.chip i{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:13px;color:var(--bg);background:var(--mint)}
+.c0{left:-8%;top:18%}.c1{right:-12%;top:34%}.c2{left:-8%;top:58%}.c3{right:-10%;bottom:12%}
+.c1 i,.c2 i{background:var(--sun)}
+.chip{animation:drift 6s ease-in-out infinite}.c1{animation-delay:-1.5s}.c2{animation-delay:-3s}.c3{animation-delay:-4.5s}
+@keyframes drift{50%{translate:0 -8px}}
+
+.left{display:flex;flex-direction:column;justify-content:center}
+.avg{display:flex;flex-direction:column;align-items:center;gap:4px;margin:-24px 0 48px}
+.avg b{font:800 64px/1 "Plus Jakarta Sans","Plus Jakarta Sans Fallback",sans-serif;letter-spacing:-.03em}
+.avg small{color:var(--mute);font-size:15px}
+.stars{position:relative;display:inline-block;color:rgba(255,255,255,.18);letter-spacing:.12em;line-height:1;white-space:nowrap}
+.stars i{position:absolute;left:0;top:0;width:var(--w);overflow:hidden;color:var(--sun);font-style:normal}
+.avg .stars{font-size:26px}.rev .stars{font-size:17px;margin-bottom:14px}
+.pk{width:10em;height:10em;align-self:center;margin-top:.2em;flex:none}
+.pk circle,.pk line{fill:none;stroke-linecap:round}
+.pk .face{fill:#fff;stroke:#D6E4DC;stroke-width:1.5}.pk #arc{stroke:#0E7A62;stroke-width:3.4}
+.pk .ticks{stroke:#9DB8AE;stroke-width:5;stroke-linecap:butt}.pk .hh{stroke:#0F2420;stroke-width:4.2}.pk .mh{stroke:#0F2420;stroke-width:2.6}.pk .pin{fill:#0E7A62;stroke:none}
+.pt{text-align:center;line-height:1.1}.pt small{display:block;font-size:.8em;color:#5F7A72;margin-bottom:.2em}.pt b{font:800 2.1em/1 "Plus Jakarta Sans","Plus Jakarta Sans Fallback",sans-serif;letter-spacing:-.02em;color:#0E7A62;transition:color .3s}
+.chk{list-style:none;padding:0;display:grid;gap:.45em;margin-top:auto}
+.chk li{display:flex;align-items:center;gap:.65em;background:#fff;border-radius:.9em;padding:.6em .9em;font-size:.8em;font-weight:500;opacity:.4;transition:opacity .3s}
+.chk li:before{content:"";width:1.4em;height:1.4em;border-radius:50%;border:.12em solid #D6E4DC;display:grid;place-items:center;font-size:.8em;font-weight:700;color:#fff}
+.chk li.on{opacity:1}.chk li.on:before{content:"\2713";background:#0E7A62;border-color:#0E7A62}
+/* reviews */
+.reviews{padding:130px 0 120px;overflow:hidden}
+.reviews h2{font-size:clamp(36px,4.6vw,64px);text-align:center;margin-bottom:56px;padding:0 24px}
+.mask{-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.track{display:flex;gap:20px;width:max-content;margin-bottom:20px;animation:l 70s linear infinite}
+.track.r{animation-direction:reverse;animation-duration:85s}
+.reviews:hover .track{animation-play-state:paused}
+.rev{width:380px;flex:none;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:24px;padding:28px}
+.rev p{font-size:19px;line-height:1.45;margin-bottom:22px}
+.rev b{display:block}.rev span{color:var(--mute);font-size:14px}
+@keyframes l{to{transform:translateX(-50%)}}
+
+.ask{background:linear-gradient(160deg,#0F3A32,#0A2924);border:1px solid var(--line);border-radius:40px;padding:80px 56px;margin:0 auto;max-width:1160px}
+.ask .in{max-width:780px;margin:0 auto;text-align:center}
+.ask h2{font-size:clamp(34px,4.4vw,58px)}
+.ask p.s{color:var(--mute);margin:18px 0 32px;font-size:18px}
+.ask textarea{width:100%;min-height:132px;resize:vertical;background:rgba(0,0,0,.3);border:1.5px solid var(--line);border-radius:20px;color:var(--ink);font:inherit;padding:20px;text-align:left}
+.ai{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+.ai button{font:700 16px "Inter","Inter Fallback",sans-serif;cursor:pointer;border:0;border-radius:999px;padding:15px 30px;background:var(--ink);color:var(--bg);transition:transform .25s}
+.ai button:hover{transform:translateY(-2px)}.ai button.c{background:var(--sun)}
+.note{font-size:14px;color:var(--mute);margin-top:16px;min-height:22px}
+
+
+@media(max-width:900px){
+ .hero{padding:56px 0 60px}.hero h1{font-size:clamp(42px,12.4vw,80px)}.hero p{font-size:17px;margin:20px auto 28px}
+ .hero .row{flex-direction:column;align-items:center}.hero .btn{width:100%;max-width:320px;text-align:center}
+ .stage{--ph:clamp(250px,calc(100svh - 330px),460px);top:60px;height:calc(100vh - 60px);height:calc(100svh - 60px)}
+ .stage .wrap{grid-template-columns:1fr;grid-template-rows:auto minmax(0,1fr);gap:0;padding-top:12px}
+ .left{justify-content:flex-start}.viz{height:auto;min-height:0}
+ .copy{height:128px}.blk h2{font-size:28px;margin-bottom:8px}.blk p{font-size:15px;line-height:1.45}.rail,.chip{display:none}
+ .glow,.glow2{width:420px;height:420px}
+ .reviews{padding:80px 0}.avg{margin:-28px 0 36px}.avg b{font-size:52px}.rev{width:290px;padding:22px}.rev p{font-size:17px}
+ .ask{padding:44px 22px;border-radius:28px;margin:0 14px}.ask p.s{font-size:16px}.ai{flex-direction:column}.ai button{width:100%}
+}
+@media(prefers-reduced-motion:reduce){.track{animation:none;flex-wrap:wrap;width:auto}html{scroll-behavior:auto}}
+</style>
+<style>
+/* restored sections + premium motion */
+.hero .eyebrow{position:relative}
+.hero h1 span{display:inline}
+.hero:before{animation:breathe 9s ease-in-out infinite}
+@keyframes breathe{50%{opacity:.65;transform:translateX(-50%) scale(1.08)}}
+.hero strong{color:var(--ink)}
+.trustline{position:relative;display:flex;flex-wrap:wrap;gap:10px 14px;justify-content:center;align-items:center;margin-top:34px;color:var(--mute);font-size:14.5px}
+.trustline .stars{font-size:16px}
+.hero small{max-width:34em;margin-left:auto;margin-right:auto}
+.sec{padding:120px 0}.sec.alt{background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,0))}
+.sec-h{text-align:center;max-width:760px;margin:0 auto 56px}
+.sec-h h2{font-size:clamp(34px,4.6vw,60px);margin-bottom:16px}
+.sec-h p{color:var(--mute);font-size:19px}
+.narrow{max-width:860px}
+.band{border-block:1px solid var(--line);background:rgba(255,255,255,.02)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding-block:56px;text-align:center}
+.stat b{display:block;font:800 clamp(40px,5vw,68px)/1 "Plus Jakarta Sans","Plus Jakarta Sans Fallback",sans-serif;letter-spacing:-.03em;color:var(--sun);font-variant-numeric:tabular-nums}
+.stat span{display:block;margin-top:10px;color:var(--mute);font-size:15px}
+.g3,.g4{display:grid;gap:20px}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.gc,.rev,.trust,.refer{position:relative;overflow:hidden;background:var(--card);border:1px solid var(--line);border-radius:28px;padding:32px;transition:transform .7s var(--ease),border-color .5s,background .5s}
+.gc:before,.rev:before,.trust:before,.refer:before{content:"";position:absolute;inset:0;background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%),rgba(91,240,181,.14),transparent 60%);opacity:0;transition:opacity .6s var(--ease);pointer-events:none}
+.gc:hover,.rev:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.22)}
+.gc:hover:before,.rev:hover:before,.trust:hover:before,.refer:hover:before{opacity:1}
+.gc h3,.gc h4{font-size:24px;margin-bottom:12px;position:relative}.gc h4{font-size:21px}
+.gc p{color:var(--mute);position:relative;font-size:16.5px}
+.trust{padding:56px;background:linear-gradient(160deg,#0F3A32,#0A2924);border-radius:40px}
+.trust h2{font-size:clamp(32px,4vw,52px);margin-bottom:16px;position:relative}
+.trust>p{color:#C3D9D0;max-width:46em;position:relative}
+.trust .eyebrow{position:relative}
+.badges{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:12px;margin:28px 0;position:relative}
+.badges li{display:flex;align-items:center;gap:10px;padding:11px 18px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid var(--line);font-size:14.5px;font-weight:500}
+.badges li:before{content:"\2713";color:var(--mint);font-weight:700}
+.partner{position:relative;background:rgba(0,0,0,.25);border:1px solid var(--line);border-radius:22px;padding:24px 28px;max-width:560px}
+.partner h4{font-size:18px;margin-bottom:12px}.partner ul{list-style:none;padding:0;display:grid;gap:6px;color:#D5E0DA;font-size:15px}
+.partner p{margin-top:14px;font-size:13.5px;color:var(--mute)}.partner a{color:var(--sun)}
+.avg{display:flex;flex-direction:column;align-items:center;gap:6px;margin:-20px 0 44px}
+.avg b{font:800 64px/1 "Plus Jakarta Sans","Plus Jakarta Sans Fallback",sans-serif;letter-spacing:-.03em}.avg small{color:var(--mute);font-size:15px}
+.avg .stars{font-size:26px}
+.rev{margin:0;display:flex;flex-direction:column}.rev .stars{font-size:17px;margin-bottom:16px;position:relative;align-self:flex-start}
+.rev blockquote{font-size:19px;line-height:1.5;margin-bottom:24px;position:relative;flex:1}
+.rev figcaption{position:relative}.rev figcaption b{display:block}.rev figcaption span{display:flex;align-items:center;gap:6px;color:var(--mute);font-size:14px}
+.refer{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center;padding:56px;border-radius:40px}
+.refer h2{font-size:clamp(30px,3.8vw,48px);margin-bottom:14px;position:relative}.refer p{color:var(--mute);position:relative;margin-bottom:18px}
+.refer .ra{color:var(--ink);font-size:18px}.refer .ra b{color:var(--sun);font-size:30px;font-family:"Plus Jakarta Sans","Plus Jakarta Sans Fallback",sans-serif}
+.refer .eyebrow,.refer .btn{position:relative}
+.rcard{position:relative;background:#F2F7F3;color:#0F2420;border-radius:28px;padding:28px;box-shadow:0 30px 60px -24px rgba(0,0,0,.7);transform:rotate(2deg);transition:transform .9s var(--ease)}
+.refer:hover .rcard{transform:rotate(0) translateY(-4px)}
+.rcard small{color:#5F7A72;font-weight:700}.rcard p{color:#0F2420;font-weight:700;font-size:18px;margin:8px 0 18px;line-height:1.3}
+.rcard .code{background:#fff;border:1px dashed #9DB8AE;border-radius:14px;padding:12px 16px;margin-bottom:14px}
+.rcard .code span{display:block;font-size:12px;color:#5F7A72}.rcard .code b{font:800 22px "Plus Jakarta Sans","Plus Jakarta Sans Fallback",sans-serif;letter-spacing:.08em}
+.rcard .earn{color:#0E7A62;font-weight:700}.rcard .earn b{font:800 26px "Plus Jakarta Sans","Plus Jakarta Sans Fallback",sans-serif;margin-right:6px}
+.faq-i{border:1px solid var(--line);background:var(--card);border-radius:22px;margin-bottom:12px;transition:background .4s,border-color .4s}
+.faq-i[open]{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2)}
+.faq-i summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 26px;font-weight:700;font-size:18px}
+.faq-i summary::-webkit-details-marker{display:none}
+.faq-i .pl{position:relative;width:22px;height:22px;flex:none}
+.faq-i .pl:before,.faq-i .pl:after{content:"";position:absolute;left:50%;top:50%;width:14px;height:2px;margin:-1px 0 0 -7px;background:var(--sun);border-radius:2px;transition:transform .6s var(--ease)}
+.faq-i .pl:after{transform:rotate(90deg)}.faq-i[open] .pl:after{transform:rotate(0)}
+.faq-a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .7s var(--ease)}
+.faq-i[open] .faq-a{grid-template-rows:1fr}
+.faq-a>div{overflow:hidden;color:#D5E0DA;padding:0 26px;opacity:0;transform:translateY(-6px);transition:opacity .6s var(--ease),transform .7s var(--ease),padding .7s var(--ease)}
+.faq-i[open] .faq-a>div{padding:0 26px 24px;opacity:1;transform:none}
+.faq-a a{color:var(--sun)}
+.final{text-align:center;background:linear-gradient(160deg,#0F3A32,#0A2924);border:1px solid var(--line);border-radius:40px;padding:84px 40px;max-width:1160px;margin:0 auto}
+.final h2{font-size:clamp(34px,4.6vw,60px);margin-bottom:14px}.final p{color:var(--mute);font-size:18px}
+.stores{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:32px 0 18px}
+.store{display:flex;flex-direction:column;align-items:flex-start;text-decoration:none;padding:12px 26px;border-radius:16px;background:var(--ink);color:var(--bg);transition:transform .5s var(--ease)}
+.store:hover{transform:translateY(-3px)}.store small{font-size:11.5px;opacity:.7}.store b{font:800 20px "Plus Jakarta Sans","Plus Jakarta Sans Fallback",sans-serif}
+.store.off{background:transparent;color:var(--mute);border:1.5px solid var(--line)}
+.final .fine{font-size:14px}
+@media(max-width:900px){
+ .sec{padding:80px 0}.g3,.g4,.stats,.refer{grid-template-columns:1fr}.stats{gap:36px;padding-block:44px}
+ .trust,.refer{padding:32px 22px;border-radius:28px}.rcard{transform:none}.final{padding:56px 22px;border-radius:28px;margin:0 14px}
+ .gc{padding:26px}.faq-i summary{padding:18px 20px;font-size:16.5px}.faq-a>div,.faq-i[open] .faq-a>div{padding-inline:20px}
+}
+@media(prefers-reduced-motion:reduce){.hero:before,.chip{animation:none}.faq-a,.faq-a>div,.gc,.rev{transition:none}}
+</style>
+<style>
+.mini-form{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:30px auto 8px;max-width:760px}
+.mini-form input{flex:1 1 200px;background:rgba(0,0,0,.3);border:1.5px solid var(--line);border-radius:999px;color:var(--ink);font:inherit;padding:15px 22px;transition:border-color .4s var(--ease),box-shadow .4s var(--ease)}
+.mini-form input:focus{border-color:var(--sun);outline:0;box-shadow:0 0 0 4px rgba(255,201,60,.15)}
+.mini-form button{background:var(--sun);color:var(--bg);border:0;border-radius:999px;padding:15px 30px;font:700 16px "Inter","Inter Fallback",sans-serif;cursor:pointer;transition:transform .5s var(--ease)}
+.mini-form button:hover{transform:translateY(-2px)}.mini-form button:active{transform:scale(.97)}
+.final .form-status{text-align:center}
+@media(max-width:700px){.mini-form{flex-direction:column}.mini-form button{width:100%}}
+</style>
 </head>
-<body class="is-loading">
+<body data-page="home">
 <a class="skip-link" href="#main">Skip to main content</a>
-<div class="loading-bar-overlay" id="skeletonOverlay" aria-hidden="true">
-  <div class="loadbar-brand">
-    <img src="logo-128.webp" width="128" height="128" alt="" class="loadbar-logo">
-    <span class="loadbar-word">SUVRON <span>Money</span></span>
-  </div>
-  <div class="loadbar-track">
-    <div class="loadbar-fill"></div>
-  </div>
-</div>
-<div class="scroll-progress" id="scrollProgress"></div>
-
-<!-- ===================== HEADER ===================== -->
-<header>
-  <nav class="nav" aria-label="Main">
-    <a href="#top" class="logo">
-      <img decoding="async" src="logo-128.webp" width="128" height="128" alt="SUVRON Money" class="logo-mark">
-      <span class="logo-text">SUVRON Money</span>
-    </a>
-    <div class="nav-links">
-      <a href="about/">About</a>
-      <div class="nav-drop">
-        <button class="nav-drop-trigger" type="button">Resources<svg class="chev" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        <div class="nav-drop-menu">
-          <a href="blog/" class="nav-drop-item"><span class="ndi-title">Blog</span><span class="ndi-sub">Guides on borrowing smart</span></a>
-          <a href="calculator/" class="nav-drop-item"><span class="ndi-title">EMI Calculator</span><span class="ndi-sub">Estimate your repayments</span></a>
-          <a href="grievance-redressal/" class="nav-drop-item"><span class="ndi-title">Grievance Redressal</span><span class="ndi-sub">How to raise a complaint</span></a>
-          <a href="responsible-lending/" class="nav-drop-item"><span class="ndi-title">Responsible Lending</span><span class="ndi-sub">Our lending principles</span></a>
-          <a href="#faq" class="nav-drop-item"><span class="ndi-title">FAQs</span><span class="ndi-sub">Common questions answered</span></a>
-        </div>
-      </div>
-      <a href="#who">Who it's for</a>
-      <a href="#why">Why SUVRON Money</a>
-      <a href="contact/">Contact us</a>
-    </div>
-    <div class="nav-actions">
-      <a href="grievance-redressal/" class="btn btn-complaint btn-sm">File a complaint</a>
-      <a href="#apply" class="btn btn-ghost btn-sm">Check eligibility</a>
-      <a href="#apply" class="btn btn-primary btn-sm">Get the app</a>
-    </div>
-    <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
-  </nav>
-</header>
-
+<header class="site-h"><div class="bar"><a class="logo" href="/"><img src="/logo-128.webp" width="30" height="30" alt="" decoding="async"><span>SUVRON Money</span></a><nav aria-label="Main"><a href="/#how">How it works</a><a href="/calculator/">Calculator</a><a href="/about/">About</a><a href="/contact/">Contact us</a><a class="nav-complaint" href="/grievance-redressal/">File a complaint</a><a class="btn sun go" href="https://play.google.com/store/apps/details?id=com.shantilekh.suvron&amp;hl=en_IN">Get the app</a></nav></div></header>
 <main id="main" tabindex="-1">
 
-<!-- ===================== HERO ===================== -->
-<div id="top" class="hero dotgrid">
-  <div class="wrap hero-grid">
-    <div class="hero-copy reveal">
-      <span class="eyebrow"><span class="dot"></span>Backed by an RBI-registered NBFC</span>
-      <h1>Small loans that show up<br>when your plans <em>can't wait</em></h1>
-      <p class="lead">SUVRON Money gives students, first jobbers and freelancers short-term loans from <strong>₹2,000 to ₹50,000</strong>. Approved within 24 hours, paid straight into your bank account.</p>
-      <div class="hero-ctas">
-        <a href="#apply" class="btn btn-primary">Check your eligibility</a>
-        <a href="#how" class="btn btn-ghost">See how it works</a>
-      </div>
-      <div class="trust-line">
-        <span class="stars">★★★★☆</span>
-        <span>4.2 average rating</span>
-        <span>·</span>
-        <span>100% digital, zero paperwork</span>
-        <span>·</span>
-        <span>No collateral</span>
-      </div>
-    </div>
-    <div class="hero-art reveal">
-      <div class="phone-mock">
-        <div class="phone-btn mute"></div>
-        <div class="phone-btn vol-up"></div>
-        <div class="phone-btn vol-down"></div>
-        <div class="phone-btn power"></div>
-        <div class="phone-screen">
-          <div class="dynamic-island"></div>
-          <div class="status-row">
-            <span class="status-time">9:41</span>
-            <span class="status-icons">
-              <svg width="15" height="11" viewBox="0 0 16 12" fill="none"><path d="M1 4.5C4.5 1 11.5 1 15 4.5" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><path d="M4 7.5C6 5.5 10 5.5 12 7.5" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/><circle cx="8" cy="10.2" r="1.1" fill="#fff"/></svg>
-              <svg width="22" height="11" viewBox="0 0 24 12" fill="none"><rect x="0.5" y="0.5" width="20" height="11" rx="2.5" stroke="#fff" stroke-opacity="0.6"/><rect x="2" y="2" width="15" height="8" rx="1.5" fill="#fff"/><rect x="21.5" y="4" width="1.6" height="4" rx="0.8" fill="#fff" fill-opacity="0.6"/></svg>
-            </span>
-          </div>
-          <div class="phone-greet">Hi, Ananya</div>
-          <div class="phone-sub">Your quick-loan dashboard</div>
-          <div class="phone-limit-card">
-            <div class="lbl">Approved limit</div>
-            <div class="amt">₹8,000</div>
-          </div>
-          <div class="phone-cta">Get instant cash →</div>
-          <div class="home-indicator"></div>
-        </div>
-      </div>
-      <div class="float-badge b1">
-        <span class="icon-dot icon-bg-blue">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" fill="#3D63F5"/></svg>
-        </span>
-        Funds disbursed the same day
-      </div>
-      <div class="rating-card">
-        <div class="rating-num">4.2</div>
-        <div class="rating-stars">★★★★☆</div>
-        <div class="rating-caption">Rated by users</div>
-      </div>
-      <div class="trusted-card">
-        <div class="avatar-stack">
-          <span class="mini-avatar avatar-blue">R</span>
-          <span class="mini-avatar avatar-gold">N</span>
-          <span class="mini-avatar avatar-green">D</span>
-        </div>
-        <div>
-          <div class="trusted-text">Trusted by thousands</div>
-          <div class="trusted-sub">of users</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
-<!-- ===================== STATS BAND ===================== -->
-<div class="stats-band dotgrid-light">
-  <div class="wrap stats-grid">
-    <div class="stat reveal-pop">
-      <div class="stat-num">₹50,000</div>
-      <div class="stat-lbl">Maximum loan amount</div>
-    </div>
-    <div class="stat reveal-pop">
-      <div class="stat-num">18–35</div>
-      <div class="stat-lbl">Age range we lend to</div>
-    </div>
-    <div class="stat reveal-pop">
-      <div class="stat-num">24 hrs</div>
-      <div class="stat-lbl">Typical approval time</div>
-    </div>
-  </div>
-</div>
+<section class="hero"><div class="wrap">
+<span class="eyebrow" data-r><span class="dot"></span>Backed by an RBI-registered NBFC</span>
+<h1 data-words>Cash for the gap <span>before payday.</span></h1>
+<p data-r style="--d:.35s">Short-term loans from <strong>₹2,000 to ₹50,000</strong> for students, first jobbers and freelancers aged 18 to 35. Approved within 24 hours, paid straight into your bank account.</p>
+<div class="row" data-r style="--d:.5s"><a class="btn sun" href="#apply">Check your eligibility</a><a class="btn alt" href="#how">See how it works</a></div>
+<div class="trustline" data-r style="--d:.65s"><span class="stars" role="img" aria-label="4.2 out of 5" style="--w:84%">&#9733;&#9733;&#9733;&#9733;&#9733;<i>&#9733;&#9733;&#9733;&#9733;&#9733;</i></span><span>4.2 average rating</span><span>·</span><span>100% digital, zero paperwork</span><span>·</span><span>No collateral</span></div>
+<small data-r style="--d:.75s">SUVRON Money does not lend itself. Loans are sanctioned and disbursed by RBI-registered NBFC partners.</small>
+</div></section>
 
-<!-- ===================== WHO IT'S FOR ===================== -->
-<section id="who" class="alt-bg">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Made for young India</span>
-      <h2>Whoever's paycheck<br>hasn't caught up yet</h2>
-      <p>SUVRON Money is built for the gap before the salary lands or the next gig pays out.</p>
-    </div>
-    <div class="who-grid reveal">
-      <div class="who-card">
-        <div class="who-icon icon-bg-blue">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 3L2 8l10 5 10-5-10-5z" stroke="#3D63F5" stroke-width="1.8" stroke-linejoin="round"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5" stroke="#3D63F5" stroke-width="1.8"/></svg>
-        </div>
-        <h3>Students</h3>
-        <p>Cover a semester fee or a broken laptop without waiting on pocket money.</p>
-      </div>
-      <div class="who-card">
-        <div class="who-icon icon-bg-gold">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><rect x="3" y="8" width="18" height="12" rx="2" stroke="#E39A2B" stroke-width="1.8"/><path d="M8 8V6a4 4 0 018 0v2" stroke="#E39A2B" stroke-width="1.8"/></svg>
-        </div>
-        <h3>First jobbers</h3>
-        <p>Bridge the gap between your offer letter and your first salary.</p>
-      </div>
-      <div class="who-card">
-        <div class="who-icon icon-bg-green">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 2v20M2 12h20" stroke="#3AA873" stroke-width="1.8"/><circle cx="12" cy="12" r="9" stroke="#3AA873" stroke-width="1.8"/></svg>
-        </div>
-        <h3>Freelancers &amp; gig workers</h3>
-        <p>Freelance and gig income doesn't land on a fixed date. SUVRON Money covers the gap in between.</p>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="story" id="how"><div class="stage" id="stage"><div class="wrap">
+<div class="left"><div class="copy">
+<div class="blk" data-i="0"><h2>Verify in one sitting.</h2><p>Sign up with your mobile number, then verify PAN, Aadhaar and a quick selfie. Most people finish in under three minutes.</p></div>
+<div class="blk" data-i="1"><h2>A decision within 24 hours.</h2><p>We check affordability and prepare your offer. Typical approval is within 24 hours, and you'll see it in the app.</p></div>
+<div class="blk" data-i="2"><h2>See every cost first.</h2><p>Amount, tenure, interest and every fee are listed before you accept. Nothing is added later.</p></div>
+<div class="blk" data-i="3"><h2>Money lands in your bank.</h2><p>Funds go straight to your verified bank account, often the same day. Repayment stays digital too.</p></div>
+<div class="rail"><i></i><i></i><i></i><i></i></div>
+</div></div>
+<div class="viz">
+<div class="glow" id="g1"></div><div class="glow2" id="g2"></div>
+<div class="chip c0" data-i="0"><i>&#10003;</i>Aadhaar OTP verified</div>
+<div class="chip c1" data-i="1"><i>&#9679;</i>Decision within 24 hrs</div>
+<div class="chip c2" data-i="2"><i>&#9679;</i>Offer ready</div>
+<div class="chip c3" data-i="3"><i>&#10003;</i>Money sent</div>
+<div class="phone" id="phone"><div class="screen">
+<div class="island"></div>
+<div class="status"><span>9:41</span><span>5G<span class="bat"></span></span></div>
+<div class="pane" style="--i:0"><div class="app"><b>S</b>SUVRON Money</div><h4>Verify it's you</h4><p class="sub">Enter the OTP sent to your Aadhaar-linked number.</p>
+<div class="otp" id="otp"><b></b><b></b><b></b><b></b></div><div class="field">PAN <b>ABCDE1234F</b></div>
+<div class="tick" id="tick" style="opacity:0"><i>&#10003;</i>Aadhaar OTP verified</div><div class="cta">Continue</div></div>
+<div class="pane pc" style="--i:1"><div class="app"><b>S</b>SUVRON Money</div><h4>Checking your application</h4><p class="sub">You'll hear back within 24 hours.</p>
+<svg class="pk" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="48" class="face"/><circle id="arc" cx="50" cy="50" r="44" pathLength="1" stroke-dasharray="1" stroke-dashoffset="0" transform="rotate(-90 50 50)"/><circle cx="50" cy="50" r="37" pathLength="60" stroke-dasharray="0.6 4.4" stroke-dashoffset="0.3" class="ticks"/><line id="hh" x1="50" y1="50" x2="50" y2="31" class="hh"/><line id="mh" x1="50" y1="50" x2="50" y2="20" class="mh"/><circle cx="50" cy="50" r="3.6" class="pin"/></svg>
+<div class="pt"><small id="pl">Approval in</small><b id="pt">24 hrs</b></div>
+<ul class="chk"><li>Identity verified</li><li>Affordability check</li><li>Offer ready</li></ul></div>
+<div class="pane" style="--i:2"><div class="app"><b>S</b>SUVRON Money</div><h4>Your offer</h4><p class="sub">Review before you accept. Nothing is hidden.</p>
+<div class="tag">Key Fact Statement</div>
+<div class="card"><div class="rw" data-r="0"><span>Amount</span><span>₹2,000–₹50,000</span></div><div class="rw" data-r="1"><span>Tenure</span><span>60–180 days</span></div><div class="rw" data-r="2"><span>Interest, fees and APR</span><span>Listed in full</span></div></div>
+<div class="cta">Accept offer</div></div>
+<div class="pane p3" style="--i:3"><div class="app" style="align-self:flex-start"><b>S</b>SUVRON Money</div>
+<svg class="ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" stroke="#D6E4DC" stroke-width="6"/><circle id="rc" cx="50" cy="50" r="44" stroke="#0E9E70" stroke-width="6" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" transform="rotate(-90 50 50)"/><path id="rp" d="M30 52 L44 65 L70 37" stroke="#0E9E70" stroke-width="7" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/></svg>
+<h4>Money sent</h4><div class="chip2">To your bank account</div>
+<div class="tx"><b>S</b><div>SUVRON Money<br><small>Just now</small></div><em>Credited</em></div></div>
+<div class="home"></div>
+</div></div>
+</div></div></div></section>
 
-<!-- ===================== HOW IT WORKS ===================== -->
-<section id="how">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Four steps, one sitting</span>
-      <h2>From download to disbursal</h2>
-      <p>No branch visits, no stacks of paperwork. The whole process happens on your phone.</p>
-    </div>
-    <div class="steps">
-      <div class="step-row">
-        <div class="step-copy reveal-left">
-          <span class="step-num">Step 01</span>
-          <h3>Sign up</h3>
-          <p>Create your account with just your mobile number. No forms to fill out by hand.</p>
-        </div>
-        <div class="step-visual reveal-right">
-          <div class="mini-card">
-            <div style="font-weight:700;font-family:'Plus Jakarta Sans','Plus Jakarta Sans Fallback',sans-serif;font-size:15px;margin-bottom:14px;">Welcome back</div>
-            <div style="background:var(--sky);border-radius:12px;padding:12px 14px;font-size:13.5px;color:var(--ink-soft);margin-bottom:10px;">+91 &nbsp; Enter your number</div>
-            <div style="background:var(--blue);color:#fff;text-align:center;padding:12px;border-radius:10px;font-weight:700;font-size:13.5px;">Get OTP</div>
-          </div>
-        </div>
-      </div>
-      <div class="step-row rev">
-        <div class="step-copy reveal-right">
-          <span class="step-num">Step 02</span>
-          <h3>Complete KYC</h3>
-          <p>Verify your PAN and Aadhaar. Most people finish in under three minutes.</p>
-        </div>
-        <div class="step-visual reveal-left">
-          <div class="mini-card">
-            <div class="mock-row">
-              <span class="mock-row-label">Verify PAN</span>
-              <span class="mock-check">✓</span>
-            </div>
-            <div class="mock-row">
-              <span class="mock-row-label">Verify Aadhaar</span>
-              <span class="num" style="font-size:12px;color:var(--blue);">2 min</span>
-            </div>
-            <div class="mock-row">
-              <span class="mock-row-label">Quick selfie check</span>
-              <span class="num" style="font-size:12px;color:var(--blue);">1 min</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="step-row">
-        <div class="step-copy reveal-left">
-          <span class="step-num">Step 03</span>
-          <h3>See your offer</h3>
-          <p>Get a clear loan offer with the amount, tenure, interest and fees spelled out upfront.</p>
-        </div>
-        <div class="step-visual reveal-right">
-          <div class="mini-card" style="background:linear-gradient(150deg,var(--blue),var(--blue-deep));">
-            <div style="color:rgba(255,255,255,0.7);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;">Your offer</div>
-            <div class="num" style="color:#fff;font-size:26px;font-weight:600;margin:8px 0 4px;">₹5,000</div>
-            <div style="color:rgba(255,255,255,0.75);font-size:12.5px;">60–180 days · all charges shown upfront</div>
-          </div>
-        </div>
-      </div>
-      <div class="step-row rev">
-        <div class="step-copy reveal-right">
-          <span class="step-num">Step 04</span>
-          <h3>Get paid</h3>
-          <p>Accept the offer and the funds land directly in your bank account, often the same day.</p>
-        </div>
-        <div class="step-visual reveal-left">
-          <div class="mini-card" style="text-align:center;">
-            <svg width="52" height="52" viewBox="0 0 24 24" fill="none" style="margin-bottom:10px;"><circle cx="12" cy="12" r="10" fill="#E7F8EF"/><path d="M8 12.5l2.5 2.5L16 9" stroke="#3AA873" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div style="font-weight:700;font-family:'Plus Jakarta Sans','Plus Jakarta Sans Fallback',sans-serif;font-size:15px;">Money sent</div>
-            <div style="font-size:12.5px;color:var(--ink-soft);margin-top:4px;">Straight to your linked account</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ===================== FEATURES ===================== -->
-<section id="why" class="alt-bg">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Why SUVRON Money</span>
-      <h2>Built to be upfront with you</h2>
-      <p>No hidden clauses, no surprise deductions. You see what a loan costs before you take it.</p>
-    </div>
-    <div class="feat-grid reveal">
-      <div class="feat-card">
-        <div class="feat-icon icon-bg-blue">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" stroke="#3D63F5" stroke-width="1.8" stroke-linecap="round"/></svg>
-        </div>
-        <h4>Transparent pricing</h4>
-        <p>See your interest and fees before you accept, never after.</p>
-      </div>
-      <div class="feat-card">
-        <div class="feat-icon icon-bg-gold">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="#E39A2B" stroke-width="1.8"/><path d="M3 9h18M8 2v4M16 2v4" stroke="#E39A2B" stroke-width="1.8"/></svg>
-        </div>
-        <h4>Short, fixed terms</h4>
-        <p>Loans run 60 to 180 days. You know your repayment date before you accept.</p>
-      </div>
-      <div class="feat-card">
-        <div class="feat-icon icon-bg-green">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z" stroke="#3AA873" stroke-width="1.8" stroke-linejoin="round"/></svg>
-        </div>
-        <h4>Bank-grade security</h4>
-        <p>Your data is encrypted end-to-end and is never sold to third parties.</p>
-      </div>
-      <div class="feat-card">
-        <div class="feat-icon icon-bg-coral">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M21 11.5a8.5 8.5 0 01-12.9 7.3L3 20l1.2-5.1A8.5 8.5 0 1121 11.5z" stroke="#FF7E67" stroke-width="1.8" stroke-linejoin="round"/></svg>
-        </div>
-        <h4>Real support</h4>
-        <p>Reach an actual person if a number on your statement doesn't add up.</p>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="band" aria-label="Key numbers"><div class="wrap stats">
+<div class="stat" data-r><b data-count="50000" data-pre="₹">₹50,000</b><span>Maximum loan amount</span></div>
+<div class="stat" data-r style="--d:.12s"><b>18–35</b><span>Age range we lend to</span></div>
+<div class="stat" data-r style="--d:.24s"><b data-count="24" data-suf=" hrs">24 hrs</b><span>Typical approval time</span></div>
+</div></section>
 
-<!-- ===================== TRUST & COMPLIANCE ===================== -->
-<section id="trust">
-  <div class="wrap">
-    <div class="trust-banner dotgrid-light reveal">
-      <div style="position:relative;z-index:2;">
-        <span class="eyebrow" style="background:rgba(255,255,255,0.1);color:#fff;">Trust &amp; compliance</span>
-        <h3>Lending you can verify</h3>
-        <p>SUVRON Money is built by Shantilekh Global Technology Pvt. Ltd. and offered in partnership with RBI-registered NBFC lending partners, who hold final say on credit approval, disbursement and collections. Every fee and charge for your specific offer is shown to you in full before you accept, never buried in the agreement afterward.</p>
-      </div>
-      <div class="trust-badges reveal" style="position:relative;z-index:2;">
-        <div class="trust-badge">
-          <span class="dotcircle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z" stroke="#7FDBB6" stroke-width="1.8"/></svg></span>
-          <span>RBI Fair Practices Code</span>
-        </div>
-        <div class="trust-badge">
-          <span class="dotcircle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4" y="10" width="16" height="10" rx="2" stroke="#7FDBB6" stroke-width="1.8"/><path d="M8 10V7a4 4 0 018 0v3" stroke="#7FDBB6" stroke-width="1.8"/></svg></span>
-          <span>DPDP-compliant data handling</span>
-        </div>
-        <div class="trust-badge">
-          <span class="dotcircle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h10" stroke="#7FDBB6" stroke-width="1.8" stroke-linecap="round"/></svg></span>
-          <span>Clear fee schedule</span>
-        </div>
-        <div class="trust-badge">
-          <span class="dotcircle"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3.5" stroke="#7FDBB6" stroke-width="1.8"/><path d="M5 20c1.5-4 5-6 7-6s5.5 2 7 6" stroke="#7FDBB6" stroke-width="1.8" stroke-linecap="round"/></svg></span>
-          <span>Named grievance officer, 7-day response</span>
-        </div>
-      </div>
-    </div>
+<section class="sec" id="who"><div class="wrap">
+<div class="sec-h"><span class="eyebrow" data-r>Made for young India</span><h2 data-words>Whoever's paycheck hasn't caught up yet</h2><p data-r style="--d:.3s">SUVRON Money is built for the gap before the salary lands or the next gig pays out.</p></div>
+<div class="g3">
+<div class="gc" data-r><h3>Students</h3><p>Cover a semester fee or a broken laptop without waiting on pocket money.</p></div>
+<div class="gc" data-r style="--d:.12s"><h3>First jobbers</h3><p>Bridge the gap between your offer letter and your first salary.</p></div>
+<div class="gc" data-r style="--d:.24s"><h3>Freelancers &amp; gig workers</h3><p>Freelance and gig income doesn't land on a fixed date. SUVRON Money covers the gap in between.</p></div>
+</div></div></section>
 
-    <div class="company-snapshot on-trust reveal">
-      <h4><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="var(--gold-deep)" stroke-width="1.8"/><path d="M3 9h18" stroke="var(--gold-deep)" stroke-width="1.8"/><circle cx="8" cy="14" r="1.3" fill="var(--gold-deep)"/></svg>Our Lending Partner</h4>
-      <ul>
-        <li><strong>Name:</strong> Ready Leasings Private Limited</li>
-        <li><strong>RBI Registration:</strong> NBFC, Reg. No. ******0028</li>
-        <li><strong>CIN:</strong> *****************0699</li>
-      </ul>
-      <p style="margin-top:12px;font-size:13px;color:var(--ink-soft);">Full terms and rate details are in our <a href="terms/">terms of use</a>.</p>
-    </div>
-  </div>
-</section>
+<section class="sec alt" id="why"><div class="wrap">
+<div class="sec-h"><span class="eyebrow" data-r>Why SUVRON Money</span><h2 data-words>Built to be upfront with you</h2><p data-r style="--d:.3s">No hidden clauses, no surprise deductions. You see what a loan costs before you take it.</p></div>
+<div class="g4">
+<div class="gc" data-r><h4>Transparent pricing</h4><p>See your interest and fees before you accept, never after.</p></div>
+<div class="gc" data-r style="--d:.1s"><h4>Short, fixed terms</h4><p>Loans run 60 to 180 days. You know your repayment date before you accept.</p></div>
+<div class="gc" data-r style="--d:.2s"><h4>Bank-grade security</h4><p>Your data is encrypted end-to-end and is never sold to third parties.</p></div>
+<div class="gc" data-r style="--d:.3s"><h4>Real support</h4><p>Reach an actual person if a number on your statement doesn't add up.</p></div>
+</div></div></section>
 
-<!-- ===================== TESTIMONIALS ===================== -->
-<section class="alt-bg">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">From people who've used it</span>
-      <h2>What users are saying</h2>
-    </div>
-    <div class="testi-grid reveal">
-      <div class="testi-card">
-        <div class="testi-top">
-          <div class="avatar avatar-blue">R</div>
-          <div>
-            <div class="testi-name">Riya M.</div>
-            <div class="testi-stars">★★★★★</div>
-            <div class="testi-verified"><svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M8 12.5l2.5 2.5L16 9" stroke="var(--green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Verified user</div>
-          </div>
-        </div>
-        <p>"I filled out the form and got a reply from their team the same day. Everything was explained in plain language, no fine print I had to hunt for."</p>
-      </div>
-      <div class="testi-card">
-        <div class="testi-top">
-          <div class="avatar avatar-gold">N</div>
-          <div>
-            <div class="testi-name">Nitin K.</div>
-            <div class="testi-stars">★★★★☆</div>
-            <div class="testi-verified"><svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M8 12.5l2.5 2.5L16 9" stroke="var(--green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Verified user</div>
-          </div>
-        </div>
-        <p>"I could see exactly what I'd repay each month before I accepted anything. That's rare for a short-term loan."</p>
-      </div>
-      <div class="testi-card">
-        <div class="testi-top">
-          <div class="avatar avatar-green">D</div>
-          <div>
-            <div class="testi-name">Disha C.</div>
-            <div class="testi-stars">★★★★★</div>
-            <div class="testi-verified"><svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M8 12.5l2.5 2.5L16 9" stroke="var(--green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Verified user</div>
-          </div>
-        </div>
-        <p>"Money landed in my account the same day. Support answered a question about my EMI within the hour."</p>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="sec" id="trust"><div class="wrap">
+<div class="trust" data-r>
+<span class="eyebrow">Trust &amp; compliance</span>
+<h2>Lending you can verify</h2>
+<p>SUVRON Money is built by Shantilekh Global Technology Pvt. Ltd. and offered in partnership with RBI-registered NBFC lending partners, who hold final say on credit approval, disbursement and collections. Every fee and charge for your specific offer is shown to you in full before you accept, never buried in the agreement afterward.</p>
+<ul class="badges"><li>RBI Fair Practices Code</li><li>DPDP-compliant data handling</li><li>Clear fee schedule</li><li>Named grievance officer, 7-day response</li></ul>
+<div class="partner"><h4>Our Lending Partner</h4><ul><li><b>Name:</b> Ready Leasings Private Limited</li><li><b>RBI Registration:</b> NBFC, Reg. No. ******0028</li><li><b>CIN:</b> *****************0699</li></ul><p>Full terms and rate details are in our <a href="/terms/">terms of use</a>.</p></div>
+</div></div></section>
 
-<!-- ===================== REFER & EARN ===================== -->
-<section id="refer" class="alt-bg">
-  <div class="wrap">
-    <div class="refer-banner reveal">
-      <div class="refer-copy">
-        <span class="eyebrow">Refer and earn</span>
-        <h2>Bring a friend, you both get paid</h2>
-        <p>Share your code. When a friend takes their first loan through SUVRON Money, you both get cash back, no cap on how many friends you refer.</p>
-        <div class="refer-amount">Up to <span class="num">₹100</span> per friend</div>
-        <a href="#apply" class="btn btn-primary">Get your referral code</a>
-      </div>
-      <div class="refer-visual">
-        <div class="refer-card">
-          <div class="refer-card-top">
-            <span>Refer and earn</span>
-            <span class="refer-close">←</span>
-          </div>
-          <div class="refer-card-title">Refer a friend</div>
-          <p class="refer-card-sub">Earn up to ₹100 for every friend who takes a loan.</p>
-          <div class="refer-code-row">
-            <div>
-              <div class="lbl">Referral code</div>
-              <div class="code">SUV4K21X</div>
-            </div>
-            <span class="refer-icon">⧉</span>
-          </div>
-          <div class="refer-earned">
-            <span class="num">₹100</span>
-            <span>Cash earned</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="sec alt reviews" id="reviews"><div class="wrap">
+<div class="sec-h"><span class="eyebrow" data-r>From people who've used it</span><h2 data-words>What users are saying</h2></div>
+<div class="avg" data-r><b id="avg">4.2</b><span class="stars" role="img" aria-label="4.2 out of 5" style="--w:84%">&#9733;&#9733;&#9733;&#9733;&#9733;<i>&#9733;&#9733;&#9733;&#9733;&#9733;</i></span><small>average rating out of 5</small></div>
+<div class="g3">
+<figure class="rev" data-r><span class="stars" role="img" aria-label="5 out of 5" style="--w:100%">&#9733;&#9733;&#9733;&#9733;&#9733;<i>&#9733;&#9733;&#9733;&#9733;&#9733;</i></span><blockquote>"I filled out the form and got a reply from their team the same day. Everything was explained in plain language, no fine print I had to hunt for."</blockquote><figcaption><b>Riya M.</b><span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 12.5l2.5 2.5L16 9" stroke="#5BF0B5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Verified user</span></figcaption></figure>
+<figure class="rev" data-r style="--d:.12s"><span class="stars" role="img" aria-label="4 out of 5" style="--w:80%">&#9733;&#9733;&#9733;&#9733;&#9733;<i>&#9733;&#9733;&#9733;&#9733;&#9733;</i></span><blockquote>"I could see exactly what I'd repay each month before I accepted anything. That's rare for a short-term loan."</blockquote><figcaption><b>Nitin K.</b><span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 12.5l2.5 2.5L16 9" stroke="#5BF0B5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Verified user</span></figcaption></figure>
+<figure class="rev" data-r style="--d:.24s"><span class="stars" role="img" aria-label="5 out of 5" style="--w:100%">&#9733;&#9733;&#9733;&#9733;&#9733;<i>&#9733;&#9733;&#9733;&#9733;&#9733;</i></span><blockquote>"Money landed in my account the same day. Support answered a question about my EMI within the hour."</blockquote><figcaption><b>Disha C.</b><span><svg width="11" height="11" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 12.5l2.5 2.5L16 9" stroke="#5BF0B5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>Verified user</span></figcaption></figure>
+</div></div></section>
 
-<!-- ===================== FAQ ===================== -->
-<section id="faq">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Good to know</span>
-      <h2>Questions people ask us</h2>
-    </div>
-    <div class="faq-layout">
-      <div class="faq-illustration reveal" aria-hidden="true">
-        <div class="faq-mascot">
-          <span class="faq-mascot-icon"><svg width="36" height="36" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9.3" stroke="var(--gold)" stroke-width="1.8"/><path d="M9.2 9.5a2.8 2.8 0 015.4.9c0 1.9-2.4 2.1-2.6 3.6" stroke="var(--blue-deep)" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="17" r="1.1" fill="var(--blue-deep)"/></svg></span>
-          <p>Got more questions?<br>Our team's happy to help.</p>
-        </div>
-      </div>
-      <div class="faq-list">
-      <div class="faq-item reveal">
-        <div class="faq-q">Who can apply for a SUVRON Money loan?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-        <div class="faq-a"><div class="faq-a-in">Anyone between 18 and 35 with a valid PAN, Aadhaar and an active bank account can apply. You don't need an existing credit history to be considered.</div></div>
-      </div>
-      <div class="faq-item reveal">
-        <div class="faq-q">How much can I borrow, and for how long?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-        <div class="faq-a"><div class="faq-a-in">Loans currently range from ₹2,000 to ₹50,000 with a tenure of 60 to 180 days. Your exact amount, tenure and total cost depend on your eligibility check, and you'll see all of it before accepting an offer.</div></div>
-      </div>
-      <div class="faq-item reveal">
-        <div class="faq-q">What does a SUVRON Money loan cost?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-        <div class="faq-a"><div class="faq-a-in">Interest and any processing charges depend on your offer and are shown to you in full before you accept, never buried in the agreement afterward.</div></div>
-      </div>
-      <div class="faq-item reveal">
-        <div class="faq-q">How fast is disbursal once I'm approved?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-        <div class="faq-a"><div class="faq-a-in">Most approved loans are disbursed the same day, straight to the bank account you verify during sign-up.</div></div>
-      </div>
-      <div class="faq-item reveal">
-        <div class="faq-q">Is my personal data safe with SUVRON Money?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-        <div class="faq-a"><div class="faq-a-in">Your data is encrypted and used only to process your application. It's shared with our NBFC lending partners where needed for underwriting and compliance, never sold to advertisers or unrelated third parties. See our <a href="privacy-policy/">privacy policy</a> for the full picture.</div></div>
-      </div>
-      <div class="faq-item reveal">
-        <div class="faq-q">What happens if I repay late?<span class="faq-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
-        <div class="faq-a"><div class="faq-a-in">Late fees apply and are spelled out in your loan agreement before you accept. From the day a payment is missed, you'll hear from us through automated reminders and, if needed, a support agent, never a surprise call out of nowhere.</div></div>
-      </div>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="sec" id="refer"><div class="wrap"><div class="refer" data-r>
+<div><span class="eyebrow">Refer and earn</span><h2>Bring a friend, you both get paid</h2><p>Share your code. When a friend takes their first loan through SUVRON Money, you both get cash back, no cap on how many friends you refer.</p><p class="ra">Up to <b>₹100</b> per friend</p><a class="btn sun" href="https://play.google.com/store/apps/details?id=com.shantilekh.suvron&hl=en_IN">Get your referral code</a></div>
+<div class="rcard" aria-hidden="true"><small>Refer a friend</small><p>Earn up to ₹100 for every friend who takes a loan.</p><div class="code"><span>Referral code</span><b>SUV4K21X</b></div><div class="earn"><b>₹100</b> Cash earned</div></div>
+</div></div></section>
 
-<!-- ===================== FINAL CTA ===================== -->
-<section id="apply">
-  <div class="wrap">
-    <div class="final-cta dotgrid-light reveal">
-      <div style="position:relative;z-index:2;">
-        <h2>Ready when your plans are</h2>
-        <p>Share your details and our team will get back to you. It won't affect your credit score.</p>
-        <form class="mini-form" onsubmit="handleApplySubmit(event)">
-          <label for="apply-name" class="sr-only">Your name</label>
-          <input type="text" id="apply-name" name="name" placeholder="Your name" required>
-          <label for="apply-phone" class="sr-only">Mobile number</label>
-          <input type="tel" id="apply-phone" name="phone" placeholder="Mobile number" pattern="[6-9][0-9]{9}" maxlength="10" required>
-          <button type="submit">Check eligibility</button>
-        </form>
-        <div class="form-status" aria-live="polite" style="color:rgba(255,255,255,0.85);"></div>
-        <div class="app-badges">
-          <a href="https://play.google.com/store/apps/details?id=com.shantilekh.suvron&hl=en_IN" class="app-badge" target="_blank" rel="noopener">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 3.5v17l13-8.5-13-8.5z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg>
-            <span class="app-badge-label"><span class="app-badge-sub">Get it on</span><span class="app-badge-name">Google Play</span></span>
-          </a>
-          <a href="#" class="app-badge">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M16.365 1.43c.132 1.023-.293 2.03-.909 2.76-.635.75-1.664 1.34-2.663 1.26-.14-.99.34-2.02.94-2.72.657-.77 1.79-1.35 2.632-1.3zM20.6 17.2c-.365.85-.542 1.23-1.02 1.98-.67 1.05-1.62 2.36-2.79 2.37-1.04.01-1.31-.68-2.72-.67-1.41.01-1.71.68-2.75.67-1.17-.01-2.07-1.19-2.74-2.24-1.88-2.9-2.08-6.3-.92-8.11.82-1.28 2.12-2.03 3.34-2.03 1.24 0 2.02.68 3.05.68 1 0 1.6-.68 3.04-.68 1.09 0 2.24.6 3.06 1.63-2.69 1.47-2.25 5.31.62 6.4z" stroke="#fff" stroke-width="0.6" fill="#fff"/></svg>
-            <span class="app-badge-label"><span class="app-badge-sub">Coming soon on the</span><span class="app-badge-name">App Store</span></span>
-          </a>
-        </div>
-        <p class="app-badges-note">Now live on the Google Play Store. iOS coming soon.</p>
-        <div class="safe-pill">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z" stroke="#DFFBEC" stroke-width="2" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="#DFFBEC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          100% safe
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="sec alt" id="faq"><div class="wrap narrow">
+<div class="sec-h"><span class="eyebrow" data-r>Good to know</span><h2 data-words>Questions people ask us</h2></div>
+<details class="faq-i" data-r><summary>Who can apply for a SUVRON Money loan?<span class="pl" aria-hidden="true"></span></summary><div class="faq-a"><div>Anyone between 18 and 35 with a valid PAN, Aadhaar and an active bank account can apply. You don't need an existing credit history to be considered.</div></div></details>
+<details class="faq-i" data-r><summary>How much can I borrow, and for how long?<span class="pl" aria-hidden="true"></span></summary><div class="faq-a"><div>Loans currently range from ₹2,000 to ₹50,000 with a tenure of 60 to 180 days. Your exact amount, tenure and total cost depend on your eligibility check, and you'll see all of it before accepting an offer.</div></div></details>
+<details class="faq-i" data-r><summary>What does a SUVRON Money loan cost?<span class="pl" aria-hidden="true"></span></summary><div class="faq-a"><div>Interest rates range from 10% to 36% per annum and the APR, inclusive of interest and all fees, ranges from 10% to 120%, depending on tenure, amount and your credit assessment. The exact APR for your offer is disclosed in your Key Fact Statement and loan agreement before you accept, never buried afterward.</div></div></details>
+<details class="faq-i" data-r><summary>How fast is disbursal once I'm approved?<span class="pl" aria-hidden="true"></span></summary><div class="faq-a"><div>Most approved loans are disbursed the same day, straight to the bank account you verify during sign-up.</div></div></details>
+<details class="faq-i" data-r><summary>Is my personal data safe with SUVRON Money?<span class="pl" aria-hidden="true"></span></summary><div class="faq-a"><div>Your data is encrypted and used only to process your application. It's shared with our NBFC lending partners where needed for underwriting and compliance, never sold to advertisers or unrelated third parties. See our <a href='/privacy-policy/'>privacy policy</a> for the full picture.</div></div></details>
+<details class="faq-i" data-r><summary>What happens if I repay late?<span class="pl" aria-hidden="true"></span></summary><div class="faq-a"><div>Late fees apply and are spelled out in your loan agreement before you accept. From the day a payment is missed, you'll hear from us through automated reminders and, if needed, a support agent, never a surprise call out of nowhere.</div></div></details>
+</div></section>
+
+
+<section class="ask" id="ask"><div class="in">
+<h2>Not sure yet? Ask an AI about us.</h2>
+<p class="s">Edit the question if you like. One click opens a new chat with it already typed in.</p>
+<textarea id="q" aria-label="Question for your AI assistant">I'm thinking about borrowing from SUVRON Money (suvron.in), a short-term loan app for students and freelancers in India. Explain how it works, what it really costs, how it compares with alternatives, and what risks and questions I should think about before borrowing.</textarea>
+<div class="ai"><button class="c" data-ai="claude">Ask Claude</button><button data-ai="chatgpt">Ask ChatGPT</button><button data-ai="gemini">Ask Gemini</button></div>
+<div class="note" id="note" aria-live="polite"></div>
+</div></section>
+
+<section class="sec" id="apply"><div class="wrap"><div class="final" data-r>
+<h2>Ready when your plans are</h2>
+<p>Share your details and our team will get back to you. It won't affect your credit score.</p>
+<form class="mini-form" onsubmit="handleApplySubmit(event)"><label for="apply-name" class="sr-only">Your name</label><input type="text" id="apply-name" name="name" placeholder="Your name" autocomplete="name" required><label for="apply-phone" class="sr-only">Mobile number</label><input type="tel" id="apply-phone" name="phone" placeholder="Mobile number" pattern="[6-9][0-9]{9}" maxlength="10" inputmode="numeric" autocomplete="tel" required><button type="submit">Check eligibility</button></form>
+<div class="form-status" aria-live="polite"></div>
+<div class="stores"><a class="store" href="https://play.google.com/store/apps/details?id=com.shantilekh.suvron&hl=en_IN" target="_blank" rel="noopener"><small>Get it on</small><b>Google Play</b></a><span class="store off" aria-disabled="true"><small>Coming soon on the</small><b>App Store</b></span></div>
+<p class="fine">Now live on the Google Play Store. iOS coming soon.</p>
+</div></div></section>
 
 </main>
-
-<!-- ===================== FOOTER ===================== -->
-<footer>
-  <div class="wrap">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a href="#top" class="logo">
-          <img loading="lazy" decoding="async" src="logo-128.webp" width="128" height="128" alt="SUVRON Money" class="logo-mark">
-          SUVRON Money
-        </a>
-        <p>Short-term loans for young India, built by Shantilekh Global Technology Pvt. Ltd. in partnership with RBI-registered NBFC lending partners.</p>
-      </div>
-      <div class="footer-col">
-        <h5>Product</h5>
-        <ul>
-          <li><a href="#how">How it works</a></li>
-          <li><a href="#why">Why SUVRON Money</a></li>
-          <li><a href="#trust">Trust &amp; safety</a></li>
-          <li><a href="#faq">FAQs</a></li>
-          <li><a href="calculator/">Loan calculator</a></li>
-          <li><a href="blog/">Blog</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Company</h5>
-        <ul>
-          <li><a href="about/">About us</a></li>
-          <li><a href="about/#careers">Careers</a></li>
-          <li><a href="contact/">Contact us</a></li>
-          <li><a href="responsible-lending/">Responsible lending</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Legal</h5>
-        <ul>
-          <li><a href="privacy-policy/">Privacy policy</a></li>
-          <li><a href="cookie-policy/">Cookie policy</a></li>
-          <li><a href="terms/">Terms of use</a></li>
-          <li><a href="grievance-redressal/">Grievance redressal</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-legal">SUVRON Money is a digital lending platform built by Shantilekh Global Technology Pvt. Ltd. Loans are sanctioned, disbursed and collected by our RBI-registered NBFC partners, who retain final control over credit approval and terms. SUVRON Money does not itself lend money. Interest rates for loans facilitated on this platform range from 10% to 36% per annum, and the APR, inclusive of interest and all fees, ranges from 10% to 120%, depending on tenure, amount and your credit assessment; the exact APR for your offer is disclosed in your Key Fact Statement and loan agreement before you accept.</div>
-      <div class="footer-copy">© 2026 SUVRON Money. All rights reserved.</div>
-    </div>
-  </div>
-</footer>
-
-<!-- ===================== STICKY BOTTOM BAR ===================== -->
+<footer class="site-f"><div class="wrap">
+<div class="f0"><b>SUVRON Money</b><p>Short-term loans for young India, built by Shantilekh Global Technology Pvt. Ltd. in partnership with RBI-registered NBFC lending partners.</p>
+<p>Support: <a href="mailto:support@suvron.in">support@suvron.in</a><br>Partnerships: <a href="mailto:connect@suvron.in">connect@suvron.in</a><br>Grievance Officer: <a href="mailto:gro@suvron.in">gro@suvron.in</a> / 9971373543</p></div>
+<div><b>Product</b><a href="/#how">How it works</a><a href="/#why">Why SUVRON Money</a><a href="/#trust">Trust &amp; safety</a><a href="/#faq">FAQs</a><a href="/calculator/">Loan calculator</a><a href="/blog/">Blog</a></div>
+<div><b>Company</b><a href="/about/">About us</a><a href="/about/#careers">Careers</a><a href="/contact/">Contact us</a><a href="/responsible-lending/">Responsible lending</a></div>
+<div><b>Legal</b><a href="/privacy-policy/">Privacy policy</a><a href="/cookie-policy/">Cookie policy</a><a href="/terms/">Terms of use</a><a href="/grievance-redressal/">Grievance redressal</a></div>
+<p class="legal">SUVRON Money is a digital lending platform built by Shantilekh Global Technology Pvt. Ltd. Loans are sanctioned, disbursed and collected by our RBI-registered NBFC partners, who retain final control over credit approval and terms. SUVRON Money does not itself lend money. Interest rates for loans facilitated on this platform range from 10% to 36% per annum, and the APR, inclusive of interest and all fees, ranges from 10% to 120%, depending on tenure, amount and your credit assessment; the exact APR for your offer is disclosed in your Key Fact Statement and loan agreement before you accept. Borrow only what you can repay.</p>
+<p class="copy">&copy; 2026 SUVRON Money. All rights reserved.</p></div></footer>
 <div class="sticky-bar">
   <div class="sticky-copy">Need cash? Get up to <b>₹50,000</b> instantly.</div>
   <form class="sticky-form" onsubmit="handleApplySubmit(event)">
@@ -742,12 +542,50 @@
       <label for="sticky-phone" class="sr-only">Mobile number</label>
       <input type="tel" id="sticky-phone" name="phone" placeholder="Mobile number" pattern="[6-9][0-9]{9}" maxlength="10" required>
     </span>
-    <button type="submit" class="btn btn-primary btn-sm" style="background:var(--gold);color:var(--ink);box-shadow:none;">Apply now</button>
+    <button type="submit" class="btn btn-primary btn-sm" style="background:var(--sun);color:var(--bg);box-shadow:none;">Apply now</button>
   </form>
   <div class="sticky-status" aria-live="polite"></div>
 </div>
+<script src="/forms.js"></script>
+<script src="/site.js"></script>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)),sm=x=>x*x*(3-2*x);
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const story=$('.story'),stage=$('#stage'),phone=$('#phone'),blks=$$('.blk'),chips=$$('.chip'),rows=$$('.rw'),otp=$$('#otp b'),tick=$('#tick'),rc=$('#rc'),rp=$('#rp'),rail=$$('.rail i'),g1=$('#g1'),g2=$('#g2'),pt=$('#pt'),pl=$('#pl'),arc=$('#arc'),hh=$('#hh'),mh=$('#mh'),lis=$$('.chk li');
+const D=['4','8','1','9'];
+let target=0,cur=0;
+const read=()=>{const top=parseFloat(getComputedStyle(stage).top)||0;target=clamp((top-story.getBoundingClientRect().top)/(story.offsetHeight-stage.offsetHeight))};
+// scrubbed progress with dwell: each step holds, then glides to the next
+const ease=p=>{const s=p*3,i=Math.min(2,Math.floor(s));return i+sm(clamp((s-i-.25)/.5))};
+function render(p){
+ const e=ease(p);stage.style.setProperty('--es',e);
+ phone.style.transform=`rotateY(${(e-1.5)*-7}deg) rotateX(${4-Math.abs(e-1.5)*1.5}deg) translateY(${Math.sin(p*Math.PI*2)*-8}px)`;
+ g1.style.opacity=1-e/3;g2.style.opacity=e/3;g2.style.transform=g1.style.transform=`translateY(${(e-1)*-30}px)`;
+ blks.forEach(b=>{const i=+b.dataset.i,d=Math.abs(e-i);b.style.opacity=clamp(1-d*1.8);b.style.transform=`translateY(${(i-e)*46}px)`});
+ chips.forEach(c=>{const i=+c.dataset.i,d=Math.abs(e-i),o=clamp(1.15-d*1.5);c.style.opacity=o;c.style.transform=`translateY(${(i-e)*-70}px) scale(${.92+.08*o})`});
+ rows.forEach(r=>{const k=+r.dataset.r,o=clamp((e-1.62-k*.12)*4);r.style.opacity=o;r.style.transform=`translateX(${(1-o)*16}px)`});
+ const n=Math.floor(clamp(p/.05)*4+.001);otp.forEach((b,i)=>b.textContent=i<n?D[i]:'');
+ tick.style.opacity=n>=4?1:0;
+ const d=1-clamp((e-2.5)/.5);rc.style.strokeDashoffset=d;rp.style.strokeDashoffset=1-clamp((e-2.85)/.15);
+ rail.forEach((r,i)=>r.classList.toggle('on',i===Math.round(e)));
+ const cp=clamp((p*3-.78)/.44),rem=(1-cp)*86400,h=rem/3600,hrs=Math.ceil(h-1e-6),done=rem<=0;
+ hh.setAttribute('transform',`rotate(${h/12*360} 50 50)`);mh.setAttribute('transform',`rotate(${(h%1)*360} 50 50)`);
+ arc.style.strokeDashoffset=1-rem/86400;
+ pt.textContent=done?'Decision ready':hrs+(hrs===1?' hr':' hrs');pl.textContent=done?'Your offer is waiting':'Approval in';
+ lis.forEach((l,i)=>l.classList.toggle('on',cp>[.02,.5,.98][i]));
+}
+(function loop(){cur+=(target-cur)*(reduce?1:.085);if(Math.abs(target-cur)<.0004)cur=target;render(cur);requestAnimationFrame(loop)})();
+addEventListener('scroll',read,{passive:true});addEventListener('resize',read);read();cur=target;
 
-<script src="script.js?v=11"></script>
-
-</body>
-</html>
+// Ask an AI
+const q=$('#q'),note=$('#note');
+$$('[data-ai]').forEach(b=>b.addEventListener('click',async()=>{
+ const e=encodeURIComponent(q.value.trim()),k=b.dataset.ai;
+ if(k==='claude')return open('https://claude.ai/new?q='+e,'_blank','noopener');
+ if(k==='chatgpt')return open('https://chatgpt.com/?q='+e,'_blank','noopener');
+ try{await navigator.clipboard.writeText(q.value.trim());note.textContent='Question copied. Paste it into Gemini.'}catch(_){note.textContent='Copy the question above, then paste it into Gemini.'}
+ open('https://gemini.google.com/app','_blank','noopener');
+}));
+</script>
+</body></html>
