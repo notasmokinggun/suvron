@@ -95,7 +95,6 @@ body.inner .page.wide{max-width:1100px}
 
 
 /* ===== legacy components ported from styles.css (recoloured to the shared theme) ===== */
- .eyebrow{overflow-wrap:break-word;word-break:normal;}
 .dotgrid{
     background-image:radial-gradient(rgba(0,0,0,0.16) 1.4px, transparent 1.4px);
     background-size:24px 24px;
@@ -106,17 +105,6 @@ body.inner .page.wide{max-width:1100px}
   }
 .num{font-family:'IBM Plex Mono',monospace;}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
-.eyebrow{
-    display:inline-flex;align-items:center;gap:8px;
-    font-family:'IBM Plex Mono',monospace;
-    font-size:13px;font-weight:600;letter-spacing:0.04em;
-    color:var(--mint);
-    background:var(--surf);
-    padding:8px 16px;border-radius:999px;
-    text-transform:uppercase;
-    margin-bottom:16px;
-  }
-.eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--mint);}
 .btn:focus-visible{
     outline:2.5px solid var(--brand);
     outline-offset:3px;
@@ -145,7 +133,6 @@ body.inner .page.wide{max-width:1100px}
     display:grid;grid-template-columns:1.1fr 0.9fr;gap:50px;align-items:center;
     background:var(--bg2);border-radius:32px;padding:56px 50px;color:#fff;
   }
-.refer-copy .eyebrow{background:rgba(255,255,255,0.1);color:var(--sun);}
 .refer-copy h2{color:#fff;font-size:32px;margin-top:16px;max-width:420px;}
 .refer-copy p{color:rgba(255,255,255,0.68);font-size:15px;max-width:420px;margin-top:14px;}
 .refer-amount{font-size:15px;font-weight:700;color:#fff;margin:20px 0 26px;}
@@ -280,7 +267,6 @@ body.inner .page.wide{max-width:1100px}
 .gallery-dots button.active{background:var(--brand);transform:scale(1.25);}
 @media(max-width:640px){.gallery-slide{width:210px;min-height:160px;padding:18px 16px;}}
 .page-hero{padding:52px 0 40px;}
-.page-hero .eyebrow{margin-bottom:16px;}
 .page-hero h1{font-size:42px;}
 .page-hero .updated{font-size:13px;color:var(--mute);margin-top:14px;font-weight:600;}
 .prose{max-width:760px;margin:0 auto;padding:8px 0 64px;}
@@ -489,12 +475,9 @@ body.inner{padding-bottom:84px}
 .btn:after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.45) 50%,transparent 70%);transform:translateX(-120%);transition:transform .9s var(--ease)}
 .btn:hover:after{transform:translateX(120%)}
 .btn:active{transform:scale(.97)}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;padding:7px 16px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--mute);font-size:13.5px;font-weight:500;margin-bottom:22px}
-.eyebrow .dot{width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 0 rgba(91,240,181,.6);animation:ping 2.6s var(--ease) infinite}
-@keyframes ping{70%,100%{box-shadow:0 0 0 10px rgba(91,240,181,0)}}
 @media(prefers-reduced-motion:reduce){
  .js [data-r],.js [data-words] .w{opacity:1!important;transform:none!important;filter:none!important;transition:none!important}
- .eyebrow .dot,.btn:after{animation:none;display:none}
+ .btn:after{animation:none;display:none}
 }
 
 .site-f .wrap>.legal{grid-column:1/-1;font-size:12.5px;line-height:1.7;border-top:1px solid var(--line);padding-top:28px;margin:8px 0 0}
@@ -516,3 +499,7 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:700;letter-spacing:-.025em}
 .strip i{width:7px;height:7px;border-radius:50%;background:var(--mint)}.strip b{color:var(--sun)}
 .fn{max-width:60em;margin:0 auto;padding:0 24px 8px;text-align:center;color:var(--mute);font-size:12.5px}
 @media(max-width:700px){.strip{padding-bottom:36px}.strip .row{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;scroll-snap-type:x proximity;scroll-padding:0 20px;padding:0 20px 6px;scrollbar-width:none}.strip .row::-webkit-scrollbar{display:none}.strip .row>span{flex:none;scroll-snap-align:start}}
+
+/* trust copy: short stacked lines that reveal one after another */
+.trust .tl{max-width:34em;margin:0 0 14px;font-size:18px;line-height:1.55}.trust .tl:first-of-type{color:var(--ink);font-size:20px}
+@media(max-width:700px){.trust .tl,.trust .tl:first-of-type{font-size:16.5px;max-width:none}}

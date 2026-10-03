@@ -312,7 +312,6 @@
 </style>
 <style>
 /* restored sections + premium motion */
-.hero .eyebrow{position:relative}
 .hero h1 em{display:inline}
 .hero:before{animation:breathe 9s ease-in-out infinite}
 @keyframes breathe{50%{opacity:.65;transform:translateX(-50%) scale(1.08)}}
@@ -339,7 +338,6 @@
 .trust{padding:56px;background:linear-gradient(160deg,#0F3A32,#0A2924);border-radius:40px}
 .trust h2{font-size:clamp(32px,4vw,52px);margin-bottom:16px;position:relative}
 .trust>p{color:#C3D9D0;max-width:46em;position:relative}
-.trust .eyebrow{position:relative}
 .badges{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:12px;margin:28px 0;position:relative}
 .badges li{display:flex;align-items:center;gap:10px;padding:11px 18px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid var(--line);font-size:14.5px;font-weight:500}
 .badges li:before{content:"\2713";color:var(--mint);font-weight:700}
@@ -355,7 +353,7 @@
 .refer{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center;padding:56px;border-radius:40px}
 .refer h2{font-size:clamp(30px,3.8vw,48px);margin-bottom:14px;position:relative}.refer p{color:var(--mute);position:relative;margin-bottom:18px}
 .refer .ra{color:var(--ink);font-size:18px}.refer .ra b{color:var(--sun);font-size:30px;font-family:"Plus Jakarta Sans","Plus Jakarta Sans Fallback",sans-serif}
-.refer .eyebrow,.refer .btn{position:relative}
+.refer .btn{position:relative}
 .rcard{position:relative;background:#F2F7F3;color:#0F2420;border-radius:28px;padding:28px;box-shadow:0 30px 60px -24px rgba(0,0,0,.7);transform:rotate(2deg);transition:transform .9s var(--ease)}
 .refer:hover .rcard{transform:rotate(0) translateY(-4px)}
 .rcard small{color:#5F7A72;font-weight:700}.rcard p{color:#0F2420;font-weight:700;font-size:18px;margin:8px 0 18px;line-height:1.3}
@@ -455,7 +453,7 @@
 </div></section>
 
 <section class="sec" id="who"><div class="wrap">
-<div class="sec-h"><span class="eyebrow" data-r>Made for young India</span><h2 data-words>Whoever's paycheck <em>hasn't caught up yet</em></h2><p data-r style="--d:.3s">SUVRON Money is built for the gap before the salary lands or the next gig pays out.</p></div>
+<div class="sec-h"><h2 data-words>Whoever's paycheck <em>hasn't caught up yet</em></h2><p data-r style="--d:.3s">SUVRON Money is built for the gap before the salary lands or the next gig pays out.</p></div>
 <div class="g3">
 <div class="gc" data-r><h3>Students</h3><p>Cover a semester fee or a broken laptop without waiting on pocket money.</p></div>
 <div class="gc" data-r style="--d:.12s"><h3>First jobbers</h3><p>Bridge the gap between your offer letter and your first salary.</p></div>
@@ -463,7 +461,7 @@
 </div></div></section>
 
 <section class="sec alt" id="why"><div class="wrap">
-<div class="sec-h"><span class="eyebrow" data-r>Why SUVRON Money</span><h2 data-words>Built to be <em>upfront</em> with you</h2><p data-r style="--d:.3s">No hidden clauses, no surprise deductions. You see what a loan costs before you take it.</p></div>
+<div class="sec-h"><h2 data-words>Built to be <em>upfront</em> with you</h2><p data-r style="--d:.3s">No hidden clauses, no surprise deductions. You see what a loan costs before you take it.</p></div>
 <div class="g4">
 <div class="gc" data-r><h4>Transparent pricing</h4><p>See your interest and fees before you accept, never after.</p></div>
 <div class="gc" data-r style="--d:.1s"><h4>Short, fixed terms</h4><p>Loans run 60 to 180 days. You know your repayment date before you accept.</p></div>
@@ -473,26 +471,27 @@
 
 <section class="sec" id="trust"><div class="wrap">
 <div class="trust" data-r>
-<span class="eyebrow">Trust &amp; compliance</span>
-<h2>Lending you can <em>verify</em></h2>
-<p>SUVRON Money is built by Shantilekh Global Technology Pvt. Ltd. and offered in partnership with RBI-registered NBFC lending partners, who hold final say on credit approval, disbursement and collections. Every fee and charge for your specific offer is shown to you in full before you accept, never buried in the agreement afterward.</p>
+<h2 data-words>Lending you can <em>verify</em></h2>
+<p class="tl" data-r style="--d:.3s">SUVRON Money is built by Shantilekh Global Technology Pvt. Ltd.</p>
+<p class="tl" data-r style="--d:.5s">It's offered with RBI-registered NBFC lending partners, who hold final say on credit approval, disbursement and collections.</p>
+<p class="tl" data-r style="--d:.7s">Every fee and charge for your offer is shown in full before you accept, never buried in the agreement afterward.</p>
 <ul class="badges"><li>RBI Fair Practices Code</li><li>DPDP-compliant data handling</li><li>Clear fee schedule</li><li>Named grievance officer, 7-day response</li></ul>
 <div class="partner"><h4>Our Lending Partner</h4><ul><li><b>Name:</b> Ready Leasings Private Limited</li><li><b>RBI Registration:</b> NBFC, Reg. No. ******0028</li><li><b>CIN:</b> *****************0699</li></ul><p>Full terms and rate details are in our <a href="/terms/">terms of use</a>.</p></div>
 </div></div></section>
 
 <section class="sec alt reviews" id="reviews"><div class="wrap">
-<div class="sec-h"><span class="eyebrow" data-r>From people who've used it</span><h2 data-words>What users are <em>saying</em></h2></div>
+<div class="sec-h"><h2 data-words>What users are <em>saying</em></h2></div>
 <div class="avg" data-r><b id="avg">4.2</b><span class="stars" role="img" aria-label="4.2 out of 5" style="--w:84%">&#9733;&#9733;&#9733;&#9733;&#9733;<i>&#9733;&#9733;&#9733;&#9733;&#9733;</i></span><small>average rating out of 5</small></div>
 </div>
 <div class="mask" id="rows" data-r></div></section>
 
 <section class="sec" id="refer"><div class="wrap"><div class="refer" data-r>
-<div><span class="eyebrow">Refer and earn</span><h2>Bring a friend, <em>you both get paid</em></h2><p>Share your code. When a friend takes their first loan through SUVRON Money, you both get cash back, no cap on how many friends you refer.</p><p class="ra">Up to <b>₹100</b> per friend</p><a class="btn sun" href="https://play.google.com/store/apps/details?id=com.shantilekh.suvron&hl=en_IN">Get your referral code</a></div>
+<div><h2>Bring a friend, <em>you both get paid</em></h2><p>Share your code. When a friend takes their first loan through SUVRON Money, you both get cash back, no cap on how many friends you refer.</p><p class="ra">Up to <b>₹100</b> per friend</p><a class="btn sun" href="https://play.google.com/store/apps/details?id=com.shantilekh.suvron&hl=en_IN">Get your referral code</a></div>
 <div class="rcard" aria-hidden="true"><small>Refer a friend</small><p>Earn up to ₹100 for every friend who takes a loan.</p><div class="code"><span>Referral code</span><b>SUV4K21X</b></div><div class="earn"><b>₹100</b> Cash earned</div></div>
 </div></div></section>
 
 <section class="sec alt" id="faq"><div class="wrap narrow">
-<div class="sec-h"><span class="eyebrow" data-r>Good to know</span><h2 data-words>Questions people <em>ask us</em></h2></div>
+<div class="sec-h"><h2 data-words>Questions people <em>ask us</em></h2></div>
 <details class="faq-i" data-r><summary>Who can apply for a SUVRON Money loan?<span class="pl" aria-hidden="true"></span></summary><div class="faq-a"><div>Anyone between 18 and 35 with a valid PAN, Aadhaar and an active bank account can apply. You don't need an existing credit history to be considered.</div></div></details>
 <details class="faq-i" data-r><summary>How much can I borrow, and for how long?<span class="pl" aria-hidden="true"></span></summary><div class="faq-a"><div>Loans currently range from ₹2,000 to ₹50,000 with a tenure of 60 to 180 days. Your exact amount, tenure and total cost depend on your eligibility check, and you'll see all of it before accepting an offer.</div></div></details>
 <details class="faq-i" data-r><summary>What does a SUVRON Money loan cost?<span class="pl" aria-hidden="true"></span></summary><div class="faq-a"><div>Interest rates range from 10% to 36% per annum and the APR, inclusive of interest and all fees, ranges from 10% to 120%, depending on tenure, amount and your credit assessment. The exact APR for your offer is disclosed in your Key Fact Statement and loan agreement before you accept, never buried afterward.</div></div></details>
