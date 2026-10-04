@@ -295,11 +295,21 @@
 .ask .in{max-width:780px;margin:0 auto;text-align:center}
 .ask h2{font-size:clamp(34px,4.4vw,58px)}
 .ask p.s{color:var(--mute);margin:18px 0 32px;font-size:18px}
-.ask textarea{width:100%;min-height:200px;resize:vertical;background:rgba(0,0,0,.3);border:1.5px solid var(--line);border-radius:20px;color:var(--ink);font:inherit;padding:20px;text-align:left}
-.ai{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px}
-.ai a{display:inline-block;text-decoration:none;text-align:center;font:700 16px "Inter","Inter Fallback",sans-serif;cursor:pointer;border:0;border-radius:999px;padding:15px 30px;background:var(--ink);color:var(--bg);transition:transform .25s}
-.ai a:hover{transform:translateY(-2px)}.ai a.c{background:var(--sun);padding-inline:40px;box-shadow:0 12px 32px -10px rgba(255,201,60,.6)}
-.note{font-size:14px;color:var(--mute);margin-top:16px;min-height:22px}
+
+.ai{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px;text-align:left}
+.aib{position:relative;overflow:hidden;display:flex;align-items:center;gap:16px;text-decoration:none;color:var(--ink);padding:22px;border-radius:24px;background:rgba(255,255,255,.06);border:1px solid var(--line);transition:transform .7s var(--ease),border-color .5s,background .5s,box-shadow .7s var(--ease)}
+.aib:before{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--mx,50%) var(--my,0%),rgba(255,201,60,.22),transparent 65%);opacity:0;transition:opacity .5s var(--ease);pointer-events:none}
+.aib:hover,.aib:focus-visible{transform:translateY(-5px);border-color:rgba(255,201,60,.55);background:rgba(255,255,255,.1);box-shadow:0 22px 44px -22px rgba(0,0,0,.7)}
+.aib:hover:before{opacity:1}
+.aib:focus-visible{outline:2px solid var(--sun);outline-offset:3px}
+.aib:active{transform:translateY(-1px) scale(.985)}
+.aib .ico{position:relative;flex:none;width:48px;height:48px;border-radius:16px;display:grid;place-items:center;background:rgba(255,201,60,.14);color:var(--sun);transition:transform .7s var(--ease),background .5s}
+.aib:hover .ico{transform:rotate(-6deg) scale(1.06);background:rgba(255,201,60,.24)}
+.aib .tx{position:relative;flex:1;min-width:0}
+.aib b{display:block;font:700 18px "Plus Jakarta Sans","Plus Jakarta Sans Fallback",sans-serif;letter-spacing:-.01em}
+.aib small{display:block;margin-top:3px;color:var(--mute);font-size:13.5px}
+.aib .go{position:relative;flex:none;color:var(--mute);transition:transform .6s var(--ease),color .4s}
+.aib:hover .go{transform:translate(3px,-3px);color:var(--sun)}
 
 
 @media(max-width:1100px){.chip{display:none}}
@@ -312,7 +322,7 @@
  .copy{height:128px}.blk h2{font-size:28px;margin-bottom:8px}.blk p{font-size:15px;line-height:1.45}.rail,.chip{display:none}
  .glow,.glow2{width:420px;height:420px}
  .avg{margin:-28px 0 36px}.avg b{font-size:52px}.rev{width:290px;padding:22px}.rev p{font-size:17px}
- .ask{padding:44px 22px;border-radius:28px;margin:0 14px}.ask p.s{font-size:16px}.ai{display:grid;grid-template-columns:1fr 1fr;gap:10px}.ai a{padding:14px 10px}.ai a.c{grid-column:1/-1;padding-inline:10px}
+ .ask{padding:44px 22px;border-radius:28px;margin:0 14px}.ask p.s{font-size:16px}.ai{grid-template-columns:1fr;gap:12px;margin-top:28px}.aib{padding:18px}.aib .ico{width:44px;height:44px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.mq{-webkit-mask-image:none;mask-image:none}.mq-track{flex-wrap:wrap;width:auto;transform:none!important;justify-content:center}.mq-set{flex-wrap:wrap;justify-content:center;padding:0}}
 </style>
@@ -543,11 +553,13 @@
 
 
 <section class="ask" id="ask"><div class="in">
-<h2>Not sure yet? <em>Ask an AI</em> about us.</h2>
-<p class="s">We've pre-filled a question with the facts. Edit it if you like, then one tap opens a chat with it typed in, in the app if you have it installed.</p>
-<textarea id="q" aria-label="Question for your AI assistant">I'm in India, considering a short-term loan from SUVRON Money (suvron.in). From its website: ₹2,000–₹50,000 over 60–180 days, a decision in 24 hours, no collateral or credit history needed, offered through an RBI-registered NBFC partner, with every fee and the APR shown in a Key Fact Statement before you accept (interest 10–36% p.a., APR 10–120%), and a 7-day complaint response. What does it do well for students, first jobbers and freelancers, how does its upfront disclosure compare with typical instant-loan apps, and when is it a sensible choice? Also tell me what to check before accepting.</textarea>
-<div class="ai"><a class="c" data-ai="chatgpt" href="https://chatgpt.com/">Ask ChatGPT</a><a data-ai="claude" href="https://claude.ai/new">Ask Claude</a><a data-ai="gemini" href="https://gemini.google.com/app">Ask Gemini</a></div>
-<div class="note" id="note" aria-live="polite"></div>
+<h2 data-r>Not sure yet? <em>Ask an AI</em> about us.</h2>
+<p class="s" data-r style="--d:.1s">One tap opens your favourite AI with a question about SUVRON Money already typed in, built from the facts on this page. Ask it anything else after that.</p>
+<div class="ai">
+<a class="aib" data-ai="chatgpt" href="https://chatgpt.com/" aria-label="Ask ChatGPT about SUVRON Money" data-r><span class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 6.5A2.5 2.5 0 017.5 4h9A2.5 2.5 0 0119 6.5v6a2.5 2.5 0 01-2.5 2.5H11l-4 3.5V15h-.5A2.5 2.5 0 014 12.5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span><span class="tx"><b>Ask ChatGPT</b><small>Opens with the question ready</small></span><svg class="go" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<a class="aib" data-ai="claude" href="https://claude.ai/new" aria-label="Ask Claude about SUVRON Money" data-r style="--d:.1s"><span class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M19 16v4M17 18h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span><span class="tx"><b>Ask Claude</b><small>Opens with the question ready</small></span><svg class="go" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<a class="aib" data-ai="google" href="https://www.google.com/search?udm=50" aria-label="Ask Google AI about SUVRON Money" data-r style="--d:.2s"><span class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6" stroke="currentColor" stroke-width="1.8"/><path d="M15 15l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M10.5 8v5M8 10.5h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="tx"><b>Ask Google AI</b><small>Gemini-powered AI Mode</small></span><svg class="go" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+</div>
 </div></section>
 
 <p class="fn" data-r>SUVRON Money does not lend itself. Loans are sanctioned and disbursed by RBI-registered NBFC partners.</p>
@@ -592,18 +604,12 @@ function render(p){
 (function loop(){cur+=(target-cur)*(reduce?1:.085);if(Math.abs(target-cur)<.0004)cur=target;render(cur);requestAnimationFrame(loop)})();
 addEventListener('scroll',read,{passive:true});addEventListener('resize',read);read();cur=target;
 
-// Ask an AI. Real links, so phones hand them to the installed app.
-// 1 = the site takes a pre-filled question in the URL. 0 = it can't, so we copy the question and open the app.
-const q=$('#q'),note=$('#note'),touch=matchMedia('(pointer:coarse)').matches;
-const AI={chatgpt:['https://chatgpt.com/?q=',1,'ChatGPT'],claude:['https://claude.ai/new?q=',1,'Claude'],gemini:['https://gemini.google.com/app',0,'Gemini']};
-const links=$$('[data-ai]');
-const setLinks=()=>links.forEach(a=>{const [u,p]=AI[a.dataset.ai];a.href=p?u+encodeURIComponent(q.value.trim()):u;a.target=touch?'_self':'_blank';a.rel='noopener'});
-setLinks();q.addEventListener('input',setLinks);
-const fit=()=>{q.style.height='auto';q.style.height=Math.min(q.scrollHeight+4,innerWidth<=900?230:300)+'px'};fit();addEventListener('resize',fit);document.fonts&&document.fonts.ready.then(fit);q.addEventListener('input',fit);
-links.forEach(a=>a.addEventListener('click',()=>{
- const [,p,name]=AI[a.dataset.ai];if(p){note.textContent='';return}
- navigator.clipboard.writeText(q.value.trim()).then(()=>note.textContent='Question copied. Paste it into '+name+'.',()=>note.textContent='Copy the question above, then paste it into '+name+'.');
-}));
+// Ask an AI. Plain links with the question already in the URL, so phones hand them to the installed app. The question is never copied for the visitor.
+const ASK=`I'm in India, considering a short-term loan from SUVRON Money (suvron.in). From its website: ₹2,000–₹50,000 over 60–180 days, a decision in 24 hours, no collateral or credit history needed, offered through an RBI-registered NBFC partner, with every fee and the APR shown in a Key Fact Statement before you accept (interest 10–36% p.a., APR 10–120%), and a 7-day complaint response. What does it do well for students, first jobbers and freelancers, how does its upfront disclosure compare with typical instant-loan apps, and when is it a sensible choice? Also tell me what to check before accepting.`;
+const AIU={chatgpt:'https://chatgpt.com/?q=',claude:'https://claude.ai/new?q=',google:'https://www.google.com/search?udm=50&q='};
+const touch=matchMedia('(pointer:coarse)').matches;
+$$('[data-ai]').forEach(a=>{a.href=AIU[a.dataset.ai]+encodeURIComponent(ASK);a.target=touch?'_self':'_blank';a.rel='noopener'});
+$$('.aib').forEach(c=>c.addEventListener('pointermove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px')},{passive:true}));
 </script>
 <script>
 // Scroll-driven marquee: moves only while the page scrolls, stops when it stops.
