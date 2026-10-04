@@ -296,20 +296,20 @@
 .ask h2{font-size:clamp(34px,4.4vw,58px)}
 .ask p.s{color:var(--mute);margin:18px 0 32px;font-size:18px}
 
-.ai{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px;text-align:left}
-.aib{position:relative;overflow:hidden;display:flex;align-items:center;gap:16px;text-decoration:none;color:var(--ink);padding:22px;border-radius:24px;background:rgba(255,255,255,.06);border:1px solid var(--line);transition:transform .7s var(--ease),border-color .5s,background .5s,box-shadow .7s var(--ease)}
+.ai{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:36px;text-align:left}
+.aib{min-width:0;position:relative;overflow:hidden;display:flex;align-items:center;gap:16px;text-decoration:none;color:var(--ink);padding:22px;border-radius:24px;background:rgba(255,255,255,.06);border:1px solid var(--line);transition:transform .7s var(--ease),border-color .5s,background .5s,box-shadow .7s var(--ease)}
 .aib:before{content:"";position:absolute;inset:0;background:radial-gradient(260px circle at var(--mx,50%) var(--my,0%),rgba(255,201,60,.22),transparent 65%);opacity:0;transition:opacity .5s var(--ease);pointer-events:none}
 .aib:hover,.aib:focus-visible{transform:translateY(-5px);border-color:rgba(255,201,60,.55);background:rgba(255,255,255,.1);box-shadow:0 22px 44px -22px rgba(0,0,0,.7)}
 .aib:hover:before{opacity:1}
 .aib:focus-visible{outline:2px solid var(--sun);outline-offset:3px}
 .aib:active{transform:translateY(-1px) scale(.985)}
-.aib .ico{position:relative;flex:none;width:48px;height:48px;border-radius:16px;display:grid;place-items:center;background:rgba(255,201,60,.14);color:var(--sun);transition:transform .7s var(--ease),background .5s}
-.aib:hover .ico{transform:rotate(-6deg) scale(1.06);background:rgba(255,201,60,.24)}
-.aib .tx{position:relative;flex:1;min-width:0}
+.aib .aib-i{position:relative;flex:none;width:48px;height:48px;border-radius:16px;display:grid;place-items:center;background:rgba(255,201,60,.14);color:var(--sun);transition:transform .7s var(--ease),background .5s}
+.aib:hover .aib-i{transform:rotate(-6deg) scale(1.06);background:rgba(255,201,60,.24)}
+.aib .aib-t{position:relative;flex:1;min-width:0}
 .aib b{display:block;font:700 18px "Plus Jakarta Sans","Plus Jakarta Sans Fallback",sans-serif;letter-spacing:-.01em}
 .aib small{display:block;margin-top:3px;color:var(--mute);font-size:13.5px}
-.aib .go{position:relative;flex:none;color:var(--mute);transition:transform .6s var(--ease),color .4s}
-.aib:hover .go{transform:translate(3px,-3px);color:var(--sun)}
+.aib .aib-a{position:relative;flex:none;color:var(--mute);transition:transform .6s var(--ease),color .4s}
+.aib:hover .aib-a{transform:translate(3px,-3px);color:var(--sun)}
 
 
 @media(max-width:1100px){.chip{display:none}}
@@ -322,7 +322,7 @@
  .copy{height:128px}.blk h2{font-size:28px;margin-bottom:8px}.blk p{font-size:15px;line-height:1.45}.rail,.chip{display:none}
  .glow,.glow2{width:420px;height:420px}
  .avg{margin:-28px 0 36px}.avg b{font-size:52px}.rev{width:290px;padding:22px}.rev p{font-size:17px}
- .ask{padding:44px 22px;border-radius:28px;margin:0 14px}.ask p.s{font-size:16px}.ai{grid-template-columns:1fr;gap:12px;margin-top:28px}.aib{padding:18px}.aib .ico{width:44px;height:44px}
+ .ask{padding:44px 22px;border-radius:28px;margin:0 14px}.ask p.s{font-size:16px}.ai{grid-template-columns:1fr;gap:12px;margin-top:28px}.aib{padding:18px}.aib .aib-i{width:44px;height:44px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.mq{-webkit-mask-image:none;mask-image:none}.mq-track{flex-wrap:wrap;width:auto;transform:none!important;justify-content:center}.mq-set{flex-wrap:wrap;justify-content:center;padding:0}}
 </style>
@@ -556,9 +556,9 @@
 <h2 data-r>Not sure yet? <em>Ask an AI</em> about us.</h2>
 <p class="s" data-r style="--d:.1s">One tap opens your favourite AI with a question about SUVRON Money already typed in, built from the facts on this page. Ask it anything else after that.</p>
 <div class="ai">
-<a class="aib" data-ai="chatgpt" href="https://chatgpt.com/" aria-label="Ask ChatGPT about SUVRON Money" data-r><span class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 6.5A2.5 2.5 0 017.5 4h9A2.5 2.5 0 0119 6.5v6a2.5 2.5 0 01-2.5 2.5H11l-4 3.5V15h-.5A2.5 2.5 0 014 12.5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span><span class="tx"><b>Ask ChatGPT</b><small>Opens with the question ready</small></span><svg class="go" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-<a class="aib" data-ai="claude" href="https://claude.ai/new" aria-label="Ask Claude about SUVRON Money" data-r style="--d:.1s"><span class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M19 16v4M17 18h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span><span class="tx"><b>Ask Claude</b><small>Opens with the question ready</small></span><svg class="go" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-<a class="aib" data-ai="google" href="https://www.google.com/search?udm=50" aria-label="Ask Google AI about SUVRON Money" data-r style="--d:.2s"><span class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6" stroke="currentColor" stroke-width="1.8"/><path d="M15 15l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M10.5 8v5M8 10.5h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="tx"><b>Ask Google AI</b><small>Gemini-powered AI Mode</small></span><svg class="go" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<a class="aib" data-ai="chatgpt" href="https://chatgpt.com/" aria-label="Ask ChatGPT about SUVRON Money" data-r><span class="aib-i"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 6.5A2.5 2.5 0 017.5 4h9A2.5 2.5 0 0119 6.5v6a2.5 2.5 0 01-2.5 2.5H11l-4 3.5V15h-.5A2.5 2.5 0 014 12.5z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span><span class="aib-t"><b>Ask ChatGPT</b><small>Opens with the question ready</small></span><svg class="aib-a" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<a class="aib" data-ai="claude" href="https://claude.ai/new" aria-label="Ask Claude about SUVRON Money" data-r style="--d:.1s"><span class="aib-i"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M19 16v4M17 18h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span><span class="aib-t"><b>Ask Claude</b><small>Opens with the question ready</small></span><svg class="aib-a" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<a class="aib" data-ai="google" href="https://www.google.com/search?udm=50" aria-label="Ask Google AI about SUVRON Money" data-r style="--d:.2s"><span class="aib-i"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6" stroke="currentColor" stroke-width="1.8"/><path d="M15 15l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M10.5 8v5M8 10.5h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="aib-t"><b>Ask Google AI</b><small>Gemini-powered AI Mode</small></span><svg class="aib-a" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div>
 </div></section>
 
