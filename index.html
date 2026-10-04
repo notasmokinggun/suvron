@@ -450,6 +450,18 @@
  .solo .gc.big p{font-size:16px}
 }
 </style>
+<style>
+/* header-safe pinned scenes: content always starts below the floating header and shrinks to fit short screens (16:9 laptops) */
+:root{--hh:84px}
+@media(max-width:900px){:root{--hh:68px}}
+.js .scene .pane{padding-top:calc(var(--hh) + 14px);padding-bottom:24px}
+@media(min-width:901px){.js .scene:not(.flat) .pane>*{zoom:var(--fit,1)}}
+@media(min-width:901px) and (max-height:760px){
+ .scene .sec-h h2{font-size:clamp(28px,min(4.6vw,6.4vh),60px)}
+ .scene .sec-h{margin-bottom:20px}.scene .sec-h p{font-size:16px}
+ .scene .avg{margin-bottom:18px}.scene .avg b{font-size:min(64px,7.4vh)}.scene .avg .stars{font-size:22px}
+}
+</style>
 </head>
 <body data-page="home">
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -659,6 +671,29 @@ $$('.aib').forEach(c=>c.addEventListener('pointermove',e=>{const r=c.getBounding
  }
  (function loop(){S.forEach(o=>{if(!o.on&&Math.abs(o.c-o.t)<.0004)return;o.c+=(o.t-o.c)*.1;if(Math.abs(o.t-o.c)<.0004)o.c=o.t;draw(o,o.c)});requestAnimationFrame(loop)})();
  addEventListener('scroll',read,{passive:true});addEventListener('resize',read);read();S.forEach(o=>{o.c=o.t;draw(o,o.c)});
+})();
+</script>
+<script>
+// Fit guard: if a pinned scene's content is taller than the space under the header, scale it down so nothing is hidden or overlapped.
+(function(){
+ const panes=[...document.querySelectorAll('.scene .pane')];if(!panes.length)return;
+ let raf=0;
+ function fit(){
+  raf=0;
+  panes.forEach(p=>{
+   p.style.setProperty('--fit',1);
+   if(innerWidth<=900||p.closest('.scene.flat'))return;
+   const cs=getComputedStyle(p),kids=[...p.children];
+   const avail=p.clientHeight-parseFloat(cs.paddingTop)-parseFloat(cs.paddingBottom);
+   let need=(parseFloat(cs.rowGap)||0)*Math.max(0,kids.length-1);
+   kids.forEach(k=>{const s=getComputedStyle(k);need+=k.offsetHeight+parseFloat(s.marginTop)+parseFloat(s.marginBottom)});
+   if(need>avail&&avail>0)p.style.setProperty('--fit',Math.max(.55,avail/need).toFixed(3));
+  });
+ }
+ const q=()=>{if(!raf)raf=requestAnimationFrame(fit)};
+ addEventListener('resize',q);addEventListener('load',q);
+ if(document.fonts&&document.fonts.ready)document.fonts.ready.then(q);
+ fit();
 })();
 </script>
 </body></html>
