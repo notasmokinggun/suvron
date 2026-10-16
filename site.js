@@ -1,3 +1,9 @@
+/* scroll-linked motion: stylesheet + the homepage light-up line. Runs first so the word splitter below picks it up. */
+(function(){
+ const d=document,l=d.createElement('link');l.rel='stylesheet';l.href='/scroll.css?v=1';d.head.appendChild(l);
+ const t=d.querySelector('body[data-page=home] .trust .tl');
+ if(t){t.removeAttribute('data-r');t.style.removeProperty('--d');t.classList.add('lit');t.setAttribute('data-words','')}
+})();
 /* SUVRON Money shared behaviour: header glass-on-scroll + motion engine. Header and footer markup is static in each page. */
 (function(){
  const h=document.querySelector('.site-h');if(!h)return;
