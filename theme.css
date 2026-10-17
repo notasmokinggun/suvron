@@ -770,3 +770,5 @@ body.inner .nf-list a{display:grid;grid-template-columns:minmax(0,1fr) auto;alig
 body.inner .nf-list a:hover b,body.inner .nf-list a:focus-visible b{color:var(--sun)}
 .nf-list a:hover svg,.nf-list a:focus-visible svg{color:var(--sun);transform:translateX(6px)}
 @media(prefers-reduced-motion:reduce){.nf-ring .arc{animation:none}}
+body.inner .contact-cards.two{grid-template-columns:repeat(2,minmax(0,1fr));max-width:860px}
+@media(max-width:700px){body.inner .contact-cards.two{grid-template-columns:minmax(0,1fr)}}

@@ -4,11 +4,11 @@
 //
 // The site is static (GitHub Pages), so the form posts to FormSubmit
 // (formsubmit.co), a free form-to-email relay: no account, no API key,
-// nothing to deploy. It emails each submission to connect@suvron.in
+// nothing to deploy. It emails each submission to contact@suvron.in
 // with the sender's address as Reply-To, so "Reply" answers them.
 //
 // One-time setup: the very first submission makes FormSubmit email
-// connect@suvron.in an activation link. Click it once; after that every
+// contact@suvron.in an activation link. Click it once; after that every
 // message is delivered. Until then, submissions are held, not lost.
 //
 // Spam and rate limiting, cheapest first:
@@ -26,7 +26,7 @@
 // FormSubmit sends the visitor back to /contact/?sent=1.
 // To change the destination, edit CONTACT_TO below and the form's action.
 // ============================================================
-const CONTACT_TO = 'connect@suvron.in';
+const CONTACT_TO = 'contact@suvron.in';
 const CONTACT_LIMITS = {gapMs: 60e3, perHour: 5, minFillMs: 3000, dupeMs: 10*60e3};
 
 function setStatus(el, text, kind){
