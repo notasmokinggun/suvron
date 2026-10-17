@@ -186,8 +186,8 @@
     <p style="max-width:480px;">Write to us here and it lands straight in our inbox. We reply to the email address you give us.</p>
 
     <form id="contactForm" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
-      <!-- Web3Forms access key for contact@suvron.in (public by design). Leave empty and the form opens a pre-written email instead. -->
-      <input type="hidden" name="access_key" value="">
+      <!-- Web3Forms access key for contact@suvron.in (public by design, per Web3Forms' docs). If it's ever removed, the form falls back to opening a pre-written email. -->
+      <input type="hidden" name="access_key" value="8665edea-c2f3-4f27-9a4a-5509142ead0d">
       <input type="hidden" name="from_name" value="SUVRON Money website">
       <input type="hidden" name="redirect" value="https://suvron.in/contact/?sent=1#contactForm">
       <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
