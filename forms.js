@@ -110,7 +110,9 @@ function setStatus(el, text, kind){
           access_key: accessKey,
           subject: `suvron.in contact: ${data.subject}`.slice(0, 160),
           from_name: 'SUVRON Money website',
-          name: data.name, email: data.email, message: data.message,
+          name: data.name, email: data.email,
+          'Message subject': data.subject,
+          message: data.message,
           botcheck: false
         })
       });

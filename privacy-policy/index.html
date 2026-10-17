@@ -33,7 +33,7 @@
 <link rel="manifest" href="../site.webmanifest">
 <link rel="preload" href="/fonts/host-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <script>document.documentElement.classList.add("js")</script>
-<link rel="stylesheet" href="/theme.css?v=31">
+<link rel="stylesheet" href="/theme.css?v=32">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -208,9 +208,30 @@
     <h3>Information from others</h3>
     <ul>
       <li><b>Credit information companies</b> (credit bureaus), for your credit report and score, with your consent.</li>
-      <li><b>Identity and KYC sources</b>, such as the Central KYC Records Registry and authorised government verification services, to confirm the details you give us.</li>
+      <li><b>Identity and KYC sources</b>, such as the Central KYC Records Registry and authorised government verification services, to confirm the details you give us. By applying, you consent to us and our lending partner fetching your KYC records from the Central KYC Records Registry using the details you provide.</li>
       <li><b>Banks and verification providers</b>, to confirm that the bank account you give us is yours and active.</li>
     </ul>
+
+    <h3>At a glance</h3>
+    <div class="pp-table" role="region" aria-label="Summary of data we collect" tabindex="0">
+    <table>
+      <thead><tr><th scope="col">Data</th><th scope="col">Why we need it</th><th scope="col">Who else sees it</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Name, phone, email, date of birth, address</th><td>Create your account, contact you, check your area is served</td><td>Lending partner, KYC providers</td></tr>
+        <tr><th scope="row">PAN, Aadhaar, selfie, proof of address</th><td>Verify your identity (KYC), prevent fraud, meet RBI and anti-money-laundering rules</td><td>Lending partner, KYC and verification providers, Central KYC Records Registry</td></tr>
+        <tr><th scope="row">Work and monthly income</th><td>Check eligibility and set the loan amount and price</td><td>Lending partner</td></tr>
+        <tr><th scope="row">Bank account and IFSC</th><td>Pay out your loan and collect repayments</td><td>Lending partner, banks and payment providers</td></tr>
+        <tr><th scope="row">SMS messages (required)</th><td>Understand income, spending and existing repayments to assess your application</td><td>Lending partner, data analysis providers</td></tr>
+        <tr><th scope="row">List of installed apps</th><td>Identify other lending apps, understand existing borrowing, spot fraud</td><td>Lending partner, data analysis providers</td></tr>
+        <tr><th scope="row">Location (once, at sign-up)</th><td>Confirm your address, check serviceability, prevent fraud</td><td>Lending partner</td></tr>
+        <tr><th scope="row">Camera (once, during KYC)</th><td>Take the selfie and photos needed for KYC</td><td>KYC and verification providers</td></tr>
+        <tr><th scope="row">Device and app usage information</th><td>Secure your account, fix problems, improve the app</td><td>Technology providers</td></tr>
+        <tr><th scope="row">Credit report and score</th><td>Assess your credit history</td><td>Lending partner, credit information companies</td></tr>
+        <tr><th scope="row">Loan and repayment records</th><td>Run your loan, send reminders, report repayment history as required by law</td><td>Lending partner, credit information companies, recovery agents if a loan is overdue</td></tr>
+        <tr><th scope="row">Support messages and call recordings</th><td>Resolve your issue, train our team</td><td>Technology providers</td></tr>
+      </tbody>
+    </table>
+    </div>
 
     <h2>4. Why we use it</h2>
     <ul>
@@ -219,7 +240,7 @@
       <li><b>To keep you and us safe:</b> detecting and preventing fraud, identity theft and misuse of the app.</li>
       <li><b>To support you:</b> answering your questions and resolving complaints.</li>
       <li><b>To improve the service:</b> fixing problems and making the app easier to use, using aggregated or de-identified data wherever possible.</li>
-      <li><b>To meet the law:</b> complying with RBI directions, anti-money-laundering rules, tax law, and lawful requests from regulators, courts and law enforcement.</li>
+      <li><b>To meet the law:</b> complying with RBI directions, anti-money-laundering rules, tax law, and lawful requests from regulators, courts and law enforcement. Transactions that appear suspicious are reported to the appropriate authority as the Prevention of Money-laundering Act, 2002 requires.</li>
     </ul>
     <p>We don’t use your information for anything outside these purposes without asking you first.</p>
 
@@ -237,13 +258,14 @@
 
     <h2>6. Where your data is stored and how we protect it</h2>
     <p>Your personal data is stored on servers <b>located in India</b>.</p>
-    <p>We protect it with encryption in transit and at rest, strict access controls so only staff who need data can see it, activity logging, and regular reviews of our security practices. The people and companies we share data with are bound by contract to equivalent safeguards. We do not store your debit or credit card numbers or CVV.</p>
+    <p>We protect it with encryption in transit and at rest, strict access controls so only staff who need data can see it, activity logging, and regular reviews of our security practices. Everyone at SUVRON Money with access to personal data is bound by confidentiality obligations, and the people and companies we share data with are bound by contract to equivalent safeguards. We remain responsible for how they handle your data on our behalf. We do not store your debit or credit card numbers or CVV.</p>
     <p>If a personal data breach happens, we will inform the Data Protection Board of India and the people affected, as the law requires, and tell you what we’re doing about it.</p>
 
     <h2>7. How long we keep it</h2>
     <p>We keep personal data only as long as we need it for the purposes above, or as long as the law requires:</p>
     <ul>
       <li>Identity, KYC and loan records are kept for at least <b>five years after your loan relationship ends</b>, as anti-money-laundering rules require.</li>
+      <li>App usage and device data is kept for a shorter period, unless we need it longer to investigate a security issue or fraud.</li>
       <li>Other data is deleted or de-identified once it’s no longer needed, for example if you apply but never take a loan.</li>
     </ul>
 
@@ -264,7 +286,7 @@
 
     <h2>10. Messages from us</h2>
     <p>We’ll contact you by SMS, email, WhatsApp, app notifications or phone about your application and loan, including approvals, due dates and payment reminders. These service messages are part of running your loan.</p>
-    <p>We’ll send promotional messages only with your consent, and you can opt out at any time from the app or by writing to us. We follow TRAI’s rules on commercial communication, including your Do Not Disturb preferences.</p>
+    <p>You can turn off app notifications at any time in your phone’s settings, though you may then miss reminders about your loan. We’ll send promotional messages only with your consent, and you can opt out at any time from the app or by writing to us. We follow TRAI’s rules on commercial communication, including your Do Not Disturb preferences.</p>
 
     <h2>11. Children</h2>
     <p>SUVRON Money is only for people aged 18 or over. We don’t knowingly collect data from anyone under 18. If we find that we have, we delete it.</p>
@@ -296,7 +318,7 @@
 <p class="legal">SUVRON Money is a digital lending platform built by Shantilekh Global Technology Pvt. Ltd. Loans are sanctioned, disbursed and collected by our RBI-registered NBFC partners, who retain final control over credit approval and terms. SUVRON Money does not itself lend money. Interest rates for loans facilitated on this platform range from 10% to 36% per annum, and the APR, inclusive of interest and all fees, ranges from 10% to 120%, depending on tenure, amount and your credit assessment; the exact APR for your offer is disclosed in your Key Fact Statement and loan agreement before you accept. Borrow only what you can repay.</p>
 <p class="copy">&copy; 2026 SUVRON Money. All rights reserved.</p></div></footer>
 
-<script src="/forms.js?v=8"></script>
+<script src="/forms.js?v=9"></script>
 <script src="/site.js?v=6"></script>
 
 </body>
