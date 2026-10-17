@@ -1,30 +1,33 @@
 /* Forms, mailto helpers, email-copy toast, blog gallery. Shared by every page, so it works with the shared theme header. */
 // ============================================================
-// BACKEND: plain mailto form submissions. No API, no key, no
-// third-party service and nothing that can expire.
+// CONTACT FORM: submissions go straight to our inbox.
 //
-// The contact form builds a mailto: link from what the
-// person typed, then hands it to their own device. Their phone or
-// computer opens whatever mail app is already signed in there
-// (Gmail, Outlook, the default Mail app, and so on) with the
-// recipient, subject and body already filled in. The person taps
-// send from their own inbox, so the email is really sent by their
-// mail provider, not by us, which is why it reliably lands: there
-// is no API key to expire, no sending domain to get flagged as
-// spam and nothing on our end that can go down.
+// The site is static (GitHub Pages), so the form posts to FormSubmit
+// (formsubmit.co), a free form-to-email relay: no account, no API key,
+// nothing to deploy. It emails each submission to connect@suvron.in
+// with the sender's address as Reply-To, so "Reply" answers them.
 //
-// The one real tradeoff is that it needs a mail app to be signed
-// in on the person's device, and it needs one extra tap from them
-// to hit send. If that mail app is missing, the browser usually
-// does nothing, so every status message below also spells out the
-// destination address as a manual fallback.
+// One-time setup: the very first submission makes FormSubmit email
+// connect@suvron.in an activation link. Click it once; after that every
+// message is delivered. Until then, submissions are held, not lost.
 //
-// Each form routes to its own inbox so replies stay sorted without
-// any extra tooling:
-//   - Contact page message form (contact.html) -> connect@suvron.in
-// To change any destination, edit the address in the matching
-// function below. Nothing else in the site needs to change.
+// Spam and rate limiting, cheapest first:
+//   1. Honeypot field (_honey): bots fill it, people never see it. FormSubmit
+//      also drops any submission where it is filled.
+//   2. Fill-time check: a form submitted under 3 seconds after the page
+//      loaded is a bot. It gets a fake "sent" and nothing is sent.
+//   3. Per-browser limits: one message every 60 seconds and at most 5 an
+//      hour; the same message can't be sent twice within 10 minutes.
+//   4. FormSubmit's own server-side spam filtering.
+// Limits 2 and 3 run in the visitor's browser, so they stop accidental
+// double-sends and casual abuse; a determined attacker can bypass them.
+//
+// Without JavaScript the form still works: it posts normally and
+// FormSubmit sends the visitor back to /contact/?sent=1.
+// To change the destination, edit CONTACT_TO below and the form's action.
 // ============================================================
+const CONTACT_TO = 'connect@suvron.in';
+const CONTACT_LIMITS = {gapMs: 60e3, perHour: 5, minFillMs: 3000, dupeMs: 10*60e3};
 
 function setStatus(el, text, kind){
   if(!el) return;
@@ -33,47 +36,75 @@ function setStatus(el, text, kind){
   el.classList.add(kind);
 }
 
-function buildMailto(to, subject, bodyLines){
-  const body = bodyLines.join('\n');
-  return `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-}
-
-function openMailto(mailtoUrl){
-  // A short-lived hidden link click is the most reliable way to trigger
-  // the mail app across desktop and mobile browsers alike.
-  const a = document.createElement('a');
-  a.href = mailtoUrl;
-  a.style.display = 'none';
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-}
-
-// Contact page message form (contact.html) -> connect@suvron.in
-function handleContactSubmit(event){
-  event.preventDefault();
-  const form = event.target;
+(function(){
+  const form = document.getElementById('contactForm');
+  if(!form) return;
   const status = document.getElementById('formStatus');
-  const data = Object.fromEntries(new FormData(form).entries());
+  const btn = form.querySelector('button[type=submit]');
+  const loadedAt = Date.now();
+  const KEY = 'suvron-contact-log';
+  let busy = false;
 
-  if(!data.name || !data.email || !data.subject || !data.message){
-    setStatus(status, 'Fill in every field so we know how to help.', 'error');
-    return;
-  }
+  if(/[?&]sent=1\b/.test(location.search)) setStatus(status, "Sent. Your message is in our inbox and we'll reply to your email.", 'success');
 
-  const mailto = buildMailto('connect@suvron.in', `Suvron Money contact form: ${data.subject}`, [
-    'Form: Contact page message form',
-    `Name: ${data.name}`,
-    `Email: ${data.email}`,
-    `Subject: ${data.subject}`,
-    '',
-    data.message
-  ]);
+  const readLog = () => { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch(e){ return []; } };
+  const writeLog = log => { try { localStorage.setItem(KEY, JSON.stringify(log)); } catch(e){} };
+  const hash = str => { let h = 0; for(let i = 0; i < str.length; i++){ h = (h * 31 + str.charCodeAt(i)) | 0; } return String(h); };
+  const wait = ms => { const m = Math.ceil(ms / 60e3); return ms < 60e3 ? `${Math.ceil(ms / 1e3)} seconds` : `${m} minute${m === 1 ? '' : 's'}`; };
+  const fakeSent = () => { setStatus(status, "Sent. Your message is in our inbox and we'll reply to your email.", 'success'); form.reset(); };
 
-  openMailto(mailto);
-  setStatus(status, "Your email app should now be open with this filled in. Hit send there to reach us. If nothing opened, email us directly at connect@suvron.in.", 'success');
-  form.reset();
-}
+  form.addEventListener('submit', async event => {
+    event.preventDefault();
+    if(busy) return;
+    const data = Object.fromEntries(new FormData(form).entries());
+    ['name','email','subject','message'].forEach(k => { data[k] = (data[k] || '').trim(); });
+
+    if(data._honey || Date.now() - loadedAt < CONTACT_LIMITS.minFillMs){ fakeSent(); return; }
+    if(!data.name || !data.email || !data.subject || !data.message){
+      setStatus(status, 'Fill in every field so we know how to help.', 'error'); return;
+    }
+    if(!form.querySelector('[name=email]').checkValidity()){
+      setStatus(status, 'That email address looks incomplete. Check it so we can reply.', 'error'); return;
+    }
+
+    const now = Date.now();
+    const log = readLog().filter(e => now - e.t < 3600e3);
+    const last = log[log.length - 1];
+    const sig = hash(data.email + '|' + data.subject + '|' + data.message);
+    if(log.some(e => e.h === sig && now - e.t < CONTACT_LIMITS.dupeMs)){
+      setStatus(status, "We already have this exact message. No need to send it again.", 'success'); return;
+    }
+    if(last && now - last.t < CONTACT_LIMITS.gapMs){
+      setStatus(status, `Give it ${wait(CONTACT_LIMITS.gapMs - (now - last.t))} before sending another message.`, 'error'); return;
+    }
+    if(log.length >= CONTACT_LIMITS.perHour){
+      setStatus(status, `That's the limit for now. Try again in ${wait(3600e3 - (now - log[0].t))}, or email ${CONTACT_TO}.`, 'error'); return;
+    }
+
+    busy = true; btn.disabled = true; btn.textContent = 'Sending…';
+    setStatus(status, 'Sending your message…', 'pending');
+    try {
+      const res = await fetch(`https://formsubmit.co/ajax/${CONTACT_TO}`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+        body: JSON.stringify({
+          name: data.name, email: data.email, subject: data.subject, message: data.message,
+          _subject: `suvron.in contact: ${data.subject}`.slice(0, 160),
+          _template: 'table', _captcha: 'false', _honey: ''
+        })
+      });
+      const out = await res.json().catch(() => ({}));
+      if(!res.ok || String(out.success) !== 'true') throw new Error(out.message || res.status);
+      log.push({t: now, h: sig}); writeLog(log);
+      setStatus(status, "Sent. Your message is in our inbox and we'll reply to your email.", 'success');
+      form.reset();
+    } catch(err){
+      setStatus(status, `That didn't go through. Check your connection and try again, or email us at ${CONTACT_TO}.`, 'error');
+    } finally {
+      busy = false; btn.disabled = false; btn.textContent = 'Send message';
+    }
+  });
+})();
 
 // Copy-to-clipboard fallback for mailto buttons/links, since mailto: does
 // nothing visible on devices with no default mail app configured (common

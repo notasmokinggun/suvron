@@ -32,7 +32,7 @@
 <link rel="manifest" href="../site.webmanifest">
 <link rel="preload" href="/fonts/host-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <script>document.documentElement.classList.add("js")</script>
-<link rel="stylesheet" href="/theme.css?v=25">
+<link rel="stylesheet" href="/theme.css?v=26">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -183,15 +183,20 @@
     </div>
 
     <h2 style="margin-top:56px;">Or send a message directly</h2>
-    <p style="max-width:480px;">Fill this in and we'll open a ready-to-send email to our team in your mail app. No account needed.</p>
+    <p style="max-width:480px;">Write to us here and it lands straight in our inbox. We reply to the email address you give us.</p>
 
-    <form id="contactForm" class="contact-form" onsubmit="handleContactSubmit(event)">
+    <form id="contactForm" class="contact-form" action="https://formsubmit.co/connect@suvron.in" method="POST">
+      <input type="hidden" name="_subject" value="New message from suvron.in">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://suvron.in/contact/?sent=1#contactForm">
+      <div class="hp" aria-hidden="true"><label>Leave this field empty <input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
       <div class="contact-form-row">
-        <input type="text" name="name" placeholder="Your name" required>
-        <input type="email" name="email" placeholder="Your email" required>
+        <label class="fld"><span>Your name</span><input type="text" name="name" autocomplete="name" maxlength="100" required></label>
+        <label class="fld"><span>Your email</span><input type="email" name="email" autocomplete="email" maxlength="200" required></label>
       </div>
-      <input type="text" name="subject" placeholder="Subject" required>
-      <textarea name="message" placeholder="What's this about?" rows="5" required></textarea>
+      <label class="fld"><span>Subject</span><input type="text" name="subject" maxlength="150" required></label>
+      <label class="fld"><span>Message</span><textarea name="message" rows="6" maxlength="4000" required></textarea></label>
       <button type="submit" class="btn btn-primary">Send message</button>
       <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
     </form>
@@ -215,7 +220,7 @@
 <p class="legal">SUVRON Money is a digital lending platform built by Shantilekh Global Technology Pvt. Ltd. Loans are sanctioned, disbursed and collected by our RBI-registered NBFC partners, who retain final control over credit approval and terms. SUVRON Money does not itself lend money. Interest rates for loans facilitated on this platform range from 10% to 36% per annum, and the APR, inclusive of interest and all fees, ranges from 10% to 120%, depending on tenure, amount and your credit assessment; the exact APR for your offer is disclosed in your Key Fact Statement and loan agreement before you accept. Borrow only what you can repay.</p>
 <p class="copy">&copy; 2026 SUVRON Money. All rights reserved.</p></div></footer>
 
-<script src="/forms.js"></script>
+<script src="/forms.js?v=2"></script>
 <script src="/site.js?v=5"></script>
 
 </body>

@@ -723,3 +723,50 @@ body.inner .feat-card h3{font-size:21px;letter-spacing:-.015em;margin-bottom:10p
 body.inner .contact-card h2{font-size:20px;letter-spacing:-.015em;margin:0 0 8px}
 body.inner .company-snapshot h2{font-size:17px;margin:0 0 12px;letter-spacing:-.01em}
 @media(max-width:900px){body.inner main.page>section{padding:72px 0}}
+
+/* contact form: real labels, hidden honeypot, clear states */
+.contact-form .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+body.inner .contact-form .fld{display:grid;gap:8px;margin:0 0 16px;font-size:15px;font-weight:600;color:var(--ink)}
+body.inner .contact-form-row .fld{margin:0}
+body.inner .contact-form-row{margin-bottom:16px}
+body.inner .contact-form .fld input,body.inner .contact-form .fld textarea{margin:0;font-weight:400}
+body.inner .contact-form textarea{resize:vertical;min-height:150px}
+body.inner .contact-form .btn{width:auto;min-width:200px;margin-top:6px}
+body.inner .contact-form .btn:disabled{opacity:.6;cursor:progress;transform:none}
+body.inner .form-status{text-align:left;font-size:15.5px;font-weight:500;min-height:24px;margin-top:16px;max-width:36em}
+body.inner .form-status.success{color:var(--mint)}
+body.inner .form-status.error{color:#FF9A8B}
+@media(max-width:700px){body.inner .contact-form .btn{width:100%}}
+
+/* blog topics: a plain row on wide screens, a swipeable strip below that */
+@media(min-width:1101px){
+ body.inner .blog-gallery{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));overflow:visible}
+ body.inner .gallery-slide{width:auto}
+ body.inner .gallery-dots{display:none}
+}
+
+/* 404: the zero is the brand's ring, drawn in and stopping short of closing */
+body.inner main.nf>section{padding:0}
+body.inner main.nf>.nf-hero{padding:120px 0 104px}
+@media(max-width:900px){body.inner main.nf>.nf-hero{padding:72px 0 72px}}
+.nf-code{display:flex;align-items:center;margin:0 0 clamp(20px,3vw,40px);font-size:clamp(132px,23vw,330px);font-weight:700;line-height:.82;letter-spacing:-.06em;color:var(--ink);font-variant-numeric:tabular-nums}
+.nf-ring{display:inline-block;width:.72em;height:.72em;margin:0 .03em 0 .01em}
+.nf-ring svg{display:block;width:100%;height:100%;overflow:visible}
+.nf-ring circle{fill:none;stroke-width:14;stroke-linecap:round}
+.nf-ring .trk{stroke:rgba(255,255,255,.08)}
+.nf-ring .arc{stroke:var(--sun);stroke-dasharray:1;stroke-dashoffset:.18;animation:nf-draw 1.8s var(--ease) .25s backwards}
+@keyframes nf-draw{from{stroke-dashoffset:1}}
+body.inner .nf h1{font-size:clamp(40px,5.4vw,80px);line-height:.98;letter-spacing:-.035em;max-width:13ch;margin:0}
+body.inner .nf .lead{margin-top:22px}
+body.inner main.nf>.nf-next{border-top:1px solid var(--hair);padding:96px 0 120px}
+@media(max-width:900px){body.inner main.nf>.nf-next{padding:64px 0 88px}}
+body.inner .nf-next h2{font-size:clamp(26px,2.8vw,40px);letter-spacing:-.025em;margin:0 0 28px}
+.nf-list{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
+.nf-list li{margin:0}
+body.inner .nf-list a{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:6px 24px;padding:26px 0;border-bottom:1px solid var(--hair);color:var(--ink);text-decoration:none}
+.nf-list b{font-size:clamp(22px,2.4vw,34px);font-weight:650;letter-spacing:-.02em;line-height:1.1;transition:color .3s var(--ease)}
+.nf-list span{grid-column:1;color:var(--mute);font-size:16px}
+.nf-list svg{grid-column:2;grid-row:1/span 2;color:var(--mute);transition:transform .4s var(--ease),color .3s}
+body.inner .nf-list a:hover b,body.inner .nf-list a:focus-visible b{color:var(--sun)}
+.nf-list a:hover svg,.nf-list a:focus-visible svg{color:var(--sun);transform:translateX(6px)}
+@media(prefers-reduced-motion:reduce){.nf-ring .arc{animation:none}}
