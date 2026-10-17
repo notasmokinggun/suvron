@@ -498,6 +498,18 @@ h1,h2,h3,h4{font-weight:750}
 .seg label:hover span{border-color:var(--forest)}
 .seg input:checked+span{background:var(--forest);border-color:var(--forest);color:var(--paper)}
 .seg input:focus-visible+span{outline:3px solid var(--star);outline-offset:2px}
+.rate{display:grid;gap:8px}
+.rate-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.rate-h label{font-size:14.5px;font-weight:600;color:var(--slate)}
+.rate-h output{font-size:20px;font-weight:750;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.rate input{-webkit-appearance:none;appearance:none;width:100%;height:28px;margin:0;background:transparent;cursor:pointer;--p:45.5%}
+.rate input::-webkit-slider-runnable-track{height:6px;border-radius:6px;background:linear-gradient(90deg,var(--forest) var(--p),#D3DCD6 var(--p))}
+.rate input::-moz-range-track{height:6px;border-radius:6px;background:#D3DCD6}
+.rate input::-moz-range-progress{height:6px;border-radius:6px;background:var(--forest)}
+.rate input::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;margin-top:-10px;border-radius:50%;background:var(--paper);border:2px solid var(--forest);box-shadow:0 2px 6px rgba(7,31,27,.25)}
+.rate input::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--paper);border:2px solid var(--forest);box-shadow:0 2px 6px rgba(7,31,27,.25)}
+.rate input:focus-visible{outline:3px solid var(--star);outline-offset:4px;border-radius:8px}
+.rate-ends{display:flex;justify-content:space-between;font-size:13px;color:var(--slate);margin-top:-4px}
 .slip-t{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 16px;padding-top:4px}
 .slip-t span{font-weight:600;font-size:17px}
 .slip-t output{font-size:clamp(46px,4.6vw,64px);line-height:1;font-weight:800;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
@@ -623,11 +635,12 @@ h1,h2,h3,h4{font-weight:750}
 <fieldset class="seg"><legend>For how long</legend><div class="opts">
 <label><input type="radio" name="ten" value="60"><span>60 days</span></label><label><input type="radio" name="ten" value="90" checked><span>90 days</span></label><label><input type="radio" name="ten" value="120"><span>120 days</span></label><label><input type="radio" name="ten" value="180"><span>180 days</span></label>
 </div></fieldset>
-<div class="slip-t"><span>You repay</span><output id="sTotal">₹15,888</output></div>
+<div class="rate"><div class="rate-h"><label for="sRate">Yearly cost (APR)</label><output id="sRateV" for="sRate">60%</output></div><input type="range" id="sRate" min="10" max="120" step="1" value="60" aria-describedby="sNote"><div class="rate-ends" aria-hidden="true"><span>10%</span><span>120%</span></div></div>
+<div class="slip-t"><span>You repay</span><output id="sTotal">₹17,219</output></div>
 <div class="slip-bar" aria-hidden="true"><i></i></div>
 <div class="slip-ends"><span>Today</span><b>Repay by <span id="sDate">day 90</span></b></div>
-<dl><dt>Borrowed</dt><dd id="sAmt">₹15,000</dd><dt>Interest at 24% a year</dt><dd id="sInt">₹888</dd><dt>Processing and other fees</dt><dd>In your offer</dd></dl>
-<p class="note">Illustrative example. Real interest is 10% to 36% a year and the APR including all fees is 10% to 120%, depending on tenure, amount and your credit assessment. Your Key Fact Statement shows your exact numbers before you accept.</p>
+<dl><dt>Borrowed</dt><dd id="sAmt">₹15,000</dd><dt>Interest and fees at <span id="sRateT">60%</span> APR</dt><dd id="sInt">₹2,219</dd></dl>
+<p class="note" id="sNote">Illustrative example. Your rate depends on your credit profile, loan amount and tenure. Interest alone runs 10% to 36% a year; with all fees included, the APR runs 10% to 120%. Your Key Fact Statement shows your exact numbers before you accept.</p>
 </div>
 </div></section>
 
@@ -744,21 +757,22 @@ h1,h2,h3,h4{font-weight:750}
 // Hero cost slip. Illustrative maths at an example rate; the real numbers arrive in the Key Fact Statement.
 (function(){
  const f=document.getElementById('slip');if(!f)return;
- const R=24,inr=n=>'\u20B9'+Math.round(n).toLocaleString('en-IN'),q=s=>f.querySelector(s);
+ const inr=n=>'\u20B9'+Math.round(n).toLocaleString('en-IN'),q=s=>f.querySelector(s);
  const upd=()=>{
-  const a=+q('input[name=amt]:checked').value,t=+q('input[name=ten]:checked').value,i=a*R/100*t/365,d=new Date();
+  const R=+q('#sRate').value,a=+q('input[name=amt]:checked').value,t=+q('input[name=ten]:checked').value,i=a*R/100*t/365,d=new Date();
+  q('#sRateV').textContent=q('#sRateT').textContent=R+'%';q('#sRate').style.setProperty('--p',((R-10)/110*100).toFixed(1)+'%');
   d.setDate(d.getDate()+t);
   q('#sTotal').textContent=inr(a+i);q('#sAmt').textContent=inr(a);q('#sInt').textContent=inr(i);
   q('#sDate').textContent=d.toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'});
   f.style.setProperty('--fill',(t/180*100).toFixed(1)+'%');
  };
- f.addEventListener('change',upd);upd();
+ f.addEventListener('change',upd);f.addEventListener('input',upd);upd();
  // hold each counting figure at its final width so the sentence never reflows mid count
  const hold=()=>document.querySelectorAll('.big-line [data-count]').forEach(b=>{b.style.display='inline-block';b.style.minWidth='';b.style.minWidth=b.getBoundingClientRect().width+'px'});
  (document.fonts?document.fonts.ready:Promise.resolve()).then(hold);
 })();
 </script>
-<script src="/site.js?v=4"></script>
+<script src="/site.js?v=5"></script>
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)),sm=x=>x*x*(3-2*x);
