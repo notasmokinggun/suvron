@@ -784,3 +784,10 @@ body.inner .prose ol{list-style:decimal;padding-left:1.5em}
 body.inner .prose ol li{padding-left:.3em;list-style:decimal}
 body.inner .prose ol li::marker{color:var(--sun);font-weight:700}
 body.inner .prose ol li:before{content:none}
+
+/* privacy policy: plain-language summary box above the formal text */
+body.inner .pp-summary{background:var(--raise);border:1px solid var(--hair);border-radius:20px;padding:24px 26px;margin:8px 0 40px}
+body.inner .pp-summary h2{font-size:clamp(20px,2vw,24px);margin:0 0 6px;letter-spacing:-.015em}
+body.inner .pp-summary>p{font-size:14px;color:var(--mute);margin:0 0 14px}
+body.inner .pp-summary li{font-size:16px}
+@media(max-width:700px){body.inner .pp-summary{padding:20px 18px}}
