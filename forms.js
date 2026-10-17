@@ -7,9 +7,14 @@
 // nothing to deploy. It emails each submission to contact@suvron.in
 // with the sender's address as Reply-To, so "Reply" answers them.
 //
-// One-time setup: the very first submission makes FormSubmit email
-// contact@suvron.in an activation link. Click it once; after that every
-// message is delivered. Until then, submissions are held, not lost.
+// One-time setup: FormSubmit emails contact@suvron.in an "Activate Form"
+// link the first time the form is sent. Click it once; after that every
+// message is delivered. FormSubmit holds earlier submissions for 30 days.
+// Important: FormSubmit only sends that activation email for a normal
+// (non-AJAX) submission. So if the background request comes back with
+// anything but success, including "this form needs activation", the form
+// is sent once more the normal way, which triggers the activation email
+// and lands the visitor on FormSubmit's confirmation page.
 //
 // Spam and rate limiting, cheapest first:
 //   1. Honeypot field (_honey): bots fill it, people never see it. FormSubmit
@@ -94,14 +99,23 @@ function setStatus(el, text, kind){
         })
       });
       const out = await res.json().catch(() => ({}));
-      if(!res.ok || String(out.success) !== 'true') throw new Error(out.message || res.status);
+      if(!res.ok || String(out.success) !== 'true') throw new Error(out.message || String(res.status));
       log.push({t: now, h: sig}); writeLog(log);
       setStatus(status, "Sent. Your message is in our inbox and we'll reply to your email.", 'success');
       form.reset();
-    } catch(err){
-      setStatus(status, `That didn't go through. Check your connection and try again, or email us at ${CONTACT_TO}.`, 'error');
-    } finally {
       busy = false; btn.disabled = false; btn.textContent = 'Send message';
+    } catch(err){
+      // Fall back to a normal form post (see the note at the top). It also covers
+      // blocked or failed background requests, since it is the same path as no-JS.
+      if(!navigator.onLine){
+        setStatus(status, `You look offline. Reconnect and try again, or email us at ${CONTACT_TO}.`, 'error');
+        busy = false; btn.disabled = false; btn.textContent = 'Send message'; return;
+      }
+      log.push({t: now, h: sig}); writeLog(log);
+      setStatus(status, 'Sending…', 'pending');
+      const subj = form.querySelector('[name=_subject]');
+      if(subj) subj.value = `suvron.in contact: ${data.subject}`.slice(0, 160);
+      HTMLFormElement.prototype.submit.call(form);
     }
   });
 })();
