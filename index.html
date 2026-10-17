@@ -30,11 +30,9 @@
 <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<link rel="preload" href="fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/plus-jakarta-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fonts/inter-rupee-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/bricolage-grotesque-latin-opsz-normal.woff2" as="font" type="font/woff2" crossorigin>
 <script>document.documentElement.classList.add("js")</script>
-<link rel="stylesheet" href="/theme.css?v=22">
+<link rel="stylesheet" href="/theme.css?v=24">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -212,33 +210,31 @@
 .rail i{width:34px;height:5px;border-radius:5px;background:var(--line);transition:.4s}
 .rail i.on{background:var(--sun);width:64px}
 .viz{position:relative;height:100%;display:grid;place-items:center;perspective:1600px}
-.glow,.glow2{position:absolute;width:640px;height:640px;border-radius:50%;filter:blur(30px);pointer-events:none}
-.glow{background:radial-gradient(closest-side,rgba(20,160,125,.55),transparent)}
-.glow2{background:radial-gradient(closest-side,rgba(255,201,60,.32),transparent);opacity:0}
+.glow,.glow2{display:none}
 
-.phone{position:relative;font-size:calc(var(--ph)/40);width:18.5em;height:40em;border-radius:3.1em;padding:.5em;background:linear-gradient(145deg,#6b6b7e,#22222e 28%,#12121a 52%,#5a5a6d 78%,#1a1a24);box-shadow:0 0 0 .08em #0a0a10,0 3em 6em -1.5em rgba(0,0,0,.8),0 0 8em -2em rgba(20,160,125,.5),inset 0 0 .15em .06em rgba(255,255,255,.35);transform-style:preserve-3d;will-change:transform}
+.phone{position:relative;font-size:calc(var(--ph)/40);width:18.5em;height:40em;border-radius:3.1em;padding:.5em;background:linear-gradient(145deg,#6b6b7e,#22222e 28%,#12121a 52%,#5a5a6d 78%,#1a1a24);box-shadow:0 0 0 .08em #0a0a10,0 3em 6em -1.5em rgba(0,0,0,.8),inset 0 0 .15em .06em rgba(255,255,255,.35);transform-style:preserve-3d;will-change:transform}
 .phone:before,.phone:after{content:"";position:absolute;width:.22em;background:linear-gradient(#55556a,#1d1d28);border-radius:.1em}
 .phone:before{left:-.2em;top:7em;height:2.6em;box-shadow:0 3.6em 0 #2a2a38,0 -2.6em 0 -0.0em #2a2a38}
 .phone:after{right:-.2em;top:9em;height:4.6em}
 .screen{position:relative;height:100%;border-radius:2.65em;overflow:hidden;background:#F2F7F3;color:#0F2420;box-shadow:inset 0 0 0 .08em #000}
 .screen:after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.22),rgba(255,255,255,0) 38%);pointer-events:none;z-index:6}
 .island{position:absolute;z-index:7;top:.8em;left:50%;transform:translateX(-50%);width:5.4em;height:1.55em;border-radius:1em;background:#000}
-.status{position:absolute;z-index:5;top:.85em;left:1.7em;right:1.7em;display:flex;justify-content:space-between;font:700 .72em "Inter","Inter Fallback";color:#0F2420}
+.status{position:absolute;z-index:5;top:.85em;left:1.7em;right:1.7em;display:flex;justify-content:space-between;font:700 .72em "Bricolage Grotesque","Bricolage Fallback";color:#0F2420}
 .bat{display:inline-block;width:1.6em;height:.78em;border:.09em solid #0F2420;border-radius:.25em;position:relative;vertical-align:-.1em;margin-left:.4em}
 .bat:before{content:"";position:absolute;inset:.1em;right:.35em;background:#0F2420;border-radius:.1em}
 .home{position:absolute;z-index:7;bottom:.55em;left:50%;transform:translateX(-50%);width:6.2em;height:.28em;border-radius:1em;background:#0F2420;opacity:.85}
 .pane{position:absolute;inset:0;padding:3.6em 1.6em 1.8em;display:flex;flex-direction:column;gap:.9em;transform:translateX(calc((var(--i) - var(--es)) * 100%));will-change:transform}
-.app{display:flex;align-items:center;gap:.5em;font:800 .8em "Plus Jakarta Sans","Plus Jakarta Sans Fallback";letter-spacing:-.02em}
+.app{display:flex;align-items:center;gap:.5em;font:800 .8em "Bricolage Grotesque","Bricolage Fallback";letter-spacing:-.02em}
 .app b{width:1.7em;height:1.7em;border-radius:.5em;background:var(--brand);color:#fff;display:grid;place-items:center;font-size:1em}
-.pane h4{font-size:1.65em;margin-top:.4em}
+.pane h3{font-size:1.65em;margin-top:.4em}
 .sub{font-size:.82em;color:#5F7A72;line-height:1.4;margin-top:-.4em}
 .otp{display:flex;gap:.55em}
-.otp b{flex:1;height:3em;border-radius:.8em;background:#fff;border:.1em solid #D6E4DC;display:grid;place-items:center;font:800 1.3em "Plus Jakarta Sans","Plus Jakarta Sans Fallback"}
+.otp b{flex:1;height:3em;border-radius:.8em;background:#fff;border:.1em solid #D6E4DC;display:grid;place-items:center;font:800 1.3em "Bricolage Grotesque","Bricolage Fallback"}
 .field{background:#fff;border:.1em solid #D6E4DC;border-radius:.8em;padding:.85em 1em;font-size:.85em;color:#5F7A72}
 .field b{color:#0F2420;letter-spacing:.06em}
 .tick{display:flex;align-items:center;gap:.5em;font-size:.82em;font-weight:700;color:#0E9E70;transition:opacity .3s}
 .tick i{width:1.5em;height:1.5em;border-radius:50%;background:#0E9E70;color:#fff;display:grid;place-items:center;font-style:normal;font-size:.8em}
-.cta{margin-top:auto;background:var(--brand);color:#fff;text-align:center;padding:1em;border-radius:1em;font-weight:700;font-size:.9em;box-shadow:0 .6em 1.2em -.4em rgba(20,160,125,.7)}
+.cta{margin-top:auto;background:var(--brand);color:#fff;text-align:center;padding:1em;border-radius:1em;font-weight:700;font-size:.9em}
 .card{background:#fff;border-radius:1.1em;padding:.3em 1.1em;box-shadow:0 .1em 0 #D6E4DC}
 .rw{display:flex;justify-content:space-between;align-items:center;padding:.95em 0;border-bottom:.08em solid #E4EEE8;font-size:.84em}
 .rw:last-child{border:0}.rw span:last-child{color:#5F7A72}
@@ -248,10 +244,10 @@
 .ring circle,.ring path{fill:none;stroke-linecap:round;stroke-linejoin:round}
 .chip2{background:#FFF1B8;color:#6b5400;font-weight:700;font-size:.78em;padding:.5em 1em;border-radius:1em}
 .tx{width:100%;margin-top:1.2em;display:flex;align-items:center;gap:.8em;background:#fff;border-radius:1em;padding:.9em 1em;text-align:left;font-size:.82em}
-.tx b{width:2.4em;height:2.4em;border-radius:.7em;background:var(--brand);color:#fff;display:grid;place-items:center;font:800 1em "Plus Jakarta Sans","Plus Jakarta Sans Fallback"}
+.tx b{width:2.4em;height:2.4em;border-radius:.7em;background:var(--brand);color:#fff;display:grid;place-items:center;font:800 1em "Bricolage Grotesque","Bricolage Fallback"}
 .tx div{flex:1;line-height:1.25}.tx small{color:#5F7A72;font-size:.85em}.tx em{font-style:normal;font-weight:700;color:#0E9E70}
 
-.chip{position:absolute;z-index:4;display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.1);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.18);padding:11px 16px;border-radius:16px;font-weight:700;font-size:14px;white-space:nowrap;opacity:0;box-shadow:0 20px 40px -16px rgba(0,0,0,.6)}
+.chip{position:absolute;z-index:4;display:flex;align-items:center;gap:10px;background:#F3F5F1;color:#071F1B;padding:11px 16px;border-radius:16px;font-weight:700;font-size:14px;white-space:nowrap;opacity:0;box-shadow:0 20px 40px -16px rgba(0,0,0,.6)}
 .chip i{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:12px;color:var(--bg);background:var(--mint)}
 .viz{container-type:inline-size;--pw:calc(var(--ph)*.4625);--oh:176px}
 /* chips hang off the phone by --oh, but are clamped to the column so they can never be clipped by the viewport */
@@ -264,7 +260,7 @@
 
 .left{display:flex;flex-direction:column;justify-content:center}
 .avg{display:flex;flex-direction:column;align-items:center;gap:4px;margin:-24px 0 48px}
-.avg b{font:800 64px/1 "Plus Jakarta Sans","Plus Jakarta Sans Fallback",sans-serif;letter-spacing:-.03em}
+.avg b{font:800 64px/1 "Bricolage Grotesque","Bricolage Fallback",sans-serif;letter-spacing:-.03em}
 .avg small{color:var(--mute);font-size:15px}
 .stars{position:relative;display:inline-block;color:rgba(255,255,255,.18);letter-spacing:.12em;line-height:1;white-space:nowrap}
 .stars i{position:absolute;left:0;top:0;width:var(--w);overflow:hidden;color:var(--sun);font-style:normal}
@@ -273,7 +269,7 @@
 .pk circle,.pk line{fill:none;stroke-linecap:round}
 .pk .face{fill:#fff;stroke:#D6E4DC;stroke-width:1.5}.pk #arc{stroke:#0E7A62;stroke-width:3.4}
 .pk .ticks{stroke:#9DB8AE;stroke-width:5;stroke-linecap:butt}.pk .hh{stroke:#0F2420;stroke-width:4.2}.pk .mh{stroke:#0F2420;stroke-width:2.6}.pk .pin{fill:#0E7A62;stroke:none}
-.pt{text-align:center;line-height:1.1}.pt small{display:block;font-size:.8em;color:#5F7A72;margin-bottom:.2em}.pt b{font:800 2.1em/1 "Plus Jakarta Sans","Plus Jakarta Sans Fallback",sans-serif;letter-spacing:-.02em;color:#0E7A62;transition:color .3s}
+.pt{text-align:center;line-height:1.1}.pt small{display:block;font-size:.8em;color:#5F7A72;margin-bottom:.2em}.pt b{font:800 2.1em/1 "Bricolage Grotesque","Bricolage Fallback",sans-serif;letter-spacing:-.02em;color:#0E7A62;transition:color .3s}
 .chk{list-style:none;padding:0;display:grid;gap:.45em;margin-top:auto}
 .chk li{display:flex;align-items:center;gap:.65em;background:#fff;border-radius:.9em;padding:.6em .9em;font-size:.8em;font-weight:500;opacity:.4;transition:opacity .3s}
 .chk li:before{content:"";width:1.4em;height:1.4em;border-radius:50%;border:.12em solid #D6E4DC;display:grid;place-items:center;font-size:.8em;font-weight:700;color:#fff}
@@ -286,7 +282,7 @@
 .mq-set li:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--mint)}
 .hero p.nums{max-width:none}.nums span{white-space:nowrap}
 .rv .rev{width:auto}
-.rev .out{font:800 clamp(22px,2.2vw,28px)/1.15 "Plus Jakarta Sans","Plus Jakarta Sans Fallback",sans-serif;letter-spacing:-.02em;color:var(--sun);margin-bottom:14px}
+.rev .out{font:800 clamp(22px,2.2vw,28px)/1.15 "Bricolage Grotesque","Bricolage Fallback",sans-serif;letter-spacing:-.02em;color:var(--sun);margin-bottom:14px}
 .rev{width:380px;flex:none;background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:24px;padding:28px}
 .rev p{font-size:19px;line-height:1.45;margin-bottom:22px}
 .rev b{display:block}.rev span{color:var(--mute);font-size:14px}
@@ -306,7 +302,7 @@
 .aib .aib-i{position:relative;flex:none;width:48px;height:48px;border-radius:16px;display:grid;place-items:center;background:rgba(255,201,60,.14);color:var(--sun);transition:transform .7s var(--ease),background .5s}
 .aib:hover .aib-i{transform:rotate(-6deg) scale(1.06);background:rgba(255,201,60,.24)}
 .aib .aib-t{position:relative;flex:1;min-width:0}
-.aib b{display:block;font:700 18px "Plus Jakarta Sans","Plus Jakarta Sans Fallback",sans-serif;letter-spacing:-.01em}
+.aib b{display:block;font:700 18px "Bricolage Grotesque","Bricolage Fallback",sans-serif;letter-spacing:-.01em}
 .aib small{display:block;margin-top:3px;color:var(--mute);font-size:13.5px}
 .aib .aib-a{position:relative;flex:none;color:var(--mute);transition:transform .6s var(--ease),color .4s}
 .aib:hover .aib-a{transform:translate(3px,-3px);color:var(--sun)}
@@ -342,16 +338,13 @@
 .narrow{max-width:860px}
 .band{border-block:1px solid var(--line);background:rgba(255,255,255,.02)}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding-block:56px;text-align:center}
-.stat b{display:block;font:800 clamp(40px,5vw,68px)/1 "Plus Jakarta Sans","Plus Jakarta Sans Fallback",sans-serif;letter-spacing:-.03em;color:var(--sun);font-variant-numeric:tabular-nums}
+.stat b{display:block;font:800 clamp(40px,5vw,68px)/1 "Bricolage Grotesque","Bricolage Fallback",sans-serif;letter-spacing:-.03em;color:var(--sun);font-variant-numeric:tabular-nums}
 .stat span{display:block;margin-top:10px;color:var(--mute);font-size:15px}
 .g3,.g4{display:grid;gap:20px}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
-.gc,.rev,.trust,.refer{position:relative;overflow:hidden;background:var(--card);border:1px solid var(--line);border-radius:28px;padding:32px;transition:transform .7s var(--ease),border-color .5s,background .5s}
-.gc:before,.rev:before,.trust:before,.refer:before{content:"";position:absolute;inset:0;background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%),rgba(91,240,181,.14),transparent 60%);opacity:0;transition:opacity .6s var(--ease);pointer-events:none}
-.gc:hover,.rev:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.22)}
-.gc:hover:before,.rev:hover:before,.trust:hover:before,.refer:hover:before{opacity:1}
+.gc,.rev{position:relative}
 .gc h3,.gc h4{font-size:24px;margin-bottom:12px;position:relative}.gc h4{font-size:21px}
 .gc p{color:var(--mute);position:relative;font-size:16.5px}
-.trust{padding:56px;background:linear-gradient(160deg,#0F3A32,#0A2924);border-radius:40px}
+.trust{position:relative}
 .trust h2{font-size:clamp(32px,4vw,52px);margin-bottom:16px;position:relative}
 .trust>p{color:#C3D9D0;max-width:46em;position:relative}
 .badges{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:12px;margin:28px 0;position:relative}
@@ -361,21 +354,21 @@
 .partner h4{font-size:18px;margin-bottom:12px}.partner ul{list-style:none;padding:0;display:grid;gap:6px;color:#D5E0DA;font-size:15px}
 .partner p{margin-top:14px;font-size:13.5px;color:var(--mute)}.partner a{color:var(--sun)}
 .avg{display:flex;flex-direction:column;align-items:center;gap:6px;margin:-20px 0 44px}
-.avg b{font:800 64px/1 "Plus Jakarta Sans","Plus Jakarta Sans Fallback",sans-serif;letter-spacing:-.03em}.avg small{color:var(--mute);font-size:15px}
+.avg b{font:800 64px/1 "Bricolage Grotesque","Bricolage Fallback",sans-serif;letter-spacing:-.03em}.avg small{color:var(--mute);font-size:15px}
 .avg .stars{font-size:26px}
 .rev{margin:0;display:flex;flex-direction:column}.rev .stars{font-size:17px;margin-bottom:16px;position:relative;align-self:flex-start}
 .rev blockquote{font-size:19px;line-height:1.5;margin-bottom:24px;position:relative;flex:1}
 .rev figcaption{position:relative}.rev figcaption b{display:block}.rev figcaption span{display:flex;align-items:center;gap:6px;color:var(--mute);font-size:14px}
-.refer{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center;padding:56px;border-radius:40px}
+.refer{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
 .refer h2{font-size:clamp(30px,3.8vw,48px);margin-bottom:14px;position:relative}.refer p{color:var(--mute);position:relative;margin-bottom:18px}
-.refer .ra{color:var(--ink);font-size:18px}.refer .ra b{color:var(--sun);font-size:30px;font-family:"Plus Jakarta Sans","Plus Jakarta Sans Fallback",sans-serif}
+.refer .ra{color:var(--ink);font-size:18px}.refer .ra b{color:var(--sun);font-size:30px;font-family:"Bricolage Grotesque","Bricolage Fallback",sans-serif}
 .refer .btn{position:relative}
 .rcard{position:relative;background:#F2F7F3;color:#0F2420;border-radius:28px;padding:28px;box-shadow:0 30px 60px -24px rgba(0,0,0,.7);transform:rotate(2deg);transition:transform .9s var(--ease)}
 .refer:hover .rcard{transform:rotate(0) translateY(-4px)}
 .rcard small{color:#5F7A72;font-weight:700}.rcard p{color:#0F2420;font-weight:700;font-size:18px;margin:8px 0 18px;line-height:1.3}
 .rcard .code{background:#fff;border:1px dashed #9DB8AE;border-radius:14px;padding:12px 16px;margin-bottom:14px}
-.rcard .code span{display:block;font-size:12px;color:#5F7A72}.rcard .code b{font:800 22px "Plus Jakarta Sans","Plus Jakarta Sans Fallback",sans-serif;letter-spacing:.08em}
-.rcard .earn{color:#0E7A62;font-weight:700}.rcard .earn b{font:800 26px "Plus Jakarta Sans","Plus Jakarta Sans Fallback",sans-serif;margin-right:6px}
+.rcard .code span{display:block;font-size:12px;color:#5F7A72}.rcard .code b{font:800 22px "Bricolage Grotesque","Bricolage Fallback",sans-serif;letter-spacing:.08em}
+.rcard .earn{color:#0E7A62;font-weight:700}.rcard .earn b{font:800 26px "Bricolage Grotesque","Bricolage Fallback",sans-serif;margin-right:6px}
 .faq-i{border:1px solid var(--line);background:var(--card);border-radius:22px;margin-bottom:12px;transition:background .4s,border-color .4s}
 .faq-i[open]{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2)}
 .faq-i summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 26px;font-weight:700;font-size:18px}
@@ -396,12 +389,12 @@
 .final h2{font-size:clamp(34px,4.6vw,60px);margin-bottom:14px}.final p{color:var(--mute);font-size:18px}
 .stores{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin:32px 0 18px}
 .store{display:flex;flex-direction:column;align-items:flex-start;text-decoration:none;padding:12px 26px;border-radius:16px;background:var(--ink);color:var(--bg);transition:transform .5s var(--ease)}
-.store:hover{transform:translateY(-3px)}.store small{font-size:11.5px;opacity:.7}.store b{font:800 20px "Plus Jakarta Sans","Plus Jakarta Sans Fallback",sans-serif}
+.store:hover{transform:translateY(-3px)}.store small{font-size:11.5px;opacity:.7}.store b{font:800 20px "Bricolage Grotesque","Bricolage Fallback",sans-serif}
 .store.off{background:transparent;color:var(--mute);border:1.5px solid var(--line)}
 .final .fine{font-size:14px}
 @media(max-width:900px){
  .sec{padding:80px 0}.g3,.g4,.stats,.refer{grid-template-columns:1fr}.stats{gap:36px;padding-block:44px}
- .trust,.refer{padding:32px 22px;border-radius:28px}.rcard{transform:none}.final{padding:56px 22px;border-radius:28px;margin:0 14px}
+ .rcard{transform:none}.final{padding:56px 22px;border-radius:28px;margin:0 14px}
  .gc{padding:26px}.faq-i summary{padding:18px 20px;font-size:16.5px}.faq-x>div,.js .faq-i.show .faq-x>div{padding-inline:20px}
 }
 @media(prefers-reduced-motion:reduce){.hero:before,.chip{animation:none}.faq-x,.faq-x>div,.gc,.rev{transition:none!important}}
@@ -438,7 +431,7 @@
 .solo .gc.big{display:flex;flex-direction:column;justify-content:center;padding:clamp(28px,4.5vw,56px);border-radius:36px}
 .solo .gc.big h3,.solo .gc.big h4{font-size:clamp(32px,4.8vw,64px);line-height:1.04;margin:14px 0 16px;letter-spacing:-.025em}
 .solo .gc.big p{font-size:clamp(17px,1.7vw,23px);max-width:30em;line-height:1.5}
-.solo .num{position:relative;font:800 15px "Plus Jakarta Sans","Plus Jakarta Sans Fallback",sans-serif;color:var(--sun);letter-spacing:.08em}
+.solo .num{position:relative;font:800 15px "Bricolage Grotesque","Bricolage Fallback",sans-serif;color:var(--sun);letter-spacing:.08em}
 .solo .num i{font-style:normal;color:var(--mute);margin-left:6px}
 .solo .gc.big{position:static;margin-bottom:14px}
 .js .scene:not(.flat) .solo .gc.big{position:absolute;inset:0;margin:0}
@@ -462,17 +455,180 @@
  .scene .avg{margin-bottom:18px}.scene .avg b{font-size:min(64px,7.4vh)}.scene .avg .stars{font-size:22px}
 }
 </style>
+<style>
+/* ===== v2 visual language: one typeface, forest and paper in rhythm, product-first hero.
+   Section tones are registered colour properties, so a section can scrub between forest and paper as it scrolls in. ===== */
+@property --bg{syntax:'<color>';inherits:true;initial-value:#071F1B}
+@property --ink{syntax:'<color>';inherits:true;initial-value:#F6F2E7}
+@property --mute{syntax:'<color>';inherits:true;initial-value:#92B3A8}
+@property --line{syntax:'<color>';inherits:true;initial-value:rgba(255,255,255,.1)}
+@property --card{syntax:'<color>';inherits:true;initial-value:rgba(255,255,255,.05)}
+:root{--paper:#F3F5F1;--forest:#071F1B;--slate:#3F5F55;--star:#A87400}
+.tone-l{--bg:#F3F5F1;--ink:#071F1B;--mute:#46655B;--line:rgba(7,31,27,.14);--card:#FFFFFF}
+#main .tone-l,#main .into-d{background:var(--bg);color:var(--ink)}
+@supports (animation-timeline: view()){
+ .into-l{animation:tone-from-dark linear both;animation-timeline:view();animation-range:entry 0% entry 80%}
+ .into-d{animation:tone-from-light linear both;animation-timeline:view();animation-range:entry 0% entry 80%}
+ @keyframes tone-from-dark{from{--bg:#071F1B;--ink:#F6F2E7;--mute:#92B3A8;--line:rgba(255,255,255,.1);--card:rgba(255,255,255,.05)}}
+ @keyframes tone-from-light{from{--bg:#F3F5F1;--ink:#071F1B;--mute:#46655B;--line:rgba(7,31,27,.14);--card:#FFFFFF}}
+}
+body{font-optical-sizing:auto}
+h1,h2,h3,h4{font-weight:750}
+.hero h1 em,.blk h2 em{color:inherit}
+
+/* hero: headline on the left, a working cost slip on the right */
+.hero{padding:clamp(120px,15vh,176px) 0 clamp(72px,9vw,128px);text-align:left}
+.hero:before{display:none}
+.hero-g{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(40px,6vw,96px);align-items:center}
+.hero h1{font-size:clamp(50px,6.8vw,108px);line-height:.95;letter-spacing:-.04em;max-width:9.5ch;margin:0}
+.hero p.lede{margin:30px 0 36px;max-width:29em;color:var(--mute);font-size:clamp(18px,1.5vw,21px);line-height:1.5}
+.hero p.lede strong{color:var(--ink);font-weight:650}
+.hero .row{justify-content:flex-start;align-items:center;gap:14px 28px;flex-wrap:wrap}
+.hero .lnk{color:var(--ink);font-weight:600;text-underline-offset:6px;text-decoration-thickness:1.5px}
+.hero .lnk:hover{color:var(--sun)}
+.hero small{margin:26px 0 0;max-width:none;color:var(--mute);font-size:14.5px}
+.slip{position:relative;display:grid;gap:22px;background:var(--paper);color:var(--forest);border-radius:24px;padding:32px;box-shadow:0 44px 90px -40px rgba(0,0,0,.75),0 1px 0 rgba(255,255,255,.4) inset}
+.slip h2{font-size:22px;line-height:1.2;letter-spacing:-.02em;font-weight:700}
+.seg{border:0;padding:0;margin:0;min-width:0}
+.seg legend{padding:0;margin-bottom:10px;font-size:14.5px;font-weight:600;color:var(--slate)}
+.seg .opts{display:flex;flex-wrap:wrap;gap:8px}
+.seg label{position:relative;display:block}
+.seg input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
+.seg span{display:flex;align-items:center;min-height:44px;padding:0 16px;border-radius:12px;border:1.5px solid #B4C3BA;font-weight:600;font-size:16px;font-variant-numeric:tabular-nums;transition:background-color .2s,color .2s,border-color .2s}
+.seg label:hover span{border-color:var(--forest)}
+.seg input:checked+span{background:var(--forest);border-color:var(--forest);color:var(--paper)}
+.seg input:focus-visible+span{outline:3px solid var(--star);outline-offset:2px}
+.slip-t{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 16px;padding-top:4px}
+.slip-t span{font-weight:600;font-size:17px}
+.slip-t output{font-size:clamp(46px,4.6vw,64px);line-height:1;font-weight:800;letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.slip-bar{position:relative;height:14px;border-radius:8px;background:#DCE4DF;overflow:hidden}
+.slip-bar i{position:absolute;inset:0 auto 0 0;width:var(--fill,50%);background:var(--sun);border-radius:8px;transition:width .8s var(--ease)}
+.js .slip:not(.in) .slip-bar i{width:0}
+.slip-ends{display:flex;justify-content:space-between;gap:12px;margin-top:-10px;font-size:14px;color:var(--slate)}
+.slip-ends b{color:var(--forest);font-weight:600}
+.slip dl{display:grid;grid-template-columns:1fr auto;gap:10px 16px;margin:0;padding-top:18px;border-top:1px solid #D3DCD6;font-size:16px}
+.slip dt{color:var(--slate)}.slip dd{margin:0;text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+.hero .slip p.note{margin:0;max-width:none;font-size:13px;line-height:1.5;color:var(--slate)}
+
+/* highlights: plain words passing by, not pills */
+.strip{padding:0 0 clamp(64px,8vw,104px)}
+.mq-set{gap:0;padding:0}
+.mq-set li{gap:28px;padding:0 28px 0 0;border:0;border-radius:0;background:none;color:var(--ink);font-size:clamp(20px,2.1vw,30px);font-weight:600;letter-spacing:-.015em}
+.mq-set li:before{width:9px;height:9px;border-radius:2px;background:var(--sun)}
+
+/* phone story: no glow, solid chips, one app bar */
+.chip{box-shadow:0 20px 40px -20px rgba(0,0,0,.8)}.chip i{background:var(--brand);color:#fff}.c1 i,.c2 i{background:var(--sun);color:var(--forest)}
+.app-bar{position:absolute;z-index:5;top:3.2em;left:1.6em;right:1.6em}
+.pane{padding-top:5.6em}
+.tick{color:#0E7A62}.tick i{background:#0E7A62}.tx em{color:#0E7A62}
+.sub,.field,.rw span:last-child,.tx small,.pt small{color:#4E6A62}
+
+/* key numbers as one sentence; the figures count up */
+.band{border-block:0;padding:136px 0}
+.big-line{max-width:17ch;font-size:clamp(38px,5.6vw,84px);line-height:1.04;letter-spacing:-.035em;font-weight:700;color:var(--mute)}
+.big-line b{color:var(--ink);font-weight:800;font-variant-numeric:tabular-nums}
+
+/* pinned scenes on paper: type does the work, no cards */
+.scene .pane>.wrap{width:100%}
+.scene .sec-h{text-align:left;max-width:none;margin-left:0}
+.scene .sec-h h2{max-width:15ch}.scene .sec-h p{max-width:36em}
+.solo{max-width:none;margin:0}
+.solo .gc.big{background:none;border:0;border-radius:0;box-shadow:none;padding:28px 0 0;justify-content:flex-start;border-top:2px solid var(--ink)}
+.solo .gc.big h3{font-size:clamp(46px,7.4vw,118px);line-height:.96;letter-spacing:-.04em;margin:0 0 20px}
+.solo .gc.big p{font-size:clamp(18px,1.9vw,26px);color:var(--mute);max-width:28em}
+
+/* trust: an open dark section, not a card */
+#trust{padding-block:clamp(104px,13vw,176px)}
+.trust h2{font-size:clamp(42px,5.4vw,80px);max-width:12ch}
+.trust>p{color:var(--mute)}
+.badges{gap:14px 34px;margin:40px 0 52px}
+.badges li{padding:0;background:none;border:0;border-radius:0;font-size:16.5px;color:var(--ink)}
+.badges li:before{color:var(--sun)}
+.partner{background:#0C2A25;border:0;border-radius:20px;padding:28px 32px;max-width:640px}
+.partner h3{font-size:19px;margin-bottom:12px;letter-spacing:-.01em}
+.partner ul{color:var(--mute)}.partner b{color:var(--ink);font-weight:600}
+
+/* reviews: quotes, not boxes */
+.reviews .sec-h{text-align:left;margin-left:0}
+.avg{align-items:flex-start}
+.tone-l .stars{color:rgba(7,31,27,.16)}.tone-l .stars i{color:var(--star)}
+.rv-track.g3{gap:48px}
+.rev{background:none;border:0;border-radius:0;padding:24px 0 0;border-top:2px solid var(--ink)}
+.rev .out{color:var(--ink)}
+.rev blockquote{font-size:clamp(19px,1.6vw,22px)}
+
+/* refer */
+.refer h2{font-size:clamp(38px,4.6vw,66px)}
+.refer .ra{color:var(--ink)}.refer .ra b{color:var(--ink)}
+.rcard{background:#fff;box-shadow:0 34px 70px -34px rgba(7,31,27,.45)}
+
+/* FAQ: rows, not tiles; heading on the left, answers on the right */
+#faq .wrap.narrow{max-width:1240px;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);column-gap:clamp(40px,6vw,96px);align-items:start}
+#faq .sec-h{grid-column:1;grid-row:1/span 6;text-align:left;margin:0;position:sticky;top:120px}
+#faq .faq-i{grid-column:2}
+#faq .sec-h h2{max-width:10ch;font-size:clamp(38px,4.6vw,66px)}
+.faq-i{background:none;border:0;border-bottom:1px solid var(--line);border-radius:0;margin:0}
+.sec-h+.faq-i{border-top:2px solid var(--ink)}
+.faq-i[open]{background:none;border-color:var(--line)}
+.faq-i summary{padding:24px 0;font-size:clamp(18px,1.6vw,21px);font-weight:650}
+#faq .faq-x>div{padding-left:0!important;padding-right:48px!important;color:var(--mute)}
+.faq-i .pl:before,.faq-i .pl:after{background:var(--ink)}
+.faq-x a{color:var(--ink)}
+.faq-i summary:focus-visible{border-radius:6px}
+
+/* ask an AI: open section */
+.ask{max-width:none;margin:0;border:0;border-radius:0;padding:clamp(104px,12vw,168px) 40px}
+.aib:before{display:none}.aib:hover,.aib:focus-visible{box-shadow:none}
+.ask .in{max-width:1080px}
+
+@media(max-width:900px){
+ .hero{padding:108px 0 64px}
+ .hero-g{grid-template-columns:minmax(0,1fr);gap:44px}
+ .hero h1{font-size:clamp(44px,12.6vw,76px);max-width:10ch}
+ .hero p.lede{font-size:17.5px;margin:22px 0 28px}
+ .hero .row{flex-direction:row;align-items:center}.hero .btn{width:auto;max-width:none}
+ .slip{gap:18px;padding:22px}.seg .opts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}.seg span{justify-content:center;padding:0 2px;font-size:14px;white-space:nowrap;letter-spacing:-.01em}
+ .band{padding:88px 0}.big-line{font-size:clamp(34px,9.6vw,52px);max-width:none}
+ .solo .gc.big{padding:22px 0 0}
+ .solo .gc.big h3{font-size:clamp(38px,11.4vw,58px);margin:0 0 14px}
+ .solo .gc.big p{font-size:17px}
+ .scene .rv-track .rev{padding:22px 0 0}
+ .partner{padding:22px}
+ .ask{margin:0;padding:88px 20px;border-radius:0}
+ .faq-i summary{padding:20px 0}
+ #faq .wrap.narrow{grid-template-columns:minmax(0,1fr)}#faq .sec-h,#faq .faq-i{grid-column:1;grid-row:auto;position:static}#faq .sec-h{margin-bottom:28px}
+}
+@media(max-width:350px){.seg .opts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(prefers-reduced-motion:reduce){.into-l,.into-d{animation:none}.slip-bar i{transition:none}}
+</style>
 </head>
 <body data-page="home">
 <a class="skip-link" href="#main">Skip to main content</a>
-<header class="site-h"><div class="bar"><a class="logo" href="/"><img src="/logo-128.webp" width="30" height="30" alt="" decoding="async"><span>SUVRON Money</span></a><nav aria-label="Main"><a href="/about/">About us</a><a href="/#ask">Ask an AI</a><div class="more"><button type="button" class="more-t" aria-expanded="false" aria-controls="more-menu">More<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="more-m" id="more-menu"><a class="mi m-only" href="/about/">About us</a><a class="mi m-only" href="/#ask">Ask an AI</a><a class="mi" href="/blog/">Blog</a><a class="mi" href="/calculator/">Loan calculator</a><a class="mi" href="/responsible-lending/">Responsible lending</a><a class="mi" href="/grievance-redressal/">Grievance redressal</a><a class="mi" href="/contact/">Contact us</a><a class="mi" href="/#faq">FAQs</a></div></div><a class="btn sun go" href="https://play.google.com/store/apps/details?id=com.shantilekh.suvron&amp;hl=en_IN">Get the app</a></nav></div></header>
+<header class="site-h"><div class="bar"><a class="logo" href="/"><img src="/logo-128.webp" width="30" height="30" alt="" decoding="async"><span>SUVRON Money</span></a><nav aria-label="Main"><a href="/#how">How it works</a><a href="/#faq">FAQs</a><div class="more"><button type="button" class="more-t" aria-expanded="false" aria-controls="more-menu">More<svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="more-m" id="more-menu"><a class="mi m-only" href="/#how">How it works</a><a class="mi m-only" href="/#faq">FAQs</a><a class="mi" href="/about/">About us</a><a class="mi" href="/#ask">Ask an AI</a><a class="mi" href="/blog/">Blog</a><a class="mi" href="/calculator/">Loan calculator</a><a class="mi" href="/responsible-lending/">Responsible lending</a><a class="mi" href="/grievance-redressal/">Grievance redressal</a><a class="mi" href="/contact/">Contact us</a></div></div><a class="btn sun go" href="https://play.google.com/store/apps/details?id=com.shantilekh.suvron&amp;hl=en_IN">Get the app</a></nav></div></header>
 <main id="main" tabindex="-1">
 
 
-<section class="hero"><div class="wrap">
-<h1 data-words>Cash for the gap <em>before payday.</em></h1>
-<p class="nums" data-r style="--d:.35s"><span>Short-term loans</span> · <span><strong>₹2,000–₹50,000</strong></span> · <span>60–180 days</span> · <span>decision in 24 hrs</span></p>
-<div class="row" data-r style="--d:.5s"><a class="btn sun" href="https://play.google.com/store/apps/details?id=com.shantilekh.suvron&hl=en_IN">Get the app</a></div>
+<section class="hero"><div class="wrap hero-g">
+<div class="hero-c">
+<h1 data-words>Cash for the gap before payday.</h1>
+<p class="lede" data-r style="--d:.35s">Short-term loans of <strong>₹2,000 to ₹50,000</strong> for students, first jobbers and freelancers. Repay over 60 to 180 days, with a decision within 24 hours.</p>
+<div class="row" data-r style="--d:.5s"><a class="btn sun" href="https://play.google.com/store/apps/details?id=com.shantilekh.suvron&amp;hl=en_IN">Get the app</a><a class="lnk" href="#how">How it works</a></div>
+<small data-r style="--d:.6s">For ages 18 to 35 with PAN, Aadhaar and a bank account. No credit history needed.</small>
+</div>
+<div class="slip" id="slip" data-r style="--d:.45s;--fill:50%">
+<h2>Try a loan before you apply</h2>
+<fieldset class="seg"><legend>How much</legend><div class="opts">
+<label><input type="radio" name="amt" value="5000"><span>₹5,000</span></label><label><input type="radio" name="amt" value="15000" checked><span>₹15,000</span></label><label><input type="radio" name="amt" value="30000"><span>₹30,000</span></label><label><input type="radio" name="amt" value="50000"><span>₹50,000</span></label>
+</div></fieldset>
+<fieldset class="seg"><legend>For how long</legend><div class="opts">
+<label><input type="radio" name="ten" value="60"><span>60 days</span></label><label><input type="radio" name="ten" value="90" checked><span>90 days</span></label><label><input type="radio" name="ten" value="120"><span>120 days</span></label><label><input type="radio" name="ten" value="180"><span>180 days</span></label>
+</div></fieldset>
+<div class="slip-t"><span>You repay</span><output id="sTotal">₹15,888</output></div>
+<div class="slip-bar" aria-hidden="true"><i></i></div>
+<div class="slip-ends"><span>Today</span><b>Repay by <span id="sDate">day 90</span></b></div>
+<dl><dt>Borrowed</dt><dd id="sAmt">₹15,000</dd><dt>Interest at 24% a year</dt><dd id="sInt">₹888</dd><dt>Processing and other fees</dt><dd>In your offer</dd></dl>
+<p class="note">Illustrative example. Real interest is 10% to 36% a year and the APR including all fees is 10% to 120%, depending on tenure, amount and your credit assessment. Your Key Fact Statement shows your exact numbers before you accept.</p>
+</div>
 </div></section>
 
 <section class="strip" aria-label="Highlights"><div class="mq" data-mq data-dir="-1" data-speed=".45"><ul class="mq-set"><li>RBI-registered NBFC partner</li><li>₹2,000–₹50,000 loans</li><li>60–180 day terms</li><li>Decision in 24 hrs</li><li>Fees shown before you accept</li><li>Key Fact Statement upfront</li><li>No collateral</li><li>No credit history needed</li><li>7-day complaint response</li></ul></div></section>
@@ -494,53 +650,52 @@
 <div class="phone" id="phone"><div class="screen">
 <div class="island"></div>
 <div class="status"><span>9:41</span><span>5G<span class="bat"></span></span></div>
-<div class="pane" style="--i:0"><div class="app"><b>S</b>SUVRON Money</div><h4>Verify it's you</h4><p class="sub">Enter the OTP sent to your Aadhaar-linked number.</p>
+<div class="app app-bar"><b>S</b>SUVRON Money</div>
+<div class="pane" style="--i:0"><h3>Verify it's you</h3><p class="sub">Enter the OTP sent to your Aadhaar-linked number.</p>
 <div class="otp" id="otp"><b></b><b></b><b></b><b></b></div><div class="field">PAN <b>ABCDE1234F</b></div>
 <div class="tick" id="tick" style="opacity:0"><i>&#10003;</i>Aadhaar OTP verified</div><div class="cta">Continue</div></div>
-<div class="pane pc" style="--i:1"><div class="app"><b>S</b>SUVRON Money</div><h4>Checking your application</h4><p class="sub">You'll hear back within 24 hours.</p>
+<div class="pane pc" style="--i:1"><h3>Checking your application</h3><p class="sub">You'll hear back within 24 hours.</p>
 <svg class="pk" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="48" class="face"/><circle id="arc" cx="50" cy="50" r="44" pathLength="1" stroke-dasharray="1" stroke-dashoffset="0" transform="rotate(-90 50 50)"/><circle cx="50" cy="50" r="37" pathLength="60" stroke-dasharray="0.6 4.4" stroke-dashoffset="0.3" class="ticks"/><line id="hh" x1="50" y1="50" x2="50" y2="31" class="hh"/><line id="mh" x1="50" y1="50" x2="50" y2="20" class="mh"/><circle cx="50" cy="50" r="3.6" class="pin"/></svg>
 <div class="pt"><small id="pl">Approval in</small><b id="pt">24 hrs</b></div>
 <ul class="chk"><li>Identity verified</li><li>Affordability check</li><li>Offer ready</li></ul></div>
-<div class="pane" style="--i:2"><div class="app"><b>S</b>SUVRON Money</div><h4>Your offer</h4><p class="sub">Review before you accept. Nothing is hidden.</p>
+<div class="pane" style="--i:2"><h3>Your offer</h3><p class="sub">Review before you accept. Nothing is hidden.</p>
 <div class="tag">Key Fact Statement</div>
 <div class="card"><div class="rw" data-r="0"><span>Amount</span><span>₹2,000–₹50,000</span></div><div class="rw" data-r="1"><span>Tenure</span><span>60–180 days</span></div><div class="rw" data-r="2"><span>Interest, fees and APR</span><span>Listed in full</span></div></div>
 <div class="cta">Accept offer</div></div>
-<div class="pane p3" style="--i:3"><div class="app" style="align-self:flex-start"><b>S</b>SUVRON Money</div>
+<div class="pane p3" style="--i:3">
 <svg class="ring" viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" stroke="#D6E4DC" stroke-width="6"/><circle id="rc" cx="50" cy="50" r="44" stroke="#0E9E70" stroke-width="6" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" transform="rotate(-90 50 50)"/><path id="rp" d="M30 52 L44 65 L70 37" stroke="#0E9E70" stroke-width="7" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/></svg>
-<h4>Money sent</h4><div class="chip2">To your bank account</div>
+<h3>Money sent</h3><div class="chip2">To your bank account</div>
 <div class="tx"><b>S</b><div>SUVRON Money<br><small>Just now</small></div><em>Credited</em></div></div>
 <div class="home"></div>
 </div></div>
 </div></div></div></section>
 
 
-<section class="band" aria-label="Key numbers"><div class="wrap stats">
-<div class="stat" data-r><b data-count="50000" data-pre="₹">₹50,000</b><span>Maximum loan amount</span></div>
-<div class="stat" data-r style="--d:.12s"><b>18–35</b><span>Age range we lend to</span></div>
-<div class="stat" data-r style="--d:.24s"><b data-count="24" data-suf=" hrs">24 hrs</b><span>Typical approval time</span></div>
+<section class="band tone-l into-l" aria-label="Key numbers"><div class="wrap">
+<p class="big-line" data-r>Up to <b data-count="50000" data-pre="₹">₹50,000</b>, decided within <b data-count="24" data-suf=" hours">24 hours</b>, for anyone aged <b>18 to 35</b>.</p>
 </div></section>
 
-<section class="scene steps" id="who" style="--len:340">
+<section class="scene steps tone-l" id="who" style="--len:340">
 <div class="scene-stage"><div class="pane"><div class="wrap">
 <div class="sec-h" data-w="0,.05"><h2>Whoever's paycheck <em>hasn't caught up yet</em></h2><p>SUVRON Money is built for the gap before the salary lands or the next gig pays out.</p></div>
-<div class="solo"><div class="gc big" data-w="0.040,0.170" data-out="0.313,0.393"><span class="num">01<i>/ 03</i></span><h3>Students</h3><p>Cover a semester fee or a broken laptop without waiting on pocket money.</p></div><div class="gc big" data-w="0.373,0.463" data-out="0.607,0.687"><span class="num">02<i>/ 03</i></span><h3>First jobbers</h3><p>Bridge the gap between your offer letter and your first salary.</p></div><div class="gc big" data-w="0.667,0.757"><span class="num">03<i>/ 03</i></span><h3>Freelancers &amp; gig workers</h3><p>Freelance and gig income doesn't land on a fixed date. SUVRON Money covers the gap in between.</p></div></div>
+<div class="solo"><div class="gc big" data-w="0.040,0.170" data-out="0.313,0.393"><h3>Students</h3><p>Cover a semester fee or a broken laptop without waiting on pocket money.</p></div><div class="gc big" data-w="0.373,0.463" data-out="0.607,0.687"><h3>First jobbers</h3><p>Bridge the gap between your offer letter and your first salary.</p></div><div class="gc big" data-w="0.667,0.757"><h3>Freelancers &amp; gig workers</h3><p>Freelance and gig income doesn't land on a fixed date. SUVRON Money covers the gap in between.</p></div></div>
 </div></div></div></section>
 
-<section class="scene steps" id="why" style="--len:440">
+<section class="scene steps tone-l" id="why" style="--len:440">
 <div class="scene-stage"><div class="pane"><div class="wrap">
 <div class="sec-h" data-w="0,.05"><h2>Built to be <em>upfront</em> with you</h2><p>No hidden clauses, no surprise deductions. You see what a loan costs before you take it.</p></div>
-<div class="solo"><div class="gc big" data-w="0.040,0.170" data-out="0.240,0.320"><span class="num">01<i>/ 04</i></span><h3>Transparent pricing</h3><p>See your interest and fees before you accept, never after.</p></div><div class="gc big" data-w="0.300,0.390" data-out="0.460,0.540"><span class="num">02<i>/ 04</i></span><h3>Short, fixed terms</h3><p>Loans run 60 to 180 days. You know your repayment date before you accept.</p></div><div class="gc big" data-w="0.520,0.610" data-out="0.680,0.760"><span class="num">03<i>/ 04</i></span><h3>Bank-grade security</h3><p>Your data is encrypted end-to-end and is never sold to third parties.</p></div><div class="gc big" data-w="0.740,0.830"><span class="num">04<i>/ 04</i></span><h3>Real support</h3><p>Reach an actual person if a number on your statement doesn't add up.</p></div></div>
+<div class="solo"><div class="gc big" data-w="0.040,0.170" data-out="0.240,0.320"><h3>Transparent pricing</h3><p>See your interest and fees before you accept, never after.</p></div><div class="gc big" data-w="0.300,0.390" data-out="0.460,0.540"><h3>Short, fixed terms</h3><p>Loans run 60 to 180 days. You know your repayment date before you accept.</p></div><div class="gc big" data-w="0.520,0.610" data-out="0.680,0.760"><h3>Bank-grade security</h3><p>Your data is encrypted end-to-end and is never sold to third parties.</p></div><div class="gc big" data-w="0.740,0.830"><h3>Real support</h3><p>Reach an actual person if a number on your statement doesn't add up.</p></div></div>
 </div></div></div></section>
 
-<section class="sec" id="trust"><div class="wrap">
+<section class="sec into-d" id="trust"><div class="wrap">
 <div class="trust" data-r>
 <h2 data-words>Your data <em>stays yours.</em></h2>
 <p class="tl" data-r style="--d:.3s">Encrypted, used only to process your application, shared with our RBI-registered NBFC partners where needed, and never sold.</p>
 <ul class="badges"><li>RBI Fair Practices Code</li><li>DPDP-compliant data handling</li><li>Clear fee schedule</li><li>Named grievance officer, 7-day response</li></ul>
-<div class="partner"><h4>Our Lending Partner</h4><ul><li><b>Name:</b> Ready Leasings Private Limited</li><li><b>RBI Registration:</b> NBFC, Reg. No. ******0028</li><li><b>CIN:</b> *****************0699</li></ul><p>Full terms and rate details are in our <a href="/terms/">terms of use</a>.</p></div>
+<div class="partner"><h3>Our lending partner</h3><ul><li><b>Name:</b> Ready Leasings Private Limited</li><li><b>RBI Registration:</b> NBFC, Reg. No. ******0028</li><li><b>CIN:</b> *****************0699</li></ul><p>Full terms and rate details are in our <a href="/terms/">terms of use</a>.</p></div>
 </div></div></section>
 
-<section class="scene reviews" id="reviews" style="--len:260">
+<section class="scene reviews tone-l into-l" id="reviews" style="--len:260">
 <div class="scene-stage"><div class="pane">
 <div class="wrap"><div class="sec-h"><h2 data-w="0,.08">What users are <em>saying</em></h2></div>
 <div class="avg" data-w=".04,.12"><b id="avg">4.2</b><span class="stars" role="img" aria-label="4.2 out of 5" style="--w:84%">&#9733;&#9733;&#9733;&#9733;&#9733;<i>&#9733;&#9733;&#9733;&#9733;&#9733;</i></span><small>average rating out of 5</small></div></div>
@@ -548,12 +703,12 @@
 <div class="rv-dots" aria-hidden="true"><i class="on"></i><i></i><i></i></div>
 </div></div></section>
 
-<section class="sec" id="refer"><div class="wrap"><div class="refer" data-r>
+<section class="sec tone-l" id="refer"><div class="wrap"><div class="refer" data-r>
 <div><h2>Bring a friend, <em>you both get paid</em></h2><p>Share your code. When a friend takes their first loan through SUVRON Money, you both get cash back, no cap on how many friends you refer.</p><p class="ra">Up to <b>₹100</b> per friend</p><a class="btn sun" href="https://play.google.com/store/apps/details?id=com.shantilekh.suvron&hl=en_IN">Get your referral code</a></div>
 <div class="rcard" aria-hidden="true"><small>Refer a friend</small><p>Earn up to ₹100 for every friend who takes a loan.</p><div class="code"><span>Referral code</span><b>SUV4K21X</b></div><div class="earn"><b>₹100</b> Cash earned</div></div>
 </div></div></section>
 
-<section class="sec alt" id="faq"><div class="wrap narrow">
+<section class="sec tone-l" id="faq"><div class="wrap narrow">
 <div class="sec-h"><h2 data-words>Questions people <em>ask us</em></h2></div>
 <details class="faq-i" data-r><summary>Can I apply without a credit history?<span class="pl" aria-hidden="true"></span></summary><div class="faq-x"><div>Yes. You need to be 18 to 35 with a valid PAN, Aadhaar and an active bank account. No existing credit history is required.</div></div></details>
 <details class="faq-i" data-r><summary>How much can I borrow, and for how long?<span class="pl" aria-hidden="true"></span></summary><div class="faq-x"><div>₹2,000 to ₹50,000, repaid over 60 to 180 days. Your exact amount and tenure come with your offer, before you accept.</div></div></details>
@@ -564,7 +719,7 @@
 </div></section>
 
 
-<section class="ask" id="ask"><div class="in">
+<section class="ask into-d" id="ask"><div class="in">
 <h2 data-r>Not sure yet? <em>Ask an AI</em> about us.</h2>
 <p class="s" data-r style="--d:.1s">One tap opens your favourite AI with a question about SUVRON Money already typed in, built from the facts on this page. Ask it anything else after that.</p>
 <div class="ai">
@@ -585,7 +740,25 @@
 <p class="legal">SUVRON Money is a digital lending platform built by Shantilekh Global Technology Pvt. Ltd. Loans are sanctioned, disbursed and collected by our RBI-registered NBFC partners, who retain final control over credit approval and terms. SUVRON Money does not itself lend money. Interest rates for loans facilitated on this platform range from 10% to 36% per annum, and the APR, inclusive of interest and all fees, ranges from 10% to 120%, depending on tenure, amount and your credit assessment; the exact APR for your offer is disclosed in your Key Fact Statement and loan agreement before you accept. Borrow only what you can repay.</p>
 <p class="copy">&copy; 2026 SUVRON Money. All rights reserved.</p></div></footer>
 <script src="/forms.js"></script>
-<script src="/site.js?v=3"></script>
+<script>
+// Hero cost slip. Illustrative maths at an example rate; the real numbers arrive in the Key Fact Statement.
+(function(){
+ const f=document.getElementById('slip');if(!f)return;
+ const R=24,inr=n=>'\u20B9'+Math.round(n).toLocaleString('en-IN'),q=s=>f.querySelector(s);
+ const upd=()=>{
+  const a=+q('input[name=amt]:checked').value,t=+q('input[name=ten]:checked').value,i=a*R/100*t/365,d=new Date();
+  d.setDate(d.getDate()+t);
+  q('#sTotal').textContent=inr(a+i);q('#sAmt').textContent=inr(a);q('#sInt').textContent=inr(i);
+  q('#sDate').textContent=d.toLocaleDateString('en-IN',{day:'numeric',month:'short',year:'numeric'});
+  f.style.setProperty('--fill',(t/180*100).toFixed(1)+'%');
+ };
+ f.addEventListener('change',upd);upd();
+ // hold each counting figure at its final width so the sentence never reflows mid count
+ const hold=()=>document.querySelectorAll('.big-line [data-count]').forEach(b=>{b.style.display='inline-block';b.style.minWidth='';b.style.minWidth=b.getBoundingClientRect().width+'px'});
+ (document.fonts?document.fonts.ready:Promise.resolve()).then(hold);
+})();
+</script>
+<script src="/site.js?v=4"></script>
 <script>
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x)),sm=x=>x*x*(3-2*x);
