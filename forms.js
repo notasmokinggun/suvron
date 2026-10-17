@@ -8,22 +8,28 @@
 // with the sender's address as Reply-To, so "Reply" answers them.
 //
 // One-time setup: FormSubmit emails contact@suvron.in an "Activate Form"
-// link the first time the form is sent. Click it once; after that every
-// message is delivered. FormSubmit holds earlier submissions for 30 days.
-// Important: FormSubmit only sends that activation email for a normal
-// (non-AJAX) submission. So if the background request comes back with
-// anything but success, including "this form needs activation", the form
-// is sent once more the normal way, which triggers the activation email
-// and lands the visitor on FormSubmit's confirmation page.
+// link when the form is first used (and again after any change of address).
+// Click it once; after that every message is delivered. FormSubmit keeps
+// earlier submissions for 30 days and sends them on once activated.
+//
+// Set up per FormSubmit's docs (formsubmit.co/documentation, /help):
+//   - reCAPTCHA stays ON. Their docs strongly advise against _captcha=false,
+//     which opts the form into extra bot filtering. Background (AJAX) sends
+//     skip the captcha anyway; the normal-post path shows it.
+//   - _url names the page the form lives on, since browsers no longer send
+//     the full page address with cross-site requests.
+//   - If the background send comes back with anything but success
+//     (including "needs activation"), the form is sent once more the normal
+//     way, the same path a no-JS visitor uses, so nothing is lost.
 //
 // Spam and rate limiting, cheapest first:
 //   1. Honeypot field (_honey): bots fill it, people never see it. FormSubmit
-//      also drops any submission where it is filled.
+//      also silently drops any submission where it is filled.
 //   2. Fill-time check: a form submitted under 3 seconds after the page
 //      loaded is a bot. It gets a fake "sent" and nothing is sent.
 //   3. Per-browser limits: one message every 60 seconds and at most 5 an
 //      hour; the same message can't be sent twice within 10 minutes.
-//   4. FormSubmit's own server-side spam filtering.
+//   4. FormSubmit's own spam filtering and reCAPTCHA on the normal-post path.
 // Limits 2 and 3 run in the visitor's browser, so they stop accidental
 // double-sends and casual abuse; a determined attacker can bypass them.
 //
@@ -95,7 +101,7 @@ function setStatus(el, text, kind){
         body: JSON.stringify({
           name: data.name, email: data.email, subject: data.subject, message: data.message,
           _subject: `suvron.in contact: ${data.subject}`.slice(0, 160),
-          _template: 'table', _captcha: 'false', _honey: ''
+          _template: 'table', _url: 'https://suvron.in/contact/', _honey: ''
         })
       });
       const out = await res.json().catch(() => ({}));
