@@ -3,20 +3,20 @@
    licensed under the SIL Open Font License 1.1, see fonts/licenses/.
    The rupee sign (U+20B9) lives in a tiny separate subset so pages only pay for
    the full Latin-extended file if they never need it. */
-@font-face{font-family:'Bricolage Grotesque';font-style:normal;font-weight:200 800;font-display:swap;src:url(/fonts/bricolage-grotesque-latin-opsz-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
-/* Bricolage has no rupee sign, so U+20B9 comes from the tiny rupee-only subset already in /fonts */
-@font-face{font-family:'Bricolage Grotesque';font-style:normal;font-weight:200 800;font-display:swap;src:url(/fonts/plus-jakarta-sans-rupee-wght-normal.woff2) format('woff2');unicode-range:U+20B9;}
+@font-face{font-family:'Host Grotesk';font-style:normal;font-weight:300 800;font-display:swap;src:url(/fonts/host-grotesk-latin-wght-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+/* Host Grotesk has no rupee sign, so U+20B9 comes from the tiny rupee-only subset already in /fonts */
+@font-face{font-family:'Host Grotesk';font-style:normal;font-weight:300 800;font-display:swap;src:url(/fonts/plus-jakarta-sans-rupee-wght-normal.woff2) format('woff2');unicode-range:U+20B9;}
 @font-face{font-family:'Noto Sans Devanagari';font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/noto-sans-devanagari-devanagari-600-normal.woff2) format('woff2');unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+20F0,U+25CC,U+A830-A839,U+A8E0-A8FF,U+11B00-11B09;}
 @font-face{font-family:'Noto Sans Devanagari';font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/noto-sans-devanagari-devanagari-700-normal.woff2) format('woff2');unicode-range:U+0900-097F,U+1CD0-1CF9,U+200C-200D,U+20A8,U+20B9,U+20F0,U+25CC,U+A830-A839,U+A8E0-A8FF,U+11B00-11B09;}
 /* Metric-matched fallbacks so text doesn't jump when the web font swaps in */
-@font-face{font-family:'Bricolage Fallback';src:local('Arial');size-adjust:104.47%;ascent-override:89.02%;descent-override:25.85%;line-gap-override:0%;}
+@font-face{font-family:'Host Grotesk Fallback';src:local('Arial');size-adjust:106.50%;ascent-override:95.31%;descent-override:29.58%;line-gap-override:0%;}
 
 /* SUVRON Money shared theme. Used by every page on the site. */
 :root{--bg:#071F1B;--bg2:#0C2A25;--ink:#F6F2E7;--mute:#92B3A8;--brand:#0E7A62;--sun:#FFC93C;--mint:#5BF0B5;--line:rgba(255,255,255,.1);--card:rgba(255,255,255,.05);--surf:rgba(255,255,255,.05);--surf2:rgba(255,255,255,.1)}
 *{box-sizing:border-box;margin:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{background:var(--bg);color:var(--ink);font:400 17px/1.6 "Bricolage Grotesque","Bricolage Fallback",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-h1,h2,h3,h4{font-family:"Bricolage Grotesque","Bricolage Fallback",sans-serif;font-weight:800;line-height:1.04;letter-spacing:-.03em}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 "Host Grotesk","Host Grotesk Fallback",system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4{font-family:"Host Grotesk","Host Grotesk Fallback",sans-serif;font-weight:800;line-height:1.04;letter-spacing:-.03em}
 a{color:inherit}
 ::selection{background:var(--sun);color:#071F1B}
 :focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:10px}
@@ -30,7 +30,7 @@ a{color:inherit}
 .site-h{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;justify-content:center;padding:14px 20px;pointer-events:none}
 .site-h .bar{pointer-events:auto;display:flex;align-items:center;justify-content:space-between;gap:24px;width:min(1240px,100%);padding:8px 8px 8px 20px;border-radius:999px;border:1px solid transparent;transition:width .6s cubic-bezier(.2,.8,.2,1),background .4s,border-color .4s,box-shadow .4s}
 .site-h.scrolled .bar{width:min(660px,100%);background:rgba(7,31,27,.9);-webkit-backdrop-filter:blur(18px) saturate(1.4);backdrop-filter:blur(18px) saturate(1.4);border-color:var(--line);box-shadow:0 18px 40px -18px rgba(0,0,0,.7)}
-.logo{display:flex;align-items:center;gap:10px;font:800 20px "Bricolage Grotesque","Bricolage Fallback",sans-serif;letter-spacing:-.03em;text-decoration:none}
+.logo{display:flex;align-items:center;gap:10px;font:800 20px "Host Grotesk","Host Grotesk Fallback",sans-serif;letter-spacing:-.03em;text-decoration:none}
 .logo .mk{width:30px;height:30px;border-radius:10px;background:var(--sun);color:var(--bg);display:grid;place-items:center;font-size:17px}
 .site-h nav{display:flex;gap:4px;align-items:center}
 .site-h nav a{padding:9px 16px;border-radius:999px;color:var(--mute);font-weight:500;font-size:15px;text-decoration:none;transition:color .2s,background .2s}
@@ -69,7 +69,7 @@ body.inner .page.wide{max-width:1100px}
 .page input:focus,.page select:focus,.page textarea:focus{border-color:var(--sun);outline:0}
 .page input[type=range]{padding:0;border:0;background:none;accent-color:var(--sun)}
 .page input[type=checkbox],.page input[type=radio]{width:auto;accent-color:var(--sun)}
-.page button,.page input[type=submit]{background:var(--sun);color:var(--bg);border:0;border-radius:999px;padding:15px 30px;font:700 16px "Bricolage Grotesque","Bricolage Fallback",sans-serif;cursor:pointer;transition:transform .25s}
+.page button,.page input[type=submit]{background:var(--sun);color:var(--bg);border:0;border-radius:999px;padding:15px 30px;font:700 16px "Host Grotesk","Host Grotesk Fallback",sans-serif;cursor:pointer;transition:transform .25s}
 .page button:hover{transform:translateY(-2px)}
 .page .card,.card{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:28px;margin:20px 0}
 .page .card p:last-child{margin-bottom:0}
@@ -107,7 +107,7 @@ body.inner .page.wide{max-width:1100px}
 .btn{
     display:inline-flex;align-items:center;justify-content:center;gap:8px;
     padding:15px 28px;border-radius:999px;
-    font-weight:700;font-size:15px;font-family:"Bricolage Grotesque","Bricolage Fallback",sans-serif;
+    font-weight:700;font-size:15px;font-family:"Host Grotesk","Host Grotesk Fallback",sans-serif;
     transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
     white-space:nowrap;
   }
@@ -120,7 +120,7 @@ body.inner .page.wide{max-width:1100px}
 .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
 .stat{text-align:center;border-left:1px solid rgba(255,255,255,0.14);padding:6px 12px;}
 .stat:first-child{border-left:none;}
-.stat-num{font-family:"Bricolage Grotesque","Bricolage Fallback",sans-serif;font-weight:600;font-size:32px;color:var(--sun);}
+.stat-num{font-family:"Host Grotesk","Host Grotesk Fallback",sans-serif;font-weight:600;font-size:32px;color:var(--sun);}
 .stat-lbl{font-size:12.5px;color:rgba(255,255,255,0.6);margin-top:6px;font-weight:600;letter-spacing:0.01em;}
 .refer-banner{
     display:grid;grid-template-columns:1.1fr 0.9fr;gap:50px;align-items:center;
@@ -129,7 +129,7 @@ body.inner .page.wide{max-width:1100px}
 .refer-copy h2{color:#fff;font-size:32px;margin-top:16px;max-width:420px;}
 .refer-copy p{color:rgba(255,255,255,0.68);font-size:15px;max-width:420px;margin-top:14px;}
 .refer-amount{font-size:15px;font-weight:700;color:#fff;margin:20px 0 26px;}
-.refer-amount .num{font-family:"Bricolage Grotesque","Bricolage Fallback",sans-serif;color:var(--sun);font-size:17px;}
+.refer-amount .num{font-family:"Host Grotesk","Host Grotesk Fallback",sans-serif;color:var(--sun);font-size:17px;}
 .refer-visual{display:flex;justify-content:center;}
 .refer-card{
     background:linear-gradient(160deg,var(--brand),var(--brand));
@@ -137,7 +137,7 @@ body.inner .page.wide{max-width:1100px}
     box-shadow:var(--shadow-soft);
   }
 .refer-card-top{display:flex;align-items:center;justify-content:space-between;color:rgba(255,255,255,0.7);font-size:12.5px;font-weight:600;margin-bottom:18px;}
-.refer-card-title{font-family:"Bricolage Grotesque","Bricolage Fallback",sans-serif;font-weight:700;font-size:22px;color:#fff;}
+.refer-card-title{font-family:"Host Grotesk","Host Grotesk Fallback",sans-serif;font-weight:700;font-size:22px;color:#fff;}
 .refer-card-sub{color:rgba(255,255,255,0.65);font-size:12.5px;margin-top:6px;}
 .refer-code-row{
     display:flex;align-items:center;justify-content:space-between;
@@ -145,9 +145,9 @@ body.inner .page.wide{max-width:1100px}
     border-radius:14px;padding:14px 16px;margin-top:22px;
   }
 .refer-code-row .lbl{font-size:10.5px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:.05em;font-weight:600;}
-.refer-code-row .code{font-family:"Bricolage Grotesque","Bricolage Fallback",sans-serif;color:#fff;font-size:15px;margin-top:4px;font-weight:600;}
+.refer-code-row .code{font-family:"Host Grotesk","Host Grotesk Fallback",sans-serif;color:#fff;font-size:15px;margin-top:4px;font-weight:600;}
 .refer-icon{color:#fff;font-size:16px;}
-.refer-earned .num{font-family:"Bricolage Grotesque","Bricolage Fallback",sans-serif;color:var(--sun);font-weight:600;font-size:22px;}
+.refer-earned .num{font-family:"Host Grotesk","Host Grotesk Fallback",sans-serif;color:var(--sun);font-weight:600;font-size:22px;}
 .section-head{max-width:640px;margin:0 auto 52px;text-align:center;}
 .section-head h2{font-size:40px;font-weight:700;letter-spacing:-0.02em;margin-top:16px;}
 .section-head p{font-size:16.5px;margin-top:14px;}
@@ -161,7 +161,7 @@ body.inner .page.wide{max-width:1100px}
 .step-row.rev .step-copy{order:2;}
 .step-row.rev .step-visual{order:1;}
 .step-num{
-    font-family:"Bricolage Grotesque","Bricolage Fallback",sans-serif;font-size:14px;font-weight:600;color:var(--mint);
+    font-family:"Host Grotesk","Host Grotesk Fallback",sans-serif;font-size:14px;font-weight:600;color:var(--mint);
     background:var(--surf);display:inline-block;padding:5px 12px;border-radius:8px;margin-bottom:14px;
   }
 .step-copy h3{font-size:24px;margin-bottom:10px;}
@@ -205,7 +205,7 @@ body.inner .page.wide{max-width:1100px}
 .faq-q:focus-visible{outline:2px solid var(--sun);outline-offset:-2px;border-radius:var(--radius-sm)}
 .faq-q{
     display:flex;align-items:center;justify-content:space-between;gap:16px;
-    padding:20px 24px;font-weight:700;font-size:15.5px;font-family:"Bricolage Grotesque","Bricolage Fallback",sans-serif;
+    padding:20px 24px;font-weight:700;font-size:15.5px;font-family:"Host Grotesk","Host Grotesk Fallback",sans-serif;
     cursor:pointer;user-select:none;
   }
 .faq-q .faq-icon{
@@ -303,7 +303,7 @@ body.inner .page.wide{max-width:1100px}
 .contact-form input,
   .contact-form textarea{
     width:100%;padding:14px 16px;border-radius:14px;border:1.5px solid var(--line);
-    font-family:"Bricolage Grotesque","Bricolage Fallback",sans-serif;font-size:16px;color:var(--ink);background:var(--surf);
+    font-family:"Host Grotesk","Host Grotesk Fallback",sans-serif;font-size:16px;color:var(--ink);background:var(--surf);
     resize:vertical;
   }
 .contact-form input:focus,
@@ -353,7 +353,7 @@ body.inner .page.wide{max-width:1100px}
   }
 .calc-select{
     width:100%;padding:12px 14px;border-radius:10px;border:1.5px solid var(--line);
-    background:var(--surf);font-family:"Bricolage Grotesque","Bricolage Fallback",sans-serif;font-weight:600;font-size:14px;color:var(--ink);
+    background:var(--surf);font-family:"Host Grotesk","Host Grotesk Fallback",sans-serif;font-weight:600;font-size:14px;color:var(--ink);
   }
 .calc-note{font-size:12.5px;color:var(--mute);line-height:1.55;margin-top:8px;}
 .calc-result-card{
@@ -410,7 +410,7 @@ body.inner .page.wide{max-width:1100px}
   margin:18px 0 6px;
 }
 .lang-switch a{
-  font-family:"Bricolage Grotesque","Bricolage Fallback",sans-serif;font-weight:600;font-size:13px;color:var(--mute);
+  font-family:"Host Grotesk","Host Grotesk Fallback",sans-serif;font-weight:600;font-size:13px;color:var(--mute);
   padding:6px 13px;border-radius:20px;border:1.5px solid var(--line);background:#fff;
   transition:all .15s;
 }
@@ -426,17 +426,17 @@ body.inner .page.wide{max-width:1100px}
 .contact-links .dot-sep{color:var(--mute);}
 .policy-meta{
   display:flex;flex-wrap:wrap;gap:10px 28px;font-size:12.5px;color:var(--mute);
-  font-family:"Bricolage Grotesque","Bricolage Fallback",sans-serif;margin:0 0 28px;padding-bottom:20px;border-bottom:1px solid var(--line);
+  font-family:"Host Grotesk","Host Grotesk Fallback",sans-serif;margin:0 0 28px;padding-bottom:20px;border-bottom:1px solid var(--line);
 }
 .policy-meta b{color:var(--ink);font-weight:600;}
 @media(max-width:640px){.policy-meta{flex-direction:column;gap:8px;font-size:12px;}}
-.prose h3{font-family:"Bricolage Grotesque","Bricolage Fallback",sans-serif;font-weight:700;font-size:17px;color:var(--ink);margin:26px 0 8px;}
+.prose h3{font-family:"Host Grotesk","Host Grotesk Fallback",sans-serif;font-weight:700;font-size:17px;color:var(--ink);margin:26px 0 8px;}
 .prose ul{margin:0 0 16px;padding-left:20px;}
 .prose ul li{color:var(--mute);line-height:1.7;margin-bottom:4px;}
-html[lang="ta"] body,html[lang="ta"] h1,html[lang="ta"] h2,html[lang="ta"] h3{font-family:'Noto Sans Tamil',"Bricolage Grotesque","Bricolage Fallback",sans-serif;}
-html[lang="te"] body,html[lang="te"] h1,html[lang="te"] h2,html[lang="te"] h3{font-family:'Noto Sans Telugu',"Bricolage Grotesque","Bricolage Fallback",sans-serif;}
-html[lang="kn"] body,html[lang="kn"] h1,html[lang="kn"] h2,html[lang="kn"] h3{font-family:'Noto Sans Kannada',"Bricolage Grotesque","Bricolage Fallback",sans-serif;}
-html[lang="hi"] body,html[lang="hi"] h1,html[lang="hi"] h2,html[lang="hi"] h3{font-family:'Noto Sans Devanagari',"Bricolage Grotesque","Bricolage Fallback",sans-serif;}
+html[lang="ta"] body,html[lang="ta"] h1,html[lang="ta"] h2,html[lang="ta"] h3{font-family:'Noto Sans Tamil',"Host Grotesk","Host Grotesk Fallback",sans-serif;}
+html[lang="te"] body,html[lang="te"] h1,html[lang="te"] h2,html[lang="te"] h3{font-family:'Noto Sans Telugu',"Host Grotesk","Host Grotesk Fallback",sans-serif;}
+html[lang="kn"] body,html[lang="kn"] h1,html[lang="kn"] h2,html[lang="kn"] h3{font-family:'Noto Sans Kannada',"Host Grotesk","Host Grotesk Fallback",sans-serif;}
+html[lang="hi"] body,html[lang="hi"] h1,html[lang="hi"] h2,html[lang="hi"] h3{font-family:'Noto Sans Devanagari',"Host Grotesk","Host Grotesk Fallback",sans-serif;}
 .related{max-width:980px;margin:56px auto 0;}
 .related h2{font-size:22px;margin:0 0 16px;}
 .related .blog-grid{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
@@ -506,7 +506,7 @@ h1 em,h2 em,h3 em{font-style:normal;font-weight:inherit;letter-spacing:inherit;c
 
 /* header: About us, Ask an AI, More dropdown */
 .site-h .more{position:relative}
-.site-h .more-t{font:500 15px "Bricolage Grotesque","Bricolage Fallback",sans-serif;color:var(--mute);background:none;border:0;cursor:pointer;padding:9px 14px 9px 16px;border-radius:999px;display:inline-flex;align-items:center;gap:7px;transition:color .3s var(--ease),background .3s var(--ease)}
+.site-h .more-t{font:500 15px "Host Grotesk","Host Grotesk Fallback",sans-serif;color:var(--mute);background:none;border:0;cursor:pointer;padding:9px 14px 9px 16px;border-radius:999px;display:inline-flex;align-items:center;gap:7px;transition:color .3s var(--ease),background .3s var(--ease)}
 .site-h .more-t:hover,.site-h .more.open .more-t{color:var(--ink);background:rgba(255,255,255,.08)}
 .site-h .more-t svg{transition:transform .4s var(--ease)}
 .site-h .more.open .more-t svg{transform:rotate(180deg)}
@@ -551,7 +551,7 @@ h1 em,h2 em,h3 em{font-style:normal;font-weight:inherit;letter-spacing:inherit;c
 }
 .contact-form>input{margin-bottom:14px}
 /* calculator toggle: only the active choice is filled */
-.page .calc-toggle .calc-toggle-btn{background:transparent;color:var(--mute);border-radius:9px;padding:10px 14px;font:700 13.5px "Bricolage Grotesque","Bricolage Fallback",sans-serif;box-shadow:none}
+.page .calc-toggle .calc-toggle-btn{background:transparent;color:var(--mute);border-radius:9px;padding:10px 14px;font:700 13.5px "Host Grotesk","Host Grotesk Fallback",sans-serif;box-shadow:none}
 .page .calc-toggle .calc-toggle-btn:hover{transform:none;color:var(--ink)}
 .page .calc-toggle .calc-toggle-btn.active{background:var(--brand);color:#fff;box-shadow:0 8px 18px -10px rgba(0,0,0,.35)}
 /* blog cards are whole-card links: no underline, readable colours */
