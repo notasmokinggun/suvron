@@ -1,41 +1,34 @@
 /* Forms, mailto helpers, email-copy toast, blog gallery. Shared by every page, so it works with the shared theme header. */
 // ============================================================
-// CONTACT FORM: submissions go straight to our inbox.
+// CONTACT FORM: submissions go straight to contact@suvron.in.
 //
-// The site is static (GitHub Pages), so the form posts to FormSubmit
-// (formsubmit.co), a free form-to-email relay: no account, no API key,
-// nothing to deploy. It emails each submission to contact@suvron.in
-// with the sender's address as Reply-To, so "Reply" answers them.
+// The site is static (GitHub Pages), so the form posts to Web3Forms
+// (web3forms.com), a free form-to-email service. Setup is one value:
+// the Web3Forms access key for contact@suvron.in, in the hidden
+// `access_key` field of the form in /contact/index.html. The key is
+// public by design (Web3Forms' own docs say so).
+//   Get a key: web3forms.com -> "Create Access Key" -> enter
+//   contact@suvron.in -> the key arrives by email -> paste it in.
 //
-// One-time setup: FormSubmit emails contact@suvron.in an "Activate Form"
-// link when the form is first used (and again after any change of address).
-// Click it once; after that every message is delivered. FormSubmit keeps
-// earlier submissions for 30 days and sends them on once activated.
+// Until a key is set, pressing Send opens the visitor's email app with
+// the message already written to contact@suvron.in, so nothing is lost.
 //
-// Set up per FormSubmit's docs (formsubmit.co/documentation, /help):
-//   - reCAPTCHA stays ON. Their docs strongly advise against _captcha=false,
-//     which opts the form into extra bot filtering. Background (AJAX) sends
-//     skip the captcha anyway; the normal-post path shows it.
-//   - _url names the page the form lives on, since browsers no longer send
-//     the full page address with cross-site requests.
-//   - If the background send comes back with anything but success
-//     (including "needs activation"), the form is sent once more the normal
-//     way, the same path a no-JS visitor uses, so nothing is lost.
+// Reply-To is the visitor's address (Web3Forms uses the `email` field),
+// so "Reply" answers them directly.
 //
 // Spam and rate limiting, cheapest first:
-//   1. Honeypot field (_honey): bots fill it, people never see it. FormSubmit
-//      also silently drops any submission where it is filled.
+//   1. Honeypot (`botcheck`): bots tick it, people never see it.
+//      Web3Forms also rejects submissions where it is ticked.
 //   2. Fill-time check: a form submitted under 3 seconds after the page
 //      loaded is a bot. It gets a fake "sent" and nothing is sent.
 //   3. Per-browser limits: one message every 60 seconds and at most 5 an
 //      hour; the same message can't be sent twice within 10 minutes.
-//   4. FormSubmit's own spam filtering and reCAPTCHA on the normal-post path.
+//   4. Web3Forms' own server-side spam check on every submission.
 // Limits 2 and 3 run in the visitor's browser, so they stop accidental
 // double-sends and casual abuse; a determined attacker can bypass them.
 //
-// Without JavaScript the form still works: it posts normally and
-// FormSubmit sends the visitor back to /contact/?sent=1.
-// To change the destination, edit CONTACT_TO below and the form's action.
+// Without JavaScript the form posts directly to Web3Forms, which sends
+// the visitor back to /contact/?sent=1.
 // ============================================================
 const CONTACT_TO = 'contact@suvron.in';
 const CONTACT_LIMITS = {gapMs: 60e3, perHour: 5, minFillMs: 3000, dupeMs: 10*60e3};
@@ -52,25 +45,36 @@ function setStatus(el, text, kind){
   if(!form) return;
   const status = document.getElementById('formStatus');
   const btn = form.querySelector('button[type=submit]');
+  const keyField = form.querySelector('[name=access_key]');
   const loadedAt = Date.now();
   const KEY = 'suvron-contact-log';
+  const SENT = "Sent. Your message is in our inbox and we'll reply to your email.";
   let busy = false;
 
-  if(/[?&]sent=1\b/.test(location.search)) setStatus(status, "Sent. Your message is in our inbox and we'll reply to your email.", 'success');
+  if(/[?&]sent=1\b/.test(location.search)) setStatus(status, SENT, 'success');
 
   const readLog = () => { try { return JSON.parse(localStorage.getItem(KEY)) || []; } catch(e){ return []; } };
   const writeLog = log => { try { localStorage.setItem(KEY, JSON.stringify(log)); } catch(e){} };
   const hash = str => { let h = 0; for(let i = 0; i < str.length; i++){ h = (h * 31 + str.charCodeAt(i)) | 0; } return String(h); };
   const wait = ms => { const m = Math.ceil(ms / 60e3); return ms < 60e3 ? `${Math.ceil(ms / 1e3)} seconds` : `${m} minute${m === 1 ? '' : 's'}`; };
-  const fakeSent = () => { setStatus(status, "Sent. Your message is in our inbox and we'll reply to your email.", 'success'); form.reset(); };
+  const done = () => { busy = false; btn.disabled = false; btn.textContent = 'Send message'; };
+
+  // No access key yet: hand the message to the visitor's email app, already written.
+  const viaMailApp = data => {
+    const body = `${data.message}\n\n${data.name}\n${data.email}`;
+    window.location.href = `mailto:${CONTACT_TO}?subject=${encodeURIComponent(data.subject)}&body=${encodeURIComponent(body)}`;
+    setStatus(status, `Your email app should open with the message ready to send to ${CONTACT_TO}.`, 'success');
+  };
 
   form.addEventListener('submit', async event => {
     event.preventDefault();
     if(busy) return;
-    const data = Object.fromEntries(new FormData(form).entries());
-    ['name','email','subject','message'].forEach(k => { data[k] = (data[k] || '').trim(); });
+    const data = {};
+    ['name','email','subject','message'].forEach(k => { data[k] = (form.querySelector(`[name=${k}]`).value || '').trim(); });
 
-    if(data._honey || Date.now() - loadedAt < CONTACT_LIMITS.minFillMs){ fakeSent(); return; }
+    if(form.querySelector('[name=botcheck]').checked || Date.now() - loadedAt < CONTACT_LIMITS.minFillMs){
+      setStatus(status, SENT, 'success'); form.reset(); return;
+    }
     if(!data.name || !data.email || !data.subject || !data.message){
       setStatus(status, 'Fill in every field so we know how to help.', 'error'); return;
     }
@@ -83,7 +87,7 @@ function setStatus(el, text, kind){
     const last = log[log.length - 1];
     const sig = hash(data.email + '|' + data.subject + '|' + data.message);
     if(log.some(e => e.h === sig && now - e.t < CONTACT_LIMITS.dupeMs)){
-      setStatus(status, "We already have this exact message. No need to send it again.", 'success'); return;
+      setStatus(status, 'We already have this exact message. No need to send it again.', 'success'); return;
     }
     if(last && now - last.t < CONTACT_LIMITS.gapMs){
       setStatus(status, `Give it ${wait(CONTACT_LIMITS.gapMs - (now - last.t))} before sending another message.`, 'error'); return;
@@ -92,37 +96,39 @@ function setStatus(el, text, kind){
       setStatus(status, `That's the limit for now. Try again in ${wait(3600e3 - (now - log[0].t))}, or email ${CONTACT_TO}.`, 'error'); return;
     }
 
+    const accessKey = keyField ? keyField.value.trim() : '';
+    if(!accessKey){ viaMailApp(data); return; }
+
     busy = true; btn.disabled = true; btn.textContent = 'Sending…';
     setStatus(status, 'Sending your message…', 'pending');
+    let res, out = {};
     try {
-      const res = await fetch(`https://formsubmit.co/ajax/${CONTACT_TO}`, {
+      res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
         body: JSON.stringify({
-          name: data.name, email: data.email, subject: data.subject, message: data.message,
-          _subject: `suvron.in contact: ${data.subject}`.slice(0, 160),
-          _template: 'table', _url: 'https://suvron.in/contact/', _honey: ''
+          access_key: accessKey,
+          subject: `suvron.in contact: ${data.subject}`.slice(0, 160),
+          from_name: 'SUVRON Money website',
+          name: data.name, email: data.email, message: data.message,
+          botcheck: false
         })
       });
-      const out = await res.json().catch(() => ({}));
-      if(!res.ok || String(out.success) !== 'true') throw new Error(out.message || String(res.status));
-      log.push({t: now, h: sig}); writeLog(log);
-      setStatus(status, "Sent. Your message is in our inbox and we'll reply to your email.", 'success');
-      form.reset();
-      busy = false; btn.disabled = false; btn.textContent = 'Send message';
+      out = await res.json().catch(() => ({}));
     } catch(err){
-      // Fall back to a normal form post (see the note at the top). It also covers
-      // blocked or failed background requests, since it is the same path as no-JS.
-      if(!navigator.onLine){
-        setStatus(status, `You look offline. Reconnect and try again, or email us at ${CONTACT_TO}.`, 'error');
-        busy = false; btn.disabled = false; btn.textContent = 'Send message'; return;
-      }
-      log.push({t: now, h: sig}); writeLog(log);
-      setStatus(status, 'Sending…', 'pending');
-      const subj = form.querySelector('[name=_subject]');
-      if(subj) subj.value = `suvron.in contact: ${data.subject}`.slice(0, 160);
-      HTMLFormElement.prototype.submit.call(form);
+      setStatus(status, navigator.onLine
+        ? `That didn't go through. Try again, or email us at ${CONTACT_TO}.`
+        : `You look offline. Reconnect and try again, or email us at ${CONTACT_TO}.`, 'error');
+      done(); return;
     }
+    if(res.ok && out.success){
+      log.push({t: now, h: sig}); writeLog(log);
+      setStatus(status, SENT, 'success');
+      form.reset();
+    } else {
+      setStatus(status, `That didn't go through${out.message ? ` (${out.message})` : ''}. Try again, or email us at ${CONTACT_TO}.`, 'error');
+    }
+    done();
   });
 })();
 

@@ -725,7 +725,7 @@ body.inner .company-snapshot h2{font-size:17px;margin:0 0 12px;letter-spacing:-.
 @media(max-width:900px){body.inner main.page>section{padding:72px 0}}
 
 /* contact form: real labels, hidden honeypot, clear states */
-.contact-form .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.contact-form .hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none}
 body.inner .contact-form .fld{display:grid;gap:8px;margin:0 0 16px;font-size:15px;font-weight:600;color:var(--ink)}
 body.inner .contact-form-row .fld{margin:0}
 body.inner .contact-form-row{margin-bottom:16px}
