@@ -491,6 +491,8 @@ h1,h2,h3,h4{font-weight:750}
 .seg{border:0;padding:0;margin:0;min-width:0}
 .seg legend{padding:0;margin-bottom:8px;font-size:14.5px;font-weight:600;color:var(--mute)}
 .seg .opts{display:flex;flex-wrap:wrap;gap:8px}
+.seg .opts.five{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}
+.seg .opts.five span{justify-content:center;padding:0 4px;white-space:nowrap}
 .seg label{position:relative;display:block}
 .seg input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
 .seg span{display:flex;align-items:center;min-height:42px;padding:0 15px;border-radius:12px;border:1.5px solid rgba(255,255,255,.18);font-weight:600;font-size:16px;font-variant-numeric:tabular-nums;transition:background-color .2s,color .2s,border-color .2s}
@@ -597,7 +599,7 @@ h1,h2,h3,h4{font-weight:750}
  .hero h1{font-size:clamp(44px,12.6vw,76px);max-width:10ch}
  .hero p.lede{font-size:17.5px;margin:22px 0 28px}
  .hero .row{flex-direction:row;align-items:center}.hero .btn{width:auto;max-width:none}
- .slip{gap:18px;padding:22px}.seg .opts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}.seg span{justify-content:center;padding:0 2px;font-size:14px;white-space:nowrap;letter-spacing:-.01em}
+ .slip{gap:18px;padding:22px}.seg .opts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}.seg .opts.five{grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}.seg .opts.five span{font-size:13px;letter-spacing:-.02em}.seg span{justify-content:center;padding:0 2px;font-size:14px;white-space:nowrap;letter-spacing:-.01em}
  .band{padding:88px 0}.big-line{font-size:clamp(34px,9.6vw,52px);max-width:none}
  .solo .gc.big{padding:22px 0 0}
  .solo .gc.big h3{font-size:clamp(38px,11.4vw,58px);margin:0 0 14px}
@@ -608,6 +610,7 @@ h1,h2,h3,h4{font-weight:750}
  .faq-i summary{padding:20px 0}
  #faq .wrap.narrow{grid-template-columns:minmax(0,1fr)}#faq .sec-h,#faq .faq-i{grid-column:1;grid-row:auto;position:static}#faq .sec-h{margin-bottom:28px}
 }
+@media(max-width:379px){.seg .opts.five{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.seg .opts.five span{font-size:14px}}
 @media(max-width:350px){.seg .opts{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(prefers-reduced-motion:reduce){.into-l,.into-d{animation:none}.slip-bar i{transition:none}}
 </style>
@@ -627,8 +630,8 @@ h1,h2,h3,h4{font-weight:750}
 </div>
 <div class="slip" id="slip" data-r style="--d:.45s;--fill:50%">
 <h2>Try a loan before you apply</h2>
-<fieldset class="seg"><legend>How much</legend><div class="opts">
-<label><input type="radio" name="amt" value="5000"><span>₹5,000</span></label><label><input type="radio" name="amt" value="15000" checked><span>₹15,000</span></label><label><input type="radio" name="amt" value="30000"><span>₹30,000</span></label><label><input type="radio" name="amt" value="50000"><span>₹50,000</span></label>
+<fieldset class="seg"><legend>How much</legend><div class="opts five">
+<label><input type="radio" name="amt" value="2000"><span>₹2,000</span></label><label><input type="radio" name="amt" value="5000"><span>₹5,000</span></label><label><input type="radio" name="amt" value="15000" checked><span>₹15,000</span></label><label><input type="radio" name="amt" value="30000"><span>₹30,000</span></label><label><input type="radio" name="amt" value="50000"><span>₹50,000</span></label>
 </div></fieldset>
 <fieldset class="seg"><legend>For how long</legend><div class="opts">
 <label><input type="radio" name="ten" value="60"><span>60 days</span></label><label><input type="radio" name="ten" value="90" checked><span>90 days</span></label><label><input type="radio" name="ten" value="120"><span>120 days</span></label><label><input type="radio" name="ten" value="180"><span>180 days</span></label>
