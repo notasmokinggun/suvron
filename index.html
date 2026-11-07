@@ -822,6 +822,41 @@ main > #steps > .wrap.ch__stage { display: grid; grid-template-columns: repeat(1
 .ch.is-live .ph__dial { width: 140px; height: 140px; }
 .ch.is-live .ph .clock { font-size: 30px !important; }
 .ch.is-live .ph .sent { font-size: 38px !important; }
+
+/* ---- thin phones */
+@media (max-width: 639px) {
+  /* the hero grows with its content instead of being cut to one screen, so nothing below can ride over it */
+  main > section.hero { height: auto !important; min-height: 100svh; padding-bottom: 40px !important; }
+  main > section.hero .hero__art { flex: none !important; height: 230px !important; min-height: 0 !important; }
+  /* step boards at rest: show the screen's working part, not its status bar */
+  .ch:not(.is-live) .ch__visual.step-board { aspect-ratio: auto !important; height: 230px; max-height: none !important; }
+  .ch:not(.is-live) .ch__visual .ph { top: 16px; width: min(78%, 280px); }
+  .ch:not(.is-live) .ch__visual .ph__status, .ch:not(.is-live) .ch__visual .ph__app { display: none; }
+  /* the scattered letters stay on their board */
+  .promise__board { overflow: hidden; }
+  /* the referral code and the close fit narrow screens */
+  .ticket { width: 88%; padding: 22px 18px; }
+  .ticket__code { flex-wrap: wrap; gap: 4px 12px; }
+  .ticket__code b { font-size: 16px; letter-spacing: .04em; }
+}
+@media (max-width: 379px) {
+  .close-board__title { font-size: 36px !important; max-width: none; }
+  .promise .promise__line { font-size: 44px !important; }
+  .who .who__text .mo-wh__text { font-size: 28px; }
+  .rate-list li { gap: 10px; }
+  .rate-list span { font-size: 13px; }
+  .rate-list b { font-size: 15px; }
+  .hero--collage h1 { font-size: 30px !important; }
+}
+
+@media (max-width: 639px) { #promise > .wrap.promise { height: calc(100svh - var(--nav) - var(--bar)); padding-block: 16px; } }
+@media (max-width: 379px), (max-height: 640px) and (max-width: 639px) {
+  .promise .promise__line { font-size: 38px !important; }
+  .promise__board { padding: 28px 24px; gap: 16px; }
+  .promise__list { gap: 10px; padding-top: 16px; }
+  .promise__list li { font-size: 13.5px; grid-template-columns: 26px 1fr; gap: 10px; }
+  .promise__list i { width: 26px; height: 26px; }
+}
 </style>
 </head>
 <body>
