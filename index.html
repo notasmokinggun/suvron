@@ -669,6 +669,44 @@ main h3, main .faq h3 { font-size: 20px; }
 .promise__sub { font-size: clamp(18px, 1.6vw, 24px); line-height: 1.5; color: #fff; max-width: 40ch; margin: 0; transition: opacity .4s, transform .4s; }
 .promise.is-scattered .promise__sub { opacity: 0; transform: translateY(12px); }
 @media (prefers-reduced-motion: reduce) { #promise { --h: 1 !important; --hm: 1 !important; } #promise > .wrap.promise { position: static; height: 100%; } }
+
+/* ---- promise: a framed sign on the page ground; the letters assemble on it while it holds still */
+#promise > .wrap.promise { display: grid; align-content: center; padding-block: 32px; }
+.promise__board { padding: clamp(32px, 5vw, 72px); display: grid; gap: clamp(28px, 3vw, 48px); }
+.promise__board > * { position: relative; z-index: 1; }
+.promise .promise__line { font-size: clamp(48px, 7.4vw, 118px) !important; max-width: 17ch !important; line-height: 1.02; color: #fff; margin: 0; }
+.promise__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; border-top: 2px dashed rgb(255 255 255 / .35); padding-top: 28px; }
+.promise__list li { display: grid; grid-template-columns: 32px 1fr; gap: 14px; align-items: start; color: #fff; font-size: 17px; line-height: 1.5; }
+.promise__list b { font-weight: 600; color: #fff; }
+.promise__list i { width: 32px; height: 32px; border-radius: 50%; background: var(--marigold); color: var(--p-ink); display: grid; place-items: center; }
+.promise__list i svg { width: 16px; height: 16px; }
+.promise.is-scattered .promise__list { opacity: 0; transform: translateY(14px); }
+.promise__list { transition: opacity .45s, transform .45s; }
+@media (max-width: 1023px) { .promise__list { grid-template-columns: 1fr; gap: 14px; } }
+@media (max-width: 639px) { .promise .promise__line { font-size: 52px !important; } .promise__board { padding: 28px 22px; } .promise__list li { font-size: 15px; } }
+
+/* ---- the close: one big enamel sign with the action and a scan code for desktop visitors */
+footer.closing.g2 > .wrap > .closing__cta { align-self: stretch; }
+.close-board { height: 100%; min-height: 520px; display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 4fr); gap: 48px; align-items: center; padding: clamp(36px, 5vw, 80px); }
+.close-board > * { position: relative; z-index: 1; }
+.close-board__copy { display: grid; gap: 28px; }
+.close-board__title { font-size: clamp(48px, 6.4vw, 104px); line-height: 1.02; color: #fff; margin: 0; max-width: 11ch; }
+.close-board__title .paint { color: var(--marigold-lit); }
+.close-board__sub { color: #fff; font-size: clamp(18px, 1.5vw, 22px); line-height: 1.5; max-width: 38ch; margin: 0; }
+.close-board__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 20px 28px; }
+.close-board__actions .btn--xl { min-width: 260px; justify-content: space-between; }
+.close-board__rating { display: flex; align-items: center; gap: 10px; margin: 0; color: #fff; font-size: 16px; }
+.close-board__ticket { justify-self: end; width: min(100%, 300px); padding: 32px 28px; display: grid; gap: 16px; justify-items: center; text-align: center; transform: rotate(2deg); }
+.close-board__ticket > * { position: relative; z-index: 1; margin: 0; }
+.close-board__qr { width: 180px; height: 180px; }
+.close-board__ticket p { color: var(--p-ink); font-size: 15px; line-height: 1.45; }
+@supports (animation-timeline: view()) { @media (prefers-reduced-motion: no-preference) and (min-width: 640px) {
+  .close-board__ticket { transform-origin: 50% -40px; animation: sv-swing-tilt linear forwards; animation-timeline: view(); animation-range: entry 10% cover 40%; }
+  .close-board__title .paint { display: inline-block; animation: sv-rise linear forwards; animation-timeline: view(); animation-range: entry 20% cover 40%; }
+} }
+@keyframes sv-swing-tilt { from { transform: rotate(-12deg) translateY(-30px); } 70% { transform: rotate(4deg); } to { transform: rotate(2deg); } }
+@media (max-width: 1023px) { .close-board { grid-template-columns: 1fr; min-height: 0; } .close-board__ticket { display: none; } }
+@media (max-width: 639px) { .close-board__title { font-size: 44px; } .close-board__actions .btn--xl { width: 100%; min-width: 0; } .close-board { padding: 32px 22px; } }
 </style>
 </head>
 <body>
@@ -883,10 +921,16 @@ main h3, main .faq h3 { font-size: 20px; }
     </div>
   </section>
 
-  <section class="section ground-inverse" id="promise" style="--h: 2; --hm: 2" aria-label="Borrow only what you can repay">
+  <section class="section" id="promise" style="--h: 2; --hm: 2" aria-labelledby="promise-h">
     <div class="wrap promise" data-scatter>
-      <p id="promise-h" class="paint promise__line">Borrow only what you can repay.</p>
-      <p class="promise__sub">You see the full repayment amount before you accept. If it&rsquo;s more than you can manage, decline the offer. You owe nothing until you say yes.</p>
+      <div class="promise__board board bolts">
+        <h2 id="promise-h" class="paint promise__line">Borrow only what you can repay.</h2>
+        <ul class="promise__list">
+          <li><i><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i><span><b>The full repayment amount</b> is shown before you accept.</span></li>
+          <li><i><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i><span><b>Too much? Decline the offer.</b> You owe nothing.</span></li>
+          <li><i><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></i><span><b>Running late?</b> You get reminders, never calls to your contacts.</span></li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -984,14 +1028,23 @@ main h3, main .faq h3 { font-size: 20px; }
   </section>
 </main>
 
-<footer class="footer closing" id="contact" aria-labelledby="close-h">
+<footer class="footer closing g2" id="contact" aria-labelledby="close-h">
   <div class="wrap">
-    <div class="closing__cta close--type">
-      <div class="section-head">
-        <h2 id="close-h">Get the app and see your offer</h2>
-        <p>Free on Google Play. You only borrow if you accept the offer.</p>
+    <div class="closing__cta close--board">
+      <div class="close-board board bolts">
+        <div class="close-board__copy">
+          <h2 id="close-h" class="close-board__title">Get the app and see <span class="paint">your offer.</span></h2>
+          <p class="close-board__sub">Free on Google Play. Sign up in under three minutes, see the full cost, and only borrow if you accept.</p>
+          <div class="close-board__actions">
+            <a class="btn btn--primary btn--xl" href="https://play.google.com/store/apps/details?id=com.shantilekh.suvron&amp;hl=en_IN">Get the app<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+            <p class="close-board__rating"><img src="assets/icons/google-play-icon.svg" alt="" width="20" height="20" loading="lazy">Rated 4.3 from 249 reviews</p>
+          </div>
+        </div>
+        <div class="close-board__ticket board--white board">
+          <img class="close-board__qr" src="assets/icons/play-qr.svg" alt="QR code that opens SUVRON Money on Google Play" width="180" height="180" loading="lazy">
+          <p>Scan with your phone camera to open the app on Google Play.</p>
+        </div>
       </div>
-      <a class="btn btn--primary btn--xl btn--wide" href="https://play.google.com/store/apps/details?id=com.shantilekh.suvron&amp;hl=en_IN">Get the app<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
     </div>
     <div class="closing__links">
       <div class="grid">
