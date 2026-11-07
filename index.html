@@ -763,6 +763,18 @@ main > #steps > .wrap.ch__stage { display: grid; grid-template-columns: repeat(1
 .ch.is-live .ch__frame .ch__visual .clock { font-size: 56px !important; }
 .ch.is-live .ch__frame .ch__visual .sent { font-size: 44px !important; }
 .ch.is-live .ch__frame .ch__visual .ticks li { font-size: 15px; }
+
+/* ---- phones: sections take the height of their content (no forced full screens), with an even gap */
+@media (max-width: 639px) {
+  main > section:not(.hero):not(#promise) { height: auto !important; min-height: 0 !important; padding-top: 72px !important; padding-bottom: 72px !important; }
+  main > section:not(.hero):not(#promise) > .wrap { height: auto !important; }
+  main > section.g2 > .wrap, footer.closing.g2 > .wrap { row-gap: 56px !important; grid-template-rows: auto auto !important; }
+  footer.closing { height: auto !important; min-height: 0 !important; padding-top: 72px !important; padding-bottom: calc(48px + var(--bar)) !important; }
+  footer.closing .close-board { height: auto; }
+  /* the main action lives in the hero and the bottom bar on a phone; the header keeps the logo and the menu */
+  .nav:not(.is-open) .nav__actions { display: none !important; }
+  .nav:not(.is-open) .nav__toggle { margin-left: auto !important; }
+}
 </style>
 </head>
 <body>
@@ -1164,7 +1176,14 @@ qs.forEach(function(q,i){q.addEventListener('click',function(){pick(i)});q.addEv
       l.style.opacity=(0.15+0.85*q).toFixed(3);l.style.color=q>0.98?'':'#ffad3d';});
     host.classList.toggle('is-scattered',p<0.9);
   }
-  addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(frame);}},{passive:true});
+  // if the visitor stops partway, the letters finish landing on their own after a short pause,
+  // and stay landed until the board is scrolled back out of view above
+  var settled=false,idle=0;
+  function settle(){var r=sec.getBoundingClientRect();if(r.top<innerHeight*0.6&&r.bottom>innerHeight*0.3){settled=true;
+    letters.forEach(function(l){l.style.transition='transform .6s cubic-bezier(.2,.8,.2,1), opacity .4s';l.style.transform='none';l.style.opacity='1';l.style.color='';});
+    setTimeout(function(){letters.forEach(function(l){l.style.transition='';});},650);host.classList.remove('is-scattered');}}
+  var base=frame;frame=function(){var r=sec.getBoundingClientRect();if(settled){if(r.top>innerHeight*0.45)settled=false;else return;}base();};
+  addEventListener('scroll',function(){clearTimeout(idle);idle=setTimeout(settle,450);if(!ticking){ticking=true;requestAnimationFrame(frame);}},{passive:true});
   addEventListener('resize',frame);frame();
 })();
 </script>
