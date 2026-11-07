@@ -717,6 +717,52 @@ footer.closing.g2 > .wrap > .closing__cta { align-self: stretch; }
 #who .ticker.mo-mq.is-still, #who .ticker.mo-mq:not(.is-live) { overflow: visible; height: auto; padding: 20px 20px; }
 #who .ticker.is-still .mo-mq__track, #who .ticker:not(.is-live) .mo-mq__track { flex-wrap: wrap; white-space: normal; gap: 10px 22px; padding: 0; font-size: 17px !important; line-height: 1.4; }
 #who .ticker.is-still .mo-mq__clone { display: none; }
+
+/* ---- steps: a calm pinned walkthrough. Every step's text stays open (nothing reflows), the active step is
+   marked by colour and a filling bar, each step gets about 60% of a screen of scroll, and a click jumps there. */
+main > #steps > .wrap.ch__stage { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; row-gap: 32px; align-items: center; }
+.ch__text { grid-column: 1 / span 5; }
+.ch__frame { grid-column: 7 / span 6; }
+.ch__text { display: grid; gap: 32px; align-content: start; }
+.ch__list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.ch__step { display: grid; gap: 4px; padding: 12px 0 12px 28px; position: relative; }
+.ch__head { all: unset; cursor: pointer; display: block; }
+.ch__head:focus-visible { outline: 2px solid var(--marigold-deep); outline-offset: 4px; border-radius: 4px; }
+.ch__step h3 { font: 400 22px/1.25 var(--font-display); margin: 0; color: var(--ink); transition: color .25s; }
+.ch__step p { margin: 0; font-size: 16px; line-height: 1.55; color: var(--ink); max-width: 44ch; transition: color .25s; }
+.ch__bar { position: absolute; left: 0; top: 12px; bottom: 12px; width: 3px; border-radius: 3px; background: rgb(13 26 58 / .12); overflow: hidden; }
+.ch__bar i { position: absolute; inset: 0; background: var(--marigold); transform-origin: top; transform: scaleY(var(--fill, 0)); }
+.ch__visual { margin: 16px 0 0; }
+.ch__frame { display: none; }
+/* the board each phone screen rises from: the phone sits on the board's foot and is as tall as its content */
+.step-board { position: relative; overflow: hidden; }
+#steps .step-board .mini { position: absolute; top: auto !important; bottom: 0; min-height: 0 !important; padding-bottom: 28px !important; }
+.ch:not(.is-live) .ch__visual.step-board { aspect-ratio: 16 / 9; max-height: 280px; }
+.ch:not(.is-live) .ch__bar i { transform: scaleY(1); }
+/* live (wide screens with motion allowed): the stage pins and the visuals share one frame */
+.ch.is-live { height: calc(100svh + var(--ch-n, 4) * 60svh) !important; padding: 0 !important; }
+.ch.is-live > .ch__stage { position: sticky; top: 0; height: 100svh; padding-top: var(--nav); box-sizing: border-box; }
+.ch.is-live .ch__step:not(.is-on) h3, .ch.is-live .ch__step:not(.is-on) p { color: rgb(13 26 58 / .5); }
+.ch.is-live .ch__step:hover h3 { color: var(--ink); }
+.ch.is-live .ch__visual { display: none; }
+.ch.is-live .ch__frame { display: block; position: relative; aspect-ratio: 4 / 3; max-height: calc(100svh - 160px); width: 100%; }
+.ch.is-live .ch__frame .ch__visual { display: block; position: absolute; inset: 0; margin: 0; border-radius: 0; background: transparent; opacity: 0; transition: opacity .3s ease; }
+.ch.is-live .ch__frame .ch__visual::before { display: none; }
+.ch.is-live .ch__frame .ch__visual .mini { transform: translate(-50%, 24px); transition: transform .45s cubic-bezier(.2,.8,.2,1); }
+.ch.is-live .ch__frame .ch__visual.is-on { opacity: 1; }
+.ch.is-live .ch__frame .ch__visual.is-on .mini { transform: translate(-50%, 0); }
+@media (max-width: 1023px) { main > #steps > .wrap.ch__stage { grid-template-columns: 1fr; gap: 32px; } .ch__text, .ch__frame { grid-column: 1; } }
+@media (max-width: 639px) { .ch__step { padding-left: 20px; } .ch__step h3 { font-size: 19px; } .ch__step p { font-size: 15px; } .ch:not(.is-live) .ch__visual.step-board { max-height: 200px; } }
+@media (prefers-reduced-motion: reduce) { .ch.is-live .ch__frame .ch__visual, .ch.is-live .ch__frame .ch__visual .mini { transition: none; } }
+
+.ch.is-live .ch__frame .ch__visual .mini { width: min(58%, 400px) !important; padding: 24px 24px 36px !important; font-size: 16px; }
+.ch.is-live .ch__frame .ch__visual .mini .mini__title { font-size: 30px !important; }
+.ch.is-live .ch__frame .ch__visual .mini p:not(.mini__title) { font-size: 15px !important; }
+.ch.is-live .ch__frame .ch__visual .kfs li { font-size: 16px !important; padding: 11px 2px !important; }
+.ch.is-live .ch__frame .ch__visual .otp span { height: 48px !important; font-size: 19px !important; }
+.ch.is-live .ch__frame .ch__visual .clock { font-size: 56px !important; }
+.ch.is-live .ch__frame .ch__visual .sent { font-size: 44px !important; }
+.ch.is-live .ch__frame .ch__visual .ticks li { font-size: 15px; }
 </style>
 </head>
 <body>
@@ -856,34 +902,34 @@ footer.closing.g2 > .wrap > .closing__cta { align-self: stretch; }
     </div>
   </section>
 
-  <section class="section" id="steps" style="--h: 2" data-moment="pinned-chapters" aria-labelledby="steps-h">
-    <div class="wrap mo-pc__grid">
-      <div class="mo-pc__text">
+  <section class="section ch" id="steps" style="--h: 2" aria-labelledby="steps-h">
+    <div class="wrap ch__stage">
+      <div class="ch__text">
         <div class="section-head" style="margin-bottom:0"><h2 id="steps-h">Four steps in the app</h2><p>Most people finish sign-up in under three minutes.</p></div>
-        <ol class="mo-pc__steps">
-          <li class="mo-pc__step">
-            <h3>Verify your PAN and Aadhaar</h3>
+        <ol class="ch__list">
+          <li class="ch__step is-on" data-step="0">
+            <button class="ch__head" type="button"><span class="ch__bar" aria-hidden="true"><i></i></span><h3>Verify your PAN and Aadhaar</h3></button>
             <p>Sign up with your mobile number, then PAN, Aadhaar OTP and a selfie.</p>
-            <figure class="mo-pc__visual step-board" role="img" aria-label="The app asking for the Aadhaar OTP and PAN"><div class="mini" aria-hidden="true"><p class="mini__title">Verify it&rsquo;s you</p><p>Enter the OTP sent to your Aadhaar-linked number.</p><div class="otp"><span class="is-on">4</span><span class="is-on">8</span><span class="is-on">1</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span></div><div class="field"><span>PAN</span><b>ABCDE1234F</b></div></div></figure>
+            <figure class="ch__visual step-board" role="img" aria-label="The app asking for the Aadhaar OTP and PAN"><div class="mini" aria-hidden="true"><p class="mini__title">Verify it&rsquo;s you</p><p>Enter the OTP sent to your Aadhaar-linked number.</p><div class="otp"><span class="is-on">4</span><span class="is-on">8</span><span class="is-on">1</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span></div><div class="field"><span>PAN</span><b>ABCDE1234F</b></div></div></figure>
           </li>
-          <li class="mo-pc__step">
-            <h3>Get a decision in 24 hours</h3>
+          <li class="ch__step" data-step="1">
+            <button class="ch__head" type="button"><span class="ch__bar" aria-hidden="true"><i></i></span><h3>Get a decision in 24 hours</h3></button>
             <p>We check what you can afford and prepare your offer in the app.</p>
-            <figure class="mo-pc__visual step-board" role="img" aria-label="The app checking an application, with a decision within 24 hours"><div class="mini" aria-hidden="true"><p class="mini__title">Checking your application</p><div class="clock num">24 hrs</div><ul class="ticks"><li><i><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Identity verified</li><li><i><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Affordability check</li><li><i><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Offer ready</li></ul></div></figure>
+            <figure class="ch__visual step-board" role="img" aria-label="The app checking an application, with a decision within 24 hours"><div class="mini" aria-hidden="true"><p class="mini__title">Checking your application</p><div class="clock num">24 hrs</div><ul class="ticks"><li><i><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Identity verified</li><li><i><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Affordability check</li><li><i><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Offer ready</li></ul></div></figure>
           </li>
-          <li class="mo-pc__step">
-            <h3>Read the Key Fact Statement</h3>
+          <li class="ch__step" data-step="2">
+            <button class="ch__head" type="button"><span class="ch__bar" aria-hidden="true"><i></i></span><h3>Read the Key Fact Statement</h3></button>
             <p>Amount, tenure, interest, every fee and the APR, before you accept.</p>
-            <figure class="mo-pc__visual step-board" role="img" aria-label="The Key Fact Statement for a ₹15,000 loan"><div class="mini" aria-hidden="true"><p class="mini__title">Key Fact Statement</p><ul class="kfs"><li>Loan amount<b>₹15,000</b></li><li>Tenure<b>90 days</b></li><li>APR<b>60%</b></li><li class="kfs__total">To repay<b>₹17,219</b></li></ul></div></figure>
+            <figure class="ch__visual step-board" role="img" aria-label="The Key Fact Statement for a ₹15,000 loan"><div class="mini" aria-hidden="true"><p class="mini__title">Key Fact Statement</p><ul class="kfs"><li>Loan amount<b>₹15,000</b></li><li>Tenure<b>90 days</b></li><li>APR<b>60%</b></li><li class="kfs__total">To repay<b>₹17,219</b></li></ul></div></figure>
           </li>
-          <li class="mo-pc__step">
-            <h3>Receive the money in your bank</h3>
+          <li class="ch__step" data-step="3">
+            <button class="ch__head" type="button"><span class="ch__bar" aria-hidden="true"><i></i></span><h3>Receive the money in your bank</h3></button>
             <p>Most approved loans reach your account within 24 hours. Repay in the app.</p>
-            <figure class="mo-pc__visual step-board" role="img" aria-label="₹15,000 sent to the borrower's bank account"><div class="mini" aria-hidden="true"><p class="mini__title">Money sent</p><p>To your bank account ending 4821.</p><div class="sent num">₹15,000</div><ul class="ticks"><li><i><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Repay by 5 Feb 2027</li></ul></div></figure>
+            <figure class="ch__visual step-board" role="img" aria-label="₹15,000 sent to the borrower's bank account"><div class="mini" aria-hidden="true"><p class="mini__title">Money sent</p><p>To your bank account ending 4821.</p><div class="sent num">₹15,000</div><ul class="ticks"><li><i><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Repay by 5 Feb 2027</li></ul></div></figure>
           </li>
         </ol>
       </div>
-      <div class="mo-pc__visuals frame"></div>
+      <div class="ch__frame board" aria-hidden="true"></div>
     </div>
   </section>
 
@@ -1120,6 +1166,24 @@ qs.forEach(function(q,i){q.addEventListener('click',function(){pick(i)});q.addEv
   }
   addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(frame);}},{passive:true});
   addEventListener('resize',frame);frame();
+})();
+</script>
+<script>
+(function(){
+  var sec=document.querySelector('.ch');if(!sec)return;
+  var steps=[].slice.call(sec.querySelectorAll('.ch__step')),frame=sec.querySelector('.ch__frame');
+  var figs=steps.map(function(s){return s.querySelector('.ch__visual')}),n=steps.length,live=false,k=-1,tick=false;
+  sec.style.setProperty('--ch-n',n);
+  function fits(){return innerWidth>=1024&&innerHeight>=640&&!matchMedia('(prefers-reduced-motion: reduce)').matches;}
+  function show(i){if(i===k)return;k=i;steps.forEach(function(s,j){s.classList.toggle('is-on',j===i)});figs.forEach(function(f,j){f.classList.toggle('is-on',j===i)});}
+  function progress(){var r=sec.getBoundingClientRect(),run=sec.offsetHeight-innerHeight;return Math.min(n-0.001,Math.max(0,(-r.top)/run*n));}
+  function frameTick(){tick=false;if(!live)return;var p=progress(),i=Math.floor(p);show(i);
+    steps.forEach(function(s,j){s.querySelector('.ch__bar').style.setProperty('--fill',j<i?1:j>i?0:(p-i).toFixed(3))});}
+  function sync(){var f=fits();if(f&&!live){live=true;sec.classList.add('is-live');figs.forEach(function(x){frame.appendChild(x)});frameTick();}
+    else if(!f&&live){live=false;sec.classList.remove('is-live');figs.forEach(function(x,j){steps[j].appendChild(x);x.classList.remove('is-on')});steps.forEach(function(s){s.querySelector('.ch__bar').style.removeProperty('--fill')});k=-1;}}
+  steps.forEach(function(s,j){s.querySelector('.ch__head').addEventListener('click',function(){if(!live)return;var run=sec.offsetHeight-innerHeight,top=sec.getBoundingClientRect().top+scrollY;scrollTo({top:top+run*(j+0.35)/n,behavior:'smooth'});});});
+  addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(frameTick)}},{passive:true});
+  addEventListener('resize',function(){sync();frameTick()});sync();
 })();
 </script>
 <script type="module" src="assets/system.js"></script>
