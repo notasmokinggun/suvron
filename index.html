@@ -217,7 +217,7 @@
   --display-tracking-xl: -0.015em;
   --ly-scale: 0.97;
   /* the sign-painter's materials: enamel blue, marigold paint and its darker shadow line */
-  --enamel: #1e51b8; --enamel-deep: #0b2a61; --marigold: #f7931e; --marigold-deep: #c2620a; --board: #ffffff;
+  --enamel: #1e51b8; --enamel-deep: #0b2a61; --marigold: #f7931e; --marigold-lit: #ffad3d; --marigold-deep: #c2620a; --board: #ffffff;
 }
 ::selection { background: var(--marigold); color: var(--p-ink); }
 html { scrollbar-color: color-mix(in oklab, var(--p-ink) 35%, transparent) transparent; }
@@ -241,7 +241,7 @@ html { scrollbar-color: color-mix(in oklab, var(--p-ink) 35%, transparent) trans
 footer.closing .closing__links { margin-top: var(--s-7); }
 
 /* painted lettering: marigold numerals with the painter's shadow line, used only on boards */
-.paint { font-family: var(--font-display); color: var(--marigold); text-shadow: .045em .045em 0 var(--enamel-deep); letter-spacing: 0; }
+.paint { font-family: var(--font-display); color: var(--marigold-lit); text-shadow: .045em .045em 0 var(--enamel-deep); letter-spacing: 0; }
 .paint--blue { color: var(--enamel); text-shadow: .04em .04em 0 var(--marigold); }
 
 /* a sign board: flat enamel, a white pinstripe painted 10px inside its edge, four bolt heads */
@@ -311,7 +311,7 @@ footer.closing .closing__links { margin-top: var(--s-7); }
 main h3, main .faq h3 { font-size: 20px; }
 .worked .rows > li { padding-block: 14px; }
 .worked .rows .rows__value { font: 400 24px/1.1 var(--font-display); }
-.worked .rows li:last-child .rows__value { color: var(--marigold); text-shadow: .045em .045em 0 var(--enamel-deep); font-size: 32px; }
+.worked .rows li:last-child .rows__value { color: var(--marigold-lit); text-shadow: .045em .045em 0 var(--enamel-deep); font-size: 32px; }
 .worked p { color: var(--muted); }
 .ground-inverse .link { color: #fff; }
 .worked-line { display: none; }
@@ -495,7 +495,7 @@ main h3, main .faq h3 { font-size: 20px; }
 .ticker { background: var(--enamel); color: #fff; border-radius: var(--r-md); padding: 18px 0; position: relative; }
 .ticker .mo-mq__track { font: 400 26px/1.2 var(--font-display); }
 .ticker .mo-mq__track li { color: #fff; }
-.ticker .mo-mq__track li:nth-child(odd) { color: var(--marigold); text-shadow: .045em .045em 0 var(--enamel-deep); }
+.ticker .mo-mq__track li:nth-child(odd) { color: var(--marigold-lit); text-shadow: .045em .045em 0 var(--enamel-deep); }
 /* ---- steps as pinned chapters: each visual is a small enamel board with its phone screen */
 .step-board { position: relative; background: var(--enamel); border-radius: var(--r-md); aspect-ratio: 4 / 3; overflow: hidden; }
 .step-board::before { content: ""; position: absolute; inset: 10px; border: 2px solid rgb(255 255 255 / .85); border-radius: 4px; z-index: 2; pointer-events: none; }
@@ -513,7 +513,8 @@ main h3, main .faq h3 { font-size: 20px; }
 /* ---- promise: a painted statement on enamel */
 #promise { overflow: clip; }
 .promise { display: grid; gap: var(--s-6); align-content: center; height: 100%; }
-.promise h2 { font-size: clamp(44px, 7.2vw, 112px); line-height: 1.02; max-width: 12ch; }
+.promise .promise__line { font-family: var(--font-display); margin: 0; }
+.promise .promise__line { font-size: clamp(44px, 7.2vw, 112px); line-height: 1.02; max-width: 12ch; }
 .promise .mo-la__sub { font-size: clamp(18px, 1.6vw, 22px); color: #fff; max-width: 40ch; }
 
 /* ---- painted touches that follow the scroll (Chrome and Edge; other browsers show the finished page).
@@ -556,6 +557,40 @@ main h3, main .faq h3 { font-size: 20px; }
 @keyframes sv-swing { from { transform: rotate(-9deg) translateY(-24px); } 70% { transform: rotate(2deg); } to { transform: none; } }
 @keyframes sv-slide { from { transform: translateX(40px); opacity: 0; } to { transform: none; opacity: 1; } }
 @keyframes sv-recede { to { transform: scale(.92) translateY(-4%); opacity: .35; } }
+
+/* ---- phone and tablet tuning */
+.ticker { overflow: hidden; }
+@media (min-width: 640px) and (max-width: 1023px) {
+  .who .mo-wh__text { font-size: 44px; max-width: 18ch; }
+  .promise .promise__line { font-family: var(--font-display); margin: 0; }
+.promise .promise__line { font-size: 96px; max-width: 9ch; }
+  .promise .mo-la__sub { font-size: 24px; }
+}
+@media (max-width: 639px) {
+  .promise .promise__line { font-family: var(--font-display); margin: 0; }
+.promise .promise__line { font-size: 68px; line-height: 1.02; }
+  .promise { gap: var(--s-7); }
+  .promise .mo-la__sub { font-size: 19px; }
+  #steps .step-board { aspect-ratio: 16 / 10; max-height: 30svh; }
+  #steps .step-board .mini { top: 14%; width: 62%; padding: 12px; font-size: 12px; border-width: 6px; }
+  #steps .step-board .mini .mini__title { font-size: 17px; }
+  #steps .step-board .clock { font-size: 30px; }
+  #steps .step-board .sent { font-size: 26px; }
+  #steps .step-board .kfs li { font-size: 12px; padding: 5px 2px; }
+  #steps .step-board .otp span { height: 30px; font-size: 14px; }
+  [data-moment="pinned-chapters"] .mo-pc__steps { gap: var(--s-4); }
+}
+@media (max-width: 379px) {
+  .hero--collage h1 { font-size: 32px; }
+  #steps .step-board { max-height: 19svh; }
+  #steps .section-head p { display: none; }
+  #steps .mo-pc__step p { font-size: 15px; }
+  .promise .promise__line { font-family: var(--font-display); margin: 0; }
+.promise .promise__line { font-size: 60px; }
+  .nav__logo { font-size: 16px; gap: 6px; padding-block: 11px; }
+  .nav__logo img { width: 22px; height: 22px; }
+  .nav__actions .btn { padding-inline: 12px; font-size: 14px; }
+}
 </style>
 </head>
 <body>
@@ -761,9 +796,9 @@ main h3, main .faq h3 { font-size: 20px; }
     </div>
   </section>
 
-  <section class="section ground-inverse" id="promise" aria-labelledby="promise-h">
+  <section class="section ground-inverse" id="promise" aria-label="Borrow only what you can repay">
     <div class="wrap promise" data-moment="letters-assemble" data-moment-opts='{"heading": ".mo-la__type", "spread": 1.2}'>
-      <h2 id="promise-h" class="mo-la__type paint">Borrow only what you can repay.</h2>
+      <p id="promise-h" class="mo-la__type paint promise__line">Borrow only what you can repay.</p>
       <p class="mo-la__sub">That&rsquo;s why the full cost is on the board before you say yes, and why you can say no.</p>
     </div>
   </section>
@@ -778,7 +813,7 @@ main h3, main .faq h3 { font-size: 20px; }
           </div>
           <div class="btn-row"><a class="btn btn--secondary" href="https://play.google.com/store/apps/details?id=com.shantilekh.suvron&amp;hl=en_IN">Get your referral code</a></div>
         </div>
-        <div class="panel span-6 start-7" aria-hidden="true">
+        <div class="panel span-6 start-7" role="img" aria-label="An example referral ticket: code SUV4K21X, ₹100 cash earned">
           <div class="ticket board board--white bolts">
             <p class="ticket__head">Refer a friend</p>
             <p>Earn up to ₹100 for every friend who takes a loan.</p>

@@ -143,3 +143,11 @@ body.inner .refer-card .code { color: #fff; }
 .sv-logo, .sv-btn { white-space: nowrap; }
 @media (max-width: 1340px) { body.inner .page-hero > .wrap, body.inner .hero.about-hero > .wrap { margin-inline: var(--sv-gut); } }
 @media (max-width: 639px) { body.inner .page-hero > .wrap, body.inner .hero.about-hero > .wrap { margin-inline: 16px; margin-top: 16px; } .sv-logo img { width: 24px; height: 24px; } }
+@media (max-width: 379px) { .sv-logo { font-size: 16px; gap: 6px; } .sv-nav__bar { gap: 8px; } .sv-nav .sv-btn { padding: 0 10px; font-size: 13px; } }
+/* tap targets: the blog slider dots, the grievance contact links, the calculator sliders */
+.gallery-dots button { position: relative; }
+.gallery-dots button::after { content: ""; position: absolute; inset: -16px -8px; }
+body.inner .contact-links a { display: inline-block; padding-block: 11px; }
+input[type="range"] { min-height: 28px; }
+body.inner h1, body.inner h2, body.inner h3 { overflow-wrap: anywhere; text-wrap: balance; }
+body.inner .calc-note { color: #4b5672 !important; opacity: 1 !important; font-size: 13px; }
