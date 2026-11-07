@@ -34,7 +34,16 @@
       var p = num('resultPrincipal'), i = num('resultInterest');
       $('.cl-bar__p').style.flexGrow = p; $('.cl-bar__i').style.flexGrow = Math.max(i, p * 0.004);
     };
-    var sync = function () { ranges.forEach(fill); marks(); requestAnimationFrame(bar); };
+    var live = $('#clLive'), lt, first = true;
+    var say = function () {
+      var t = $('#resultTotal').textContent, i = $('#resultInterest').textContent;
+      $('#principal').setAttribute('aria-valuetext', $('#principalVal').textContent);
+      $('#rate').setAttribute('aria-valuetext', $('#rateVal').textContent + ' a year');
+      $('#tenure').setAttribute('aria-valuetext', $('#tenureVal').textContent);
+      if (first) { first = false; return; }
+      clearTimeout(lt); lt = setTimeout(function () { if (live) live.textContent = 'Total repayment ' + t + ', of which interest ' + i + '.'; }, 600);
+    };
+    var sync = function () { ranges.forEach(fill); marks(); requestAnimationFrame(function () { bar(); say(); }); };
     $$('.cl-quick button').forEach(function (b) {
       b.addEventListener('click', function () {
         var inp = document.getElementById(b.parentNode.getAttribute('data-for'));
@@ -48,6 +57,12 @@
     });
     sync();
   }
+
+  /* 404: the report carries the address that failed */
+  $$('[data-broken]').forEach(function (a) { a.href = '/contact/?subject=' + encodeURIComponent('Broken link: ' + location.href) + '#write'; });
+  /* contact: a subject passed in the address fills the form */
+  var subj = document.querySelector('#contactForm input[name="subject"]');
+  if (subj) { var s = new URLSearchParams(location.search).get('subject'); if (s && !subj.value) subj.value = s.slice(0, 150); }
 
   /* blog: filter by topic */
   var filter = $('.bl-filter');

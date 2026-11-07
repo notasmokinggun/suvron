@@ -626,6 +626,12 @@ main h3, main .faq h3 { font-size: 20px; }
 .who__text { grid-column: 1 / span 6; display: grid; gap: var(--s-6); }
 .who .who__text .mo-wh__text { font-size: clamp(40px, 4.4vw, 64px); line-height: 1.08; max-width: 12ch; }
 .who .mo-wh__text strong { color: var(--enamel); }
+/* contrast: the highlighted words in the deeper marigold (3.9:1, large text), the board tags in a lighter one (4.8:1) */
+.who .mo-wh strong .mo-w.is-on { color: var(--marigold-deep); }
+@media (prefers-reduced-motion: reduce) { .who .mo-wh strong .mo-w { color: var(--marigold-deep); } }
+.skip { position: fixed; left: 12px; top: 12px; z-index: 100; padding: 12px 16px; border-radius: 10px; background: var(--enamel-deep); color: #fff; font: 700 15px/1 var(--font-text); transform: translateY(-160%); transition: transform .2s; }
+.skip:focus { transform: none; }
+.who__tag { color: #ffcb7a !important; }
 .who__boards { grid-column: 7 / span 6; list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
 .who__board { padding: 26px 32px 24px; display: grid; gap: 6px; color: #fff; }
 .who__board > * { position: relative; z-index: 1; margin: 0; }
@@ -910,6 +916,7 @@ main > #steps.ch.is-live > .ch__stage, .ch.is-live > .ch__stage { position: stic
 </style>
 </head>
 <body>
+<a class="skip" href="#top">Skip to main content</a>
 <!-- type: software (fintech app)
      deal: hero collage (re-dealt once: the centred hero is for a desktop window, the product is a phone app), nav nav-mega, close close-type, footer footer-columns, rhythm space plus one enamel band (the rate board, the world's signature), buttons tonal, mark: the client's logo, ground: the enamel board (the client's blue) in place of sage
      moments: none; the hero card loop is the page's one timed loop; the lender route is a still painted board -->
@@ -928,7 +935,6 @@ main > #steps.ch.is-live > .ch__stage, .ch.is-live > .ch__stage { position: stic
             <div class="menu-col span-3">
               <p class="t-label">Company</p>
               <a href="/about/">About us<span>Who builds the app</span></a>
-              <a href="/about/#careers">Careers<span>Engineering, data and support roles</span></a>
               <a href="/blog/">Blog<span>Guides on borrowing well</span></a>
               <a href="/contact/">Contact us<span>Support and partnerships</span></a>
             </div>
@@ -957,7 +963,7 @@ main > #steps.ch.is-live > .ch__stage, .ch.is-live > .ch__stage { position: stic
   </div>
 </header>
 
-<main id="top">
+<main id="top" tabindex="-1">
   <section class="hero hero--collage" aria-labelledby="hero-h">
     <div class="wrap"><div class="hero-text grid hero__grid">
       <div class="hero__text span-6">
@@ -1104,7 +1110,7 @@ main > #steps.ch.is-live > .ch__stage, .ch.is-live > .ch__stage { position: stic
           <li><span class="rows__name">Lender</span><p>Ready Leasings Private Limited, an RBI-registered NBFC (Reg. No. ******0028), approves, disburses and collects.</p></li>
           <li><span class="rows__name">Your data</span><p>Encrypted, used only for your loan and never sold. <a class="link" href="/privacy-policy/">Privacy policy</a></p></li>
           <li><span class="rows__name">Collections</span><p>Reminders first, under the RBI Fair Practices Code. Never your friends or family. <a class="link" href="/responsible-lending/">How we collect</a></p></li>
-          <li><span class="rows__name">Complaints</span><p>Our grievance officer replies within 7 days: <a class="link" href="mailto:gro@suvron.in">gro@suvron.in</a></p></li>
+          <li><span class="rows__name">Complaints</span><p>Support replies within 7 days. If it&rsquo;s still not sorted, our grievance officer resolves it within 14: <a class="link" href="mailto:gro@suvron.in">gro@suvron.in</a></p></li>
         </ul>
         <div class="route board span-6 start-7" role="img" aria-label="You apply in the SUVRON Money app, Ready Leasings, an RBI-registered NBFC, approves and lends, and the money reaches your bank account within 24 hours.">
           <ol class="route__list" aria-hidden="true">
@@ -1275,7 +1281,7 @@ main > #steps.ch.is-live > .ch__stage, .ch.is-live > .ch__stage { position: stic
           <p class="t-small muted">Short-term loans for young India, built by Shantilekh Global Technology Pvt. Ltd. with RBI-registered NBFC lending partners.</p>
         </div>
         <div class="span-2 footer__col"><h4>Loans</h4><ul><li><a href="#pricing">Rates</a></li><li><a href="#steps">Steps</a></li><li><a href="/calculator/">Calculator</a></li><li><a href="#questions">Questions</a></li></ul></div>
-        <div class="span-2 footer__col"><h4>Company</h4><ul><li><a href="/about/">About us</a></li><li><a href="/about/#careers">Careers</a></li><li><a href="/blog/">Blog</a></li><li><a href="/contact/">Contact us</a></li></ul></div>
+        <div class="span-2 footer__col"><h4>Company</h4><ul><li><a href="/about/">About us</a></li><li><a href="/blog/">Blog</a></li><li><a href="/contact/">Contact us</a></li></ul></div>
         <div class="span-2 footer__col"><h4>Your rights</h4><ul><li><a href="/responsible-lending/">Responsible lending</a></li><li><a href="/grievance-redressal/">Grievance redressal</a></li><li><a href="/privacy-policy/">Privacy policy</a></li><li><a href="/terms/">Terms of use</a></li><li><a href="/cookie-policy/">Cookie policy</a></li></ul></div>
         <div class="span-2 footer__col footer__contact"><h4>Contact</h4><ul><li><a href="mailto:support@suvron.in">support@suvron.in</a></li><li><a href="mailto:contact@suvron.in">contact@suvron.in</a></li><li><a href="mailto:gro@suvron.in">gro@suvron.in</a></li><li><a href="tel:+919971373543">9971373543</a></li></ul></div>
       </div>
