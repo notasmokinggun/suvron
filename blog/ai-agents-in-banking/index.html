@@ -37,6 +37,7 @@
 <link rel="stylesheet" href="/theme.css?v=35">
 <link rel="preload" href="/fonts/yatra-one-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/site-shell.css?v=3">
+<link rel="stylesheet" href="/pages.css?v=1">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -167,7 +168,7 @@
 }
 </script>
 </head>
-<body class="inner">
+<body class="inner pg">
 <a class="skip-link" href="#main">Skip to main content</a>
 <header class="sv-nav">
   <div class="sv-nav__bar">
@@ -193,82 +194,91 @@
 
 
 
-<main id="main" tabindex="-1" class="page">
-
-<div class="wrap article-hero">
-  <span class="blog-card-tag">Fintech</span>
-  <h1>Your bank is quietly hiring an AI coworker</h1>
-  <div class="article-meta">SUVRON Money team · 6 min read</div>
-</div>
-
-<div class="wrap">
-  <article class="article-body reveal" data-r>
+<main id="main" tabindex="-1" class="pgm">
+<div class="ar-progress" aria-hidden="true"><i></i></div>
+<section class="ar-hero">
+  <div class="pg-wrap">
+    <div class="ar-hero__board pg-board pg-bolts">
+      <a class="ar-back" href="../"><i class="pg-glyph" style="--ic:url(/assets/icons/ui-arrow-right.svg)" aria-hidden="true"></i>All articles</a>
+      <div class="ar-meta"><span class="pg-chip" style="background:var(--marigold);color:var(--ink);box-shadow:none">Fintech</span><span class="pg-chip">SUVRON Money team · 6 min read</span></div>
+      <h1>Your bank is quietly hiring an AI coworker</h1>
+    </div>
+  </div>
+</section>
+<div class="pg-wrap ar-layout">
+  <details class="ar-toc" open><summary>In this piece</summary><ol><li><a href="#automation-versus-an-agent">Automation versus an agent</a></li><li><a href="#how-fast-this-is-moving">How fast this is moving</a></li><li><a href="#the-part-that-should-give-you-pause">The part that should give you pause</a></li><li><a href="#what-it-means-if-you-re-the-one-applying-for-a-l">What it means if you're the one applying for a loan</a></li></ol></details>
+  <div>
+    <article class="ar-body">
 
     <p>Ask a bank about AI a few years ago and you'd get a chatbot that could reset your password and not much else. Ask the same question in 2026 and the answer looks different. Banks and NBFCs are now running software that doesn't just answer questions. It pulls your credit file, checks it against lending policy, decides whether to approve you, and only calls in a human when something falls outside the rules it's been given.</p>
 
     <p>The industry calls this agentic AI, and the distinction from older automation is worth understanding if you've ever wondered why a loan decision that used to take days now takes minutes.</p>
 
-    <h2>Automation versus an agent</h2>
+    <h2 id="automation-versus-an-agent">Automation versus an agent</h2>
 
     <p>Loan origination, transaction monitoring and account servicing have run on rule-based automation for years: fixed approval paths, static thresholds, high-volume processing of predictable tasks. That's not new. What's new is the layer sitting above those rules. Instead of following one fixed path, an AI agent can interpret a goal, pull data from several systems, reason through it, and take an action, then explain what it did and why.</p>
 
     <p>In lending specifically, that shows up as agents that orchestrate credit bureau calls, collect and verify documents, run a risk score, and issue a decision end to end, escalating to a human underwriter only when the case doesn't fit standard policy. The same pattern is spreading into KYC and AML checks, customer disputes, and regulatory reporting, where an agent pulls data from multiple systems and fills in what used to be a manual template.</p>
 
-    <h2>How fast this is moving</h2>
+    <h2 id="how-fast-this-is-moving">How fast this is moving</h2>
 
     <p>Wolters Kluwer estimates that 44% of finance teams will use agentic AI in 2026, a jump of more than 600% from where adoption stood before. KPMG puts global enterprise spend on agentic AI at roughly $50 billion in 2025 alone. Inside banking specifically, 2026 is being described by several major institutions as the year this moves from pilot projects into production, with agents wired directly into core banking, CRM, fraud and compliance systems rather than tested in isolation.</p>
 
-    <h2>The part that should give you pause</h2>
+    <h2 id="the-part-that-should-give-you-pause">The part that should give you pause</h2>
 
     <p>Speed isn't the whole story. A 2025 EY review found that while most financial services firms disclose their use of AI to customers, controls in other areas lag behind: roughly 30% of the firms studied had limited or no controls to check their AI for bias. A separate industry study by Infosys found that only 2% of companies had what it considered adequate AI guardrails in place, and 95% of respondents had experienced at least one AI-related incident, ranging from privacy issues to outright inaccurate decisions.</p>
 
     <p>That gap between adoption speed and governance is exactly why regulators have started drawing firmer lines around where agentic AI is allowed to act on its own and where a human has to stay in the loop, particularly for anything that counts as a regulated credit decision.</p>
 
-    <h2>What it means if you're the one applying for a loan</h2>
+    <h2 id="what-it-means-if-you-re-the-one-applying-for-a-l">What it means if you're the one applying for a loan</h2>
 
     <p>For a borrower, the practical upside is real: faster eligibility checks, fewer branch visits, decisions that used to take a week now taking minutes. The thing worth asking any lender, digital or otherwise, is what happens when the automated decision gets something wrong. A well-run lender keeps a human reachable for exactly that scenario, with a defined escalation path rather than a support queue that goes nowhere. That's a fair question to ask before you accept any offer, automated or not.</p>
 
   </article>
-
-  <div class="article-cta reveal" data-r>
-    <p>Curious what a real, upfront loan offer looks like?</p>
-    <a href="https://play.google.com/store/apps/details?id=com.shantilekh.suvron&amp;hl=en_IN" class="btn btn-primary btn-sm">Check your eligibility in the app</a>
+    <div class="ar-cta pg-board pg-bolts"><i class="pg-ic" style="--ic:url(/assets/icons/ui-calculator.svg)" aria-hidden="true"></i><p>Want to know your real repayment before you download anything?</p><a class="pg-btn pg-btn--go" href="../../calculator/">Try the loan calculator <i class="pg-glyph" style="--ic:url(/assets/icons/ui-arrow-right.svg)" aria-hidden="true"></i></a></div>
   </div>
-
-  <section class="related" aria-labelledby="related-h">
-    <h2 id="related-h">Keep reading</h2>
-    <div class="blog-grid">
-      <a href="../gen-z-digital-loans-vs-banks/" class="blog-card">
-        <span class="blog-card-tag">Trends</span>
+</div>
+<section class="ar-related" aria-labelledby="related-h">
+  <div class="pg-wrap">
+    <div class="pg-head"><h2 id="related-h" class="pg-h2">Keep reading</h2></div>
+    <div class="bl-grid"><a class="bl-card pg-board pg-board--white pg-rise" href="../gen-z-digital-loans-vs-banks/" data-tag="Trends">
+        <span class="pg-chip pg-chip--tag">Trends</span>
         <h3>Why Gen Z would rather tap an app than walk into a bank</h3>
-        <p>Young Indians are entering the credit system faster than any generation before them, and almost none of them are doing it through a branch. The numbers behind the shift, and what's driving it.</p>
-        <div class="blog-card-meta">6 min read</div>
-        <span class="blog-card-link">Read the piece →</span>
-      </a>
-
-      <a href="../best-instant-loan-apps-india/" class="blog-card">
-        <span class="blog-card-tag">Comparison</span>
+        <p>Young Indians are entering the credit system faster than any generation before them, and almost none of them are doing it through a branch. The numbers behind the shift, and what&rsquo;s driving it.</p>
+        <span class="bl-card__foot"><span>6 min read</span><span class="bl-card__go">Read <i class="pg-glyph" style="--ic:url(/assets/icons/ui-arrow-right.svg)" aria-hidden="true"></i></span></span>
+      </a><a class="bl-card pg-board pg-board--white pg-rise" href="../best-instant-loan-apps-india/" data-tag="Comparison">
+        <span class="pg-chip pg-chip--tag">Comparison</span>
         <h3>Five instant loan apps Indians actually use, compared</h3>
         <p>Loan amounts, tenure, and what to check in the fine print before you download anything. A straight comparison of the apps that keep coming up when people search for quick cash.</p>
-        <div class="blog-card-meta">8 min read</div>
-        <span class="blog-card-link">Read the piece →</span>
-      </a>
-
-      <a href="../best-finance-apps-gen-z-2026/" class="blog-card">
-        <span class="blog-card-tag">Guide</span>
+        <span class="bl-card__foot"><span>8 min read</span><span class="bl-card__go">Read <i class="pg-glyph" style="--ic:url(/assets/icons/ui-arrow-right.svg)" aria-hidden="true"></i></span></span>
+      </a><a class="bl-card pg-board pg-board--white pg-rise" href="../best-finance-apps-gen-z-2026/" data-tag="Guide">
+        <span class="pg-chip pg-chip--tag">Guide</span>
         <h3>The money apps worth keeping on your phone in 2026</h3>
-        <p>Budgeting, investing, credit tracking and borrowing, sorted by what an Indian Gen Z user actually needs versus what's just noise on the app store.</p>
-        <div class="blog-card-meta">7 min read</div>
-        <span class="blog-card-link">Read the piece →</span>
-      </a>
-    </div>
-  </section>
-</div>
-
+        <p>Budgeting, investing, credit tracking and borrowing, sorted by what an Indian Gen Z user actually needs versus what&rsquo;s just noise on the app store.</p>
+        <span class="bl-card__foot"><span>7 min read</span><span class="bl-card__go">Read <i class="pg-glyph" style="--ic:url(/assets/icons/ui-arrow-right.svg)" aria-hidden="true"></i></span></span>
+      </a></div>
+  </div>
+</section>
 </main>
 
 
 
+<section class="pg-close" aria-labelledby="pg-close-h">
+  <div class="pg-wrap">
+    <div class="pg-close__board pg-board pg-bolts">
+      <div class="pg-close__copy">
+        <h2 id="pg-close-h" class="pg-close__title">Get the app and see <span class="paint">your offer.</span></h2>
+        <p class="pg-close__sub">Free on Google Play. Sign up in under three minutes, see the full cost, and only borrow if you accept.</p>
+        <div class="pg-actions"><a class="pg-btn pg-btn--go" href="https://play.google.com/store/apps/details?id=com.shantilekh.suvron&amp;hl=en_IN">Get the app on Google Play <i class="pg-glyph" style="--ic:url(/assets/icons/ui-arrow-right.svg)" aria-hidden="true"></i></a></div>
+        <p class="pg-close__rating"><img src="/assets/icons/google-play-icon.svg" alt="" width="20" height="20" loading="lazy"><span>Rated <b>4.3</b> from 249 reviews</span></p>
+      </div>
+      <div class="pg-close__ticket pg-board pg-board--white pg-bolts pg-tilt">
+        <img src="/assets/icons/play-qr.svg" alt="QR code that opens SUVRON Money on Google Play" width="172" height="172" loading="lazy">
+        <p>On a computer? Scan this with your phone to open the app on Google Play.</p>
+      </div>
+    </div>
+  </div>
+</section>
 <footer class="sv-foot">
   <div class="sv-foot__in">
     <div class="sv-cta"><h2>Get the app and see your offer</h2><a class="sv-btn" href="https://play.google.com/store/apps/details?id=com.shantilekh.suvron&amp;hl=en_IN">Get the app</a></div>
@@ -290,5 +300,6 @@
 <script src="/forms.js?v=9"></script>
 <script src="/site.js?v=6"></script>
 
+<script src="/pages.js?v=1" defer></script>
 </body>
 </html>

@@ -34,6 +34,7 @@
 <link rel="stylesheet" href="/theme.css?v=35">
 <link rel="preload" href="/fonts/yatra-one-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/site-shell.css?v=3">
+<link rel="stylesheet" href="/pages.css?v=1">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -186,7 +187,7 @@
 }
 </script>
 </head>
-<body class="inner">
+<body class="inner pg">
 <a class="skip-link" href="#main">Skip to main content</a>
 <header class="sv-nav">
   <div class="sv-nav__bar">
@@ -213,108 +214,79 @@
 <!-- ===================== HEADER ===================== -->
 
 
-<main id="main" tabindex="-1" class="page">
-
-<!-- ===================== HERO ===================== -->
-<div class="page-hero blog-hero dotgrid">
-  <div class="wrap">
-    <h1>Money, lending and the rules that shape both</h1>
-    <p class="lead">Short reads on how borrowing in India actually works, written for people who'd rather understand a loan than just take one.</p>
-  </div>
-</div>
-
-<!-- ===================== GALLERY ===================== -->
-<section style="padding-top:0;">
-  <div class="wrap">
-    <div class="blog-gallery-wrap reveal" data-r>
-      <div class="blog-gallery" id="blogGallery">
-
-        <div class="gallery-slide">
-          <h2>Rules that shape lending</h2>
-          <p>How RBI policy quietly changes what apps like this can offer you.</p>
-        </div>
-
-        <div class="gallery-slide">
-          <h2>How Gen Z borrows</h2>
-          <p>Why tapping a screen has quietly replaced walking into a branch.</p>
-        </div>
-
-        <div class="gallery-slide">
-          <h2>Compare before you download</h2>
-          <p>What actually differs between the instant loan apps everyone talks about.</p>
-        </div>
-
-        <div class="gallery-slide">
-          <h2>AI behind the scenes</h2>
-          <p>The software quietly deciding on loans before a human ever looks.</p>
-        </div>
-
-        <div class="gallery-slide">
-          <h2>Apps worth keeping</h2>
-          <p>The money tools that earn their spot on a phone in 2026, and the ones that don't.</p>
-        </div>
-
-      </div>
-      <div class="gallery-dots" id="galleryDots"></div>
+<main id="main" tabindex="-1" class="pgm">
+<section class="pg-hero" style="padding-bottom:clamp(36px,4vw,56px)">
+  <div class="pg-wrap">
+    <div class="pg-hero__text" style="max-width:860px">
+      <span class="pg-eyebrow">The SUVRON Money blog</span>
+      <h1 class="pg-h1">Money, lending and the rules <span class="paint paint--ink">that shape both.</span></h1>
+      <p class="pg-lead">Short reads on how borrowing in India actually works, written for people who&rsquo;d rather understand a loan than just take one.</p>
     </div>
   </div>
 </section>
-
-<!-- ===================== POSTS ===================== -->
-<section>
-  <div class="wrap">
-    <div class="blog-grid reveal" data-r>
-
-      <a href="rbi-microfinance-rule-change/" class="blog-card">
-        <span class="blog-card-tag">Regulation</span>
-        <h3>The RBI just handed small lenders more room to say yes</h3>
-        <p>A June rule change quietly loosened one of the tightest constraints on microfinance lending in India. Here's what actually shifted, and why it matters if you've ever been turned down for a small loan.</p>
-        <div class="blog-card-meta">7 min read</div>
-        <span class="blog-card-link">Read the piece →</span>
+<section style="padding-bottom:clamp(48px,6vw,80px)" aria-label="Articles">
+  <div class="pg-wrap">
+    <div class="bl-filter" role="group" aria-label="Filter by topic">
+      <button type="button" aria-pressed="true" data-filter="all">All</button>
+      <button type="button" aria-pressed="false" data-filter="Regulation">Regulation</button><button type="button" aria-pressed="false" data-filter="Fintech">Fintech</button><button type="button" aria-pressed="false" data-filter="Trends">Trends</button><button type="button" aria-pressed="false" data-filter="Comparison">Comparison</button><button type="button" aria-pressed="false" data-filter="Guide">Guide</button>
+    </div>
+    <div class="bl-grid" id="blogGrid">
+      <a class="bl-card bl-card--lead pg-board pg-bolts" href="rbi-microfinance-rule-change/" data-tag="Regulation">
+        <div class="bl-card__main">
+          <span class="pg-chip pg-chip--tag" style="width:fit-content">Latest &middot; Regulation</span>
+          <h3>The RBI just handed small lenders more room to say yes</h3>
+          <p>A June rule change quietly loosened one of the tightest constraints on microfinance lending in India. Here&rsquo;s what actually shifted, and why it matters if you&rsquo;ve ever been turned down for a small loan.</p>
+          <span class="bl-card__foot"><span>7 min read</span><span class="bl-card__go">Read the piece <i class="pg-glyph" style="--ic:url(/assets/icons/ui-arrow-right.svg)" aria-hidden="true"></i></span></span>
+        </div>
+        <div class="bl-lead-art" aria-hidden="true"><div class="bl-badge"><span><small>Reading time</small><b>7</b><small>minutes</small></span></div></div>
       </a>
-
-      <a href="ai-agents-in-banking/" class="blog-card">
-        <span class="blog-card-tag">Fintech</span>
+      <a class="bl-card pg-board pg-board--white pg-rise" href="ai-agents-in-banking/" data-tag="Fintech">
+        <span class="pg-chip pg-chip--tag">Fintech</span>
         <h3>Your bank is quietly hiring an AI coworker</h3>
         <p>Banking automation used to mean chatbots answering FAQs. In 2026 it means software that pulls your credit file, checks it against policy and decides on your loan, no human in the loop until something looks off.</p>
-        <div class="blog-card-meta">6 min read</div>
-        <span class="blog-card-link">Read the piece →</span>
-      </a>
-
-      <a href="gen-z-digital-loans-vs-banks/" class="blog-card">
-        <span class="blog-card-tag">Trends</span>
+        <span class="bl-card__foot"><span>6 min read</span><span class="bl-card__go">Read <i class="pg-glyph" style="--ic:url(/assets/icons/ui-arrow-right.svg)" aria-hidden="true"></i></span></span>
+      </a><a class="bl-card pg-board pg-board--white pg-rise" href="gen-z-digital-loans-vs-banks/" data-tag="Trends">
+        <span class="pg-chip pg-chip--tag">Trends</span>
         <h3>Why Gen Z would rather tap an app than walk into a bank</h3>
-        <p>Young Indians are entering the credit system faster than any generation before them, and almost none of them are doing it through a branch. The numbers behind the shift, and what's driving it.</p>
-        <div class="blog-card-meta">6 min read</div>
-        <span class="blog-card-link">Read the piece →</span>
-      </a>
-
-      <a href="best-instant-loan-apps-india/" class="blog-card">
-        <span class="blog-card-tag">Comparison</span>
+        <p>Young Indians are entering the credit system faster than any generation before them, and almost none of them are doing it through a branch. The numbers behind the shift, and what&rsquo;s driving it.</p>
+        <span class="bl-card__foot"><span>6 min read</span><span class="bl-card__go">Read <i class="pg-glyph" style="--ic:url(/assets/icons/ui-arrow-right.svg)" aria-hidden="true"></i></span></span>
+      </a><a class="bl-card pg-board pg-board--white pg-rise" href="best-instant-loan-apps-india/" data-tag="Comparison">
+        <span class="pg-chip pg-chip--tag">Comparison</span>
         <h3>Five instant loan apps Indians actually use, compared</h3>
         <p>Loan amounts, tenure, and what to check in the fine print before you download anything. A straight comparison of the apps that keep coming up when people search for quick cash.</p>
-        <div class="blog-card-meta">8 min read</div>
-        <span class="blog-card-link">Read the piece →</span>
-      </a>
-
-      <a href="best-finance-apps-gen-z-2026/" class="blog-card">
-        <span class="blog-card-tag">Guide</span>
+        <span class="bl-card__foot"><span>8 min read</span><span class="bl-card__go">Read <i class="pg-glyph" style="--ic:url(/assets/icons/ui-arrow-right.svg)" aria-hidden="true"></i></span></span>
+      </a><a class="bl-card pg-board pg-board--white pg-rise" href="best-finance-apps-gen-z-2026/" data-tag="Guide">
+        <span class="pg-chip pg-chip--tag">Guide</span>
         <h3>The money apps worth keeping on your phone in 2026</h3>
-        <p>Budgeting, investing, credit tracking and borrowing, sorted by what an Indian Gen Z user actually needs versus what's just noise on the app store.</p>
-        <div class="blog-card-meta">7 min read</div>
-        <span class="blog-card-link">Read the piece →</span>
+        <p>Budgeting, investing, credit tracking and borrowing, sorted by what an Indian Gen Z user actually needs versus what&rsquo;s just noise on the app store.</p>
+        <span class="bl-card__foot"><span>7 min read</span><span class="bl-card__go">Read <i class="pg-glyph" style="--ic:url(/assets/icons/ui-arrow-right.svg)" aria-hidden="true"></i></span></span>
       </a>
-
+      <p class="bl-empty" hidden>No pieces in this topic yet.</p>
     </div>
   </div>
 </section>
-
 </main>
 
 <!-- ===================== FOOTER ===================== -->
 
 
 <!-- ===================== STICKY BOTTOM BAR ===================== -->
+<section class="pg-close" aria-labelledby="pg-close-h">
+  <div class="pg-wrap">
+    <div class="pg-close__board pg-board pg-bolts">
+      <div class="pg-close__copy">
+        <h2 id="pg-close-h" class="pg-close__title">Get the app and see <span class="paint">your offer.</span></h2>
+        <p class="pg-close__sub">Free on Google Play. Sign up in under three minutes, see the full cost, and only borrow if you accept.</p>
+        <div class="pg-actions"><a class="pg-btn pg-btn--go" href="https://play.google.com/store/apps/details?id=com.shantilekh.suvron&amp;hl=en_IN">Get the app on Google Play <i class="pg-glyph" style="--ic:url(/assets/icons/ui-arrow-right.svg)" aria-hidden="true"></i></a></div>
+        <p class="pg-close__rating"><img src="/assets/icons/google-play-icon.svg" alt="" width="20" height="20" loading="lazy"><span>Rated <b>4.3</b> from 249 reviews</span></p>
+      </div>
+      <div class="pg-close__ticket pg-board pg-board--white pg-bolts pg-tilt">
+        <img src="/assets/icons/play-qr.svg" alt="QR code that opens SUVRON Money on Google Play" width="172" height="172" loading="lazy">
+        <p>On a computer? Scan this with your phone to open the app on Google Play.</p>
+      </div>
+    </div>
+  </div>
+</section>
 <footer class="sv-foot">
   <div class="sv-foot__in">
     <div class="sv-cta"><h2>Get the app and see your offer</h2><a class="sv-btn" href="https://play.google.com/store/apps/details?id=com.shantilekh.suvron&amp;hl=en_IN">Get the app</a></div>
@@ -336,5 +308,6 @@
 <script src="/forms.js?v=9"></script>
 <script src="/site.js?v=6"></script>
 
+<script src="/pages.js?v=1" defer></script>
 </body>
 </html>

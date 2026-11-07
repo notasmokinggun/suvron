@@ -34,6 +34,7 @@
 <link rel="stylesheet" href="/theme.css?v=35">
 <link rel="preload" href="/fonts/yatra-one-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/site-shell.css?v=3">
+<link rel="stylesheet" href="/pages.css?v=1">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -144,7 +145,7 @@
 }
 </script>
 </head>
-<body class="inner">
+<body class="inner pg">
 <a class="skip-link" href="#main">Skip to main content</a>
 <header class="sv-nav">
   <div class="sv-nav__bar">
@@ -171,66 +172,89 @@
 <!-- ===================== HEADER ===================== -->
 
 
-<main id="main" tabindex="-1" class="page">
-
-<div class="page-hero dotgrid">
-  <div class="wrap">
-    <h1>We're easier to reach than most lenders</h1>
-    
-  </div>
-</div>
-
-<div class="wrap">
-  <div class="prose" style="max-width:900px;">
-    <p style="max-width:560px;">Whether you're a customer with a question about a loan, a partner exploring something with us, or just curious how SUVRON Money works, someone will actually read what you send.</p>
-
-    <div class="contact-cards">
-      <div class="contact-card">
-        <h2>General &amp; partnerships</h2>
-        <p>Inquiries or partnership opportunities</p>
-        <a href="mailto:contact@suvron.in">contact@suvron.in</a>
+<main id="main" tabindex="-1" class="pgm">
+<section class="pg-hero">
+  <div class="pg-wrap pg-hero__grid">
+    <div class="pg-hero__text">
+      <span class="pg-eyebrow">Contact</span>
+      <h1 class="pg-h1">We&rsquo;re easier to reach than <span class="paint paint--ink">most lenders.</span></h1>
+      <p class="pg-lead">Whether you&rsquo;re a customer with a question about a loan, a partner exploring something with us, or just curious how SUVRON Money works, someone will actually read what you send.</p>
+      <div class="pg-actions"><a class="pg-btn pg-btn--go" href="#write">Write to us <i class="pg-glyph" style="--ic:url(/assets/icons/ui-arrow-right.svg)" aria-hidden="true"></i></a></div>
+    </div>
+    <div class="ct-lines">
+      <div class="ct-line pg-board pg-board--white pg-rise"><i class="pg-ic pg-ic--ink" style="--ic:url(/assets/icons/ui-headset.svg)" aria-hidden="true"></i>
+        <p class="ct-line__who">Customer support</p>
+        <p class="ct-line__addr"><a href="mailto:support@suvron.in">support@suvron.in</a></p>
+        <p class="ct-line__for">Questions about an existing loan or your account</p>
+        <button class="ct-copy" type="button" data-copy="support@suvron.in"><i class="pg-glyph" style="--ic:url(/assets/icons/ui-copy.svg)" aria-hidden="true"></i><span>Copy</span></button>
       </div>
-      <div class="contact-card">
-        <h2>Customer support</h2>
-        <p>Questions about an existing loan or your account</p>
-        <a href="mailto:support@suvron.in">support@suvron.in</a>
+      <div class="ct-line pg-board pg-board--white pg-rise"><i class="pg-ic pg-ic--ink" style="--ic:url(/assets/icons/ui-briefcase.svg)" aria-hidden="true"></i>
+        <p class="ct-line__who">General and partnerships</p>
+        <p class="ct-line__addr"><a href="mailto:contact@suvron.in">contact@suvron.in</a></p>
+        <p class="ct-line__for">Inquiries or partnership opportunities</p>
+        <button class="ct-copy" type="button" data-copy="contact@suvron.in"><i class="pg-glyph" style="--ic:url(/assets/icons/ui-copy.svg)" aria-hidden="true"></i><span>Copy</span></button>
       </div>
-      <div class="contact-card">
-        <h2>Grievance officer</h2>
-        <p>Unresolved issues that need escalation</p>
-        <a href="mailto:gro@suvron.in">gro@suvron.in</a> · <a href="tel:+919971373543">9971373543</a>
+      <div class="ct-line ct-line--gro pg-board pg-rise"><i class="pg-ic" style="--ic:url(/assets/icons/ui-user-check.svg)" aria-hidden="true"></i>
+        <p class="ct-line__who">Grievance officer</p>
+        <p class="ct-line__addr"><a href="mailto:gro@suvron.in">gro@suvron.in</a><a href="tel:+919971373543">9971373543</a></p>
+        <p class="ct-line__for">Unresolved issues that need escalation</p>
+        <button class="ct-copy" type="button" data-copy="gro@suvron.in"><i class="pg-glyph" style="--ic:url(/assets/icons/ui-copy.svg)" aria-hidden="true"></i><span>Copy</span></button>
       </div>
     </div>
+  </div>
+</section>
 
-    <h2 style="margin-top:56px;">Or send a message directly</h2>
-    <p style="max-width:480px;">Write to us here and it lands straight in our inbox. We reply to the email address you give us.</p>
-
-    <form id="contactForm" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+<section class="pg-sec pg-sec--surface" id="write" aria-labelledby="write-h">
+  <div class="pg-wrap ct-form-grid">
+    <div class="pg-head" style="margin-bottom:0">
+      <h2 id="write-h" class="pg-h2">Or send a message directly</h2>
+      <p class="pg-lead">Write to us here and it lands straight in our inbox. We reply to the email address you give us.</p>
+      <ol class="ct-next">
+        <li><span><b>You write</b>Tell us what it&rsquo;s about. Add your loan details if it&rsquo;s about an existing loan.</span></li>
+        <li><span><b>A person reads it</b>Someone on the team replies to the email address you give us.</span></li>
+        <li><span><b>Still not sorted?</b>Escalate to our grievance officer at gro@suvron.in.</span></li>
+      </ol>
+    </div>
+    <form id="contactForm" class="ct-form contact-form pg-board pg-board--white pg-bolts" action="https://api.web3forms.com/submit" method="POST">
       <!-- Web3Forms access key for contact@suvron.in (public by design, per Web3Forms' docs). If it's ever removed, the form falls back to opening a pre-written email. -->
       <input type="hidden" name="access_key" value="8665edea-c2f3-4f27-9a4a-5509142ead0d">
       <input type="hidden" name="from_name" value="SUVRON Money website">
       <input type="hidden" name="redirect" value="https://suvron.in/contact/?sent=1#contactForm">
-      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <div class="contact-form-row">
-        <label class="fld"><span>Your name</span><input type="text" name="name" autocomplete="name" maxlength="100" required></label>
-        <label class="fld"><span>Your email</span><input type="email" name="email" autocomplete="email" maxlength="200" required></label>
+      <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+      <div class="row">
+        <label class="ct-fld fld"><span>Your name</span><input type="text" name="name" autocomplete="name" maxlength="100" required></label>
+        <label class="ct-fld fld"><span>Your email</span><input type="email" name="email" autocomplete="email" maxlength="200" required></label>
       </div>
-      <label class="fld"><span>Subject</span><input type="text" name="subject" maxlength="150" required></label>
-      <label class="fld"><span>Message</span><textarea name="message" rows="6" maxlength="4000" required></textarea></label>
-      <button type="submit" class="btn btn-primary">Send message</button>
+      <label class="ct-fld fld"><span>Subject</span><input type="text" name="subject" maxlength="150" required></label>
+      <label class="ct-fld fld"><span>Message</span><textarea name="message" rows="6" maxlength="4000" required></textarea></label>
+      <button type="submit" class="pg-btn pg-btn--go">Send message <i class="pg-glyph" style="--ic:url(/assets/icons/ui-send.svg)" aria-hidden="true"></i></button>
       <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
+      <p class="ct-foot">For the full escalation process and response timelines, see our <a href="/grievance-redressal/">grievance redressal page</a>.</p>
     </form>
-
-    <p>For the full escalation process and response timelines, see our <a href="../grievance-redressal/">grievance redressal page</a>.</p>
   </div>
-</div>
-
+</section>
 </main>
 
 <!-- ===================== FOOTER ===================== -->
 
 
 <!-- ===================== STICKY BOTTOM BAR ===================== -->
+<section class="pg-close" aria-labelledby="pg-close-h">
+  <div class="pg-wrap">
+    <div class="pg-close__board pg-board pg-bolts">
+      <div class="pg-close__copy">
+        <h2 id="pg-close-h" class="pg-close__title">Get the app and see <span class="paint">your offer.</span></h2>
+        <p class="pg-close__sub">Free on Google Play. Sign up in under three minutes, see the full cost, and only borrow if you accept.</p>
+        <div class="pg-actions"><a class="pg-btn pg-btn--go" href="https://play.google.com/store/apps/details?id=com.shantilekh.suvron&amp;hl=en_IN">Get the app on Google Play <i class="pg-glyph" style="--ic:url(/assets/icons/ui-arrow-right.svg)" aria-hidden="true"></i></a></div>
+        <p class="pg-close__rating"><img src="/assets/icons/google-play-icon.svg" alt="" width="20" height="20" loading="lazy"><span>Rated <b>4.3</b> from 249 reviews</span></p>
+      </div>
+      <div class="pg-close__ticket pg-board pg-board--white pg-bolts pg-tilt">
+        <img src="/assets/icons/play-qr.svg" alt="QR code that opens SUVRON Money on Google Play" width="172" height="172" loading="lazy">
+        <p>On a computer? Scan this with your phone to open the app on Google Play.</p>
+      </div>
+    </div>
+  </div>
+</section>
 <footer class="sv-foot">
   <div class="sv-foot__in">
     <div class="sv-cta"><h2>Get the app and see your offer</h2><a class="sv-btn" href="https://play.google.com/store/apps/details?id=com.shantilekh.suvron&amp;hl=en_IN">Get the app</a></div>
@@ -252,5 +276,6 @@
 <script src="/forms.js?v=9"></script>
 <script src="/site.js?v=6"></script>
 
+<script src="/pages.js?v=1" defer></script>
 </body>
 </html>

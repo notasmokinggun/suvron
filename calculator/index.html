@@ -34,6 +34,7 @@
 <link rel="stylesheet" href="/theme.css?v=35">
 <link rel="preload" href="/fonts/yatra-one-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/site-shell.css?v=3">
+<link rel="stylesheet" href="/pages.css?v=1">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -157,7 +158,7 @@
 }
 </script>
 </head>
-<body class="inner">
+<body class="inner pg">
 <a class="skip-link" href="#main">Skip to main content</a>
 <header class="sv-nav">
   <div class="sv-nav__bar">
@@ -184,95 +185,92 @@
 <!-- ===================== HEADER ===================== -->
 
 
-<main id="main" tabindex="-1" class="page">
-
-<!-- ===================== HERO ===================== -->
-<div class="page-hero dotgrid">
-  <div class="wrap">
-    <h1>Know your repayment before you apply</h1>
-    <p class="lead">Enter an amount, a rate and a tenure to see exactly what a loan would cost, in simple or compound interest. Your actual SUVRON Money offer is always shown to you in full before you accept it.</p>
-  </div>
-</div>
-
-<!-- ===================== CALCULATOR ===================== -->
-<section>
-  <div class="wrap">
-    <div class="calc-shell reveal" data-r>
-
-      <div class="calc-panel">
-        <div class="calc-toggle" role="tablist" aria-label="Interest type">
-          <button type="button" class="calc-toggle-btn active" id="tabSimple" role="tab" aria-selected="true">Simple interest</button>
-          <button type="button" class="calc-toggle-btn" id="tabCompound" role="tab" aria-selected="false">Compound interest</button>
-        </div>
-
-        <div class="calc-field">
-          <div class="calc-field-head">
-            <label for="principal">Loan amount (principal)</label>
-            <span class="calc-field-val"><span class="num" id="principalVal">₹5,000</span></span>
-          </div>
-          <input type="range" id="principal" min="2000" max="50000" step="500" value="5000">
-        </div>
-
-        <div class="calc-field">
-          <div class="calc-field-head">
-            <label for="rate">Annual interest rate</label>
-            <span class="calc-field-val"><span class="num" id="rateVal">36%</span></span>
-          </div>
-          <input type="range" id="rate" min="10" max="36" step="1" value="36">
-        </div>
-
-        <div class="calc-field">
-          <div class="calc-field-head">
-            <label for="tenure">Tenure</label>
-            <span class="calc-field-val"><span class="num" id="tenureVal">90 days</span></span>
-          </div>
-          <input type="range" id="tenure" min="60" max="180" step="1" value="90">
-        </div>
-
-        <div class="calc-field" id="compoundFreqWrap" style="display:none;">
-          <div class="calc-field-head">
-            <label for="freq">Compounded</label>
-          </div>
-          <select id="freq" class="calc-select">
-            <option value="12">Monthly</option>
-            <option value="4">Quarterly</option>
-            <option value="365">Daily</option>
-          </select>
-        </div>
-
-        <p class="calc-note">This tool is for illustration only. Your real SUVRON Money rate, tenure and total cost are shown in your Key Fact Statement before you accept any offer, and can vary by NBFC lending partner.</p>
-      </div>
-
-      <div class="calc-result">
-        <div class="calc-result-card">
-          <div class="calc-result-lbl">Total repayment</div>
-          <div class="calc-result-amt num" id="resultTotal">₹5,444</div>
-          <div class="calc-result-row">
-            <span>Principal</span>
-            <span class="num" id="resultPrincipal">₹5,000</span>
-          </div>
-          <div class="calc-result-row">
-            <span>Interest payable</span>
-            <span class="num" id="resultInterest">₹444</span>
-          </div>
-          <div class="calc-result-row calc-result-row-total">
-            <span>Effective cost</span>
-            <span class="num" id="resultEffective">8.9% of principal</span>
-          </div>
-          <a href="https://play.google.com/store/apps/details?id=com.shantilekh.suvron&amp;hl=en_IN" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:22px;">See your real offer in the app</a>
-        </div>
-      </div>
-
+<main id="main" tabindex="-1" class="pgm">
+<section class="pg-hero" style="padding-bottom:clamp(40px,5vw,64px)">
+  <div class="pg-wrap">
+    <div class="pg-hero__text" style="max-width:820px">
+      <span class="pg-eyebrow">Loan calculator</span>
+      <h1 class="pg-h1">Know your repayment <span class="paint paint--ink">before you apply.</span></h1>
+      <p class="pg-lead">Enter an amount, a rate and a tenure to see what a loan would cost, in simple or compound interest. Your actual SUVRON Money offer is always shown to you in full before you accept it.</p>
     </div>
   </div>
 </section>
-
+<section style="padding-bottom:clamp(48px,6vw,80px)" aria-label="Calculator">
+  <div class="pg-wrap">
+    <div class="cl-board">
+      <div class="cl-panel pg-board pg-board--white pg-bolts">
+        <div class="cl-tabs" role="tablist" aria-label="Interest type">
+          <button type="button" class="active" id="tabSimple" role="tab" aria-selected="true">Simple interest</button>
+          <button type="button" id="tabCompound" role="tab" aria-selected="false">Compound interest</button>
+        </div>
+        <div class="cl-field">
+          <div class="cl-field__head"><label for="principal">Loan amount</label><span class="cl-val" id="principalVal">&#8377;5,000</span></div>
+          <input type="range" id="principal" min="2000" max="50000" step="500" value="5000">
+          <div class="cl-quick" data-for="principal"><button type="button" data-set="5000">&#8377;5,000</button><button type="button" data-set="10000">&#8377;10,000</button><button type="button" data-set="25000">&#8377;25,000</button><button type="button" data-set="50000">&#8377;50,000</button></div>
+        </div>
+        <div class="cl-field">
+          <div class="cl-field__head"><label for="rate">Annual interest rate</label><span class="cl-val" id="rateVal">36%</span></div>
+          <input type="range" id="rate" min="10" max="36" step="1" value="36">
+          <div class="cl-scale"><span>10%</span><span>36%</span></div>
+        </div>
+        <div class="cl-field">
+          <div class="cl-field__head"><label for="tenure">Tenure</label><span class="cl-val" id="tenureVal">90 days</span></div>
+          <input type="range" id="tenure" min="30" max="180" step="1" value="90">
+          <div class="cl-quick" data-for="tenure"><button type="button" data-set="30">30 days</button><button type="button" data-set="60">60 days</button><button type="button" data-set="90">90 days</button><button type="button" data-set="180">180 days</button></div>
+        </div>
+        <div class="cl-field" id="compoundFreqWrap" style="display:none;">
+          <div class="cl-field__head"><label for="freq">Compounded</label></div>
+          <select id="freq" class="cl-select"><option value="12">Monthly</option><option value="4">Quarterly</option><option value="365">Daily</option></select>
+        </div>
+        <p class="cl-note">This tool is for illustration only. Your real SUVRON Money rate, tenure and total cost are shown in your Key Fact Statement before you accept any offer, and can vary by NBFC lending partner.</p>
+      </div>
+      <div class="cl-result pg-board pg-bolts" aria-live="polite">
+        <p class="cl-result__lbl">Total repayment</p>
+        <p class="cl-total" id="resultTotal">&#8377;5,444</p>
+        <div class="cl-bar" aria-hidden="true"><i class="cl-bar__p"></i><i class="cl-bar__i"></i></div>
+        <div class="cl-legend" aria-hidden="true"><span>Principal</span><span>Interest</span></div>
+        <div class="cl-rows">
+          <div class="cl-row"><span>Principal</span><b id="resultPrincipal">&#8377;5,000</b></div>
+          <div class="cl-row"><span>Interest payable</span><b id="resultInterest">&#8377;444</b></div>
+          <div class="cl-row"><span>Effective cost</span><b id="resultEffective">8.9% of principal</b></div>
+        </div>
+        <a class="pg-btn pg-btn--go" href="https://play.google.com/store/apps/details?id=com.shantilekh.suvron&amp;hl=en_IN">See your real offer in the app <i class="pg-glyph" style="--ic:url(/assets/icons/ui-arrow-right.svg)" aria-hidden="true"></i></a>
+      </div>
+    </div>
+    <details class="pg-more cl-how">
+      <summary>How this is worked out</summary>
+      <div class="pg-more__body">
+        <div class="cl-formula">
+          <div><b>Simple interest</b><code>Interest = amount &times; rate &times; days &divide; 365</code></div>
+          <div><b>Compound interest</b><code>Total = amount &times; (1 + rate &divide; n)<sup>n &times; days &divide; 365</sup></code><span>n is how often interest compounds in a year: 12, 4 or 365.</span></div>
+        </div>
+        <p>The rate here is interest only. Your real offer also lists any fees, and the APR in your Key Fact Statement includes interest and all fees together (10% to 120% a year on SUVRON Money, depending on tenure, amount and your credit assessment).</p>
+      </div>
+    </details>
+  </div>
+</section>
 </main>
 
 <!-- ===================== FOOTER ===================== -->
 
 
 <!-- ===================== STICKY BOTTOM BAR ===================== -->
+<section class="pg-close" aria-labelledby="pg-close-h">
+  <div class="pg-wrap">
+    <div class="pg-close__board pg-board pg-bolts">
+      <div class="pg-close__copy">
+        <h2 id="pg-close-h" class="pg-close__title">Get the app and see <span class="paint">your offer.</span></h2>
+        <p class="pg-close__sub">Free on Google Play. Sign up in under three minutes, see the full cost, and only borrow if you accept.</p>
+        <div class="pg-actions"><a class="pg-btn pg-btn--go" href="https://play.google.com/store/apps/details?id=com.shantilekh.suvron&amp;hl=en_IN">Get the app on Google Play <i class="pg-glyph" style="--ic:url(/assets/icons/ui-arrow-right.svg)" aria-hidden="true"></i></a></div>
+        <p class="pg-close__rating"><img src="/assets/icons/google-play-icon.svg" alt="" width="20" height="20" loading="lazy"><span>Rated <b>4.3</b> from 249 reviews</span></p>
+      </div>
+      <div class="pg-close__ticket pg-board pg-board--white pg-bolts pg-tilt">
+        <img src="/assets/icons/play-qr.svg" alt="QR code that opens SUVRON Money on Google Play" width="172" height="172" loading="lazy">
+        <p>On a computer? Scan this with your phone to open the app on Google Play.</p>
+      </div>
+    </div>
+  </div>
+</section>
 <footer class="sv-foot">
   <div class="sv-foot__in">
     <div class="sv-cta"><h2>Get the app and see your offer</h2><a class="sv-btn" href="https://play.google.com/store/apps/details?id=com.shantilekh.suvron&amp;hl=en_IN">Get the app</a></div>
@@ -295,5 +293,6 @@
 <script src="/site.js?v=6"></script>
 <script src="./calculator.js"></script>
 
+<script src="/pages.js?v=1" defer></script>
 </body>
 </html>

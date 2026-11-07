@@ -32,9 +32,10 @@
 <link rel="stylesheet" href="/theme.css?v=35">
 <link rel="preload" href="/fonts/yatra-one-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/site-shell.css?v=3">
+<link rel="stylesheet" href="/pages.css?v=1">
 
 </head>
-<body class="inner">
+<body class="inner pg">
 <a class="skip-link" href="#main">Skip to main content</a>
 <header class="sv-nav">
   <div class="sv-nav__bar">
@@ -61,29 +62,52 @@
 <!-- ===================== HEADER ===================== -->
 
 
-<main id="main" tabindex="-1" class="page nf">
-<section class="nf-hero"><div class="wrap">
-<p class="nf-code" aria-hidden="true">4<span class="nf-ring"><svg viewBox="0 0 100 100"><circle class="trk" cx="50" cy="50" r="42"/><circle class="arc" cx="50" cy="50" r="42" pathLength="1" transform="rotate(-90 50 50)"/></svg></span>4</p>
-<h1>This page fell through the gap.</h1>
-<p class="lead">The link may be old, or there's a typo in the address. Nothing's broken on your side, this page just isn't here.</p>
-<div class="hero-ctas"><a class="btn btn-primary" href="/">Back to home</a><a class="btn btn-ghost" href="/contact/">Tell us what broke</a></div>
-</div></section>
-<section class="nf-next"><div class="wrap">
-<h2>Where people usually head next</h2>
-<ul class="nf-list">
-<li><a href="/#slip"><b>Try a loan before you apply</b><span>Pick an amount and a tenure and see the full cost</span><svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
-<li><a href="/calculator/"><b>Loan calculator</b><span>Simple or compound interest, worked out for you</span><svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
-<li><a href="/#faq"><b>Questions people ask us</b><span>Eligibility, costs, disbursal and late payments</span><svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
-<li><a href="/blog/"><b>Read the blog</b><span>How borrowing in India actually works</span><svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
-<li><a href="/contact/"><b>Contact us</b><span>A real person reads every message</span><svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></li>
-</ul>
-</div></section>
+<main id="main" tabindex="-1" class="pgm">
+<section class="pg-hero">
+  <div class="pg-wrap">
+    <div class="nf-board pg-board pg-bolts">
+      <p class="nf-big" aria-hidden="true">4<svg class="ring" viewBox="0 0 100 100"><circle class="trk" cx="50" cy="50" r="40"/><circle class="arc" cx="50" cy="50" r="40" pathLength="1" transform="rotate(-90 50 50)"/></svg>4</p>
+      <div class="nf-board__copy">
+        <h1>This page fell <span class="paint">through the gap.</span></h1>
+        <p>The link may be old, or there&rsquo;s a typo in the address. Nothing&rsquo;s broken on your side, this page just isn&rsquo;t here.</p>
+        <div class="pg-actions"><a class="pg-btn pg-btn--go" href="/">Back to home <i class="pg-glyph" style="--ic:url(/assets/icons/ui-arrow-right.svg)" aria-hidden="true"></i></a><a class="pg-btn pg-btn--line" href="/contact/">Tell us what broke</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="pg-sec" style="padding-top:0" aria-labelledby="nf-next-h">
+  <div class="pg-wrap">
+    <div class="pg-head"><h2 id="nf-next-h" class="pg-h2">Where people usually head next</h2></div>
+    <ul class="nf-go" role="list">
+      <li><a class="pg-board pg-board--white pg-rise" href="/#pricing"><i class="pg-ic pg-ic--ink" style="--ic:url(/assets/icons/ui-badge-indian-rupee.svg)" aria-hidden="true"></i><b>See the rates</b><span>Every cost, with a worked example</span><i class="pg-glyph" style="--ic:url(/assets/icons/ui-arrow-right.svg)" aria-hidden="true"></i></a></li>
+      <li><a class="pg-board pg-board--white pg-rise" href="/calculator/"><i class="pg-ic pg-ic--ink" style="--ic:url(/assets/icons/ui-calculator.svg)" aria-hidden="true"></i><b>Loan calculator</b><span>Simple or compound interest, worked out for you</span><i class="pg-glyph" style="--ic:url(/assets/icons/ui-arrow-right.svg)" aria-hidden="true"></i></a></li>
+      <li><a class="pg-board pg-board--white pg-rise" href="/#questions"><i class="pg-ic pg-ic--ink" style="--ic:url(/assets/icons/ui-message-square.svg)" aria-hidden="true"></i><b>Questions people ask us</b><span>Eligibility, costs, disbursal and late payments</span><i class="pg-glyph" style="--ic:url(/assets/icons/ui-arrow-right.svg)" aria-hidden="true"></i></a></li>
+      <li><a class="pg-board pg-board--white pg-rise" href="/blog/"><i class="pg-ic pg-ic--ink" style="--ic:url(/assets/icons/ui-book-open.svg)" aria-hidden="true"></i><b>Read the blog</b><span>How borrowing in India actually works</span><i class="pg-glyph" style="--ic:url(/assets/icons/ui-arrow-right.svg)" aria-hidden="true"></i></a></li>
+    </ul>
+  </div>
+</section>
 </main>
 
 <!-- ===================== FOOTER ===================== -->
 
 
 <!-- ===================== STICKY BOTTOM BAR ===================== -->
+<section class="pg-close" aria-labelledby="pg-close-h">
+  <div class="pg-wrap">
+    <div class="pg-close__board pg-board pg-bolts">
+      <div class="pg-close__copy">
+        <h2 id="pg-close-h" class="pg-close__title">Get the app and see <span class="paint">your offer.</span></h2>
+        <p class="pg-close__sub">Free on Google Play. Sign up in under three minutes, see the full cost, and only borrow if you accept.</p>
+        <div class="pg-actions"><a class="pg-btn pg-btn--go" href="https://play.google.com/store/apps/details?id=com.shantilekh.suvron&amp;hl=en_IN">Get the app on Google Play <i class="pg-glyph" style="--ic:url(/assets/icons/ui-arrow-right.svg)" aria-hidden="true"></i></a></div>
+        <p class="pg-close__rating"><img src="/assets/icons/google-play-icon.svg" alt="" width="20" height="20" loading="lazy"><span>Rated <b>4.3</b> from 249 reviews</span></p>
+      </div>
+      <div class="pg-close__ticket pg-board pg-board--white pg-bolts pg-tilt">
+        <img src="/assets/icons/play-qr.svg" alt="QR code that opens SUVRON Money on Google Play" width="172" height="172" loading="lazy">
+        <p>On a computer? Scan this with your phone to open the app on Google Play.</p>
+      </div>
+    </div>
+  </div>
+</section>
 <footer class="sv-foot">
   <div class="sv-foot__in">
     <div class="sv-cta"><h2>Get the app and see your offer</h2><a class="sv-btn" href="https://play.google.com/store/apps/details?id=com.shantilekh.suvron&amp;hl=en_IN">Get the app</a></div>
@@ -105,5 +129,6 @@
 <script src="/forms.js?v=9"></script>
 <script src="/site.js?v=6"></script>
 
+<script src="/pages.js?v=1" defer></script>
 </body>
 </html>
