@@ -505,3 +505,16 @@ body.pg { background: var(--bg); color: var(--ink); font-family: var(--text); }
 
 /* footer column titles are h3 on these pages (heading order), styled as before */
 .sv-cols h3.fh { font: 500 14px/1.3 "Manrope", sans-serif; color: #4b5672; margin: 0 0 12px; letter-spacing: 0; }
+
+/* about: the company card */
+.ab-co { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(28px, 4vw, 64px); align-items: center; }
+.ab-co__copy { display: grid; gap: 20px; }
+.ab-co__card { margin: 0; padding: clamp(24px, 3vw, 40px); display: grid; }
+.ab-co__card > div { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 16px; padding: 14px 0; border-top: 1px dashed var(--line); }
+.ab-co__card > div:first-child { border-top: 0; }
+.ab-co__card dt { font: 700 13px/1.4 var(--text); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.ab-co__card dd { margin: 0; font: 600 16px/1.45 var(--text); color: var(--ink); overflow-wrap: anywhere; }
+.ab-co__code { font-variant-numeric: tabular-nums; letter-spacing: .04em; font-weight: 800 !important; color: var(--enamel) !important; }
+.pg main.pgm .ab-co__card a { color: var(--enamel); font-weight: 700; }
+@media (max-width: 1023px) { .ab-co { grid-template-columns: 1fr; } }
+@media (max-width: 639px) { .ab-co__card { padding: 24px !important; } .ab-co__card > div { grid-template-columns: 1fr; gap: 4px; } }
