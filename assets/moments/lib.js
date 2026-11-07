@@ -95,7 +95,10 @@ export function once(el, fn, { threshold = 0.35, margin = '0px', rescue = 3000 }
 }
 
 export function split(el, unit = 'words') {
-  if (!el.getAttribute('aria-label')) el.setAttribute('aria-label', el.textContent.replace(/\s+/g, ' ').trim());
+  // whole words stay readable as they are; only a split into letters needs a label in their place
+  // (and only on elements that may carry one, so the label never lands on a plain paragraph)
+  const labelled = unit === 'chars';
+  if (labelled && !el.getAttribute('aria-label')) el.setAttribute('aria-label', el.textContent.replace(/\s+/g, ' ').trim());
   const inners = [];
   const wrap = (text, cls) => {
     const s = document.createElement('span');
@@ -126,7 +129,7 @@ export function split(el, unit = 'words') {
     });
   };
   walk(el);
-  el.querySelectorAll('.mo-w').forEach(w => w.setAttribute('aria-hidden', 'true'));
+  if (labelled) el.querySelectorAll('.mo-w').forEach(w => w.setAttribute('aria-hidden', 'true'));
   return inners;
 }
 

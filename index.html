@@ -197,7 +197,6 @@
 <link rel="stylesheet" href="assets/motion/motion.css">
 <link rel="stylesheet" href="assets/backgrounds/backgrounds.css">
 <link rel="stylesheet" href="assets/layout/layout.css">
-<link rel="stylesheet" href="assets/icons/icon.css">
 <style>
 @font-face { font-family: "Yatra One"; src: url("fonts/yatra-one-latin-400-normal.woff2") format("woff2"); font-weight: 400; font-display: swap; unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 @font-face { font-family: "Yatra One"; src: url("fonts/yatra-one-latin-ext-400-normal.woff2") format("woff2"); font-weight: 400; font-display: swap; unicode-range: U+20B9, U+0100-024F, U+1E00-1EFF; }
@@ -913,6 +912,7 @@ main > #steps.ch.is-live > .ch__stage, .ch.is-live > .ch__stage { position: stic
   .ch:not(.is-live) .ch__visual.step-board { aspect-ratio: 16 / 10; max-height: none; }
   main > #steps.ch:not(.is-live) { height: auto !important; min-height: 0 !important; padding-block: 96px; }
 }
+.footer h3.fh { font: 500 var(--t-small)/1.4 var(--font-text); letter-spacing: 0; color: var(--muted); margin: 0 0 var(--s-4); }
 </style>
 </head>
 <body>
@@ -1184,44 +1184,44 @@ main > #steps.ch.is-live > .ch__stage, .ch.is-live > .ch__stage { position: stic
         <h2 id="questions-h">Questions about the loan</h2>
         <p>Pick a question. The short answer is on the board.</p>
       </div>
-      <div class="qa" role="tablist" aria-label="Questions about the loan">
-          <button class="qa__q is-on" type="button" role="tab" id="qa-t0" aria-controls="qa-p0" aria-selected="true"><span>Can I apply without a credit history?</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-          <div class="qa__a board is-on" role="tabpanel" id="qa-p0" data-q="Can I apply without a credit history?" aria-labelledby="qa-t0">
+      <div class="qa" role="group" aria-label="Questions about the loan">
+          <button class="qa__q is-on" type="button" id="qa-t0" aria-controls="qa-p0" aria-expanded="true"><span>Can I apply without a credit history?</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="qa__a board is-on" role="region" id="qa-p0" data-q="Can I apply without a credit history?" aria-labelledby="qa-t0">
             <img class="qa__icon" src="assets/icons/ui-user.svg" alt="" width="40" height="40" loading="lazy">
             <p class="qa__big paint">Yes, you can.</p>
             <button class="qa__more" type="button" aria-expanded="false" aria-controls="qa-d0"><span>The details</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
             <div class="qa__drawer" id="qa-d0"><div class="qa__drawer-in"><dl class="qa__facts"><div><dt>Age</dt><dd>18 – 35</dd></div><div><dt>ID</dt><dd>PAN + Aadhaar</dd></div><div><dt>Sign-up</dt><dd>Under 3 minutes</dd></div></dl><p class="qa__detail">No existing credit history is required. Alongside your PAN and Aadhaar you need an active bank account, which is where the money is sent.</p></div></div>
           </div>
-          <button class="qa__q" type="button" role="tab" id="qa-t1" aria-controls="qa-p1" aria-selected="false"><span>How much can I borrow, and for how long?</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-          <div class="qa__a board" role="tabpanel" id="qa-p1" data-q="How much can I borrow, and for how long?" aria-labelledby="qa-t1">
+          <button class="qa__q" type="button" id="qa-t1" aria-controls="qa-p1" aria-expanded="false"><span>How much can I borrow, and for how long?</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="qa__a board" role="region" id="qa-p1" data-q="How much can I borrow, and for how long?" aria-labelledby="qa-t1">
             <img class="qa__icon" src="assets/icons/ui-badge-indian-rupee.svg" alt="" width="40" height="40" loading="lazy">
             <p class="qa__big qa__big--fig">₹2,000 – ₹50,000</p>
             <button class="qa__more" type="button" aria-expanded="false" aria-controls="qa-d1"><span>The details</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
             <div class="qa__drawer" id="qa-d1"><div class="qa__drawer-in"><dl class="qa__facts"><div><dt>Amount</dt><dd>₹2,000 – ₹50,000</dd></div><div><dt>Tenure</dt><dd>30 – 180 days</dd></div><div><dt>Collateral</dt><dd>None</dd></div></dl><p class="qa__detail">Your exact amount and tenure come with your offer, and you see both before you accept.</p></div></div>
           </div>
-          <button class="qa__q" type="button" role="tab" id="qa-t2" aria-controls="qa-p2" aria-selected="false"><span>Will I see the full cost before I accept?</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-          <div class="qa__a board" role="tabpanel" id="qa-p2" data-q="Will I see the full cost before I accept?" aria-labelledby="qa-t2">
+          <button class="qa__q" type="button" id="qa-t2" aria-controls="qa-p2" aria-expanded="false"><span>Will I see the full cost before I accept?</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="qa__a board" role="region" id="qa-p2" data-q="Will I see the full cost before I accept?" aria-labelledby="qa-t2">
             <img class="qa__icon" src="assets/icons/ui-file-text.svg" alt="" width="40" height="40" loading="lazy">
             <p class="qa__big paint">Every rupee, upfront.</p>
             <button class="qa__more" type="button" aria-expanded="false" aria-controls="qa-d2"><span>The details</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
             <div class="qa__drawer" id="qa-d2"><div class="qa__drawer-in"><dl class="qa__facts"><div><dt>Interest</dt><dd>10% – 36% a year</dd></div><div><dt>APR, all fees in</dt><dd>10% – 120%</dd></div><div><dt>Where it’s shown</dt><dd>Key Fact Statement</dd></div></dl><p class="qa__detail">Where you land depends on tenure, amount and credit assessment. Your exact APR is in your Key Fact Statement and loan agreement, before you accept anything.</p></div></div>
           </div>
-          <button class="qa__q" type="button" role="tab" id="qa-t3" aria-controls="qa-p3" aria-selected="false"><span>How fast is disbursal once I&rsquo;m approved?</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-          <div class="qa__a board" role="tabpanel" id="qa-p3" data-q="How fast is disbursal once I’m approved?" aria-labelledby="qa-t3">
+          <button class="qa__q" type="button" id="qa-t3" aria-controls="qa-p3" aria-expanded="false"><span>How fast is disbursal once I&rsquo;m approved?</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="qa__a board" role="region" id="qa-p3" data-q="How fast is disbursal once I’m approved?" aria-labelledby="qa-t3">
             <img class="qa__icon" src="assets/icons/ui-clock-3.svg" alt="" width="40" height="40" loading="lazy">
             <p class="qa__big paint">Within 24 hours</p>
             <button class="qa__more" type="button" aria-expanded="false" aria-controls="qa-d3"><span>The details</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
             <div class="qa__drawer" id="qa-d3"><div class="qa__drawer-in"><dl class="qa__facts"><div><dt>Decision</dt><dd>Within 24 hours</dd></div><div><dt>Paid to</dt><dd>Your verified bank account</dd></div></dl><p class="qa__detail">Most approved loans are disbursed within 24 hours, straight to the bank account you verify during sign-up.</p></div></div>
           </div>
-          <button class="qa__q" type="button" role="tab" id="qa-t4" aria-controls="qa-p4" aria-selected="false"><span>Is my data private?</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-          <div class="qa__a board" role="tabpanel" id="qa-p4" data-q="Is my data private?" aria-labelledby="qa-t4">
+          <button class="qa__q" type="button" id="qa-t4" aria-controls="qa-p4" aria-expanded="false"><span>Is my data private?</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="qa__a board" role="region" id="qa-p4" data-q="Is my data private?" aria-labelledby="qa-t4">
             <img class="qa__icon" src="assets/icons/ui-lock.svg" alt="" width="40" height="40" loading="lazy">
             <p class="qa__big paint">Encrypted. Never sold.</p>
             <button class="qa__more" type="button" aria-expanded="false" aria-controls="qa-d4"><span>The details</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
             <div class="qa__drawer" id="qa-d4"><div class="qa__drawer-in"><p class="qa__detail">It&rsquo;s used only to process your application, and shared with our NBFC lending partners only where needed for underwriting and compliance. Read our <a class="link" href="/privacy-policy/">privacy policy</a>.</p></div></div>
           </div>
-          <button class="qa__q" type="button" role="tab" id="qa-t5" aria-controls="qa-p5" aria-selected="false"><span>What happens if I repay late?</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-          <div class="qa__a board" role="tabpanel" id="qa-p5" data-q="What happens if I repay late?" aria-labelledby="qa-t5">
+          <button class="qa__q" type="button" id="qa-t5" aria-controls="qa-p5" aria-expanded="false"><span>What happens if I repay late?</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="qa__a board" role="region" id="qa-p5" data-q="What happens if I repay late?" aria-labelledby="qa-t5">
             <img class="qa__icon" src="assets/icons/ui-send.svg" alt="" width="40" height="40" loading="lazy">
             <p class="qa__big paint">Reminders come first.</p>
             <button class="qa__more" type="button" aria-expanded="false" aria-controls="qa-d5"><span>The details</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
@@ -1280,10 +1280,10 @@ main > #steps.ch.is-live > .ch__stage, .ch.is-live > .ch__stage { position: stic
           <a class="nav__logo" href="#top"><img src="logo-128.webp" alt="" width="28" height="28" loading="lazy">SUVRON Money</a>
           <p class="t-small muted">Short-term loans for young India, built by Shantilekh Global Technology Pvt. Ltd. with RBI-registered NBFC lending partners.</p>
         </div>
-        <div class="span-2 footer__col"><h4>Loans</h4><ul><li><a href="#pricing">Rates</a></li><li><a href="#steps">Steps</a></li><li><a href="/calculator/">Calculator</a></li><li><a href="#questions">Questions</a></li></ul></div>
-        <div class="span-2 footer__col"><h4>Company</h4><ul><li><a href="/about/">About us</a></li><li><a href="/blog/">Blog</a></li><li><a href="/contact/">Contact us</a></li></ul></div>
-        <div class="span-2 footer__col"><h4>Your rights</h4><ul><li><a href="/responsible-lending/">Responsible lending</a></li><li><a href="/grievance-redressal/">Grievance redressal</a></li><li><a href="/privacy-policy/">Privacy policy</a></li><li><a href="/terms/">Terms of use</a></li><li><a href="/cookie-policy/">Cookie policy</a></li></ul></div>
-        <div class="span-2 footer__col footer__contact"><h4>Contact</h4><ul><li><a href="mailto:support@suvron.in">support@suvron.in</a></li><li><a href="mailto:contact@suvron.in">contact@suvron.in</a></li><li><a href="mailto:gro@suvron.in">gro@suvron.in</a></li><li><a href="tel:+919971373543">9971373543</a></li></ul></div>
+        <div class="span-2 footer__col"><h3 class="fh">Loans</h3><ul><li><a href="#pricing">Rates</a></li><li><a href="#steps">Steps</a></li><li><a href="/calculator/">Calculator</a></li><li><a href="#questions">Questions</a></li></ul></div>
+        <div class="span-2 footer__col"><h3 class="fh">Company</h3><ul><li><a href="/about/">About us</a></li><li><a href="/blog/">Blog</a></li><li><a href="/contact/">Contact us</a></li></ul></div>
+        <div class="span-2 footer__col"><h3 class="fh">Your rights</h3><ul><li><a href="/responsible-lending/">Responsible lending</a></li><li><a href="/grievance-redressal/">Grievance redressal</a></li><li><a href="/privacy-policy/">Privacy policy</a></li><li><a href="/terms/">Terms of use</a></li><li><a href="/cookie-policy/">Cookie policy</a></li></ul></div>
+        <div class="span-2 footer__col footer__contact"><h3 class="fh">Contact</h3><ul><li><a href="mailto:support@suvron.in">support@suvron.in</a></li><li><a href="mailto:contact@suvron.in">contact@suvron.in</a></li><li><a href="mailto:gro@suvron.in">gro@suvron.in</a></li><li><a href="tel:+919971373543">9971373543</a></li></ul></div>
       </div>
       <p class="footer__disclaimer">SUVRON Money is a digital lending platform built by Shantilekh Global Technology Pvt. Ltd. Loans are sanctioned, disbursed and collected by our RBI-registered NBFC partners, who retain final control over credit approval and terms. SUVRON Money does not itself lend money. Interest rates for loans facilitated on this platform range from 10% to 36% per annum, and the APR, inclusive of interest and all fees, ranges from 10% to 120%, depending on tenure, amount and your credit assessment; the exact APR for your offer is disclosed in your Key Fact Statement and loan agreement before you accept. Borrow only what you can repay.</p>
       <div class="footer__legal">
@@ -1307,7 +1307,7 @@ main > #steps.ch.is-live > .ch__stage, .ch.is-live > .ch__stage { position: stic
 <script>
 (function(){var t=document.querySelector('.qa');if(!t)return;document.documentElement.classList.add('qa-js');
 var qs=[].slice.call(t.querySelectorAll('.qa__q')),ps=[].slice.call(t.querySelectorAll('.qa__a'));
-function pick(i,focus){qs.forEach(function(q,k){var on=k===i;q.classList.toggle('is-on',on);q.setAttribute('aria-selected',on);q.tabIndex=on?0:-1;ps[k].classList.toggle('is-on',on);});if(focus)qs[i].focus();}
+function pick(i,focus){qs.forEach(function(q,k){var on=k===i;q.classList.toggle('is-on',on);q.setAttribute('aria-expanded',on);ps[k].classList.toggle('is-on',on);});if(focus)qs[i].focus();}
 qs.forEach(function(q,i){q.addEventListener('click',function(){pick(i)});q.addEventListener('keydown',function(e){var k=e.key==='ArrowDown'||e.key==='ArrowRight'?1:e.key==='ArrowUp'||e.key==='ArrowLeft'?-1:0;if(k){e.preventDefault();pick((i+k+qs.length)%qs.length,true)}});});pick(0);})();
 </script>
 <script>
