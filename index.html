@@ -454,6 +454,7 @@ main h3, main .faq h3 { font-size: 20px; }
   #steps .card { grid-column: 1 / -1; }
   #steps .panel { --p-h: 230px; }
   #lender, #reviews, #questions, footer.closing { --hm: 2; }
+  #questions { --hm: 2; }
   .ticker .mo-mq__track { font-size: 20px; }
   #reviews .grid > .span-6 { grid-column: 1 / -1; }
   .rating.board { background: none; color: var(--ink); padding: 0; gap: var(--s-4); }
@@ -591,6 +592,72 @@ main h3, main .faq h3 { font-size: 20px; }
   .nav__logo img { width: 22px; height: 22px; }
   .nav__actions .btn { padding-inline: 12px; font-size: 14px; }
 }
+
+/* ---- questions: a list of questions beside one enamel answer board */
+.qa { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; grid-auto-flow: dense; align-items: start; }
+.qa__q { grid-column: 1 / span 6; display: flex; align-items: center; justify-content: space-between; gap: 16px; width: 100%; min-height: 72px; padding: 14px 20px; margin: 0 0 8px; text-align: left;
+  background: #fff; border: 1px solid rgb(13 26 58 / .12); border-radius: var(--r-md); color: var(--ink); font: 500 18px/1.35 var(--font-text); cursor: pointer;
+  transition: background .14s, border-color .14s, transform .14s, color .14s; }
+.qa__q svg { width: 14px; height: 14px; flex: none; color: var(--muted); transition: transform .2s; }
+.qa__q:hover { border-color: var(--enamel); transform: translateX(3px); }
+.qa__q.is-on { background: var(--enamel); border-color: var(--enamel); color: #fff; }
+.qa__q.is-on svg { color: var(--marigold-lit); transform: translateX(3px); }
+.qa__a { grid-column: 7 / span 6; grid-row: 1 / span 6; display: none; align-content: start; gap: 20px; min-height: 100%; padding: 48px 48px 44px; color: #fff; }
+.qa__a > * { position: relative; z-index: 1; margin: 0; }
+.qa__a.is-on { display: grid; }
+.qa__icon { width: 44px; height: 44px; padding: 8px; background: #fff; border-radius: 50%; }
+.qa__big { font-size: clamp(36px, 3.6vw, 56px); line-height: 1.05; }
+.qa__detail { font-size: 18px; line-height: 1.6; color: #fff; max-width: 44ch; }
+.qa__detail .link { color: #fff; }
+.no-js .qa__a, html:not(.qa-js) .qa__a { display: grid; }
+@media (prefers-reduced-motion: no-preference) { .qa__a.is-on > .qa__big { animation: qa-in .45s cubic-bezier(.2,.8,.2,1); } .qa__a.is-on > .qa__detail { animation: qa-in .55s cubic-bezier(.2,.8,.2,1); } }
+@keyframes qa-in { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+@media (max-width: 1023px) {
+  .qa { display: grid; grid-template-columns: 1fr; gap: 12px; }
+  .qa__q { grid-column: 1; display: none; }
+  .qa__a, .qa__a.is-on, html:not(.qa-js) .qa__a { grid-column: 1; grid-row: auto; display: grid !important; padding: 28px 28px 26px; gap: 10px; min-height: 0; }
+  .qa__a::before { inset: 8px; }
+  .qa__a::after { content: attr(data-q); order: -1; font: 500 16px/1.35 var(--font-text); color: #fff; position: relative; z-index: 1; }
+  .qa__icon { display: none; }
+  .qa__big { font-size: 30px; }
+  .qa__detail { font-size: 15px; }
+}
+/* the ticker: a taller strip with room for the painted letters' tails */
+#who .ticker.mo-mq { padding: 30px 0; margin-top: var(--s-4); }
+.ticker .mo-mq__rail { padding-block: 10px; align-items: center; }
+.ticker .mo-mq__track { font-size: 32px; line-height: 1.5; }
+.ticker .mo-mq__pause { right: 16px; }
+@media (max-width: 639px) { #who .ticker.mo-mq { padding: 18px 0; } .ticker .mo-mq__track { font-size: 22px; padding-inline: 20px; } }
+
+/* ---- who: a short lit statement beside three hanging sign boards */
+.who__grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; align-items: start; }
+.who__text { grid-column: 1 / span 6; display: grid; gap: var(--s-6); }
+.who .who__text .mo-wh__text { font-size: clamp(40px, 4.4vw, 64px); line-height: 1.08; max-width: 12ch; }
+.who .mo-wh__text strong { color: var(--enamel); }
+.who__boards { grid-column: 7 / span 6; list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+.who__board { padding: 26px 32px 24px; display: grid; gap: 6px; color: #fff; }
+.who__board > * { position: relative; z-index: 1; margin: 0; }
+.who__board:nth-child(2) { margin-left: 48px; }
+.who__board:nth-child(3) { margin-left: 96px; }
+.who__tag { font: 400 28px/1.1 var(--font-display); color: var(--marigold-lit); text-shadow: .045em .045em 0 var(--enamel-deep); }
+.who__board p { font-size: 17px; line-height: 1.5; color: #fff; max-width: 40ch; }
+@supports (animation-timeline: view()) { @media (prefers-reduced-motion: no-preference) and (min-width: 640px) {
+  .who__board { transform-origin: 50% -30px; animation: sv-swing linear forwards; animation-timeline: view(); animation-range: entry 10% cover 30%; }
+  .who__board:nth-child(2) { animation-range: entry 25% cover 35%; }
+  .who__board:nth-child(3) { animation-range: entry 40% cover 40%; }
+} }
+@media (max-width: 1023px) {
+  .who__text, .who__boards { grid-column: 1 / -1; }
+  .who__boards { margin-top: var(--s-6); }
+  .who__board:nth-child(n) { margin-left: 0; }
+}
+@media (max-width: 639px) { .who .who__text .mo-wh__text { font-size: 36px; } .who__board { padding: 18px 20px; } .who__tag { font-size: 22px; } .who__board p { font-size: 15px; } }
+
+@media (min-width: 640px) and (max-width: 1023px) { #questions { --h: 2; } }
+@media (max-width: 639px) { .qa__detail { font-size: 14px; line-height: 1.5; } .qa__a::after { font-size: 14px !important; } }
+@media (max-width: 379px) { .qa__detail { display: none; } }
+@media (max-width: 639px) { .qa__a, .qa__a.is-on { padding: 20px 22px !important; gap: 6px !important; } .qa__big { font-size: 26px; } }
+@media (max-width: 379px) { .who .who__text .mo-wh__text { font-size: 30px; } .who__boards { gap: 10px; margin-top: var(--s-5); } .who__board { padding: 14px 18px; } .who__board p { font-size: 14px; } #who .ticker.mo-mq { padding: 12px 0; } }
 </style>
 </head>
 <body>
@@ -680,10 +747,19 @@ main h3, main .faq h3 { font-size: 20px; }
 
   <section class="section" id="who" aria-labelledby="who-h">
     <div class="wrap who">
-      <h2 id="who-h">Who SUVRON Money is for</h2>
-      <div data-moment="word-highlight" class="who__statement"><p class="mo-wh__text">For the gap between your offer letter and your first salary, a stipend that lands late, or a client who pays next week. <strong>Borrow ₹2,000 to ₹50,000</strong> for 30 to 180 days, and see every cost before you accept.</p></div>
+      <div class="who__grid">
+        <div class="who__text">
+          <h2 id="who-h">Who SUVRON Money is for</h2>
+          <div data-moment="word-highlight"><p class="mo-wh__text">For whoever&rsquo;s paycheck hasn&rsquo;t <strong>caught up yet.</strong></p></div>
+        </div>
+        <ul class="who__boards">
+          <li class="who__board board"><span class="who__tag">Students</span><p>Cover a semester fee or a broken laptop without waiting on pocket money.</p></li>
+          <li class="who__board board"><span class="who__tag">First jobbers</span><p>Bridge the gap between your offer letter and your first salary.</p></li>
+          <li class="who__board board"><span class="who__tag">Freelancers &amp; gig workers</span><p>Your income doesn&rsquo;t land on a fixed date. We cover the days in between.</p></li>
+        </ul>
+      </div>
       <div class="ticker" data-moment="marquee-row" data-moment-opts='{"speed": 40}'>
-        <ul class="mo-mq__track"><li>Students</li><li>First jobbers</li><li>Freelancers</li><li>Gig workers</li><li>No collateral</li><li>No credit history needed</li><li>Decision in 24 hours</li><li>Key Fact Statement first</li><li>RBI-registered NBFC partner</li></ul>
+        <ul class="mo-mq__track"><li>₹2,000 – ₹50,000</li><li>30 – 180 days</li><li>No collateral</li><li>No credit history needed</li><li>Decision in 24 hours</li><li>Key Fact Statement first</li><li>RBI-registered NBFC partner</li></ul>
       </div>
     </div>
   </section>
@@ -827,17 +903,48 @@ main h3, main .faq h3 { font-size: 20px; }
 
   <section class="section" id="questions" aria-labelledby="questions-h">
     <div class="wrap">
-        <div class="section-head">
-          <h2 id="questions-h">Questions about the loan</h2>
-        </div>
-        <div class="faq grid">
-            <div class="faq__item"><h3>Can I apply without a credit history?</h3><p>Yes. You need to be 18 to 35 with a valid PAN, Aadhaar and an active bank account. No existing credit history is required.</p></div>
-            <div class="faq__item"><h3>How much can I borrow, and for how long?</h3><p>₹2,000 to ₹50,000, repaid over 30 to 180 days. Your exact amount and tenure come with your offer, before you accept.</p></div>
-            <div class="faq__item"><h3>Will I see the full cost before I accept?</h3><p>Yes. Interest runs 10% to 36% a year and the APR (interest plus all fees) 10% to 120%, depending on tenure, amount and credit assessment. Your exact APR is in your Key Fact Statement and loan agreement.</p></div>
-            <div class="faq__item"><h3>How fast is disbursal once I&rsquo;m approved?</h3><p>Most approved loans are disbursed within 24 hours, straight to the bank account you verify during sign-up.</p></div>
-            <div class="faq__item"><h3>Is my data private?</h3><p>Yes. It&rsquo;s encrypted and used only to process your application. It&rsquo;s shared with our NBFC lending partners where needed for underwriting and compliance, and never sold. Read our <a class="link" href="/privacy-policy/">privacy policy</a>.</p></div>
-            <div class="faq__item"><h3>What happens if I repay late?</h3><p>Late fees apply and are listed in your loan agreement before you accept. Missed payments get automated reminders first, then a support agent if needed.</p></div>
-        </div>
+      <div class="section-head">
+        <h2 id="questions-h">Questions about the loan</h2>
+        <p>Pick a question. The short answer is on the board.</p>
+      </div>
+      <div class="qa" role="tablist" aria-label="Questions about the loan">
+          <button class="qa__q is-on" type="button" role="tab" id="qa-t0" aria-controls="qa-p0" aria-selected="true"><span>Can I apply without a credit history?</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="qa__a board is-on" role="tabpanel" id="qa-p0" data-q="Can I apply without a credit history?" aria-labelledby="qa-t0">
+            <img class="qa__icon" src="assets/icons/ui-user.svg" alt="" width="40" height="40" loading="lazy">
+            <p class="qa__big paint">Yes, you can.</p>
+            <p class="qa__detail">You need to be 18 to 35 with a valid PAN, Aadhaar and an active bank account. No existing credit history is required.</p>
+          </div>
+          <button class="qa__q" type="button" role="tab" id="qa-t1" aria-controls="qa-p1" aria-selected="false"><span>How much can I borrow, and for how long?</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="qa__a board" role="tabpanel" id="qa-p1" data-q="How much can I borrow, and for how long?" aria-labelledby="qa-t1">
+            <img class="qa__icon" src="assets/icons/ui-badge-indian-rupee.svg" alt="" width="40" height="40" loading="lazy">
+            <p class="qa__big paint">₹2,000 – ₹50,000</p>
+            <p class="qa__detail">Repaid over 30 to 180 days. Your exact amount and tenure come with your offer, before you accept.</p>
+          </div>
+          <button class="qa__q" type="button" role="tab" id="qa-t2" aria-controls="qa-p2" aria-selected="false"><span>Will I see the full cost before I accept?</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="qa__a board" role="tabpanel" id="qa-p2" data-q="Will I see the full cost before I accept?" aria-labelledby="qa-t2">
+            <img class="qa__icon" src="assets/icons/ui-file-text.svg" alt="" width="40" height="40" loading="lazy">
+            <p class="qa__big paint">Every rupee, upfront.</p>
+            <p class="qa__detail">Interest runs 10% to 36% a year and the APR (interest plus all fees) 10% to 120%, depending on tenure, amount and credit assessment. Your exact APR is in your Key Fact Statement and loan agreement.</p>
+          </div>
+          <button class="qa__q" type="button" role="tab" id="qa-t3" aria-controls="qa-p3" aria-selected="false"><span>How fast is disbursal once I&rsquo;m approved?</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="qa__a board" role="tabpanel" id="qa-p3" data-q="How fast is disbursal once I’m approved?" aria-labelledby="qa-t3">
+            <img class="qa__icon" src="assets/icons/ui-clock-3.svg" alt="" width="40" height="40" loading="lazy">
+            <p class="qa__big paint">Within 24 hours</p>
+            <p class="qa__detail">Most approved loans are disbursed within 24 hours, straight to the bank account you verify during sign-up.</p>
+          </div>
+          <button class="qa__q" type="button" role="tab" id="qa-t4" aria-controls="qa-p4" aria-selected="false"><span>Is my data private?</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="qa__a board" role="tabpanel" id="qa-p4" data-q="Is my data private?" aria-labelledby="qa-t4">
+            <img class="qa__icon" src="assets/icons/ui-lock.svg" alt="" width="40" height="40" loading="lazy">
+            <p class="qa__big paint">Encrypted. Never sold.</p>
+            <p class="qa__detail">It&rsquo;s used only to process your application, and shared with our NBFC lending partners only where needed for underwriting and compliance. Read our <a class="link" href="/privacy-policy/">privacy policy</a>.</p>
+          </div>
+          <button class="qa__q" type="button" role="tab" id="qa-t5" aria-controls="qa-p5" aria-selected="false"><span>What happens if I repay late?</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="qa__a board" role="tabpanel" id="qa-p5" data-q="What happens if I repay late?" aria-labelledby="qa-t5">
+            <img class="qa__icon" src="assets/icons/ui-send.svg" alt="" width="40" height="40" loading="lazy">
+            <p class="qa__big paint">Reminders come first.</p>
+            <p class="qa__detail">Late fees apply and are listed in your loan agreement before you accept. Missed payments get automated reminders first, then a support agent if needed.</p>
+          </div>
+      </div>
     </div>
   </section>
 
@@ -904,6 +1011,12 @@ main h3, main .faq h3 { font-size: 20px; }
   const AIU = { chatgpt: 'https://chatgpt.com/?q=', claude: 'https://claude.ai/new?q=', google: 'https://www.google.com/search?udm=50&q=' };
   document.querySelectorAll('[data-ai]').forEach(a => { a.href = AIU[a.dataset.ai] + encodeURIComponent(ASK); });
 })();
+</script>
+<script>
+(function(){var t=document.querySelector('.qa');if(!t)return;document.documentElement.classList.add('qa-js');
+var qs=[].slice.call(t.querySelectorAll('.qa__q')),ps=[].slice.call(t.querySelectorAll('.qa__a'));
+function pick(i,focus){qs.forEach(function(q,k){var on=k===i;q.classList.toggle('is-on',on);q.setAttribute('aria-selected',on);q.tabIndex=on?0:-1;ps[k].classList.toggle('is-on',on);});if(focus)qs[i].focus();}
+qs.forEach(function(q,i){q.addEventListener('click',function(){pick(i)});q.addEventListener('keydown',function(e){var k=e.key==='ArrowDown'||e.key==='ArrowRight'?1:e.key==='ArrowUp'||e.key==='ArrowLeft'?-1:0;if(k){e.preventDefault();pick((i+k+qs.length)%qs.length,true)}});});pick(0);})();
 </script>
 <script type="module" src="assets/system.js"></script>
 <script type="module" src="assets/motion/motion.js"></script>
