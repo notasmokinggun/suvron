@@ -151,3 +151,15 @@ body.inner .contact-links a { display: inline-block; padding-block: 11px; }
 input[type="range"] { min-height: 28px; }
 body.inner h1, body.inner h2, body.inner h3 { overflow-wrap: anywhere; text-wrap: balance; }
 body.inner .calc-note { color: #4b5672 !important; opacity: 1 !important; font-size: 13px; }
+
+/* content is never hidden waiting for an animation: old reveal-on-scroll parts start finished */
+.js [data-r], .js [data-r].in { opacity: 1 !important; transform: none !important; filter: none !important; transition: none !important; }
+body.inner .reveal, body.inner .reveal-left, body.inner .reveal-right, body.inner .reveal-pop { opacity: 1 !important; transform: none !important; filter: none !important; }
+@supports (animation-timeline: view()) {
+  body.inner .feat-card, body.inner .contact-card, body.inner .page a.blog-card, body.inner .stats-band .stat-num,
+  body.inner .prose table, body.inner .company-snapshot, body.inner .rate-callout { animation: none !important; }
+}
+/* figures in the plain face */
+body.inner .stats-band .stat-num, body.inner .calc-result-amt { font-family: "Manrope", sans-serif !important; font-weight: 700 !important; font-variant-numeric: tabular-nums; text-shadow: none !important; letter-spacing: -0.01em; }
+body.inner .calc-result-amt { color: #fff !important; }
+body.inner .stats-band .stat-num { color: #fff; }

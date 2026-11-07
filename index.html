@@ -453,7 +453,7 @@ main h3, main .faq h3 { font-size: 20px; }
   .rating__num { font-size: 32px; }
   #steps .card { grid-column: 1 / -1; }
   #steps .panel { --p-h: 230px; }
-  #lender, #reviews, #questions, footer.closing { --hm: 2; }
+  #lender, #reviews, #questions, #who, footer.closing { --hm: 2; }
   #questions { --hm: 2; }
   .ticker .mo-mq__track { font-size: 20px; }
   #reviews .grid > .span-6 { grid-column: 1 / -1; }
@@ -528,22 +528,14 @@ main h3, main .faq h3 { font-size: 20px; }
       background: var(--marigold); transform-origin: left center; animation: sv-stroke linear forwards; animation-timeline: view(); animation-range: entry 40% cover 35%; }
     #pricing h2::after, #ask h2::after { background: var(--marigold); }
     /* the rate list is painted row by row, left to right */
-    .rate-list li { animation: sv-paint linear forwards; animation-timeline: view(); animation-range: entry 60% cover 30%; }
-    .rate-board__title { animation: sv-paint linear forwards; animation-timeline: view(); animation-range: entry 70% cover 25%; }
     /* the worked example's total rolls up into place */
-    .worked .rows li:last-child .rows__value { animation: sv-rise linear forwards; animation-timeline: view(); animation-range: entry 60% cover 40%; }
     /* the lender route: each stop lights and the line draws as the board passes */
-    .route__list li { animation: sv-stop linear forwards; animation-timeline: view(); animation-range: entry 80% cover 45%; }
     .route__list li .route__stop { animation: sv-dot linear forwards; animation-timeline: view(); animation-range: entry 80% cover 45%; }
     /* the referral ticket hangs from the board and settles */
     .ticket { transform-origin: 50% -40px; animation: sv-swing linear forwards; animation-timeline: view(); animation-range: entry 20% cover 50%; }
     .ticket::after { content: ""; position: absolute; left: 50%; top: -60px; width: 2px; height: 60px; background: rgb(255 255 255 / .7); z-index: 0; }
     /* the review quotes slide in on their rule */
-    .review { animation: sv-slide linear forwards; animation-timeline: view(); animation-range: entry 30% cover 35%; }
-    .review:nth-of-type(2) { animation-range: entry 45% cover 40%; }
-    .review:nth-of-type(3) { animation-range: entry 60% cover 45%; }
     /* the AI chat bubble types itself in */
-    .chat__bubble { animation: sv-paint linear forwards; animation-timeline: view(); animation-range: entry 50% cover 45%; }
   }
   @media (prefers-reduced-motion: no-preference) and (min-width: 1024px) {
     /* the hero board steps back as the page moves on */
@@ -610,8 +602,8 @@ main h3, main .faq h3 { font-size: 20px; }
 .qa__detail { font-size: 18px; line-height: 1.6; color: #fff; max-width: 44ch; }
 .qa__detail .link { color: #fff; }
 .no-js .qa__a, html:not(.qa-js) .qa__a { display: grid; }
-@media (prefers-reduced-motion: no-preference) { .qa__a.is-on > .qa__big { animation: qa-in .45s cubic-bezier(.2,.8,.2,1); } .qa__a.is-on > .qa__detail { animation: qa-in .55s cubic-bezier(.2,.8,.2,1); } }
-@keyframes qa-in { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+@media (prefers-reduced-motion: no-preference) { .qa__a.is-on > .qa__big { animation: qa-in .22s cubic-bezier(.2,.8,.2,1); } .qa__a.is-on > .qa__detail { animation: qa-in .26s cubic-bezier(.2,.8,.2,1); } }
+@keyframes qa-in { from { opacity: .55; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 @media (max-width: 1023px) {
   .qa { display: grid; grid-template-columns: 1fr; gap: 12px; }
   .qa__q { grid-column: 1; display: none; }
@@ -667,7 +659,6 @@ main h3, main .faq h3 { font-size: 20px; }
 .promise__line .sw { display: inline-block; white-space: nowrap; }
 .promise__line .sl { display: inline-block; will-change: transform, opacity; }
 .promise__sub { font-size: clamp(18px, 1.6vw, 24px); line-height: 1.5; color: #fff; max-width: 40ch; margin: 0; transition: opacity .4s, transform .4s; }
-.promise.is-scattered .promise__sub { opacity: 0; transform: translateY(12px); }
 @media (prefers-reduced-motion: reduce) { #promise { --h: 1 !important; --hm: 1 !important; } #promise > .wrap.promise { position: static; height: 100%; } }
 
 /* ---- promise: a framed sign on the page ground; the letters assemble on it while it holds still */
@@ -680,7 +671,6 @@ main h3, main .faq h3 { font-size: 20px; }
 .promise__list b { font-weight: 600; color: #fff; }
 .promise__list i { width: 32px; height: 32px; border-radius: 50%; background: var(--marigold); color: var(--p-ink); display: grid; place-items: center; }
 .promise__list i svg { width: 16px; height: 16px; }
-.promise.is-scattered .promise__list { opacity: 0; transform: translateY(14px); }
 .promise__list { transition: opacity .45s, transform .45s; }
 @media (max-width: 1023px) { .promise__list { grid-template-columns: 1fr; gap: 14px; } }
 @media (max-width: 639px) { .promise .promise__line { font-size: 52px !important; } .promise__board { padding: 28px 22px; } .promise__list li { font-size: 15px; } }
@@ -702,11 +692,31 @@ footer.closing.g2 > .wrap > .closing__cta { align-self: stretch; }
 .close-board__ticket p { color: var(--p-ink); font-size: 15px; line-height: 1.45; }
 @supports (animation-timeline: view()) { @media (prefers-reduced-motion: no-preference) and (min-width: 640px) {
   .close-board__ticket { transform-origin: 50% -40px; animation: sv-swing-tilt linear forwards; animation-timeline: view(); animation-range: entry 10% cover 40%; }
-  .close-board__title .paint { display: inline-block; animation: sv-rise linear forwards; animation-timeline: view(); animation-range: entry 20% cover 40%; }
 } }
 @keyframes sv-swing-tilt { from { transform: rotate(-12deg) translateY(-30px); } 70% { transform: rotate(4deg); } to { transform: rotate(2deg); } }
 @media (max-width: 1023px) { .close-board { grid-template-columns: 1fr; min-height: 0; } .close-board__ticket { display: none; } }
 @media (max-width: 639px) { .close-board__title { font-size: 44px; } .close-board__actions .btn--xl { width: 100%; min-width: 0; } .close-board { padding: 32px 22px; } }
+
+/* ---- figures: every amount, rate, day count and score is set in the text face with tabular numerals and
+   appears at once. The painted face stays for words; money reads plainly. */
+.fig, .rate-list b, .worked .rows .rows__value, .worked-line b, .rating__num, .ticket__earned .paint, .qa__big--fig, #steps .clock, #steps .sent {
+  font-family: var(--font-text) !important; font-weight: 700 !important; font-variant-numeric: tabular-nums lining-nums; letter-spacing: -0.01em; text-shadow: none !important; }
+.rate-list b { font-size: 22px; color: var(--enamel); }
+.worked .rows .rows__value { font-size: 22px; }
+.worked .rows li:last-child .rows__value { font-size: 30px; color: var(--marigold-lit); }
+.worked-line b { font-size: 20px; color: var(--marigold-lit); }
+.rating__num { font-size: 40px; color: #fff; }
+.ticket__earned .paint { font-size: 40px; color: var(--enamel); }
+.qa__big--fig { font-size: clamp(32px, 3vw, 48px) !important; color: #fff; }
+@media (max-width: 639px) { .rate-list b { font-size: 17px; } .qa__big--fig { font-size: 26px !important; } }
+@media (max-width: 1023px) { .rating.board .rating__num { color: var(--enamel); } }
+/* the ticker: plain bold text, figures included */
+.ticker .mo-mq__track { font-family: var(--font-text) !important; font-weight: 700; font-size: 24px !important; letter-spacing: -0.01em; }
+.ticker .mo-mq__track li:nth-child(odd) { text-shadow: none; }
+/* on a phone the ticker stands still: a wrapped row of facts inside the strip, never clipped */
+#who .ticker.mo-mq.is-still, #who .ticker.mo-mq:not(.is-live) { overflow: visible; height: auto; padding: 20px 20px; }
+#who .ticker.is-still .mo-mq__track, #who .ticker:not(.is-live) .mo-mq__track { flex-wrap: wrap; white-space: normal; gap: 10px 22px; padding: 0; font-size: 17px !important; line-height: 1.4; }
+#who .ticker.is-still .mo-mq__clone { display: none; }
 </style>
 </head>
 <body>
@@ -813,7 +823,7 @@ footer.closing.g2 > .wrap > .closing__cta { align-self: stretch; }
     </div>
   </section>
 
-  <section class="section ground-inverse" id="pricing" data-moment="iris-opens" data-moment-opts='{"from": "base"}' aria-labelledby="rates-h">
+  <section class="section ground-inverse" id="pricing" aria-labelledby="rates-h">
     <div class="wrap">
       <div class="section-head">
         <h2 id="rates-h">Loan rates and terms</h2>
@@ -906,12 +916,12 @@ footer.closing.g2 > .wrap > .closing__cta { align-self: stretch; }
     <div class="wrap">
       <div class="grid">
         <div class="span-6"><h2 id="reviews-h">Reviews on Google Play</h2></div>
-        <div class="rating board span-6 start-7" data-moment="counter-rolls">
+        <div class="rating board span-6 start-7">
           <img class="rating__icon" src="assets/icons/google-play-icon.svg" alt="" width="40" height="40" loading="lazy">
           <span class="rating__num paint num">4.3</span>
           <div>
             <div class="rating__stars" role="img" aria-label="4.3 out of 5 stars"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><span class="star-wrap"><svg class="star-bg" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg><svg class="star-fg" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4-4.7-4.4 6.4-.8z"/></svg></span></div>
-            <p>From <span class="num" data-count>249</span> reviews. <a class="link" href="https://play.google.com/store/apps/details?id=com.shantilekh.suvron&amp;hl=en_IN">Read them on Google Play</a></p>
+            <p>From <span class="num">249</span> reviews. <a class="link" href="https://play.google.com/store/apps/details?id=com.shantilekh.suvron&amp;hl=en_IN">Read them on Google Play</a></p>
           </div>
         </div>
           <figure class="review span-4"><blockquote>&ldquo;Best app for quick financial support! Smooth sign-up, clear tenure details, and zero unnecessary hassle. Suvron Money is my go-to whenever an unexpected expense pops up.&rdquo;</blockquote><figcaption><b>Shahanshah</b>, Google Play, Sept 2026</figcaption></figure>
@@ -972,7 +982,7 @@ footer.closing.g2 > .wrap > .closing__cta { align-self: stretch; }
           <button class="qa__q" type="button" role="tab" id="qa-t1" aria-controls="qa-p1" aria-selected="false"><span>How much can I borrow, and for how long?</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="qa__a board" role="tabpanel" id="qa-p1" data-q="How much can I borrow, and for how long?" aria-labelledby="qa-t1">
             <img class="qa__icon" src="assets/icons/ui-badge-indian-rupee.svg" alt="" width="40" height="40" loading="lazy">
-            <p class="qa__big paint">₹2,000 – ₹50,000</p>
+            <p class="qa__big qa__big--fig">₹2,000 – ₹50,000</p>
             <p class="qa__detail">Repaid over 30 to 180 days. Your exact amount and tenure come with your offer, before you accept.</p>
           </div>
           <button class="qa__q" type="button" role="tab" id="qa-t2" aria-controls="qa-p2" aria-selected="false"><span>Will I see the full cost before I accept?</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
