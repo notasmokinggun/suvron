@@ -658,6 +658,17 @@ main h3, main .faq h3 { font-size: 20px; }
 @media (max-width: 379px) { .qa__detail { display: none; } }
 @media (max-width: 639px) { .qa__a, .qa__a.is-on { padding: 20px 22px !important; gap: 6px !important; } .qa__big { font-size: 26px; } }
 @media (max-width: 379px) { .who .who__text .mo-wh__text { font-size: 30px; } .who__boards { gap: 10px; margin-top: var(--s-5); } .who__board { padding: 14px 18px; } .who__board p { font-size: 14px; } #who .ticker.mo-mq { padding: 12px 0; } }
+
+/* ---- promise: the letters are scattered across the board and fly home over a long stretch of scroll.
+   The section is two screens; its board holds still (sticky) while the visitor scrolls through it. */
+#promise { padding: 0; }
+.promise .promise__line { color: #fff; }
+#promise > .wrap.promise { position: sticky; top: var(--nav); height: calc(100svh - var(--nav)); align-content: center; padding-block: 48px; }
+.promise__line .sw { display: inline-block; white-space: nowrap; }
+.promise__line .sl { display: inline-block; will-change: transform, opacity; }
+.promise__sub { font-size: clamp(18px, 1.6vw, 24px); line-height: 1.5; color: #fff; max-width: 40ch; margin: 0; transition: opacity .4s, transform .4s; }
+.promise.is-scattered .promise__sub { opacity: 0; transform: translateY(12px); }
+@media (prefers-reduced-motion: reduce) { #promise { --h: 1 !important; --hm: 1 !important; } #promise > .wrap.promise { position: static; height: 100%; } }
 </style>
 </head>
 <body>
@@ -872,10 +883,10 @@ main h3, main .faq h3 { font-size: 20px; }
     </div>
   </section>
 
-  <section class="section ground-inverse" id="promise" aria-label="Borrow only what you can repay">
-    <div class="wrap promise" data-moment="letters-assemble" data-moment-opts='{"heading": ".mo-la__type", "spread": 1.2}'>
-      <p id="promise-h" class="mo-la__type paint promise__line">Borrow only what you can repay.</p>
-      <p class="mo-la__sub">That&rsquo;s why the full cost is on the board before you say yes, and why you can say no.</p>
+  <section class="section ground-inverse" id="promise" style="--h: 2; --hm: 2" aria-label="Borrow only what you can repay">
+    <div class="wrap promise" data-scatter>
+      <p id="promise-h" class="paint promise__line">Borrow only what you can repay.</p>
+      <p class="promise__sub">You see the full repayment amount before you accept. If it&rsquo;s more than you can manage, decline the offer. You owe nothing until you say yes.</p>
     </div>
   </section>
 
@@ -1017,6 +1028,36 @@ main h3, main .faq h3 { font-size: 20px; }
 var qs=[].slice.call(t.querySelectorAll('.qa__q')),ps=[].slice.call(t.querySelectorAll('.qa__a'));
 function pick(i,focus){qs.forEach(function(q,k){var on=k===i;q.classList.toggle('is-on',on);q.setAttribute('aria-selected',on);q.tabIndex=on?0:-1;ps[k].classList.toggle('is-on',on);});if(focus)qs[i].focus();}
 qs.forEach(function(q,i){q.addEventListener('click',function(){pick(i)});q.addEventListener('keydown',function(e){var k=e.key==='ArrowDown'||e.key==='ArrowRight'?1:e.key==='ArrowUp'||e.key==='ArrowLeft'?-1:0;if(k){e.preventDefault();pick((i+k+qs.length)%qs.length,true)}});});pick(0);})();
+</script>
+<script>
+(function(){
+  var host=document.querySelector('[data-scatter]');if(!host)return;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  var line=host.querySelector('.promise__line'),sec=host.closest('section'),letters=[];
+  var seed=7;function rnd(){seed=(seed*16807)%2147483647;return seed/2147483647;}
+  var text=line.textContent;line.textContent='';line.setAttribute('aria-label',text);
+  text.split(' ').forEach(function(word,wi){
+    var w=document.createElement('span');w.className='sw';w.setAttribute('aria-hidden','true');
+    for(var i=0;i<word.length;i++){var l=document.createElement('span');l.className='sl';l.textContent=word[i];w.appendChild(l);letters.push(l);}
+    line.appendChild(w);if(wi<text.split(' ').length-1)line.appendChild(document.createTextNode(' '));
+  });
+  var n=letters.length,phone=innerWidth<640,spread=phone?0.55:1;
+  var st=letters.map(function(l,i){return{dx:(rnd()-.5)*innerWidth*1.1*spread,dy:(rnd()-.5)*innerHeight*0.9*spread,r:(rnd()-.5)*140,s:0.4+rnd()*1.4,d:(i/n)*0.45+rnd()*0.12};});
+  function ease(t){return 1-Math.pow(1-t,3);}
+  var ticking=false;
+  function frame(){
+    ticking=false;
+    var r=sec.getBoundingClientRect(),vh=innerHeight;
+    // starts when the board is 45% up the screen and lands near the end of its pinned stretch (about 1.4 screens of scroll)
+    var p=Math.min(1,Math.max(0,(vh*0.45-r.top)/(vh*1.35)));
+    letters.forEach(function(l,i){var o=st[i],q=ease(Math.min(1,Math.max(0,(p-o.d)/0.42))),k=1-q;
+      l.style.transform='translate('+(o.dx*k).toFixed(1)+'px,'+(o.dy*k).toFixed(1)+'px) rotate('+(o.r*k).toFixed(1)+'deg) scale('+(1+(o.s-1)*k).toFixed(3)+')';
+      l.style.opacity=(0.15+0.85*q).toFixed(3);l.style.color=q>0.98?'':'#ffad3d';});
+    host.classList.toggle('is-scattered',p<0.9);
+  }
+  addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(frame);}},{passive:true});
+  addEventListener('resize',frame);frame();
+})();
 </script>
 <script type="module" src="assets/system.js"></script>
 <script type="module" src="assets/motion/motion.js"></script>
