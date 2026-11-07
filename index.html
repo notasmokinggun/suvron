@@ -647,7 +647,6 @@ main h3, main .faq h3 { font-size: 20px; }
 
 @media (min-width: 640px) and (max-width: 1023px) { #questions { --h: 2; } }
 @media (max-width: 639px) { .qa__detail { font-size: 14px; line-height: 1.5; } .qa__a::after { font-size: 14px !important; } }
-@media (max-width: 379px) { .qa__detail { display: none; } }
 @media (max-width: 639px) { .qa__a, .qa__a.is-on { padding: 20px 22px !important; gap: 6px !important; } .qa__big { font-size: 26px; } }
 @media (max-width: 379px) { .who .who__text .mo-wh__text { font-size: 30px; } .who__boards { gap: 10px; margin-top: var(--s-5); } .who__board { padding: 14px 18px; } .who__board p { font-size: 14px; } #who .ticker.mo-mq { padding: 12px 0; } }
 
@@ -741,7 +740,7 @@ main > #steps > .wrap.ch__stage { display: grid; grid-template-columns: repeat(1
 .ch:not(.is-live) .ch__bar i { transform: scaleY(1); }
 /* live (wide screens with motion allowed): the stage pins and the visuals share one frame */
 .ch.is-live { height: calc(100svh + var(--ch-n, 4) * 60svh) !important; padding: 0 !important; }
-.ch.is-live > .ch__stage { position: sticky; top: 0; height: 100svh; padding-top: var(--nav); box-sizing: border-box; }
+main > #steps.ch.is-live > .ch__stage, .ch.is-live > .ch__stage { position: sticky; top: 0; height: 100svh !important; min-height: 0 !important; flex: none !important; padding-top: var(--nav); box-sizing: border-box; }
 .ch.is-live .ch__step:not(.is-on) h3, .ch.is-live .ch__step:not(.is-on) p { color: rgb(13 26 58 / .5); }
 .ch.is-live .ch__step:hover h3 { color: var(--ink); }
 .ch.is-live .ch__visual { display: none; }
@@ -857,6 +856,57 @@ main > #steps > .wrap.ch__stage { display: grid; grid-template-columns: repeat(1
   .promise__list li { font-size: 13.5px; grid-template-columns: 26px 1fr; gap: 10px; }
   .promise__list i { width: 26px; height: 26px; }
 }
+
+/* ---- FAQ: quick answer first, the details one tap away (phones and tablets) */
+.qa__more { display: none; }
+.qa__drawer { display: grid; grid-template-rows: 1fr; }
+.qa__drawer-in { min-height: 0; display: grid; gap: 16px; }
+.qa__facts { display: grid; margin: 0; border-top: 1px solid rgba(255,255,255,.22); }
+.qa__facts > div { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,.22); }
+.qa__facts dt { font: 500 15px/1.3 var(--font-text); color: rgba(255,255,255,.72); }
+.qa__facts dd { margin: 0; font: 700 18px/1.3 Manrope, var(--font-text); font-variant-numeric: tabular-nums; color: #fff; text-align: right; }
+@media (max-width: 1023px) {
+  .qa__more { display: inline-flex; align-items: center; gap: 8px; justify-self: start; min-height: 44px; margin: 8px 0 0; padding: 0 14px 0 16px; border: 1px solid rgba(255,255,255,.35); border-radius: 999px; background: rgba(255,255,255,.08); color: #fff; font: 600 14px/1 var(--font-text); cursor: pointer; transition: background .2s, border-color .2s, transform .16s cubic-bezier(.2,.8,.2,1); -webkit-tap-highlight-color: transparent; }
+  .qa__more:active { transform: scale(.97); }
+  .qa__more:focus-visible { outline: 2px solid var(--marigold-lit); outline-offset: 3px; }
+  .qa__more svg { width: 16px; height: 16px; color: var(--marigold-lit); transition: transform .32s cubic-bezier(.2,.8,.2,1); }
+  .qa__a.is-open .qa__more { background: #fff; border-color: #fff; color: var(--enamel-deep); }
+  .qa__a.is-open .qa__more svg { transform: rotate(180deg); color: var(--marigold-deep); }
+  html.qa-js .qa__drawer { grid-template-rows: 0fr; transition: grid-template-rows .36s cubic-bezier(.2,.8,.2,1); }
+  html.qa-js .qa__drawer-in { overflow: hidden; visibility: hidden; opacity: 0; transform: translateY(-6px); transition: opacity .2s, transform .36s cubic-bezier(.2,.8,.2,1), visibility 0s .36s; }
+  html.qa-js .qa__a.is-open .qa__drawer { grid-template-rows: 1fr; }
+  html.qa-js .qa__a.is-open .qa__drawer-in { visibility: visible; opacity: 1; transform: none; transition: opacity .28s .06s, transform .36s cubic-bezier(.2,.8,.2,1), visibility 0s; }
+  .qa__drawer-in { gap: 12px; }
+  .qa__drawer-in > :first-child { margin-top: 14px; }
+  .qa__detail { display: block !important; }
+  .qa__facts dt { font-size: 14px; } .qa__facts dd { font-size: 16px; }
+}
+@media (prefers-reduced-motion: reduce) { .qa__drawer, .qa__drawer-in, .qa__more svg { transition: none !important; } }
+
+/* ---- the ticker on a phone: a board of fact chips instead of a moving strip */
+.tk small { display: none; }
+#who .ticker.is-still { padding: 14px !important; }
+#who .ticker.is-still .mo-mq__track { display: grid !important; grid-template-columns: 1fr 1fr; gap: 8px !important; font-size: 15px !important; line-height: 1.25; }
+#who .ticker.is-still .tk { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; padding: 14px 14px 13px; border-radius: 14px; background: rgba(255,255,255,.08); box-shadow: inset 0 0 0 1px rgba(255,255,255,.16); color: #fff !important; font-weight: 700; letter-spacing: -0.005em; }
+#who .ticker.is-still .tk::before { content: ""; width: 34px; height: 34px; flex: none; border-radius: 10px; background: var(--marigold-lit); -webkit-mask: var(--ic) center / 18px 18px no-repeat, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask: var(--ic) center / 18px 18px no-repeat, linear-gradient(#000 0 0); mask-composite: exclude; }
+#who .ticker.is-still .tk--lead { grid-column: 1 / -1; flex-direction: row; align-items: center; gap: 14px; padding: 16px; background: var(--marigold); color: var(--enamel-deep) !important; box-shadow: 0 2px 0 var(--marigold-deep); font: 800 26px/1.05 Manrope, var(--font-text); font-variant-numeric: tabular-nums; flex-wrap: wrap; }
+#who .ticker.is-still .tk--lead small { display: block; width: 100%; order: -1; margin: 0 0 -6px; font: 600 12px/1 var(--font-text); letter-spacing: .08em; text-transform: uppercase; color: var(--enamel-deep); opacity: .8; }
+#who .ticker.is-still .tk--lead::before { display: none; }
+#who .ticker.is-still .tk--wide { grid-column: 1 / -1; flex-direction: row; align-items: center; gap: 12px; }
+@media (max-width: 359px) { #who .ticker.is-still .tk { font-size: 14px; padding: 12px; } #who .ticker.is-still .tk--lead { font-size: 22px; } }
+@supports (animation-timeline: view()) { @media (prefers-reduced-motion: no-preference) and (max-width: 639px) {
+  #who .ticker.is-still .tk { animation: tk-rise linear forwards; animation-timeline: view(); animation-range: entry 0% cover 22%; }
+  #who .ticker.is-still .tk:nth-child(odd) { animation-range: entry 10% cover 28%; }
+  #who .ticker.is-still .tk::before { animation: tk-tile linear forwards; animation-timeline: view(); animation-range: entry 20% cover 32%; }
+} }
+@keyframes tk-rise { from { transform: translateY(18px) scale(.96); } to { transform: none; } }
+@keyframes tk-tile { from { transform: rotate(-12deg) scale(.8); } to { transform: none; } }
+@media (min-width: 640px) and (max-width: 1023px) {
+  .ch:not(.is-live) .ch__list { grid-template-columns: 1fr 1fr; gap: 40px 28px; }
+  .ch:not(.is-live) .ch__step { grid-template-rows: auto 1fr auto; }
+  .ch:not(.is-live) .ch__visual.step-board { aspect-ratio: 16 / 10; max-height: none; }
+  main > #steps.ch:not(.is-live) { height: auto !important; min-height: 0 !important; padding-block: 96px; }
+}
 </style>
 </head>
 <body>
@@ -958,7 +1008,7 @@ main > #steps > .wrap.ch__stage { display: grid; grid-template-columns: repeat(1
         </ul>
       </div>
       <div class="ticker" data-moment="marquee-row" data-moment-opts='{"speed": 40}'>
-        <ul class="mo-mq__track"><li>₹2,000 – ₹50,000</li><li>30 – 180 days</li><li>No collateral</li><li>No credit history needed</li><li>Decision in 24 hours</li><li>Key Fact Statement first</li><li>RBI-registered NBFC partner</li></ul>
+        <ul class="mo-mq__track"><li class="tk tk--lead" style="--ic:url(assets/icons/ui-badge-indian-rupee.svg)"><small>Borrow</small>₹2,000 – ₹50,000</li><li class="tk" style="--ic:url(assets/icons/ui-calendar-days.svg)">30 – 180 days</li><li class="tk" style="--ic:url(assets/icons/ui-shield-check.svg)">No collateral</li><li class="tk" style="--ic:url(assets/icons/ui-user-check.svg)">No credit history needed</li><li class="tk" style="--ic:url(assets/icons/ui-clock-3.svg)">Decision in 24 hours</li><li class="tk tk--wide" style="--ic:url(assets/icons/ui-file-text.svg)">Key Fact Statement first</li><li class="tk tk--wide" style="--ic:url(assets/icons/ui-landmark.svg)">RBI-registered NBFC partner</li></ul>
       </div>
     </div>
   </section>
@@ -1133,37 +1183,43 @@ main > #steps > .wrap.ch__stage { display: grid; grid-template-columns: repeat(1
           <div class="qa__a board is-on" role="tabpanel" id="qa-p0" data-q="Can I apply without a credit history?" aria-labelledby="qa-t0">
             <img class="qa__icon" src="assets/icons/ui-user.svg" alt="" width="40" height="40" loading="lazy">
             <p class="qa__big paint">Yes, you can.</p>
-            <p class="qa__detail">You need to be 18 to 35 with a valid PAN, Aadhaar and an active bank account. No existing credit history is required.</p>
+            <button class="qa__more" type="button" aria-expanded="false" aria-controls="qa-d0"><span>The details</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="qa__drawer" id="qa-d0"><div class="qa__drawer-in"><dl class="qa__facts"><div><dt>Age</dt><dd>18 – 35</dd></div><div><dt>ID</dt><dd>PAN + Aadhaar</dd></div><div><dt>Sign-up</dt><dd>Under 3 minutes</dd></div></dl><p class="qa__detail">No existing credit history is required. Alongside your PAN and Aadhaar you need an active bank account, which is where the money is sent.</p></div></div>
           </div>
           <button class="qa__q" type="button" role="tab" id="qa-t1" aria-controls="qa-p1" aria-selected="false"><span>How much can I borrow, and for how long?</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="qa__a board" role="tabpanel" id="qa-p1" data-q="How much can I borrow, and for how long?" aria-labelledby="qa-t1">
             <img class="qa__icon" src="assets/icons/ui-badge-indian-rupee.svg" alt="" width="40" height="40" loading="lazy">
             <p class="qa__big qa__big--fig">₹2,000 – ₹50,000</p>
-            <p class="qa__detail">Repaid over 30 to 180 days. Your exact amount and tenure come with your offer, before you accept.</p>
+            <button class="qa__more" type="button" aria-expanded="false" aria-controls="qa-d1"><span>The details</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="qa__drawer" id="qa-d1"><div class="qa__drawer-in"><dl class="qa__facts"><div><dt>Amount</dt><dd>₹2,000 – ₹50,000</dd></div><div><dt>Tenure</dt><dd>30 – 180 days</dd></div><div><dt>Collateral</dt><dd>None</dd></div></dl><p class="qa__detail">Your exact amount and tenure come with your offer, and you see both before you accept.</p></div></div>
           </div>
           <button class="qa__q" type="button" role="tab" id="qa-t2" aria-controls="qa-p2" aria-selected="false"><span>Will I see the full cost before I accept?</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="qa__a board" role="tabpanel" id="qa-p2" data-q="Will I see the full cost before I accept?" aria-labelledby="qa-t2">
             <img class="qa__icon" src="assets/icons/ui-file-text.svg" alt="" width="40" height="40" loading="lazy">
             <p class="qa__big paint">Every rupee, upfront.</p>
-            <p class="qa__detail">Interest runs 10% to 36% a year and the APR (interest plus all fees) 10% to 120%, depending on tenure, amount and credit assessment. Your exact APR is in your Key Fact Statement and loan agreement.</p>
+            <button class="qa__more" type="button" aria-expanded="false" aria-controls="qa-d2"><span>The details</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="qa__drawer" id="qa-d2"><div class="qa__drawer-in"><dl class="qa__facts"><div><dt>Interest</dt><dd>10% – 36% a year</dd></div><div><dt>APR, all fees in</dt><dd>10% – 120%</dd></div><div><dt>Where it’s shown</dt><dd>Key Fact Statement</dd></div></dl><p class="qa__detail">Where you land depends on tenure, amount and credit assessment. Your exact APR is in your Key Fact Statement and loan agreement, before you accept anything.</p></div></div>
           </div>
           <button class="qa__q" type="button" role="tab" id="qa-t3" aria-controls="qa-p3" aria-selected="false"><span>How fast is disbursal once I&rsquo;m approved?</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="qa__a board" role="tabpanel" id="qa-p3" data-q="How fast is disbursal once I’m approved?" aria-labelledby="qa-t3">
             <img class="qa__icon" src="assets/icons/ui-clock-3.svg" alt="" width="40" height="40" loading="lazy">
             <p class="qa__big paint">Within 24 hours</p>
-            <p class="qa__detail">Most approved loans are disbursed within 24 hours, straight to the bank account you verify during sign-up.</p>
+            <button class="qa__more" type="button" aria-expanded="false" aria-controls="qa-d3"><span>The details</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="qa__drawer" id="qa-d3"><div class="qa__drawer-in"><dl class="qa__facts"><div><dt>Decision</dt><dd>Within 24 hours</dd></div><div><dt>Paid to</dt><dd>Your verified bank account</dd></div></dl><p class="qa__detail">Most approved loans are disbursed within 24 hours, straight to the bank account you verify during sign-up.</p></div></div>
           </div>
           <button class="qa__q" type="button" role="tab" id="qa-t4" aria-controls="qa-p4" aria-selected="false"><span>Is my data private?</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="qa__a board" role="tabpanel" id="qa-p4" data-q="Is my data private?" aria-labelledby="qa-t4">
             <img class="qa__icon" src="assets/icons/ui-lock.svg" alt="" width="40" height="40" loading="lazy">
             <p class="qa__big paint">Encrypted. Never sold.</p>
-            <p class="qa__detail">It&rsquo;s used only to process your application, and shared with our NBFC lending partners only where needed for underwriting and compliance. Read our <a class="link" href="/privacy-policy/">privacy policy</a>.</p>
+            <button class="qa__more" type="button" aria-expanded="false" aria-controls="qa-d4"><span>The details</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="qa__drawer" id="qa-d4"><div class="qa__drawer-in"><p class="qa__detail">It&rsquo;s used only to process your application, and shared with our NBFC lending partners only where needed for underwriting and compliance. Read our <a class="link" href="/privacy-policy/">privacy policy</a>.</p></div></div>
           </div>
           <button class="qa__q" type="button" role="tab" id="qa-t5" aria-controls="qa-p5" aria-selected="false"><span>What happens if I repay late?</span><svg viewBox="0 0 12 12" aria-hidden="true"><path d="M4.5 2.5 8 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="qa__a board" role="tabpanel" id="qa-p5" data-q="What happens if I repay late?" aria-labelledby="qa-t5">
             <img class="qa__icon" src="assets/icons/ui-send.svg" alt="" width="40" height="40" loading="lazy">
             <p class="qa__big paint">Reminders come first.</p>
-            <p class="qa__detail">Late fees apply and are listed in your loan agreement before you accept. Missed payments get automated reminders first, then a support agent if needed.</p>
+            <button class="qa__more" type="button" aria-expanded="false" aria-controls="qa-d5"><span>The details</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <div class="qa__drawer" id="qa-d5"><div class="qa__drawer-in"><p class="qa__detail">Late fees apply and are listed in your loan agreement before you accept. Missed payments get automated reminders first, then a support agent if needed.</p></div></div>
           </div>
       </div>
     </div>
@@ -1247,6 +1303,9 @@ main > #steps > .wrap.ch__stage { display: grid; grid-template-columns: repeat(1
 var qs=[].slice.call(t.querySelectorAll('.qa__q')),ps=[].slice.call(t.querySelectorAll('.qa__a'));
 function pick(i,focus){qs.forEach(function(q,k){var on=k===i;q.classList.toggle('is-on',on);q.setAttribute('aria-selected',on);q.tabIndex=on?0:-1;ps[k].classList.toggle('is-on',on);});if(focus)qs[i].focus();}
 qs.forEach(function(q,i){q.addEventListener('click',function(){pick(i)});q.addEventListener('keydown',function(e){var k=e.key==='ArrowDown'||e.key==='ArrowRight'?1:e.key==='ArrowUp'||e.key==='ArrowLeft'?-1:0;if(k){e.preventDefault();pick((i+k+qs.length)%qs.length,true)}});});pick(0);})();
+</script>
+<script>
+(function(){document.querySelectorAll('.qa__more').forEach(function(b){var a=b.closest('.qa__a');b.addEventListener('click',function(){var o=!a.classList.contains('is-open');a.classList.toggle('is-open',o);b.setAttribute('aria-expanded',o);b.firstChild.textContent=o?'Hide the details':'The details';});});})();
 </script>
 <script>
 (function(){
