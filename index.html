@@ -755,14 +755,7 @@ main > #steps > .wrap.ch__stage { display: grid; grid-template-columns: repeat(1
 @media (max-width: 639px) { .ch__step { padding-left: 20px; } .ch__step h3 { font-size: 19px; } .ch__step p { font-size: 15px; } .ch:not(.is-live) .ch__visual.step-board { max-height: 200px; } }
 @media (prefers-reduced-motion: reduce) { .ch.is-live .ch__frame .ch__visual, .ch.is-live .ch__frame .ch__visual .mini { transition: none; } }
 
-.ch.is-live .ch__frame .ch__visual .mini { width: min(58%, 400px) !important; padding: 24px 24px 36px !important; font-size: 16px; }
-.ch.is-live .ch__frame .ch__visual .mini .mini__title { font-size: 30px !important; }
-.ch.is-live .ch__frame .ch__visual .mini p:not(.mini__title) { font-size: 15px !important; }
-.ch.is-live .ch__frame .ch__visual .kfs li { font-size: 16px !important; padding: 11px 2px !important; }
-.ch.is-live .ch__frame .ch__visual .otp span { height: 48px !important; font-size: 19px !important; }
-.ch.is-live .ch__frame .ch__visual .clock { font-size: 56px !important; }
-.ch.is-live .ch__frame .ch__visual .sent { font-size: 44px !important; }
-.ch.is-live .ch__frame .ch__visual .ticks li { font-size: 15px; }
+
 
 /* ---- phones: sections take the height of their content (no forced full screens), with an even gap */
 @media (max-width: 639px) {
@@ -775,6 +768,60 @@ main > #steps > .wrap.ch__stage { display: grid; grid-template-columns: repeat(1
   .nav:not(.is-open) .nav__actions { display: none !important; }
   .nav:not(.is-open) .nav__toggle { margin-left: auto !important; }
 }
+
+/* ---- the steps' phone: one whole device standing on the board, a full app screen per step */
+.ph { position: absolute; left: 50%; display: flex; flex-direction: column; gap: 10px; background: #fff; color: var(--p-ink);
+  border: 9px solid #0d1a3a; border-radius: 38px; padding: 12px 18px 18px; font: 400 13px/1.4 var(--font-text); box-shadow: 0 30px 60px -30px rgb(0 0 0 / .6); }
+.ph > * { margin: 0; }
+.ph__status { display: flex; justify-content: space-between; font-size: 11px; font-weight: 600; }
+.ph__app { display: flex; align-items: center; gap: 6px; font-weight: 600; font-size: 13px; }
+.ph__app img { width: 18px; height: 18px; }
+.ph__progress { display: grid; gap: 4px; }
+.ph__steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
+.ph__steps i { height: 4px; border-radius: 4px; background: #e3e8f2; }
+.ph__steps i.on { background: var(--marigold); }
+.ph__stepno { font-size: 11px; color: var(--p-muted); }
+.ph__title { font: 400 22px/1.15 var(--font-display); }
+.ph__sub { color: var(--p-muted); font-size: 12.5px; }
+.ph__center { text-align: center; }
+.ph .otp { margin: 2px 0; }
+.ph .otp span { height: 36px; font-size: 15px; }
+.ph__field { display: flex; justify-content: space-between; gap: 8px; border-bottom: 1px solid #e3e8f2; padding: 8px 0; font-size: 12.5px; }
+.ph__field span { color: var(--p-muted); }
+.ph__field b { font-weight: 600; font-variant-numeric: tabular-nums; }
+.ph__field b.ok { color: #0f7a3f; display: inline-flex; align-items: center; gap: 4px; }
+.ph__field b.ok svg { width: 12px; height: 12px; }
+.ph__dial { display: grid; place-items: center; width: 120px; height: 120px; margin: 4px auto; border-radius: 50%; border: 6px solid #e3e8f2; border-top-color: var(--enamel); border-right-color: var(--enamel); }
+.ph .clock { font-family: var(--font-text) !important; font-weight: 700 !important; font-size: 26px !important; color: var(--enamel); margin: 0 !important; }
+.ph .ticks li { font-size: 12.5px; }
+.ph .kfs { margin: 0; }
+.ph .kfs li { font-size: 12.5px; padding: 8px 2px; }
+.ph .kfs-chip { align-self: flex-start; margin: 0; font-size: 11px; }
+.ph__done { display: grid; place-items: center; width: 64px; height: 64px; margin: 6px auto 0; border-radius: 50%; background: #e3f4ea; color: #0f7a3f; }
+.ph__done i svg { width: 30px; height: 30px; }
+.ph .sent { font-family: var(--font-text) !important; font-weight: 700 !important; font-size: 34px !important; color: #0f7a3f; margin: 0 !important; }
+.ph__btn { margin-top: auto; display: block; text-align: center; background: var(--enamel); color: #fff; border-radius: 10px; padding: 11px; font-weight: 600; font-size: 13px; }
+.ph__note { text-align: center; font-size: 11px; color: var(--p-muted); margin-top: -4px; }
+/* live: the whole phone, centred, 88% of a taller board */
+.ch.is-live .ch__frame { aspect-ratio: auto; height: min(calc(100svh - 140px), 760px); max-height: none; width: 100%; }
+.ch.is-live .ch__frame .ch__visual { aspect-ratio: auto !important; max-height: none !important; }
+.ch.is-live .ch__frame .ch__visual .ph { top: 6%; height: 88%; width: auto; aspect-ratio: 9 / 18.5; transform: translateX(-50%); transition: none; overflow: hidden; }
+.ch.is-live .ch__frame .ch__visual .ph > * { transition: opacity .35s ease, transform .45s cubic-bezier(.2,.8,.2,1); }
+.ch.is-live .ch__frame .ch__visual:not(.is-on) .ph > *:not(.ph__status):not(.ph__app) { opacity: 0; transform: translateY(8px); }
+.ch.is-live .ch__frame .ch__visual { transition: opacity .25s ease; }
+/* rest (tablet, phone, reduced motion): the top of the phone rises from the board's foot */
+.ch:not(.is-live) .ch__visual .ph { top: 20px; width: min(70%, 300px); transform: translateX(-50%); border-bottom: 0; border-radius: 30px 30px 0 0; padding-bottom: 0; }
+.ch:not(.is-live) .ch__visual .ph__btn, .ch:not(.is-live) .ch__visual .ph__note { display: none; }
+
+.ch.is-live .ph { gap: 12px; padding: 14px 20px 20px; }
+.ch.is-live .ph__title { font-size: 26px; }
+.ch.is-live .ph__sub, .ch.is-live .ph__field, .ch.is-live .ph .ticks li, .ch.is-live .ph .kfs li { font-size: 14px; }
+.ch.is-live .ph .kfs li { padding: 10px 2px; }
+.ch.is-live .ph .otp span { height: 42px; font-size: 17px; }
+.ch.is-live .ph__btn { font-size: 14px; padding: 13px; }
+.ch.is-live .ph__dial { width: 140px; height: 140px; }
+.ch.is-live .ph .clock { font-size: 30px !important; }
+.ch.is-live .ph .sent { font-size: 38px !important; }
 </style>
 </head>
 <body>
@@ -922,22 +969,38 @@ main > #steps > .wrap.ch__stage { display: grid; grid-template-columns: repeat(1
           <li class="ch__step is-on" data-step="0">
             <button class="ch__head" type="button"><span class="ch__bar" aria-hidden="true"><i></i></span><h3>Verify your PAN and Aadhaar</h3></button>
             <p>Sign up with your mobile number, then PAN, Aadhaar OTP and a selfie.</p>
-            <figure class="ch__visual step-board" role="img" aria-label="The app asking for the Aadhaar OTP and PAN"><div class="mini" aria-hidden="true"><p class="mini__title">Verify it&rsquo;s you</p><p>Enter the OTP sent to your Aadhaar-linked number.</p><div class="otp"><span class="is-on">4</span><span class="is-on">8</span><span class="is-on">1</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span></div><div class="field"><span>PAN</span><b>ABCDE1234F</b></div></div></figure>
+            <figure class="ch__visual step-board" role="img" aria-label="The app asking for the Aadhaar OTP and PAN"><div class="ph" aria-hidden="true"><div class="ph__status"><span>9:41</span><span>5G</span></div><div class="ph__app"><img src="logo-128.webp" alt="" width="20" height="20">SUVRON Money</div><div class="ph__progress"><div class="ph__steps" aria-hidden="true"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></div><span class="ph__stepno">Step 1 of 4</span></div>
+<p class="ph__title">Verify it&rsquo;s you</p><p class="ph__sub">Enter the OTP sent to your Aadhaar-linked number.</p>
+<div class="otp"><span class="is-on">4</span><span class="is-on">8</span><span class="is-on">1</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span></div>
+<div class="ph__field"><span>PAN</span><b>ABCDE1234F</b></div><div class="ph__field"><span>Aadhaar</span><b>XXXX XXXX 4821</b></div>
+<div class="ph__field"><span>Selfie</span><b class="ok"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg> Done</b></div>
+<span class="ph__btn">Continue</span></div></figure>
           </li>
           <li class="ch__step" data-step="1">
             <button class="ch__head" type="button"><span class="ch__bar" aria-hidden="true"><i></i></span><h3>Get a decision in 24 hours</h3></button>
             <p>We check what you can afford and prepare your offer in the app.</p>
-            <figure class="ch__visual step-board" role="img" aria-label="The app checking an application, with a decision within 24 hours"><div class="mini" aria-hidden="true"><p class="mini__title">Checking your application</p><div class="clock num">24 hrs</div><ul class="ticks"><li><i><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Identity verified</li><li><i><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Affordability check</li><li><i><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Offer ready</li></ul></div></figure>
+            <figure class="ch__visual step-board" role="img" aria-label="The app checking an application, with a decision within 24 hours"><div class="ph" aria-hidden="true"><div class="ph__status"><span>9:41</span><span>5G</span></div><div class="ph__app"><img src="logo-128.webp" alt="" width="20" height="20">SUVRON Money</div><div class="ph__progress"><div class="ph__steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></div><span class="ph__stepno">Step 2 of 4</span></div>
+<p class="ph__title">Checking your application</p><p class="ph__sub">You&rsquo;ll hear back within 24 hours.</p>
+<div class="ph__dial"><span class="clock">24 hrs</span></div>
+<ul class="ticks"><li><i><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Identity verified</li><li><i><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Affordability check</li><li><i><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Offer ready</li></ul>
+<span class="ph__btn">See my offer</span></div></figure>
           </li>
           <li class="ch__step" data-step="2">
             <button class="ch__head" type="button"><span class="ch__bar" aria-hidden="true"><i></i></span><h3>Read the Key Fact Statement</h3></button>
             <p>Amount, tenure, interest, every fee and the APR, before you accept.</p>
-            <figure class="ch__visual step-board" role="img" aria-label="The Key Fact Statement for a ₹15,000 loan"><div class="mini" aria-hidden="true"><p class="mini__title">Key Fact Statement</p><ul class="kfs"><li>Loan amount<b>₹15,000</b></li><li>Tenure<b>90 days</b></li><li>APR<b>60%</b></li><li class="kfs__total">To repay<b>₹17,219</b></li></ul></div></figure>
+            <figure class="ch__visual step-board" role="img" aria-label="The Key Fact Statement for a ₹15,000 loan"><div class="ph" aria-hidden="true"><div class="ph__status"><span>9:41</span><span>5G</span></div><div class="ph__app"><img src="logo-128.webp" alt="" width="20" height="20">SUVRON Money</div><div class="ph__progress"><div class="ph__steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></div><span class="ph__stepno">Step 3 of 4</span></div>
+<p class="ph__title">Your offer</p><span class="kfs-chip">Key Fact Statement</span>
+<ul class="kfs"><li>Loan amount<b>₹15,000</b></li><li>Tenure<b>90 days</b></li><li>Interest and fees<b>₹2,219</b></li><li>APR<b>60%</b></li><li class="kfs__total">To repay<b>₹17,219</b></li></ul>
+<span class="ph__btn">Accept offer</span><span class="ph__note">You can decline. You owe nothing.</span></div></figure>
           </li>
           <li class="ch__step" data-step="3">
             <button class="ch__head" type="button"><span class="ch__bar" aria-hidden="true"><i></i></span><h3>Receive the money in your bank</h3></button>
             <p>Most approved loans reach your account within 24 hours. Repay in the app.</p>
-            <figure class="ch__visual step-board" role="img" aria-label="₹15,000 sent to the borrower's bank account"><div class="mini" aria-hidden="true"><p class="mini__title">Money sent</p><p>To your bank account ending 4821.</p><div class="sent num">₹15,000</div><ul class="ticks"><li><i><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Repay by 5 Feb 2027</li></ul></div></figure>
+            <figure class="ch__visual step-board" role="img" aria-label="₹15,000 sent to the borrower's bank account"><div class="ph" aria-hidden="true"><div class="ph__status"><span>9:41</span><span>5G</span></div><div class="ph__app"><img src="logo-128.webp" alt="" width="20" height="20">SUVRON Money</div><div class="ph__progress"><div class="ph__steps" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div><span class="ph__stepno">Step 4 of 4</span></div>
+<div class="ph__done"><i><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></i></div><p class="ph__title ph__center">Money sent</p>
+<p class="sent ph__center">₹15,000</p><p class="ph__sub ph__center">To your bank account ending 4821.</p>
+<div class="ph__field"><span>Repay by</span><b>5 Feb 2027</b></div><div class="ph__field"><span>Reminder</span><b>3 days before</b></div>
+<span class="ph__btn">Done</span></div></figure>
           </li>
         </ol>
       </div>
