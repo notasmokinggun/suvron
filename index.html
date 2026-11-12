@@ -913,6 +913,19 @@ main > #steps.ch.is-live > .ch__stage, .ch.is-live > .ch__stage { position: stic
   main > #steps.ch:not(.is-live) { height: auto !important; min-height: 0 !important; padding-block: 96px; }
 }
 .footer h3.fh { font: 500 var(--t-small)/1.4 var(--font-text); letter-spacing: 0; color: var(--muted); margin: 0 0 var(--s-4); }
+
+/* never shorter than the content: on short windows (a small laptop, a zoomed browser, a phone on its
+   side) a section grows past its screens instead of running under the next one. Below 1280px the kit
+   already does this; here it applies at every width from 640px. The pinned steps and the pinned
+   promise keep their own scroll lengths. */
+@media (min-width: 1280px) {
+  main > :is(section, .section):not(.hero, .section--hero, #promise, .ch.is-live), footer.closing {
+    height: auto; min-height: calc(var(--h, 1) * 100vh); min-height: calc(var(--h, 1) * 100svh); display: flex; flex-direction: column; }
+  main > :is(section, .section):not(.hero, .section--hero, #promise, .ch.is-live) > :is(.wrap, .container), footer.closing > .wrap { flex: 1 0 auto; height: auto; min-height: 0; }
+}
+@media (min-width: 640px) {
+  main > section.hero { height: auto !important; min-height: 100vh; min-height: 100svh; }
+}
 </style>
 </head>
 <body>
