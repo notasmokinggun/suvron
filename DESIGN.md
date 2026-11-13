@@ -15,7 +15,7 @@ The site is a hand-painted Indian shop sign. The loan's terms are painted plainl
 | `--board` | #ffffff | White enamel panels (rate list, referral ticket) |
 
 ## Type
-- Display: Yatra One 400, from Mumbai sign-painting. Used for h1–h3, painted numerals and board titles. Self-hosted latin, plus latin-ext for ₹.
+- Display: Bricolage Grotesque 700, tracking -0.025em to -0.035em: a confident fintech grotesk with a little character. Used for h1–h3, painted words and board titles; figures stay in Manrope. Self-hosted latin, plus latin-ext for ₹. Indic headlines fall back to the Noto families.
 - Text: Manrope variable, 400 and 500. Used for body, UI mocks and labels.
 - h1 is up to 64px; h2 48px at 1440 (36px at 1024–1279); every h3 is 20px.
 

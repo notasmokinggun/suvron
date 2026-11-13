@@ -6,9 +6,9 @@
 .lg-eyebrow { display: inline-flex; align-items: center; gap: 8px; margin: 0; font: 700 13px/1 "Manrope", sans-serif; letter-spacing: .08em; text-transform: uppercase; color: var(--mink); }
 .lg-eyebrow::before { content: ""; width: 18px; height: 3px; border-radius: 2px; background: var(--marigold); }
 :lang(ta) .lg-eyebrow, :lang(te) .lg-eyebrow, :lang(kn) .lg-eyebrow, :lang(hi) .lg-eyebrow { letter-spacing: 0; text-transform: none; font-size: 14px; }
-body.inner .lg-hero h1 { margin: 0; max-width: 20ch; color: var(--ink) !important; font: 400 clamp(38px, 5.2vw, 76px)/1.06 "Yatra One", "Manrope", sans-serif; letter-spacing: -0.01em; text-wrap: balance; overflow-wrap: anywhere; text-shadow: none; }
-:lang(ta) body.inner .lg-hero h1, :lang(te) body.inner .lg-hero h1, :lang(kn) body.inner .lg-hero h1 { font-family: inherit; font-weight: 700; font-size: clamp(30px, 4vw, 54px); line-height: 1.25; max-width: 24ch; }
-.lg-paint { color: var(--enamel); text-shadow: .04em .04em 0 var(--marigold); }
+body.inner .lg-hero h1 { margin: 0; max-width: 20ch; color: var(--ink) !important; font: 700 clamp(38px, 5.2vw, 76px)/1.06 "Bricolage Grotesque", "Manrope", sans-serif; letter-spacing: -0.025em; text-wrap: balance; overflow-wrap: anywhere; text-shadow: none; }
+:lang(hi) body.inner .lg-hero h1, :lang(ta) body.inner .lg-hero h1, :lang(te) body.inner .lg-hero h1, :lang(kn) body.inner .lg-hero h1 { font-family: inherit; font-weight: 700; font-size: clamp(30px, 4vw, 54px); line-height: 1.25; max-width: 24ch; }
+.lg-paint { color: var(--enamel); text-shadow: .035em .035em 0 var(--marigold); }
 body.inner .lg-hero p { margin: 0; color: var(--muted) !important; }
 body.inner .lg-hero .lead { font-size: clamp(17px, 1.5vw, 20px); line-height: 1.55; max-width: 60ch; }
 body.inner .lg-hero .updated { display: inline-flex; width: fit-content; padding: 7px 12px; border-radius: 999px; background: #fff; box-shadow: inset 0 0 0 1px #d9e0ee; font: 700 13px/1 "Manrope", sans-serif; color: var(--enamel) !important; }
@@ -39,7 +39,7 @@ body.inner .lg-toc a:hover { color: #1e51b8; }
 /* spacing and colour fixes against the old theme */
 body.inner main.page:has(> .lg-hero) { padding-top: 0; }
 body.inner .page .lg-hero .lead { margin-top: 0; }
-body.inner .lg-hero h1 .lg-paint { color: #1e51b8 !important; text-shadow: .04em .04em 0 #f7931e; }
+body.inner .lg-hero h1 .lg-paint { color: #1e51b8 !important; text-shadow: .035em .035em 0 #f7931e; }
 body.inner .lg-toc ul { list-style: none; margin: 0; padding: 4px 20px 18px; columns: 2 260px; column-gap: 32px; }
 body.inner .lg-toc ul li::marker { content: none; }
 /* text orange that passes 4.5:1 on the light ground */
